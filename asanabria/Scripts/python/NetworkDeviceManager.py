@@ -33,6 +33,7 @@ import pexpect
 import getopt
 import threading
 from time import ctime
+from time import sleep
 
 MAXREAD = 100000
 WINDOWSIZE = -1
@@ -47,7 +48,7 @@ INVALID_INPUT = "Invalid input detected"
 HOST_KEY_FAILED = "verification failed"
 CONNECTION_REFUSED = "Connection refused"
 RESET_BY_PEER = "reset by peer|closed by foreign host"
-PASS = ".ssword.*"
+PASS = ".ssword.*|Password:"
 USERNAME = ".sername.*"
 PRIVALEGE = re.compile(r"^\benable\b|^\ben\b|^\bsu\b")
 MORE = "--more--|--More--|^\!"
@@ -91,6 +92,7 @@ def main():
 
         for i in nloops:
             threads[i].start()
+            #sleep(1)
         for i in nloops:
             threads[i].join()
 
@@ -160,38 +162,46 @@ def ssh_login( host ):
     session = "ssh " + login+"@"+host
     command = pexpect.spawn( session, maxread=MAXREAD, searchwindowsize=WINDOWSIZE )
     if term == "ssh" or term == "both":
-        print "connecting to %s using %s" % (host, session)
+        if verbose:
+            print "connecting to %s using %s" % (host, session)
         try:
             status = command.expect( [NEWSSHKEY, PASS, MODULUS_TO_SMALL, PROTOCOL_DIFFER, LOGIN_PROMPT, EOF, HOST_KEY_FAILED, CONNECTION_REFUSED, RESET_BY_PEER], timeout=tout )
         except:
             status = 10
             return( status, command )
         if status == 2:
-            print "Protocol Version 2 failed with host key to small, Trying to connect to host using ssh Protocol version 1"
+            if verbose:
+                print "Protocol Version 2 failed with host key to small, Trying to connect to host using ssh Protocol version 1"
             session = "ssh -1 " + login+"@"+host
             command = pexpect.spawn( session, maxread=MAXREAD, searchwindowsize=WINDOWSIZE )
-            print "connecting to %s using %s" % (host, session)
+            if verbose:
+                print "connecting to %s using %s" % (host, session)
             status = command.expect( [NEWSSHKEY, PASS, MODULUS_TO_SMALL, PROTOCOL_DIFFER,  EOF], timeout=tout )
             if status == 3:
-                print "Protocol MisMatch"
+                if verbose:
+                    print "Protocol MisMatch"
         if status == 0:
-            print "saying yes to accepting ssh key"
+            if verbose:
+                print "saying yes to accepting ssh key"
             command.sendline("yes")
             status = command.expect( [PASS, LOGIN_PROMPT, EOF] )
             if status == 0:
                 command.sendline( passwd )
                 status = command.expect( [USERNAME, PASS, PERMISSION_DENIED, LOGIN_PROMPT, EOF], timeout=tout )
                 if status == 0 or status == 1 or status == 2:
-                    print "Password Incorrect %s" % PERMISSION_DENIED
+                    if verbose:
+                        print "Password Incorrect %s" % PERMISSION_DENIED
                     status = 9
                 elif status == 3:
-                    print "%s Authenticated, through ssh" % host
+                    if verbose:
+                        print "%s Authenticated, through ssh" % host
                     status = 0
             if status == 1:
                 status = 0
                 pass
         elif status == 1:
-            print "ssh key already in host file"
+            if verbose:
+                print "ssh key already in host file"
             command.sendline('\x03')
             command.close()
             command = pexpect.spawn( session, maxread=MAXREAD, searchwindowsize=WINDOWSIZE )
@@ -200,20 +210,24 @@ def ssh_login( host ):
                 command.sendline( passwd )
                 status = command.expect( [USERNAME, PASS, PERMISSION_DENIED, LOGIN_PROMPT, EOF], timeout=tout )
                 if status == 0 or status == 1 or status == 2:
-                    print "Password Incorrect %s" % PERMISSION_DENIED
+                    if verbose:
+                        print "Password Incorrect %s" % PERMISSION_DENIED
                     status = 9
                 elif status == 3:
-                    print "%s Authenticated, through ssh" % host
+                    if verbose:
+                        print "%s Authenticated, through ssh" % host
                     status = 0
         elif status == 4:
             status = 0
         elif status == 6:
-            print "Host Key Verification Failed for %s" % host
+            if verbose:
+                print "Host Key Verification Failed for %s" % host
         elif status == 7:
-            print "Connection to %s was refused" % host
+            if verbose:
+                print "Connection to %s was refused" % host
         elif status == 8:
-            print "Connection to %s was reset by peer" % host
-    print status
+            if verbose:
+                print "Connection to %s was reset by peer" % host
     return( status, command ) 
 
 def telnet_login(host):
@@ -272,7 +286,8 @@ def command_exec(dline):
         if auth != 0 and auth != 9:
             auth, host = telnet_login( dline )
             if auth != 0:
-                print auth, " ssh and telnet failed"
+                if verbose:
+                    print auth, " ssh and telnet failed"
     if auth == 0:
         good_count.append(dline[0])
         if clist:
@@ -289,21 +304,21 @@ def command_exec(dline):
                     sys.exit(1)
                 if output:
                     print host.before
-                elif re.search(r"\bsudo\b", cline):
-                    if command:
-                        host.sendline( cline )
-                    elif clist:
-                        host.send(cline)
-                    status = host.expect([PASS, LOGIN_PROMPT, EOF], timeout=tout)
-                    if status == 0:
-                        host.sendline(passwd)
-                        status = host.expect([LOGIN_PROMPT, EOF], timeout=tout)
-                    elif status == 1:
-                        status = 0
-                    if output:
-                        print host.before
-                    if save:
-                        host.logfile=save_out
+            elif re.search(r"\bsudo\b", cline):
+                if save:
+                    host.logfile=save_out
+                if command:
+                    host.sendline( cline )
+                elif clist:
+                    host.send(cline)
+                status = host.expect([PASS, LOGIN_PROMPT, EOF], timeout=tout)
+                if status == 0:
+                    host.sendline(passwd)
+                    status = host.expect([LOGIN_PROMPT, EOF], timeout=tout)
+                elif status == 1:
+                    status = 0
+                if output:
+                    print host.before, host.after
                             
             else:
                 if save:
@@ -402,14 +417,14 @@ def usage():
     sys.exit(0)
 
 try:
-     opts, args = getopt.getopt(sys.argv[1:], 'p:C:c:t:T:D:d:l:e:soh',
-     [ 'passwd=', 'command=', 'clist=', 'device=', 'dlist=', 'login=', 'tout=', 'term=', 'enable=', 'save', 'output', 'help' ]
+     opts, args = getopt.getopt(sys.argv[1:], 'p:C:c:t:T:D:d:l:e:sovh',
+     [ 'passwd=', 'command=', 'clist=', 'device=', 'dlist=', 'login=', 'tout=', 'term=', 'enable=', 'save', 'output', 'verbose', 'help' ]
      )
 except getopt.error, e:
     print "I did not make it", e
     usage()
 
-help = save = output = login = command = enable = device = passwd = clist = dlist = None
+help = verbose = save = output = login = command = enable = device = passwd = clist = dlist = None
 
 for opt, val in opts:
     if opt in ('-l', '--login'):
@@ -436,6 +451,8 @@ for opt, val in opts:
         output = True
     if opt in ('-s', '--save'):
         save = True
+    if opt in ('-v', '--verbose'):
+        verbose = True
     if opt in ('-h', '--help'):
         help = True
 
