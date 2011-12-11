@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+
+import sys, os, MySQLdb
+from socket import gethostname
+from re import sub
+from re import search
+from string import split
+
+
+mydb =  "CMDB"
+user = "cfselect"
+passwd = 'cf5313ct'
+host = "mysql_master"
+client_host = gethostname()
+Con = MySQLdb.connect(host=host, port=3306, user=user, passwd=passwd, db=mydb)
+Cursor = Con.cursor(  )
+sql = "SELECT cluster_name, site_name, project, rack_info, environ from host_info where (host_name = '%s')" % (client_host)
+Cursor.execute(sql)
+Results = Cursor.fetchall(  )
+project = sub("\(|\,|\)|\'", "", str(Results))
+proj = []
+proj = split(project)
+for i in range(len(proj)):
+  print "+"+proj[i]
+
+Con.close(  )

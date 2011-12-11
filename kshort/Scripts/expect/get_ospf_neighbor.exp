@@ -1,0 +1,44 @@
+#!/usr/bin/expect -f
+#This script will get 
+#This Expect script takes as it's argument, the IP Address of an IOS device 
+#that is using AAA Authentication (Username/Password), and returns the OSPF Neighbors of the device.
+#Usage: ospf_neighbors_script ip address
+#The script also creates a file with the OSPF Neighbors in the directory it's run from. 
+#The format is "ip address-ospf_neighbors",#Copyright (C) 2008  Keith Short
+
+#This program is free software; you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation; either version 2 of the License, or
+#(at your option) any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License along
+#with this program; if not, write to the Free Software Foundation, Inc.,
+#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+
+exp_send_user "Username? "
+expect_user -re "(.*)\n" {set username $expect_out(1,string)}
+exp_send_user "Password? "
+stty -echo
+expect_user -re "(.*)\n" {set password $expect_out(1,string)}
+
+spawn -noecho telnet [lindex $argv 0]
+log_file [lindex $argv 0]-ospf_neighbors
+expect "Username:"
+exp_send "$username\r"
+expect "Password:"
+exp_send "$password\r"
+expect "#"
+exp_send "terminal length 0\n"
+expect "#"
+exp_send "sho ip ospf nei\n"
+expect "#"
+log_file
+exp_send "exit\n\n"
+puts "\n"
+exit
