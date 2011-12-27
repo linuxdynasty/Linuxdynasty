@@ -9,7 +9,7 @@ from time import ctime
 from optparse import OptionParser
 
 
-session = 'echo "stats()" | nc -q1 '
+session = 'echo "stats()" | nc -w1 '
 LOGFILE = '/tmp/stats.log'
 DEATHSLOG = '/tmp/deaths.tmp'
 STATUS = ''
