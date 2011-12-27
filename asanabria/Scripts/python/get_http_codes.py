@@ -18,7 +18,7 @@ stats = { '400' : 0, '404' : 0, '500' : 0,
         }
 if not os.path.exists(LOGTAIL):
     print "Please install logtail"
-    sy.exit(1)
+    sys.exit(1)
 
 if __name__ == '__main__':
     usage =''
