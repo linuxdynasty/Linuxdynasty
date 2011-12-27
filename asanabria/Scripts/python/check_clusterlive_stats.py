@@ -4,18 +4,28 @@ import os
 import re
 import sys
 import string
-import subprocess
+from subprocess import os
+from subprocess import Popen
+from subprocess import PIPE
 from time import ctime
 from optparse import OptionParser
 
 
-session = 'echo "stats()" | nc -w1 '
+session = '/bin/echo "stats()" | /usr/bin/nc -w1 '
 LOGFILE = '/tmp/stats.log'
 DEATHSLOG = '/tmp/deaths.tmp'
 STATUS = ''
 stats = re.compile(r'(restarts):.*0m ([0-9]+).*\n.*(workers):.*0m ([0-9]+).*\n.*(deaths):.*0m ([0-9]+)'\
                   '.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*\n.*(connections total):.*0m ([0-9]+).*\n.'\
                   '*(connections active):.*0m (-?[0-9])+')
+
+def get_status( command ):
+    session = Popen([command], stdout=PIPE, stderr=PIPE, shell=True)
+    session.wait()
+    if session.returncode == 0:
+        return(session.stdout.read(), session.returncode)
+    else:
+        return(None, session.returncode)
 
 if __name__ == '__main__':
     usage = "usage: %prog arg --contype=socket|tcp --connection=pathto socket|host:port"
@@ -29,22 +39,33 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args()
 
     if options.contype and options.connection:
-        if options.contype == 'tcp':
-            host, port = options.connection.split(":")
-            session = session + ' '+ host + ' ' + port
-        elif options.contype == 'socket':
-            session = session + ' '+ options.connection
         try:
             LOG = open(LOGFILE, 'a', 0)
         except Exception, e:
             print e
             sys.exit(2)
-        try:
-            output = subprocess.os.popen(session).read()
-        except Exception, e:
-            print e
-            LOG.write(output)
-            sys.exit(2)
+        if options.contype == 'tcp':
+            host, port = options.connection.split(":")
+            session = session + ' '+ host + ' ' + port
+            session, code = get_status(session)
+            if code == 0:
+                output = session
+            else:
+                print "Can not Connect to the stats() plugin"
+                sys.exit(2)
+        elif options.contype == 'socket':
+            bsd_ncat_session = session + '-U '+ options.connection
+            ncat_session = session + ' '+ options.connection
+            session, code = get_status(bsd_ncat_session)
+            if code == 0:
+                output = session
+            else:
+                session, code = get_status(ncat_session)
+                if code == 0:
+                    output = session
+                else:
+                    print "Can not Connect to the stats() plugin"
+                    sys.exit(2)
         restarts = [stats.search(output).group(1), stats.search(output).group(2)]
         workers = [stats.search(output).group(3), stats.search(output).group(4)]
         deaths = [stats.search(output).group(5), stats.search(output).group(6)]
