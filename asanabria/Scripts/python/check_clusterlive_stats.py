@@ -11,7 +11,7 @@ from time import ctime
 from optparse import OptionParser
 
 
-session = '/bin/echo "stats()" | /usr/bin/nc -w1 '
+session = 'echo "stats()" | nc -w1 '
 LOGFILE = '/tmp/stats.log'
 DEATHSLOG = '/tmp/deaths.tmp'
 STATUS = ''
