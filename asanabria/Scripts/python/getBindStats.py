@@ -41,7 +41,7 @@ def main():
         poutput(allStats, options.gtype, options.print_stat)
     elif options.generate:
         generateSNMP(allStats)
-    #os.system('/usr/sbin/rndc stats')
+    os.system('/usr/sbin/rndc stats')
     sys.exit(0)
 
 if __name__ == '__main__':
