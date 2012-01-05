@@ -33,7 +33,7 @@ def getPercentages(device):
     return(swapPercentageAvail, swapPercentageUsed, memPercentageAvail, memPercentageUsed)
 
 if __name__ == '__main__':
-    usage = '%prog -d "nginx-fs-1" -d "nginx-fs-2""'
+    usage = '%prog -d "device id or device ip" '
     parser = OptionParser(usage)
     parser.add_option("-d", "--device", dest="device", 
                      help="The device, you want your template attached to.")
