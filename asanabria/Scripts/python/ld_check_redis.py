@@ -30,7 +30,8 @@ if __name__ == '__main__':
     perfout = '|'
     if options.device and options.passwd:
         try:
-            db = redis.Redis(host="%s" % (options.device), password="%s" % (options.passwd), socket_timeout=options.timeout)
+            db = redis.Redis(host="%s" % (options.device), password="%s" % (options.passwd), \
+                socket_timeout=options.timeout)
         except Exception as e:
             print 'CRITICAL %s' % (e)
             sys.exit(2)
@@ -54,17 +55,21 @@ if __name__ == '__main__':
                         perfout = perfout + ' %s_%s=%f' % (key, k, v)
                     
     if info_cmd['role'] == 'master':
-        print 'OK Master Redis Server %s is Running %s %s' % ( options.device, info_cmd['redis_version'], perfout )
+        print 'OK Master Redis Server %s is Running %s %s' % \
+            ( options.device, info_cmd['redis_version'], perfout )
         sys.exit(0)
     elif info_cmd['role'] == 'slave':
         if info_cmd['master_link_status'] == 'up' and info_cmd['master_sync_in_progress'] == 0:
-            print 'OK Master %s is up and Slave %s is in sync %s' % ( info_cmd['master_host'], options.device, perfout )
+            print 'OK Master %s is up and Slave %s is in sync %s' % \
+                ( info_cmd['master_host'], options.device, perfout )
             sys.exit(0)
         elif info_cmd['master_link_status'] == 'up' and info_cmd['master_sync_in_progress'] == 1:
-            print 'WARNING Master %s is up and Slave %s is out of sync %s' % ( info_cmd['master_host'], options.device, perfout )
+            print 'WARNING Master %s is up and Slave %s is out of sync %s' % \
+                ( info_cmd['master_host'], options.device, perfout )
             sys.exit(1)
         elif info_cmd['master_link_status'] == 'down':
-            print 'CRITICAL Master %s is down and Slave %s is out of sync %s' % ( info_cmd['master_host'], options.device, perfout )
+            print 'CRITICAL Master %s is down and Slave %s is out of sync %s' %  \
+                ( info_cmd['master_host'], options.device, perfout )
             sys.exit(2)
 
 
