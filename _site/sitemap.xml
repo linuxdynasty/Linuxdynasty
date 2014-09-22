@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://127.0.0.1:4001</loc>
+    </url>
+    
+    
+    <url>
+        <loc>http://127.0.0.1:4001/404.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/about/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/feed.xml</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/posts/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/sitemap.xml</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/tags/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/theme-setup/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page2/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page3/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page4/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page5/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page6/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page7/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page8/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page9/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page10/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page11/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page12/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page13/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page14/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page15/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page16/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page17/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page18/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page19/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page20/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page21/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page22/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page23/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page24/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page25/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page26/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page27/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page28/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page29/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page30/index.html</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/page31/index.html</loc>
+    </url>
+    
+
+    
+    <url>
+        <loc>http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/blog/years-silence/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/trouble-getting-a-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/reply-to-script-downloads-2/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/reply-to-script-downloads/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/forums/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/general-site/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/script-downloads/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/blog/while/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/shell/swatch-startup-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/blog/updates-to-site/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/ld%20device%20manager/network-device-manager-update-023/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/blog/vmware/todays-task/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/ld%20device%20manager/network-device-manager-update-022/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/ld%20device%20manager/ld-network-device-manager-update-21/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/ld%20device%20manager/howto-manage-your-networked-devices-using-python-and-pexpect/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/blog/python-and-expect/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/uncategorized/ld-port-report-111-update/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/cisco/snmp/howto-get-cdp-neighbor-information-through-python-and-snmp/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/clustering/howto-monitor-redhat-cluster-using-snmp-and-python/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/clustering/howto-setup-a-quorum-disk/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/clustering/howto-increase-gfs2-performance-in-a-cluster/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/clustering/howto-setup-gfs2-with-clustering/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-install-the-data-protector-6-linux-install-server-on-linux/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-automate-the-install-of-vmware-tools-after-any-kernel-update/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/linux-dynasty-switch-port-mapper-tool-update-1-9/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/port%20report%20projects/ld-port-report-project/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/switch-port-report-update-18/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/port-report-17-update/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/sorry-for-not-updating-the-portreport-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/quick-update-on-port-report/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/port-report-update-16/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/quick-update-on-portreportpy/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/portreportpy-update-13/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/ideas-for-expanding-the-current-portreport-python-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/portreportpy-update-11/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/my-2-cents-on-monitoring/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/site-possible-enhancements/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/howto-find-the-port-on-a-switch-that-a-host-belongs-to-the-easy-way-part-2/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/port%20report%20projects/howto-find-the-port-on-a-switch-that-a-host-belongs-to-the-easy-way-part-1/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vmware-esx-sdk-snapshot-perl-script-part-3/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/cim/howto-list-virtual-machines-using-python-and-cim-part-2/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/check-esx-datastores-using-python-and-cim/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/howto-list-datastores-using-python-and-cim/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/python/vmware/howto-list-vms-using-python-and-cim-part-1/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/apache-logs-multiple-pipeline/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/you-dont-know-python/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/from-perl-to-python-to-ruby/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/uncategorized/howto-monitor-and-add-multiple-data-points-the-easy-way-in-zenoss/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/back-to-work-finally/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/consulting-work/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/cigars-and-technology/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/linux-and-your-worth-in-the-job-market/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/howto-customize-your-python-environment/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/ocaml-and-python/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/daily-nagios-report-python-script-part-one/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zfs-howto-howto-create-a-zfs-file-system/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/howto-remaster-a-livecd-or-livedvd-using-slax/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/opensolaris-live-upgrade-howto/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/opensolaris-serial-console-howto/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-mount-an-iso-image-under-solaris-or-opensolaris/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-mount-an-iso-image-under-linux/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-create-a-zone-in-opensolaris/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/opensolaris-and-customizing-my-bashrc/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vmware-perl-cgi-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/services-provided/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/esx-perl-module/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/basic-networking-howto-on-opensolaris/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/i-got-networking-on-opensolaris-working/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/opensolaris-woes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/thank-you-zenoss/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/sorry-for-the-lack-of-updates-lately/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vmware-esx-sdk-snapshot-cgi-perl-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vmware-esx-sdk-snapshot-perl-script-part-2/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vmware-esx-perl-sdk-snapshot-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/uncategorized/script-to-fix-vmware-esx-35-nic-reordering-after-kickstart/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/unix-admin-for-long-island-new-york-and-nyc/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/syncing-up-zenoss-with-the-citrix-netscaler-using-python/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/script-to-manage-a-custom-built-cmdb-in-python-using-threading/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss-added-me-part-of-the-zenoss-masters-list/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/the-apropos-comand/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/introduction-to-the-alias-command/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/howto-list-virtual-machines-by-ostype-and-by-hostname-on-vmware-esx/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/run-levels-in-linux/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vote-from-users/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-list-virtual-machines-and-all-its-properties-in-vmware/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-list-virtual-machines-in-vmware-using-the-perl-sdk-api/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/sorry-for-no-updates-since-friday/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/deli-80-install-screen-shots/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/mounting-and-partitioning-howto/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/removing-multiple-rpms-with-similar-file-name/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/installconfigure-gpg-gnu-privacy-guard/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/opensource-projects-to-come/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/creating-a-virtual-loopback-device/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/using-rsync-to-move-files-around/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/using-netstat-to-find-active-network-connections/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/vmware-perl-sdk-get-license-perl-script/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/issues-registering-on-linuxdynasty/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/regular-expressions-and-commands-howto/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/screen-howto-part-2/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/dsladslxdsl-installingconfiguring/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/verify-current-rx-descriptors-on-all-nics-using-python-and-ethtool/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/potential-new-howtos/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/comparing-active-values-from-sysctlconf-using-python/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/screen-howto-part-1/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/opinion-on-new-format-of-creating-scripts/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/bash-tutorial/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-remove-the-last-character-of-every-filename-in-a-directory/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/script-to-locate-edit-apache-virtualhost-entries/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/generate-mac-addresses-for-xen/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/idoit-run-commands-based-on-input-records/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/basic-tcp-connectivity/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/zenoss/discovered-zenoss-devices/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/blog/how-to-generate-mac-addresses-for-xen/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/ssh-blocking-how-to-using-iptables/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-setup-a-network-interface/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/ldap-client-how-to/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-log-in-iptables/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-change-duplexingspeed/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/netbackup-troubleshooting-how-to/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-add-a-virtual-interface/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/synergy-how-to/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-setup-serial-console-on-linux/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/lvm2-how-to/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-setup-a-reverse-ssh-tunnel/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-recover-root-password/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-encrypt-file-using-gpg/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-store-encrypted-passwords-in-mysql/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-add-users-and-their-permissions-in-mysql/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-create-a-database-in-mysql/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-restore-a-mysql-datbase/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-tos/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/how-to-back-up-a-mysql-database/</loc>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4001/mysql-how-tos/</loc>
+    </url>
+    
+</urlset>

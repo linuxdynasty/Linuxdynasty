@@ -1,0 +1,264 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>ZFS HowTO, HowTo Create a ZFS File System &#8211; Linuxdynasty</title>
+<meta name="description" content="Scripting, Programing, Automation, Integration, Monitoring, and Projects...">
+<meta name="keywords" content="Advance OpenSolaris HowTo's, ZFS HowTO, HowTo Create a ZFS File System">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://127.0.0.1:4001/images/">
+<meta name="twitter:title" content="ZFS HowTO, HowTo Create a ZFS File System">
+<meta name="twitter:description" content="Scripting, Programing, Automation, Integration, Monitoring, and Projects...">
+<meta name="twitter:creator" content="@linuxdynasty">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZFS HowTO, HowTo Create a ZFS File System">
+<meta property="og:description" content="Scripting, Programing, Automation, Integration, Monitoring, and Projects...">
+<meta property="og:url" content="http://127.0.0.1:4001/zfs-howto-howto-create-a-zfs-file-system/">
+<meta property="og:site_name" content="Linuxdynasty">
+
+
+
+
+
+<link rel="canonical" href="http://127.0.0.1:4001/zfs-howto-howto-create-a-zfs-file-system/">
+<link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
+<link rel="author" href="https://google.com/+yourid?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://127.0.0.1:4001/assets/css/main.min.css">
+<!-- Webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://127.0.0.1:4001/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://127.0.0.1:4001/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://127.0.0.1:4001/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://127.0.0.1:4001/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://127.0.0.1:4001/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://127.0.0.1:4001/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://127.0.0.1:4001/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://127.0.0.1:4001">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
+					<h4>Allen Sanabria</h4>
+					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+				</li>
+				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
+				<li>
+					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/linuxdynasty"><i class="fa fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://127.0.0.1:4001/posts/">All Posts</a></li>
+				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://127.0.0.1:4001/zfs-howto-howto-create-a-zfs-file-system/" rel="bookmark" title="ZFS HowTO, HowTo Create a ZFS File System">ZFS HowTO, HowTo Create a ZFS File System</a></h1>
+        
+        <h2>September 24, 2008</h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~4 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><span class="dropcap">H</span>ere is another HowTo, but this time its on ZFS. The ZFS file system is a revolutionary new file system that was developed by SUN. I have to say ZFS is awesome and very easy to administer, I've been pissed off lately with things that I can not do on OpenSolaris/SolarisExpress or things that take way to much time to do on Solaris. One thing that has been extremely easy to implement and administer has been ZFS. </p>
+<p><a id="more"></a><a id="more-204"></a></p>
+<p>Here I will explain the many benefits of ZFS below..</p>
+<ul>
+<li>ZFS is a transactional file system, which means that the file system state is always consistent on disk.</li>
+<li>All data and meta data is checksummed using a user-selectable algorithm.&nbsp;</li>
+<li>No silent data corruption ever: ZFS self healing features automatically repairs corrupt data</li>
+<li>ZFS supports storage pools with varying levels of data redundancy, including mirroring and a variation on RAID-5</li>
+<li>The ZFS file system itself is 128-bit, allowing for 256 quadrillion zettabytes of storage</li>
+<li>ZFS supports SnapShots</li>
+<li>ACL Support</li>
+<li>many more......</li>
+</ul>
+<p>&nbsp;You will need Solaris Express nv80 or newer or OpenSolaris 2008.05</p>
+<p>&nbsp;</p>
+<ol>
+<li><font color="#0000cc"><strong>df -h</strong></font>&nbsp;&nbsp;&nbsp; { See what devices are being used }
+<pre><span>-bash-3.2# df -h</span><br /><p><span>Filesystem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; size&nbsp;&nbsp; used&nbsp; avail capacity&nbsp; Mounted on</span></p><span>/dev/dsk/c0d0s0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6G&nbsp;&nbsp; 5.4G&nbsp;&nbsp; 2.1G&nbsp;&nbsp;&nbsp; 72%&nbsp;&nbsp;&nbsp; /</span><span><br />/devices&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /devices</span><span><br />/dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /dev</span><span><br />ctfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /system/contract</span><span><br />proc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /proc</span><span><br />mnttab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /etc/mnttab</span><span><br />swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.0G&nbsp;&nbsp; 996K&nbsp;&nbsp; 1.0G&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /etc/svc/volatile</span><span><br />objfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /system/object</span><span><br />sharefs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /etc/dfs/sharetab</span><span><br />/usr/lib/libc/libc_hwcap3.so.1</span><span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6G&nbsp;&nbsp; 5.4G&nbsp;&nbsp; 2.1G&nbsp;&nbsp;&nbsp; 72%&nbsp;&nbsp;&nbsp; /lib/libc.so.</span><span><br />fd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /dev/fd</span><span><br />swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.0G&nbsp;&nbsp;&nbsp; 48K&nbsp;&nbsp; 1.0G&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /tmp</span><span><br />swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.0G&nbsp;&nbsp;&nbsp; 44K&nbsp;&nbsp; 1.0G&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /var/run</span><span><br />/dev/dsk/c0d0s7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6G&nbsp;&nbsp;&nbsp; 37M&nbsp;&nbsp; 7.5G&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /export/home</span><br /><br /></pre>
+</li>
+<li><font color="#0000cc"><strong>format</strong></font>&nbsp;&nbsp; ( See what disks are available to us }
+<pre>-bash-3.2# format<br /><p>Searching for disks...done</p>AVAILABLE DISK SELECTIONS<br />       0. c0d0 &lt;DEFAULT cyl 2085 alt 2 hd 255 sec 63&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /pci@0,0/pci-ide@1,1/ide@0/cmdk@0,0<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. c0d1 &lt;DEFAULT cyl 1021 alt 2 hd 128 sec 32&gt;<br />          /pci@0,0/pci-ide@1,1/ide@0/cmdk@1,0<br />       2. c1d1 &lt;DEFAULT cyl 1021 alt 2 hd 128 sec 32&gt;<br />          /pci@0,0/pci-ide@1,1/ide@1/cmdk@1,0<br /> Specify disk (enter its number):</pre>
+</li>
+<li>As you can see we have 2 disks ( c0d1and c1d1 ) available to use. So now we can create our zpool.<br />
+<font color="#ff0000"><strong><font color="#0000cc">zpool create</font> linuxdynasty c0d1 c1d1</strong></font>
+<pre>-bash-3.2# zpool create linuxdynasty c0d1 c1d2</pre>
+</li>
+<li><span>Lets check the status of our newly create pool</span><font color="#0000cc"><strong>.<br />
+zpool status</strong></font>
+<pre>-bash-3.2# zpool status<br /><p>pool: linuxdynasty</p>state: ONLINE<br />scrub: none requested<br />config:<br /><p>NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STATE&nbsp;&nbsp;&nbsp;&nbsp; READ WRITE CKSUM</p>linuxdynasty&nbsp; ONLINE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0<br />c0d1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ONLINE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0<br />c1d1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ONLINE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0<br /><br />errors: No known data errors</pre>
+</li>
+<li><span>We know we only have one pool but if you wanted to see the status of all of your zpools this is how you do it.</span><font color="#0000cc"><strong><br />
+zpool list</strong></font>
+<pre>-bash-3.2# zpool list<br /><p>NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SIZE&nbsp;&nbsp; USED&nbsp; AVAIL&nbsp;&nbsp;&nbsp; CAP&nbsp; HEALTH&nbsp; ALTROOT</p>linuxdynasty&nbsp; 3.97G&nbsp;&nbsp; 220K&nbsp; 3.97G&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp; ONLINE&nbsp; -</pre>
+</li>
+<li><font color="#ff0000"><strong><font color="#0000cc">zfs create</font> linuxdynasty/opt</strong></font>&nbsp;&nbsp; { Here we created the /linuxdynasty/opt file system, as you will see ZFS will automatically mount it for you as well }
+<pre>-bash-3.2# zfs create linuxdynasty/opt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /></pre>
+</li>
+<li>Now I want to make my /opt directory into a ZFS managed filesystem. In order to do this I will have to move the contents of /opt into /linuxdynasty/opt.
+<pre>-bash-3.2# mv /opt /linuxdynasty/opt</pre>
+</li>
+<li>Remove the origianl /opt dir
+<pre>-bash-3.2# rm -rf /opt</pre>
+</li>
+<li>Now we need to tell ZFS to change where the /linuxdynasty/opt points to in the file system.
+<pre>-bash-3.2# zfs set mountpoint=/opt linuxdynasty/opt</pre>
+</li>
+<li>What if you do not want the /opt file system to grow out of control?? Well ZFS also can handle that by setting a quota on the file system as well
+<pre><p>-bash-3.2# zfs set quota=1G linuxdynasty/opt <br /></p></pre>
+</li>
+<li>Now you can run a <font color="#0000ff"><strong>df -h</strong></font>,and as you can see all the mounting is done for you.. Now when you reboot the box all of your ZFS mounts will mount up automatically with out you having to modify<font color="#ff0000"><strong> /etc/vfstab</strong></font> since ZFS takes care of this for you.
+<pre>bash-3.2$ df -h<br /><br />Filesystem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; size&nbsp;&nbsp; used&nbsp; avail capacity&nbsp; Mounted on<br />/dev/dsk/c0d0s0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6G&nbsp;&nbsp; 4.9G&nbsp;&nbsp; 2.6G&nbsp;&nbsp;&nbsp; 66%&nbsp;&nbsp;&nbsp; /<br />/devices&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /devices<br />/dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /dev<br />ctfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /system/contract<br />proc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /proc<br />mnttab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /etc/mnttab<br />swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 986M&nbsp;&nbsp; 1.0M&nbsp;&nbsp; 985M&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /etc/svc/volatile<br />objfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /system/object<br />sharefs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /etc/dfs/sharetab<br />/usr/lib/libc/libc_hwcap3.so.1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6G&nbsp;&nbsp; 4.9G&nbsp;&nbsp; 2.6G&nbsp;&nbsp;&nbsp; 66%&nbsp;&nbsp;&nbsp; /lib/libc.so.1<br />fd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0K&nbsp;&nbsp;&nbsp;&nbsp; 0%&nbsp;&nbsp;&nbsp; /dev/fd<br />swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 985M&nbsp;&nbsp;&nbsp; 48K&nbsp;&nbsp; 985M&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /tmp<br />swap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 985M&nbsp;&nbsp;&nbsp; 44K&nbsp;&nbsp; 985M&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /var/run<br />/dev/dsk/c0d0s7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6G&nbsp;&nbsp;&nbsp; 54M&nbsp;&nbsp; 7.5G&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /export/home<br />linuxdynasty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.9G&nbsp;&nbsp;&nbsp; 20K&nbsp;&nbsp; 3.4G&nbsp;&nbsp;&nbsp;&nbsp; 1%&nbsp;&nbsp;&nbsp; /linuxdynasty<br />linuxdynasty/opt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.0G&nbsp;&nbsp; 543M&nbsp;&nbsp; 481M&nbsp;&nbsp;&nbsp; 53%&nbsp;&nbsp;&nbsp; /opt<br /><br /></pre>
+</li>
+</ol>
+<p>Now there is alot more that ZFS can do so If you want to see more please let me know and I will be more then happy to create more tutorials based on ZFS. </p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://127.0.0.1:4001/tags/#Advance OpenSolaris HowTo's" title="Pages tagged Advance OpenSolaris HowTo's" class="tag">Advance OpenSolaris HowTo's</a><a href="http://127.0.0.1:4001/tags/#ZFS HowTO" title="Pages tagged ZFS HowTO" class="tag">ZFS HowTO</a><a href="http://127.0.0.1:4001/tags/#HowTo Create a ZFS File System" title="Pages tagged HowTo Create a ZFS File System" class="tag">HowTo Create a ZFS File System</a></span>
+        <span><a href="http://127.0.0.1:4001/zfs-howto-howto-create-a-zfs-file-system/" rel="bookmark" title="ZFS HowTO, HowTo Create a ZFS File System">ZFS HowTO, HowTo Create a ZFS File System</a> was published on <span class="entry-date date published updated"><time datetime="2008-09-24T13:58:54-04:00">September 24, 2008</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    
+    <div class="read-more">
+      
+        <div class="read-more-header">
+          <a href="http://127.0.0.1:4001/howto-remaster-a-livecd-or-livedvd-using-slax/" class="read-more-btn">Read More</a>
+        </div><!-- /.read-more-header -->
+        <div class="read-more-content">
+          <h3><a href="http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/" title="Welcome to Jekyll!">Welcome to Jekyll!</a></h3>
+          <p>You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the sit...&hellip; <a href="http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/">Continue reading</a></p>
+        </div><!-- /.read-more-content -->
+      
+      <div class="read-more-list">
+        
+          <div class="list-item">
+            <h4><a href="http://127.0.0.1:4001/blog/years-silence/" title="Two years of silence">Two years of silence</a></h4>
+            <span>Published on June 14, 2014</span>
+          </div><!-- /.list-item -->
+        
+          <div class="list-item">
+            <h4><a href="http://127.0.0.1:4001/trouble-getting-a-script/" title="Trouble getting a script...">Trouble getting a script...</a></h4>
+            <span>Published on November 11, 2012</span>
+          </div><!-- /.list-item -->
+        
+      </div><!-- /.read-more-list -->
+      
+    </div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Allen Sanabria. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'linuxdynasty'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>	        
+
+</body>
+</html>

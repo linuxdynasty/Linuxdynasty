@@ -1,0 +1,251 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>How to setup a network interface &#8211; Linuxdynasty</title>
+<meta name="description" content="Scripting, Programing, Automation, Integration, Monitoring, and Projects...">
+<meta name="keywords" content="Linux Networking HowTo's, How to setup a network interface on fedora or gentoo">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://127.0.0.1:4001/images/">
+<meta name="twitter:title" content="How to setup a network interface">
+<meta name="twitter:description" content="Scripting, Programing, Automation, Integration, Monitoring, and Projects...">
+<meta name="twitter:creator" content="@linuxdynasty">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to setup a network interface">
+<meta property="og:description" content="Scripting, Programing, Automation, Integration, Monitoring, and Projects...">
+<meta property="og:url" content="http://127.0.0.1:4001/how-to-setup-a-network-interface/">
+<meta property="og:site_name" content="Linuxdynasty">
+
+
+
+
+
+<link rel="canonical" href="http://127.0.0.1:4001/how-to-setup-a-network-interface/">
+<link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
+<link rel="author" href="https://google.com/+yourid?rel=author">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://127.0.0.1:4001/assets/css/main.min.css">
+<!-- Webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://127.0.0.1:4001/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://127.0.0.1:4001/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://127.0.0.1:4001/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://127.0.0.1:4001/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://127.0.0.1:4001/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://127.0.0.1:4001/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://127.0.0.1:4001/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://127.0.0.1:4001">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
+					<h4>Allen Sanabria</h4>
+					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+				</li>
+				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
+				<li>
+					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="http://github.com/linuxdynasty"><i class="fa fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="http://127.0.0.1:4001/posts/">All Posts</a></li>
+				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-setup-a-network-interface/" rel="bookmark" title="How to setup a network interface">How to setup a network interface</a></h1>
+        
+        <h2>February 10, 2008</h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><strong><span style="color: red">I will try to make this tutorial as general as possible, as I can give you the REDHAT way of doing things as concerns to where REDHAT base systems maintain there networking files or Gentoo based systems...etc</span></strong></p>
+<ol>
+<li>
+<ul>
+Lets start with the basics....
+<li>To view all your active network interface<br />
+ run this command <span style="color: blue">&quot;<strong>ifconfig</strong>&quot;</span></li>
+<pre>  sabayon-dynasty ~ # ifconfig<br />eth0      <br />Link encap:Ethernet  HWaddr 00:0E:35:94:FB:D9<br />inet addr:192.168.101.5  Bcast:192.168.101.255 Mask:255.255.255.0<br />inet6 addr: fe80::20e:35ff:fe94:fbd9/64 Scope:Link<br />UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1<br />RX packets:2656195 errors:0 dropped:19 overruns:0 frame:0<br />TX packets:1762149 errors:0 dropped:0 overruns:0 carrier:0<br />collisions:0 txqueuelen:1000<br />RX bytes:3593125256 (3426.6 Mb)  TX bytes:144856589 (138.1 Mb)<br />Interrupt:10 Base address:0xe000 Memory:e0200000-e0200fff<br />  </pre>
+<li>Or you can be specific and run (ifconfig and the interface name)<span style="color: blue">&quot;<strong>ifconfig  eth0</strong>&quot;</span> </li>
+</ul>
+</li>
+<li>
+<ul>
+Setup your network interfaces!
+<li><strong>REDHAT WAY</strong>For redhat based systems you will have to do this (assuming your network interface is eth0 and using DHCP)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/sysconfig/network-scripts/ifcfg-eth0</strong>&quot;</span>
+<pre>DEVICE=eth0<br />BOOTPROTO=dhcp<br />HWADDR=00:E0:81:24:CQ:82<br />ONBOOT=yes<br />  </pre>
+</li>
+<li> Now for a static ip setup (assuming eth0)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/sysconfig/network-scripts/ifcfg-eth0</strong>&quot;</span>
+<pre><br />DEVICE=eth0<br />BROADCAST=192.168.101.255<br />BOOTPROTO=static<br />HWADDR=00:E0:81:24:CQ:82<br />IPADDR=192.168.101.5<br />NETMASK=255.255.255.0<br />NETWORK=192.168.101.0<br />ONBOOT=yes<br />TYPE=Ethernet<br /></pre>
+</li>
+<li>Now run this <span style="color: blue">&quot;<strong>service network restart</strong>&quot;</span> or run this <span style="color: blue">&quot;<strong>ifdown eth0</strong>&quot;</span> to make sure the interface is down, then <span style="color: blue">&quot;<strong>ifup eth0</strong>&quot;</span> </li>
+</ul>
+</li>
+<li>
+<ul><strong>GENTOO WAY</strong>For gentoo based systems you will have to do this.
+<li>(assuming your network interface is eth0 and using DHCP)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/conf.d/net</strong>&quot;</span>
+<pre><br />config_eth0=( &quot;dhcp&quot; )<br />dhcp_eth0=&quot;nosendhost&quot;<br />dns_domain_eth0=&quot;linuxdynasty&quot;<br />  </pre>
+</li>
+<li>Now for a static ip setup (assuming eth0)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/conf.d/net</strong>&quot;</span>
+<pre><br />config_eth0=( &quot;192.168.0.2 netmask 255.255.255.0 broadcast 192.168.0.255&quot; )<br />routes_eth0=(&quot;default via 192.168.0.1&quot;)   # IPv4 default route<br />  </pre>
+</li>
+<li>Now run this <span style="color: blue">&quot;<strong>rc-update add net.eth0 default</strong>&quot;</span> so that it is in the default run level. </li>
+<li>Now to get the interface up and running...<br />
+<span style="color: blue">&quot;<strong>/etc/init.d/net.eth0 restart</strong>&quot;</span> </li>
+</ul>
+</li>
+</ol>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://127.0.0.1:4001/tags/#Linux Networking HowTo's" title="Pages tagged Linux Networking HowTo's" class="tag">Linux Networking HowTo's</a><a href="http://127.0.0.1:4001/tags/#How to setup a network interface on fedora or gentoo" title="Pages tagged How to setup a network interface on fedora or gentoo" class="tag">How to setup a network interface on fedora or gentoo</a></span>
+        <span><a href="http://127.0.0.1:4001/how-to-setup-a-network-interface/" rel="bookmark" title="How to setup a network interface">How to setup a network interface</a> was published on <span class="entry-date date published updated"><time datetime="2008-02-10T23:52:33-05:00">February 10, 2008</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>
+        
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    
+    <div class="read-more">
+      
+        <div class="read-more-header">
+          <a href="http://127.0.0.1:4001/ldap-client-how-to/" class="read-more-btn">Read More</a>
+        </div><!-- /.read-more-header -->
+        <div class="read-more-content">
+          <h3><a href="http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/" title="Welcome to Jekyll!">Welcome to Jekyll!</a></h3>
+          <p>You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the sit...&hellip; <a href="http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/">Continue reading</a></p>
+        </div><!-- /.read-more-content -->
+      
+      <div class="read-more-list">
+        
+          <div class="list-item">
+            <h4><a href="http://127.0.0.1:4001/blog/years-silence/" title="Two years of silence">Two years of silence</a></h4>
+            <span>Published on June 14, 2014</span>
+          </div><!-- /.list-item -->
+        
+          <div class="list-item">
+            <h4><a href="http://127.0.0.1:4001/trouble-getting-a-script/" title="Trouble getting a script...">Trouble getting a script...</a></h4>
+            <span>Published on November 11, 2012</span>
+          </div><!-- /.list-item -->
+        
+      </div><!-- /.read-more-list -->
+      
+    </div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2014 Allen Sanabria. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'linuxdynasty'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>	        
+
+</body>
+</html>

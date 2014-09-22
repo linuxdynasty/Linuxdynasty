@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Linuxdynasty</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="http://127.0.0.1:4001/feed.xml" />
+<link rel="alternate" type="text/html" href="http://127.0.0.1:4001" />
+<updated>2014-09-22T17:38:44-04:00</updated>
+<id>http://127.0.0.1:4001/</id>
+<author>
+  <name>Allen Sanabria</name>
+  <uri>http://127.0.0.1:4001/</uri>
+  <email>you@email.com</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[Welcome to Jekyll!]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/" />
+  <id>http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll</id>
+  <published>2014-09-22T12:10:21-04:00</published>
+  <updated>2014-09-22T12:10:21-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve --watch&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/&quot;&gt;Welcome to Jekyll!&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on September 22, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Two years of silence]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/blog/years-silence/" />
+  <id>http://127.0.0.1:4001/blog/years-silence</id>
+  <published>2014-06-14T11:11:22-04:00</published>
+  <updated>2014-06-14T11:11:22-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I have been so focused on vFense, that I have been negligent of this blog. vFense has come a long way from it's inception a little over 20 months ago. We are still in the Beta, but we are continuously making improvements. As of right now there&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/years-silence/&quot;&gt;Two years of silence&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on June 14, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Trouble getting a script...]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/trouble-getting-a-script/" />
+  <id>http://127.0.0.1:4001/trouble-getting-a-script</id>
+  <published>2012-11-11T23:39:23-05:00</published>
+  <updated>2012-11-11T23:39:23-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I was trying to download this script from the entry &quot;Akamai: Collecting and Graphing&quot;:&lt;/p&gt;
+&lt;p&gt;http://www.linuxdynasty.org/View-details/Perl-Scripts/18-akamai_collector.pl.html&lt;/p&gt;
+&lt;p&gt;I keep getting redirected to the homepage.  Is there a way I could get this script?&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Thanks,&lt;/p&gt;
+&lt;p&gt;Eric Garcia&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/trouble-getting-a-script/&quot;&gt;Trouble getting a script...&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on November 11, 2012.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo check redis availability and get stats using Redis-py, Zenoss, and Python]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/" />
+  <id>http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python</id>
+  <published>2012-03-20T03:37:52-04:00</published>
+  <updated>2012-03-20T03:37:52-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;My team was assigned to create a redis slave status check to be ran under Zenoss.
+So while they are creating that check, I decided to google for redis checks
+written in python that work under Nagios and or Zenoss and none of the checks
+i found did exactly what I wanted.&lt;/p&gt;
+
+&lt;p&gt;So I decided to write my own check, that will grab every piece of data that the redis info() command was able to retrieve. Since this info is all in a python dictionary, I was able to get all the stats that were labeled as type int or as type float, which made my job that much easier.&lt;/p&gt;
+
+&lt;p&gt;So 1st I had to install 2 Redis instances on my local Ubuntu server at home. Now that i completed that, I had to make sure the slave was syncing off the master server. I used this link “&lt;a title=&quot;Redis Replication Configuration&quot; href=&quot;http://redis.io/topics/replication&quot; target=&quot;_blank&quot;&gt;http://redis.io/topics/replication&lt;/a&gt;” to help me configure redis replication.
+Now that all that stuff is out of the way, I wrote an easy_peasy python script to connect to redis and grab all of the performance stats. As well as verify if the instance is a master or a slave instance. If it is a slave instance, than it also verifies if it is syncing to the master or not.
+The script is using &lt;a href=&quot;https://github.com/andymccurdy/redis-py&quot; target=&quot;_blank&quot;&gt;Redis-py&lt;/a&gt; that was installed using PIP.&lt;/p&gt;
+
+&lt;p&gt;Here is the script I wrote&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;godssoldier:python asanabria&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python ld_check_redis.py -d 127.0.0.1 -p &lt;span class=&quot;s1&quot;&gt;&amp;#39;t35t_r3d15&amp;#39;&lt;/span&gt; -n 6379
+OK Master Redis Server 127.0.0.1 is Running 2.4.4 &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pubsub_channels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bgrewriteaof_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;connected_slaves&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;uptime_in_days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;lru_clock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1099413&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;last_save_time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1332199497&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;redis_git_sha1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;connected_clients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;keyspace_misses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_memory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;939792&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;vm_enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;used_cpu_user_children&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.000000 &lt;span class=&quot;nv&quot;&gt;used_memory_peak&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;939776&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;total_commands_processed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;10
+&lt;span class=&quot;nv&quot;&gt;latest_fork_usec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;211&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_memory_rss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1286144&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;total_connections_received&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pubsub_patterns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;aof_enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_cpu_sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.130000 &lt;span class=&quot;nv&quot;&gt;used_cpu_sys_children&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.000000 &lt;span class=&quot;nv&quot;&gt;blocked_clients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;used_cpu_user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.120000 &lt;span class=&quot;nv&quot;&gt;client_biggest_input_buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;db0_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;db0_expires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;arch_bits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64
+&lt;span class=&quot;nv&quot;&gt;mem_fragmentation_ratio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1.370000 &lt;span class=&quot;nv&quot;&gt;expired_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;evicted_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bgsave_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;client_longest_output_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;process_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;22007&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;uptime_in_seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;401&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;changes_since_last_save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2
+&lt;span class=&quot;nv&quot;&gt;redis_git_dirty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;keyspace_hits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+
+godssoldier:python asanabria&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python ld_check_redis.py -d 127.0.0.1 -p &lt;span class=&quot;s1&quot;&gt;&amp;#39;t35t_r3d15&amp;#39;&lt;/span&gt; -n 6390
+OK Master 127.0.0.1 is up and Slave 127.0.0.1 is in sync &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pubsub_channels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bgrewriteaof_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;connected_slaves&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;uptime_in_days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;lru_clock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1099413&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;last_save_time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1332199497&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;redis_git_sha1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;connected_clients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;keyspace_misses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_memory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;939872&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;master_last_io_seconds_ago&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8
+&lt;span class=&quot;nv&quot;&gt;vm_enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_cpu_user_children&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.000000 &lt;span class=&quot;nv&quot;&gt;used_memory_peak&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;931248&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;total_commands_processed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;44
+&lt;span class=&quot;nv&quot;&gt;latest_fork_usec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_memory_rss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1277952&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;total_connections_received&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pubsub_patterns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;aof_enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;used_cpu_sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.130000 &lt;span class=&quot;nv&quot;&gt;used_cpu_sys_children&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.000000 &lt;span class=&quot;nv&quot;&gt;blocked_clients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_cpu_user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.070000
+&lt;span class=&quot;nv&quot;&gt;master_port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6379&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;client_biggest_input_buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;db0_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;db0_expires&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;arch_bits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;64
+&lt;span class=&quot;nv&quot;&gt;mem_fragmentation_ratio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1.360000 &lt;span class=&quot;nv&quot;&gt;expired_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;evicted_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bgsave_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;client_longest_output_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;master_sync_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;process_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;22010&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;uptime_in_seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;398&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;changes_since_last_save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;redis_git_dirty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+&lt;span class=&quot;nv&quot;&gt;keyspace_hits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+
+CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;pubsub_channels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;bgrewriteaof_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;connected_slaves&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;master_link_down_since_seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1332199283
+&lt;span class=&quot;nv&quot;&gt;uptime_in_days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;lru_clock&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1099352&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;last_save_time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1332198992&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;redis_git_sha1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;loading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;connected_clients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nv&quot;&gt;keyspace_misses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_memory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;931040&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;master_last_io_seconds_ago&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;-1 &lt;span class=&quot;nv&quot;&gt;vm_enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_cpu_user_children&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.000000
+&lt;span class=&quot;nv&quot;&gt;used_memory_peak&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;931040&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;total_commands_processed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;latest_fork_usec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_memory_rss&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1261568
+&lt;span class=&quot;nv&quot;&gt;total_connections_received&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;pubsub_patterns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;aof_enabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_cpu_sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.080000
+&lt;span class=&quot;nv&quot;&gt;used_cpu_sys_children&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.000000 &lt;span class=&quot;nv&quot;&gt;blocked_clients&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;used_cpu_user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.030000 &lt;span class=&quot;nv&quot;&gt;master_port&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6379
+&lt;span class=&quot;nv&quot;&gt;client_biggest_input_buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;arch_bits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;64&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;mem_fragmentation_ratio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1.360000 &lt;span class=&quot;nv&quot;&gt;expired_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;evicted_keys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0
+ &lt;span class=&quot;nv&quot;&gt;bgsave_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;client_longest_output_list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;master_sync_in_progress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;process_id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;21887
+&lt;span class=&quot;nv&quot;&gt;uptime_in_seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;290&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;changes_since_last_save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;redis_git_dirty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;keyspace_hits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/&quot;&gt;HowTo check redis availability and get stats using Redis-py, Zenoss, and Python&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 20, 2012.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Reply To: Script downloads]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/reply-to-script-downloads-2/" />
+  <id>http://127.0.0.1:4001/reply-to-script-downloads-2</id>
+  <published>2012-01-28T07:31:27-05:00</published>
+  <updated>2012-01-28T07:31:27-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Hi,&lt;/p&gt;
+&lt;p&gt;Trying to download snmp_branch.py but having difficulties.  Any chance you could confirm that the links are set up properly.&lt;/p&gt;
+&lt;p&gt;Thanks,&lt;br /&gt;
+-j&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/reply-to-script-downloads-2/&quot;&gt;Reply To: Script downloads&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on January 28, 2012.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Reply To: Script downloads]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/reply-to-script-downloads/" />
+  <id>http://127.0.0.1:4001/reply-to-script-downloads</id>
+  <published>2011-12-13T16:51:16-05:00</published>
+  <updated>2011-12-13T16:51:16-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;You should be able to now.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/reply-to-script-downloads/&quot;&gt;Reply To: Script downloads&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 13, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Forums]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/forums/" />
+  <id>http://127.0.0.1:4001/forums</id>
+  <published>2011-12-12T00:57:13-05:00</published>
+  <updated>2011-12-12T00:57:13-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/forums/&quot;&gt;Forums&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 12, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[General Help for this site..]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/general-site/" />
+  <id>http://127.0.0.1:4001/general-site</id>
+  <published>2011-12-11T20:19:21-05:00</published>
+  <updated>2011-12-11T20:19:21-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Anything that has nothing to do with the other Forums that I created :)&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/general-site/&quot;&gt;General Help for this site..&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 11, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Zenoss]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/" />
+  <id>http://127.0.0.1:4001/zenoss</id>
+  <published>2011-12-11T20:15:13-05:00</published>
+  <updated>2011-12-11T20:15:13-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;If you have questions or need help with any of my scripts that I run for Zenoss, please post them here&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/&quot;&gt;Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 11, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Script downloads]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/script-downloads/" />
+  <id>http://127.0.0.1:4001/script-downloads</id>
+  <published>2011-10-18T15:59:51-04:00</published>
+  <updated>2011-10-18T15:59:51-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Nice site.&lt;/p&gt;
+&lt;p&gt;Don't seem to be able to download py scripts- links not there or broken.  Am I doing something wrong?&lt;/p&gt;
+&lt;p&gt;E&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/script-downloads/&quot;&gt;Script downloads&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on October 18, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[It's been a while..]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/blog/while/" />
+  <id>http://127.0.0.1:4001/blog/while</id>
+  <published>2011-09-29T01:38:31-04:00</published>
+  <updated>2011-09-29T01:38:31-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I have not been doing to many interesting projects as of the past year. This is the reason for my lack of updates. I am now starting to do some interesting stuff, so let the updates roll.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/while/&quot;&gt;It's been a while..&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on September 29, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo add Aggregate Data Graphs from existing datapoints in Zenoss]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/" />
+  <id>http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss</id>
+  <published>2011-02-02T23:16:42-05:00</published>
+  <updated>2011-02-02T23:16:42-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Recently I had to aggregate the amount of 200, 400, 404, 500, 503,  and 504 HTTP 1.1 Codes from all of our Nginx and Ruby On Rails systems. So I decided to write a quick plugin for Zenoss that all you need to do is pass the devices or Device Class you want to aggregate the data from and the DataPoint name.&lt;/p&gt;
+&lt;p&gt;Also this makes it simple to use the Zenoss Thresholds and create Aggregate Reports based on the datapoints you use with out having to do some fancy python coding... :) Enjoy&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Example..&lt;/p&gt;
+&lt;pre&gt;python AllenZenossAggregate.py -h
+Usage: AllenZenossAggregate.py -d &quot;nginx-1&quot; -d &quot;nginx-2&quot; -p &quot;nginx_codes_count200&quot;
+OK Aggregate for devices  nginx-1 nginx-2 is 34|aggregate=34
+     AllenZenossAggregate.py -o &quot;/Server/Linux/Nginx&quot; -p &quot;nginx_codes_count200&quot;
+OK Aggregate for /Server/Linux/Nginx class is 22|aggregate=22
+ Options:
+  -h, --help            show this help message and exit
+  -d DEVICE, --device=DEVICE
+                        The device you want to grab the datapoints from.
+  -o ORGANIZER, --organizer=ORGANIZER
+                        The Class you want to get your list of devices from.
+  -p DPOINTS, --dpoints=DPOINTS
+                        Name of DataPoint nginx_codes_count200&lt;/pre&gt;
+&lt;p&gt;{filelink=1}&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/&quot;&gt;HowTo add Aggregate Data Graphs from existing datapoints in Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 02, 2011.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Monitoring RabbitMQ with Zenoss]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/" />
+  <id>http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss</id>
+  <published>2010-09-10T16:17:03-04:00</published>
+  <updated>2010-09-10T16:17:03-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;RabbitMQ was recently deployed in the company I currently work for. At the last minute ( as always ) they came to me and ask me to please add RabbitMQ monitoring to Zenoss. They said here is the url and now please monitor for a few stats ( &lt;a href=&quot;http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin&quot;&gt;using the RabbitMQ Status Plugi&lt;/a&gt;n ). So I said to myself, I could easily just write a quick shell script to get the 3 stats that they needed and add them into Zenoss. After thinking about it.... In the near future they might ask for more than those 3 stats. So I decided to write a quick python script ( Zenoss Compatible ) to get all the stats from that status page and input them into Zenoss...&lt;/p&gt;
+&lt;p&gt;Prerequisites&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Zenoss 2.5 and above ( I have not tested on 3.+ or &amp;lt;2 .4 )&lt;/li&gt;
+&lt;li&gt;lxml Python module    &quot;&lt;strong&gt;easy_install lxml&lt;/strong&gt;&quot; as the zenoss user&lt;/li&gt;
+&lt;li&gt;&quot;&lt;strong&gt;&lt;a href=&quot;View-details/Zenoss/54-Zenoss_Template_Manager.html&quot;&gt;Zenoss_Template_Manager.py&lt;/a&gt;&lt;/strong&gt;&quot; Optional, Only needed if you do not want to add all the datapoints manually... I DON'T!!!!&lt;/li&gt;
+&lt;li&gt;RabbitMQ Installed&lt;/li&gt;
+&lt;li&gt;RabbitMQ Status Plugin from &lt;a href=&quot;http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin&quot;&gt;http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&quot;&lt;strong&gt;&lt;a href=&quot;View-details/LD-Network-Manager-Project/60-RabiitMQ-monitoring-Zenoss-Style.html&quot;&gt;check_rabbitmq.py&lt;/a&gt;&lt;/strong&gt;&quot;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Zenoss Template Manager = {filelink=3}&lt;/p&gt;
+&lt;p&gt;CheckRabbitMQ.py = {filelink=2}&lt;/p&gt;
+&lt;p&gt;Once you have all the above, we are ready to go..&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;copy both Python Scripts above into the /opt/zenoss/libexec/ folder  ( If you are using RedHat/CentOS ) and make sure they are executable.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;As the Zenoss user run the script ....&lt;br /&gt;
+/opt/zenoss/libexec/check_rabbitmq.py -u 'http://rabbitmq-server:55672' -a 'mon-user mon-passwd' |sed -re &quot;s/^OK|/ /g&quot; |sed -re &quot;s/([A-Za-z0-9_.]+*)?=[0-9]+/-p &quot;1,G&quot;/g&quot; |xargs /opt/zenoss/libexec/Zenoss_Template_Manager.py -o &quot;/Devices/Server/Linux/RabbitMQ&quot; -c '/opt/zenoss/libexec/check_rabbitmq.py -u &quot;http://rabbitmq-server:55672&quot; -a &quot;mon-user mon-passwd&quot;' --template=RabbitMQ --dsource=RabbitMQStats -V $1&lt;/p&gt;
+&lt;p&gt;If you need to know how to use the Zenoss_Template_Manager.y script, check here &lt;a href=&quot;howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html&quot;&gt;http://www.linuxdynasty.org/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So let me explain what the sed statements above are doing...&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&quot;sed -re &quot;s/^OK|/ /g&quot;&quot; This sed statement is removing the OK| from the beginning of the line&lt;/li&gt;
+&lt;li&gt;&quot;sed -re &quot;s/([A-Za-z0-9_.]+*)?=[0-9]+/-p &quot;1,G&quot;/g&quot;&lt;br /&gt;
+This 1st part of the sed statement is matching any letter,number,underscore, and period, any number of times until it reaches the equal &quot;=&quot;  &quot;&lt;strong&gt;[A-Za-z0-9_.]+*)?=&lt;/strong&gt;&quot;&lt;br /&gt;
+The  2nd part of this statement is going to match the &quot;=&quot; and any number of integers after it. &quot;&lt;strong&gt;[0-9]+&lt;/strong&gt;&quot;&lt;br /&gt;
+Now we need to make the substitution.... So we are going to substitute, every match with a -p,  then a space and then the 1st group match in escaped quotes, then a comma and G for GAUGE.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The 2 sed statements above will do that for every match it finds. If you were to add each datapoint by hand, it would look like this....&lt;br /&gt;
+/opt/zenoss/libexec/Zenoss_Template_Manager.py -o &quot;/Devices/Server/Linux//RabbitMQ&quot; -c '/opt/zenoss/libexec/check_rabbitmq.py -u &quot;http://rabbitmq-server:55672&quot; -a &quot;mon-user mon-passwd&quot;' --template=RabbitMQ --dsource=RabbitMQStats -V -p &quot;queue.conversion.event.tracking_msg_unack,G&quot; -p &quot;connections,G&quot; -p &quot;erlang_processes_used,G&quot; -p &quot;erlang_processes_avail,G&quot; -p &quot;file_descriptors_used,G&quot; -p &quot;file_descriptors_avai,G&quot; -p &quot;binary_memory,G&quot; -p &quot;memory_used,G&quot; -p &quot;memory_avail,G&quot;&lt;/p&gt;
+&lt;p&gt;I hope the above scripts will save someone time and frustration......&lt;/p&gt;
+&lt;div id=&quot;_mcePaste&quot; style=&quot;position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;&quot;&gt;connections=26 erlang_processes_used=252 erlang_processes_avail=1048576 file_descriptors_used=1 file_descriptors_avail=1024 pid=3167  binary_memory=0 ets_memory=0  memory_used=27 memory_avail=99&lt;/div&gt;
+&lt;div id=&quot;_mcePaste&quot; style=&quot;position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;&quot;&gt;3&lt;/div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/&quot;&gt;Monitoring RabbitMQ with Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on September 10, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/" />
+  <id>http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk</id>
+  <published>2010-08-03T19:42:42-04:00</published>
+  <updated>2010-08-03T19:42:42-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;We needed to integrate the Splunk Alerts into Zenoss, because even though Splunk can indeed send out alerts. Splunk does not have any clue about what an &quot;Escalation Process&quot; is. With Zenoss you can create an &quot;Escalation Process&quot;.&lt;/p&gt;
+&lt;p&gt;I have 2 ways to send events to Zenoss from Splunk..&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Write a Script that uses the snmptrap command.&lt;/li&gt;
+&lt;li&gt;Write a Script that uses the Zenoss zensendevent command.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I decided to go with the Zenoss zensendevent command ( Which is a python script with no external dependencies, which can be copied from the Zenoss Server at $ZENHOME/bin/zensendevent ).&lt;/p&gt;
+&lt;p&gt;Now it's time to get the ball rolling..&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;On the Splunk Server I copied the zensendevent script from the Zenoss Server to Splunk on /opt/splunk/bin/scripts/zensendevent.&lt;/li&gt;
+&lt;li&gt;I then created a shell script called Splunk2Zenoss.sh. ( This script takes the Saved Splunk Search and passes it over to Zenoss )This script will also be located in /opt/splunk/bin/scripts/Splunk2Zenoss.sh&lt;/li&gt;
+&lt;li&gt;You will then need to modify the options in the script. (For instance the severity of the alert, the zenoss server, the event mapping, event key, login and passwd )&lt;/li&gt;
+&lt;li&gt;I then created the saved search in Splunk and make sure to check the Trigger Shell Script option. ( Make sure to put the script name in here )&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-197&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;images/stories/Zenoss/SavedSearch.png&quot; rel=&quot;shadowbox[0]&quot;&gt;&lt;img style=&quot;width: 200px; height: 200px;&quot; src=&quot;http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/SavedSearch.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;images/stories/Zenoss/Splunk2Zenoss.png&quot; rel=&quot;shadowbox[0]&quot;&gt;&lt;img style=&quot;width: 200px; height: 200px;&quot; src=&quot;http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/Splunk2Zenoss.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;images/stories/Zenoss/Transform ScreenShot.png&quot; rel=&quot;shadowbox[0]&quot;&gt;&lt;img style=&quot;width: 200px; height: 200px;&quot; src=&quot;http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/Transform ScreenShot.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I did my best to mimic the Splunk Saved Search Alert that you get by email through Splunk, into Zenoss. As of right now any searches that you have saved, can now be sent to Zenoss by using zensendevent that comes with Zenoss.&lt;/p&gt;
+&lt;p style=&quot;margin-top: 10px; margin-bottom: 15px;&quot;&gt;&lt;span class=&quot;attention&quot;&gt;There are 2 caveats to this though....&lt;/span&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;You will need to add to the following ( | fields - _raw ) to all your saved searches, with out the ().&lt;/li&gt;
+&lt;li&gt;modify zensendevent on line number 170,&lt;br /&gt;
+from..&lt;br /&gt;
+field, value = line.split('=')&lt;br /&gt;
+to..&lt;br /&gt;
+field, value = line.split('=',1)&lt;br /&gt;
+The reason for the change above, is because Splunk will send &quot;=&quot; signs in the message output, and zensendevent is splitting by &quot;=&quot;. So to get rid if this issue, you set the maxsplit to 1.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Here are ScreenShot Examples of a Splunk Email and a Zenoss Email&lt;br /&gt;
+&lt;a href=&quot;images/stories/Zenoss/ZenossSevereTest1.png&quot; rel=&quot;shadowbox[0]&quot;&gt;&lt;img style=&quot;width: 200px; height: 200px;&quot; src=&quot;http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/ZenossSevereTest1.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;images/stories/Zenoss/severeTest1_splunk.png&quot; rel=&quot;shadowbox[0]&quot;&gt;&lt;img style=&quot;width: 200px; height: 200px;&quot; src=&quot;http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/severeTest1_splunk.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Splunk2Zenoss.sh == {filelink=4}&lt;/p&gt;
+&lt;p&gt;SplunkTransfor.py == {filelink=5}&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/&quot;&gt;HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on August 03, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Download Section, no longer requires you to be a member]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member/" />
+  <id>http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member</id>
+  <published>2010-04-08T14:11:33-04:00</published>
+  <updated>2010-04-08T14:11:33-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I first made the Download Section for members only, just cause I wanted an idea on who is downloading the software I have written. Now, I no longer care who downloads it, as long as it helps out the people who did download it. That is all that matters. Though the forums section, does require you to be a member. I also recognize, most people are members of enough websites, that becoming a member of another one, can be over bearing.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member/&quot;&gt;Download Section, no longer requires you to be a member&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on April 08, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo get 3par disk IO stats into Zenoss]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss/" />
+  <id>http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss</id>
+  <published>2010-03-29T02:15:13-04:00</published>
+  <updated>2010-03-29T02:15:13-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I've come to realize, that CIM is the new SNMP, but on steroids. Most new SAN, NAS, Network, and Operating Systems now support &lt;a href=&quot;http://www.dmtf.org/standards/cim/&quot;&gt;CIM&lt;/a&gt;/&lt;a href=&quot;http://www.dmtf.org/standards/wbem/&quot;&gt;WBEM&lt;/a&gt;. To me it is easier to gather statistics and information through CIM, then it is through SNMP. In this article I am going to give you a script that will allow you to query the 3par for Disk IO stats. You will be able to grab Disk IO stats on a per Volume, per Port, or per Disk basis.You will also be able to search for a Volume, Port, or Disk, instead of just dumping all the Volumes, Ports, or Disk.&lt;/p&gt;
+&lt;p&gt;Before you download this script, you will need to download &lt;a href=&quot;http://sourceforge.net/projects/pywbem/&quot;&gt;pywbem&lt;/a&gt; from sourceforge and install it. .&lt;/p&gt;
+&lt;p&gt;get3ParIOstats.py == {filelink=6}&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;attention&quot;&gt;All the data that you get from the script, must be saved as a COUNTER and not a GAUGE.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Here is an example of searching for statistics by DISK for DISK 2:6:1..&lt;/p&gt;
+&lt;pre&gt;python get3parIOstats.py -u &quot;http://3par&quot; -a 'login passwd' -s '2:6:1' --diskOK|2:6:1_ReadIOs=67236384 2:6:1_WriteIOs=28457131 2:6:1_TotalIOs=95693515&lt;/pre&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-196&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;note&quot;&gt;Before I continue much further, I would like to say that this script would go great with my &lt;a href=&quot;howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html&quot;&gt;Zenoss Template Manager&lt;/a&gt;&lt;/span&gt;&lt;br /&gt;
+An example of running get3parIOstats.py with the Zenoss Template Manager..&lt;/p&gt;
+&lt;pre&gt;python /opt/zenoss/libexec/get3parIOstats.py -u &quot;http://3par&quot; -a &quot;login passwd&quot; -p |
+sed -re &quot;s/([0-9]:[0-9]:[0-9]_w+)=w+/&quot;-p1,C&quot;/g&quot; -e &quot;s/^w+|//g&quot; -e &quot;s/:/_/g&quot;|
+xargs Zenoss_Template_Manager.py -d &quot;3par&quot; -c 'get3parIOstats.py -u http://3par&quot; -a &quot;login passwd&quot; -p' -t &quot;3parIOStats&quot; --dsource=&quot;PortIOstats&quot; -V $1&lt;/pre&gt;
+&lt;pre&gt;Template 3parIOStats already exists at /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStatsDataSource 
+PortIOstats already exists at /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsParser = AutoCommand 
+http://3par&quot; -a &quot;login passwd&quot; -p has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsPortIOstats DataSource is EnabledDataPoint  
+2_0_1_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_1_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_1_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_2_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_2_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_2_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_3_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_3_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_3_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_4_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_4_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_4_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_1_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_1_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_1_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_2_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_2_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_2_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_3_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_3_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_3_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_4_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstats&lt;/pre&gt;
+&lt;p&gt;&lt;span class=&quot;note&quot;&gt;Here is an example of searching by VOLUME&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;python get3parIOstats.py -u &quot;http://3par&quot; -a 'login passwd' --volume -s zenoss
+OK|zenoss-perf_ReadIOs=178585316 zenoss-perf_WriteIOs=133818738 zenoss-perf_TotalIOs=312404054 zenoss-perf_ReadHitIOs=391775944 zenoss-perf_
+WriteHitIOs=75752999zenoss-mysql_ReadIOs=807053119 zenoss-mysql_WriteIOs=397407133 
+zenoss-mysql_TotalIOs=1204460252 zenoss-mysql_ReadHitIOs=893915116 zenoss-mysql_WriteHitIOs=218224301&lt;/pre&gt;
+&lt;p&gt;As you can see above, I searched for zenoss, and it printed out two volumes that matched zenoss. So you can either be really specific and just print out one volume or be vague and match as many volumes as you can. Or you do not have to search for anything, you just can list all the stats for Volumes, Ports, or Disks..&lt;/p&gt;
+&lt;p&gt;Here is an example of that...&lt;/p&gt;
+&lt;pre&gt;python get3parIOstats.py -u &quot;http://172.16.100.73&quot; -a 'login passwd' --port
+OK|2:0:1_ReadIOs=1646791211 2:0:1_WriteIOs=833778099 2:0:1_TotalIOs=2480569310 2:0:2_ReadIOs=1652490070 
+2:0:2_WriteIOs=838498029 2:0:2_TotalIOs=24909880992:0:3_ReadIOs=1641530849 2:0:3_WriteIOs=825438313 
+2:0:3_TotalIOs=2466969162 2:0:4_ReadIOs=1637164097 2:0:4_WriteIOs=826686709 2:0:4_TotalIOs=2463850806
+2:2:1_ReadIOs=1823091934 2:2:1_WriteIOs=1048202110 2:2:1_TotalIOs=2871294044 2:2:2_ReadIOs=0 
+2:2:2_WriteIOs=0 2:2:2_TotalIOs=0 2:2:3_ReadIOs=0 2:2:3_WriteIOs=02:2:3_TotalIOs=0 
+2:2:4_ReadIOs=0 2:2:4_WriteIOs=0 2:2:4_TotalIOs=0 2:3:1_ReadIOs=1012223361 2:3:1_WriteIOs=1291116066 
+2:3:1_TotalIOs=2303339427 2:3:2_ReadIOs=02:3:2_WriteIOs=0 2:3:2_TotalIOs=0 2:3:3_ReadIOs=0 
+2:3:3_WriteIOs=0 2:3:3_TotalIOs=0 2:3:4_ReadIOs=0 2:3:4_WriteIOs=0 2:3:4_TotalIOs=0 
+2:5:1_ReadIOs=11185369362:5:1_WriteIOs=2241831596 2:5:1_TotalIOs=3360368532 2:5:2_ReadIOs=0 
+2:5:2_WriteIOs=0 2:5:2_TotalIOs=0 2:5:3_ReadIOs=0 2:5:3_WriteIOs=0 2:5:3_TotalIOs=02:5:4_ReadIOs=0 
+2:5:4_WriteIOs=0 2:5:4_TotalIOs=0 3:0:1_ReadIOs=1618784135 3:0:1_WriteIOs=885315727 3:0:1_TotalIOs=2504099862 
+3:0:2_ReadIOs=1640576188 3:0:2_WriteIOs=908172240 3:0:2_TotalIOs=25487484283:0:3_ReadIOs=1643215242 
+3:0:3_WriteIOs=909195911 3:0:3_TotalIOs=2552411153 3:0:4_ReadIOs=1638896605 3:0:4_WriteIOs=909738643 
+3:0:4_TotalIOs=25486352483:2:1_ReadIOs=1820238591 3:2:1_WriteIOs=1140801166 3:2:1_TotalIOs=2961039757 
+3:2:2_ReadIOs=0 3:2:2_WriteIOs=0 3:2:2_TotalIOs=0 3:2:3_ReadIOs=0 3:2:3_WriteIOs=0 
+3:2:3_TotalIOs=03:2:4_ReadIOs=0 3:2:4_WriteIOs=0 3:2:4_TotalIOs=0 3:3:1_ReadIOs=2444206400 
+3:3:1_WriteIOs=1606025077 3:3:1_TotalIOs=4050231477 3:3:2_ReadIOs=0 3:3:2_WriteIOs=0 
+3:3:2_TotalIOs=03:3:3_ReadIOs=0 3:3:3_WriteIOs=0 3:3:3_TotalIOs=0 3:3:4_ReadIOs=0 3:3:4_WriteIOs=0 
+3:3:4_TotalIOs=0 3:5:1_ReadIOs=268806737 3:5:1_WriteIOs=605936851 3:5:1_TotalIOs=8747435883:5:2_ReadIOs=0 
+3:5:2_WriteIOs=0 3:5:2_TotalIOs=0 3:5:3_ReadIOs=0 3:5:3_WriteIOs=0 3:5:3_TotalIOs=0 3:5:4_ReadIOs=0 
+3:5:4_WriteIOs=0 3:5:4_TotalIOs=0&lt;/pre&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss/&quot;&gt;HowTo get 3par disk IO stats into Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 29, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[How to find Alerting Rules using the Zenoss API]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/" />
+  <id>http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api</id>
+  <published>2010-03-19T19:31:11-04:00</published>
+  <updated>2010-03-19T19:31:11-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Good Afternoon my fellow Zenoss users. here I bring you another Python tool to use with Zenoss. This tool will allow you to list all of your alerting rules, either by Group, User, or Query. If you are like me and have over 100 Alerting Rules. Managing these rules are more then a pain in the butt. Especially when you create a new rule and you know you created it correctly, but it just does not work... Well you might have another conflicting rule. Well what do you do in this situation?? You can go through each rule manually and sooner or later you will find it.&lt;/p&gt;
+&lt;p&gt;Or you can use my tool to find it for you. You might ask... How will yout tool find the conflicting rule for me??? Well to be honest it will not find the rule for you. What it can do is search all the rules for a certain query. Which can return one or more alerting rules if they are similiar in nature. or you can have the tool, list all of your Alerting rules. Or you can have the script list all of your alerting rules by group or user. The toll will report back to you The Group/User, The Alerting Rules attached to that Group/user, and the Schedules Attached to that Alerting Rules.&lt;/p&gt;
+&lt;p&gt;Where this tool really helped me, was when the DST changed happened. None of my schedules were working anymore, so the work around is to move all the schedules ahead of time. Using this script I found all my schedules very quickly, with out haveing to go through each of my alerting rules one by one.&lt;/p&gt;
+&lt;p&gt;{filelink=7}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-195&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you need help, please post your questions here...&lt;br /&gt;
+&lt;a href=&quot;forums/Scripting/scripting/ZalertingRule_Manager&quot;&gt;http://www.linuxdynasty.org/forums/Scripting/scripting/ZalertingRule_Manager&lt;/a&gt;&lt;br /&gt;
+Example below...&lt;/p&gt;
+&lt;pre&gt;[zenoss@zenoss ~]$ python ZalertingRules_Manager.py --type=&quot;users&quot; --search=&quot;asanabria&quot;q################################################################################Alerting Rules for asanabria ************************************************************ Alerting Rule:        foo SQL Query:    severity &amp;gt;= 4 and eventState = 0 and prodState = 1000
+
+ Windows for Alerting Rule foo Window:      yee Start time:  Thu Mar 18 14:40:30 2010 Duration:    days 0 hours 1 minutes 0 ************************************************************
+
+[zenoss@zenoss ~]$ python ZalertingRules_Manager.py --type=&quot;groups&quot; --search=&quot;Escalation 0&quot;################################################################################Alerting Rules for Escalation 0************************************************************ Alerting Rule:        Server - QA SQL Query:    (prodState = 1000) and (deviceClass like '/Server/Linux/QA Servers%') and (eventState = 0) and (severity &amp;gt;= 4)
+
+ ************************************************************ Alerting Rule:        Email - Downgrade SQL Query:    (prodState = 1000) and (eventClass like '/App/Email/Downgrade%') and (eventState = 0) and (severity &amp;gt;= 4)
+
+ ************************************************************ Alerting Rule:        Email - Job Alerts SQL Query:    (prodState = 1000) and (eventClass like '/App/Email/Job Alerts%') and (eventState = 0) and (severity &amp;gt;= 4)
+
+ Windows for Alerting Rule Email - Job Alerts Window:      0700-0701 Start time:  Sat Mar 13 07:00:00 2010 Duration:    days 0 hours 0 minutes 1 ***********************************************************&lt;/pre&gt;
+&lt;p&gt;As you can see it will get you a wealth of data.. You can also search by query..&lt;/p&gt;
+&lt;pre&gt;[zenoss@zenoss ~]$ python ZalertingRules_Manager.py --type=&quot;query&quot; --search=&quot;/App/Log/Java&quot;################################################################################Owner = App - Tomcat Alerting Rule Tomcat Java Log Matching Query = (prodState = 1000) and (eventClassKey not like '%Java Self Axis Scorer Infinite Loop%') and (eventState = 0) and (severity &amp;gt;= 3) and (eventClass like '/App/Log/Java/US/') Window:      0100-2355 Start time:  Thu Mar 18 01:00:00 2010 Duration:    days 0 hours 22 minutes 55 ************************************************************
+
+################################################################################Owner = Java Self Axis Scorer Infinite Loop Alerting Rule Java Self Axis Scorer Infinite Loop Matching Query = (prodState = 1000) and (eventClassKey like '%Java Self Axis Scorer Infinite Loop%') and (deviceClass like '/Server/Linux/Tomcat/%') and (eventClass like '/App/Log/Java/%') and (eventState = 0) and (severity &amp;gt;= 3)&lt;/pre&gt;
+&lt;p&gt;Many more features to come.....&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/&quot;&gt;How to find Alerting Rules using the Zenoss API&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 19, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo add Multiple DataPoints to Zenoss using the Zenoss API]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/" />
+  <id>http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api</id>
+  <published>2010-03-05T04:12:26-05:00</published>
+  <updated>2010-03-05T04:12:26-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I've seen a few people in the Zenoss community forums asking for an easier way to add multiple Datapoints into Zenoss, instead of adding 1 by 1. Well, I've decided to try and build such a tool today. Now even though the tool is not complete (IN MY EYES). It is already has been helpful to me! As of right now the script can List Templates in a Organizer ( aka /Devices/Server/Linux ) or in a Device ( zenoss1.linuxdynasty ).&lt;/p&gt;
+&lt;p&gt;It can also create a Template, with a Command DataSource, with Multiple DataPoints. This means you can now automate the creation of Templates and DataSources and DataPoints. So if you are using a tool like Puppet, Cfengine, Bcfg2, or Chef, this process can be automated. I will be adding more features in the next few weeks.&lt;/p&gt;
+&lt;p&gt;Any question or help about this script, please post them here &lt;a href=&quot;forums/Scripting/scripting/ZenossTemplateManager&quot;&gt;http://www.linuxdynasty.org/forums/Scripting/scripting/ZenossTemplateManager&lt;/a&gt;&lt;br /&gt;
+&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;UPDATES!!!!!!&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update 1.0.6, Fixed an issue where if youdo not pass the -G option for graph it will fail.&lt;/li&gt;
+&lt;li&gt;Update 1.0.5, Now have the ability to add multiple graphs with multiple datapoints&lt;/li&gt;
+&lt;li&gt;Update 1.0.4, Now have the ability to create thresholds, bind templates to class or device, set severities on thresholds and&lt;br /&gt;
+datasources, attach datapoints to thresholds.&lt;/li&gt;
+&lt;li&gt;Update 1.0.3, I broke down the templateManager function into 3 smaller functions. You also can now list templates and datasources for either device or organizer, and list datapoints for a device. I also added more verbosity with the -V option.&lt;/li&gt;
+&lt;li&gt;Update 1.0.2, You now do not have to pass a command with the script. So i f you already have a command in the DataSource, it wll not get overwritten.. Thank you Eangel, for telling me about this issue..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Upcoming Features such as....&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deleteing Templates, DataSources, and DataPoints&lt;/li&gt;
+&lt;li&gt;Copying Templates&lt;/li&gt;
+&lt;li&gt;Adding Graphs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The tool is called Zenoss_Template_Manager.py. You can download it here..&lt;br /&gt;
+{filelink=3}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-194&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here are some examples....&lt;/p&gt;
+&lt;pre&gt;Examples: python Zenoss_Template_Manager.py -d &quot;zenoss.linuxdynasty&quot; -c'/opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival=&quot;1&quot; --label=&quot;ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific&quot;'--template=TESTER4LIFE2 -p &quot;ifSpeed,G&quot; -p &quot;ifInOctets,C&quot; -p &quot;ifInUcastPkts,C&quot; -p &quot;ifInNUcastPkts,C&quot; -p &quot;ifInDiscards,C&quot; -p &quot;ifInErrors,C&quot; -p &quot;ifOutOctets,C&quot; -p &quot;ifOutUcastPkts,C&quot; -p &quot;ifOutNUcastPkts,C&quot; -p &quot;ifOutDiscards,C&quot; -p &quot;ifOutErrors,C&quot; --dsource=&quot;WoW2&lt;/pre&gt;
+&lt;p&gt;If you already have the command in place for that DataSource, then run the script with out the -c option...&lt;/p&gt;
+&lt;p&gt;Examples:&lt;/p&gt;
+&lt;pre&gt;python Zenoss_Template_Manager.py -d &quot;zenoss.linuxdynasty&quot; --template=TESTER4LIFE2 \
+-p &quot;ifSpeed,G&quot; -p &quot;ifInOctets,C&quot; -p &quot;ifInUcastPkts,C&quot; -p &quot;ifInNUcastPkts,C&quot; -p &quot;ifInDiscards,C&quot; \
+-p &quot;ifInErrors,C&quot; -p &quot;ifOutOctets,C&quot; -p &quot;ifOutUcastPkts,C&quot; -p &quot;ifOutNUcastPkts,C&quot; -p &quot;ifOutDiscards,C&quot; \
+-p &quot;ifOutErrors,C&quot; --dsource=&quot;WoW2&quot;&lt;/pre&gt;
+&lt;p&gt;Another Example With The Verbose Option..&lt;/p&gt;
+&lt;pre&gt;[zenoss@zenoss2 ~]$ python Zenoss_Template_Manager.py -o &quot;/Devices/Server/Linux&quot; \
+-c '/opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival=&quot;1&quot;
+--label=&quot;ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,
+ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific&quot;' \
+-t FooYoo -p &quot;ifSpeed,G&quot; -p &quot;ifInOctets,C&quot; -p &quot;ifInUcastPkts,C&quot; -p &quot;ifInNUcastPkts,C&quot; -p &quot;ifInDiscards,C&quot; -p &quot;ifInErrors,C&quot; -p &quot;ifOutOctets,C&quot; -p &quot;ifOutUcastPkts,C&quot; \
+-p &quot;ifOutNUcastPkts,C&quot; -p &quot;ifOutDiscards,C&quot; -p &quot;ifOutErrors,C&quot; -s &quot;eth0&quot; -S &quot;Critical&quot; -P &quot;Nagios&quot; -b -V
+
+Template FooYoo already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYooBinded Templates : ['Shaolin', 'Device', 'NtpMonitor', 'TESTER4L1F3', 'TESTER', 'FooYoo', 'FooYoo']DataSource eth0 already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Command /opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival=&quot;1&quot; --label=&quot;ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific&quot; has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Parser = NagiosSeverity = 5eth0 DataSource is EnabledDataPoint ifSpeed of type GAUGE has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0&lt;/pre&gt;
+&lt;p&gt;I also added the ability to list templates, datasources, and datapoints...&lt;br /&gt;
+Examples Below...&lt;/p&gt;
+&lt;pre&gt;python Zenoss_Template_Manager.py -d &quot;qazenoss&quot; --list=&quot;datapoints&quot; -t &quot;TESTER4LIFE2&quot;
+ifInDiscards /zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInDiscardsifInErrors
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInErrorsifInNUcastPkts
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInNUcastPktsifInOctets
+/zport/dmd/Devices/Server/Tomcat/qdevices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInOctetsifInUcastPkts
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInUcastPktsifOutDiscards
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutDiscardsifOutErrors
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutErrorsifOutNUcastPkts
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutNUcastPktsifOutOctets
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutOctetsifOutUcastPkts
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutUcastPktsifSpeed
+/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifSpeed&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;pre&gt;python Zenoss_Template_Manager.py -o &quot;/Devices/Server/Tomcat&quot; -l &quot;datasources&quot; -t &quot;Tomcat Thread Pool&quot;
+Tomcat Current Thread Count
+/zport/dmd/Devices/Server/Tomcat/rrdTemplates/Tomcat%20Thread%20Pool/datasources/Tomcat%20Current%20Thread%20CountTomcat
+Current Threads Busy /zport/dmd/Devices/Server/Tomcat/rrdTemplates/Tomcat%20Thread%20Pool/datasources/Tomcat%20Current%20Threads%20Busy
+
+python Zenoss_Template_Manager.py -o &quot;/Devices/Server/Tomcat&quot; -l &quot;templates&quot;
+DigMonitor
+/zport/dmd/Devices/Server/rrdTemplates/DigMonitorFtpMonitor
+/zport/dmd/Devices/rrdTemplates/FtpMonitorJava
+/zport/dmd/Devices/rrdTemplates/Java&lt;/pre&gt;
+&lt;p&gt;Example of creating a Threshold..&lt;/p&gt;
+&lt;pre&gt;[zenoss@zenoss ~]$ python Zenoss_Template_Manager.py -o &quot;/Devices/Server/Linux&quot; -t FooYoo -T FooYee -p &quot;eth0_ifInOctets&quot; -s &quot;eth0&quot; -S &quot;Warning&quot; -m 0 -M 20 -V
+
+Template FooYoo already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYooDataSource
+eth0 already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0FooYee
+threshold created at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/thresholds/FooYeeminval = 0maxval = 20Severity = 3
+eth0_ifInOctets datapoint added to threshold /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/thresholds/FooYeeFooYee
+Threshold is Enabled&lt;/pre&gt;
+&lt;p&gt;Now here is an example of Adding Graphs..&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;attention&quot;&gt; Remember, when adding DataPoints to your graphs, you are adding the name of the DataSource_Datapoint. You can see what the names of the DataPoints you have available by using the --list=&quot;datapoints&quot; option with the --template=TEMPLATE_NAME option&lt;/span&gt;&lt;/p&gt;
+&lt;pre&gt;python Zenoss_Template_Manager.py -d &quot;zenoss.linuxdynasty&quot; -t &quot;TESTER&quot; -G &quot;eth0 Discards, eth0_ifInDiscards, eth0_ifOutDiscards, units=discards&quot;&lt;/pre&gt;
+&lt;p&gt;here is an example of adding graphs with a template and a datasource and multiple datapoints..&lt;/p&gt;
+&lt;pre&gt;python Zenoss_Template_Manager.py -o &quot;/Devices/Server/Linux&quot; -c '/opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival=&quot;1&quot; \
+--label=&quot;ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific&quot;' \
+-t FooYoo -p &quot;ifSpeed,G&quot; -p &quot;ifInOctets,C&quot; -p &quot;ifInUcastPkts,C&quot; -p &quot;ifInNUcastPkts,C&quot; -p &quot;ifInDiscards,C&quot; -p &quot;ifInErrors,C&quot; -p &quot;ifOutOctets,C&quot; -p &quot;ifOutUcastPkts,C&quot; -p &quot;ifOutNUcastPkts,C&quot; -p &quot;ifOutDiscards,C&quot; -p &quot;ifOutErrors,C&quot;\
+ -s &quot;eth0&quot; -S &quot;Critical&quot; -P &quot;Nagios&quot; -b -G &quot;eth0 Discards, eth0_ifInDiscards, eth0_ifOutDiscards, units=discards&quot; -G &quot;eth1 Discards, eth0_ifInDiscards, eth0_ifOutDiscards, units=discards&quot; -V
+
+Template FooYoo created at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYooBinded Templates : ['Shaolin', 'Device', 'NtpMonitor', 'TESTER4L1F3', 'TESTER', 'FooYoo', 'FooYoo']
+DataSource eth0 created at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Parser = NagiosCommand /opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival=&quot;1&quot; --label=&quot;ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific&quot; has been added to DataSource 
+/zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Severity = 5
+eth0 DataSource is EnabledDataPoint 
+ifSpeed of type GAUGE has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifInOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifInUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifInNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifInDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifInErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifOutOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifOutUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifOutNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifOutDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
+ifOutErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0
+eth0 Discards graph was created with ['eth0_ifInDiscards', 'eth0_ifOutDiscards'] 
+DataPoints attached at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/graphDefs/eth0%20Discards
+eth1 Discards graph was created with ['eth0_ifInDiscards', 'eth0_ifOutDiscards'] 
+DataPoints attached at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/graphDefs/eth1%20Discards&lt;/pre&gt;
+&lt;p&gt;To see the Help output, just run it like this &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;python Zenoss_Template_Manager.py -h&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/&quot;&gt;HowTo add Multiple DataPoints to Zenoss using the Zenoss API&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 05, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo backup all of your Zenoss Templates the easy way.]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/" />
+  <id>http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way</id>
+  <published>2010-02-12T20:19:58-05:00</published>
+  <updated>2010-02-12T20:19:58-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Recently I had to prepare for a Zenoss upgrade. During my prep work I had to create a zenpack of all of our Templates. For those of you who use Zenoss, you know how many templates you can start to accumulate in a short amount of time. You can have Templates attached to single Devices, to SubClasses, and to Classes. Now if you have a few devices this is not a big deal. But if you have a couple hundred to a couple of thousand devices, this could be a real hassle.&lt;/p&gt;
+&lt;p&gt;Now you can take a ton of your time and review Class by Class and Device by Device until you finally finish. You will eventually get it all in a Zenpack....... Well lucky for you guys I created a Python Script that runs as the Zenoss user and create a Zenpack for you. All you have to do is pick a name for the ZenPack and optionally the Device Class you want to scan. The script will scan the Device Class that you specified ( or by default scan the entire /Device Class and its Sub Classes). It will then create the ZenPack with all the locally attached Device Templates. I am thinking of also adding the Events class as part of the next release of this script.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;note&quot;&gt;Update 1.0.1, I added the --unique option. If you decide to use this option, This Zenpack will only add, The Device Templates that are not already part of an existing ZenPack. I also added the --verbose option, so that you can see which Device Templates are being added or being dismissed.&lt;br /&gt;
+&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You can download the script here&lt;br /&gt;
+{filelink=8}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-85&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Example.....&lt;/p&gt;
+&lt;pre&gt;python createZenPack.py -p &quot;ZenPacks.Allen.Test1&quot; -a &quot;Allen Sanabria&quot; -v &quot;0.9&quot; -r &quot;/Server/Linux/&quot;
+
+INFO:zen.HookReportLoader:loading reports from:/opt/zenoss/ZenPacks/ZenPacks.Allen.Test1/ZenPacks/Allen/Test1/reportsCreated ZenPack ZenPacks.Allen.Test1Scanning for locally attached TemplatesScanning for locally attached TemplatesObjects Attached to Zenpack ZenPacks.Allen.Test1/zport/dmd/Devices/Server/Linux/foo1.com/foo/zport/dmd/Devices/Server/Linux/DNS/bind/zport/dmd/Devices/Server/Linux/Apache/http&lt;/pre&gt;
+&lt;p&gt;Another Example, with the unique option and verbose option.&lt;/p&gt;
+&lt;pre&gt;python createZenPack.py -p &quot;ZenPacks.Allen.Test1&quot; -a &quot;Allen Sanabria&quot; -v &quot;0.9&quot; -u -V 
+
+-INFO:zen.HookReportLoader:loading reports from:/opt/zenoss/ZenPacks/ZenPacks.Allen.Test1/ZenPacks/Allen/Test1/reportsCreated ZenPack ZenPacks.Allen.Test1Scanning for locally attached TemplatesScanning for locally attached TemplatesObjects Attached to Zenpack ZenPacks.Allen.Test1I'm not UNIQUE /zport/dmd/Devices/Server/rrdTemplates/LDAPServerI'm in ZenPacks.zenoss.LDAPMonitorI'm not UNIQUE /zport/dmd/Devices/Server/rrdTemplates/ApacheI'm in ZenPacks.zenoss.ApacheMonitorI'm UNIQUE /zport/dmd/Devices/Server/Linux/foo1.com/foo&lt;/pre&gt;
+&lt;p&gt;Another Example...&lt;/p&gt;
+&lt;pre&gt;python createZenPack.py --listHPTemperatureSensorsZenPacks.Allen.Test1ZenPacks.Allen.FullZenPacks.Allen.Tomcat&lt;/pre&gt;
+&lt;p&gt;Help OutPut...&lt;/p&gt;
+&lt;pre&gt;python createZenPack.py -husage: createZenPack.py  --packname=ZenPackName --author=name --version=1.0
+
+options: -h, --help            show this help message and exit -p ZPACKNAME,         --packname=ZPACKNAME                       The name of the ZenPack that you want to create -a AUTHOR,            --author=AUTHOR                       Who is creating The ZenPack? -v VERSION,           --version=VERSION                       What Release is this? -r ROOT,              --root=ROOT                         What Device Class You want the Search to begin at? -l,                   --list                       List all the ZenPacks&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/&quot;&gt;HowTo backup all of your Zenoss Templates the easy way.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 12, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[HowTo monitor the Netscaler using Python and Soap instead of SNMP]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/" />
+  <id>http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp</id>
+  <published>2010-02-07T21:29:17-05:00</published>
+  <updated>2010-02-07T21:29:17-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>you@email.com</email>
+  </author>
+  <content type="html">&lt;p&gt;In this HowTo, I will show you how you can get statistics off of the Netscaler without using SNMP. You might be asking why would I want to do that?? Well like many other devices that support SNMP, the Netscaler makes use of dynamic OID creation. For those of you that do not understand what I mean. Dynamic OID creation, is the way that Networking devices give OID's to variables that are not static in the device itself.&lt;/p&gt;
+&lt;p&gt;Here are some common static variables/OID's, amongst most devices out there.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU Utilization&lt;/li&gt;
+&lt;li&gt;Disk Utilization&lt;/li&gt;
+&lt;li&gt;Memory Utilization&lt;/li&gt;
+&lt;li&gt;TCP Statistics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are some common, non-static variables/OID's..&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Load Balanced Virtual Server&lt;/li&gt;
+&lt;li&gt;Statistics about LUNS&lt;/li&gt;
+&lt;li&gt;Statistics about Services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now you can get these statistics off of the SNMP based device. But if and when this device is rebooted, more then likely the OID has changed. Now you are stuck with the task, of finding the new OID. Since the Netscalers have a SOAP Based API, we can get those same statistics with out ever needing to know the OID.&lt;/p&gt;
+&lt;p&gt;Here I have attached a script that I wrote, using Python and Suds to connect to the Netscaler. This script works perfectly with &lt;a href=&quot;http://www.zenoss.com/&quot;&gt;Zenoss&lt;/a&gt; and its DataPoint structure. {filelink=9}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-84&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;attention&quot;&gt;Before you proceeed any further, you will need to download SUDS from here &lt;a href=&quot;https://fedorahosted.org/suds/&quot;&gt;https://fedorahosted.org/suds/&lt;/a&gt;.&lt;/span&gt;&lt;br /&gt;
+You should also check this HowTo that I wrote, it contains some examples on how to connect to the Netscaler using the Python Virtual Shell.&lt;br /&gt;
+&lt;a href=&quot;http://www.linuxdynasty.org/how-to-get-information-from-the-netscaler-using-python-and-suds.html&quot;&gt;http://www.linuxdynasty.org/how-to-get-information-from-the-netscaler-using-python-and-suds.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here are some examples on how you will run the script...&lt;/p&gt;
+&lt;pre&gt;python getns_stats.py -t http -i &quot;nsip&quot; -u &quot;login&quot; -p &quot;passwd&quot;OK|httptotrxresponsebytes=116454007709 httpresponsesrate=0 httppostsrate=0 httptotposts=3960332 httptotgets=5621562 httperrserverbusy=9540 httprequestsrate=0 httprxresponsebytesrate=0 httptotothers=3505 httptxresponsebytesrate=0 httptotrequests=9585399 httperrserverbusyrate=0 httprxrequestbytesrate=0 httptotresponses=9569809 httpgetsrate=0 httptottxresponsebytes=0 httpothersrate=0 httptotrxrequestbytes=21823753173
+
+python getns_stats.py -t tcp -i &quot;nsip&quot; -u &quot;login&quot; -p &quot;passwd&quot;OK|tcpcurserverconn=379 tcpcurclientconnclosing=4 tcptotrxbytes=169757271745 tcpclientconnopenedrate=0 tcpcurserverconnopening=0 tcptottxpkts=497006339 tcprxpktsrate=25 tcpactiveserverconn=4 tcpcurserverconnclosing=374 tcptxbytesrate=1902 tcprxbytesrate=1641 tcpcurclientconnopening=0 tcpcurclientconn=16 tcpcurserverconnestablished=5 tcptotrxpkts=460755860 tcptxpktsrate=31 tcpcurclientconnestablished=12 tcpserverconnopenedrate=10 tcptottxbytes=108830467243&lt;/pre&gt;
+&lt;p&gt;Both the Stats, above are actually static in The Netscaler. But I actually included them in the script, because I can. The stats I will show you below are not static..&lt;/p&gt;
+&lt;pre&gt;python getns_stats.py -n test_vs -t lbvserver -i &quot;nsip&quot; -u &quot;login&quot; -p &quot;passwd&quot;OK|totalresponses=18238 establishedconn=0 pktssentrate=0 totalrequestbytes=18807153 hitsrate=0 totalrequests=18299 requestbytesrate=0 requestsrate=0 totalpktsrecvd=25490 pktsrecvdrate=0 curclntconnections=0 totalresponsebytes=815662173 totalpktssent=70190 responsebytesrate=0 tothits=18303 cursrvrconnections=0 responsesrate=0
+
+python getns_stats.py -n test_svc -t service -i &quot;nsip&quot; -u &quot;login&quot; -p &quot;passwd&quot;OK|totalresponses=2070 throughputrate=0 totalrequestbytes=3309175 totalrequests=2071 svrestablishedconn=0 surgecount=0 requestbytesrate=0 requestsrate=0 activetransactions=0 throughput=0 curclntconnections=0 totalresponsebytes=25849781 responsebytesrate=0 cursrvrconnections=8 responsesrate=0
+
+python getns_stats.py Please provide the Netscaler IPAddress and username/password pass the --help for more options
+
+python getns_stats.py -husage: getns_stats.py [options] arg --username=username --password=password --netscaler=netscalerip
+
+options:-h, --help                          show this help message and exit                                    -i HOSTNAME, --hostname=HOSTNAME                                    Here you will put the netscaler IPAddress or the                                    netscaler hostname
+
+-u USERNAME, --username=USERNAME    Your username
+
+-p PASSWORD, --password=PASSWORD    Your password
+
+-l LIST, --list=LIST                List all the names of the Virtual Servers and                                    Services. Example --list=lbvserver, --list=service
+
+-n NAME, --name=NAME                Virtual Server that you want to grab statistics for.
+
+-t TYPE, --type=TYPE                Here you either pass service, lbvserver, tcp or http.                                    example... --name=foobar --type=lbvserver  or                                    --type=tcp or --type=http or --name=foobar                                    --type=service&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/&quot;&gt;HowTo monitor the Netscaler using Python and Soap instead of SNMP&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 07, 2010.&lt;/p&gt;</content>
+</entry>
+
+</feed>

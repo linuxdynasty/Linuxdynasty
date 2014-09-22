@@ -1,0 +1,600 @@
+---
+layout: post
+status: publish
+published: true
+title: Bash Tutorial
+author:
+  display_name: admin
+  login: admin
+  email: admin@linuxdynasty.org
+  url: ''
+author_login: admin
+author_email: admin@linuxdynasty.org
+excerpt: ! "<h2>BASH</h2>\r\n<p>We've all heard of shell programming, but in the end
+  what we write are simple scripts composed of strung-together commands, performing
+  simple operations in a more-or-less linear manner. But the shell can do much more
+  than what we tend to ask of it.</p>\r\n<p><code>bash</code> is, in my opinion, the
+  most powerful shell on the market that doesn't require you to be a programmer to
+  use it. On the other hand, for those who want to learn to program it, rather than
+  just script it, its sound principles and powerful features offer a wealth of opportunity
+  for writing fast, flexible programs that can often out-perform most other interpreted
+  languages.</p>\r\n<p>This is a <em>very</em> informal crash tutorial in intermediate
+  features of shell programming. It assumes a basic grasp of programming principles
+  and of simple, beginner-level shell scripting.</p>\r\n<h2>\r\n<br />"
+wordpress_id: 91
+wordpress_url: http://linuxdynasty.org/?p=91
+date: !binary |-
+  MjAwOC0wNS0wNCAyMzo1NToxNCAtMDQwMA==
+date_gmt: !binary |-
+  MjAwOC0wNS0wNCAyMzo1NToxNCAtMDQwMA==
+categories: []
+tags:
+- Shell HowTo's
+- Bash Tutorial HowTo Bash HowTo scripting howto shell scripting Bash howto bash tutorial
+  bash scripting bash arrays bash example foreach
+comments: []
+---
+<h2>BASH</h2>
+<p>We've all heard of shell programming, but in the end what we write are simple scripts composed of strung-together commands, performing simple operations in a more-or-less linear manner. But the shell can do much more than what we tend to ask of it.</p>
+<p><code>bash</code> is, in my opinion, the most powerful shell on the market that doesn't require you to be a programmer to use it. On the other hand, for those who want to learn to program it, rather than just script it, its sound principles and powerful features offer a wealth of opportunity for writing fast, flexible programs that can often out-perform most other interpreted languages.</p>
+<p>This is a <em>very</em> informal crash tutorial in intermediate features of shell programming. It assumes a basic grasp of programming principles and of simple, beginner-level shell scripting.</p>
+<h2>
+<br /><a id="more"></a><a id="more-91"></a><br /></h2>
+<h2>1. ENVIRONMENT AND SUBSHELLS:</h2>
+<p>It may seem to some readers that this needn't be stated, but it needs: one cannot, from within one process, affect the environment of another process, and this also applies to subprocesses affecting their respective parent processes.</p>
+<p>The reason this needs to be stated is simply this: in shell programming, it's easy to accidentally create a subshell. The most common example is pipelines. Every pipeline is run in a subshell.</p>
+<blockquote>
+<pre>bar=woot<br />cat foo | while read<br />        do<br />            bar=&quot;$REPLY&quot;<br />        done<br />echo &quot;$bar&quot;<br /></pre>
+</blockquote>
+<p>In the above, the <code>echo</code> will output <code>woot</code>, rather than the last line of the file <em>foo</em>.</p>
+<p>Likewise, backticks and <code>$(command)</code> constructs (i.e. command substitution), as well as parenthesised simple and compound commands, are run within subshells.</p>
+<p>Every binary you execute actually starts out as a subshell: <code>bash</code> is doing your classic <code>fork</code>/<code>exec</code> we all know and love. The only exception to this is when you use the <code>.</code> or <code>source</code> builtin commands, which require an executable file as argument.</p>
+<p>Where high efficiency and paucity of resources are a concern, subshells and even executables should be avoided. Fortunately, <code>bash</code> 3 and beyond are so powerful that most of the things you're used to relying on executables for (<code>cat</code>, <code>grep</code>, <code>cut</code>, <code>sed</code>, <code>awk</code>, <code>netcat</code>, <code>expr</code>, <code>perl</code>) can be done natively.</p>
+<p>Normally, variables are not passed on into the environments of subprocesses other than subshells. Only variables marked for export are propagated to the environments of subprocesses, and there are several ways to so mark a variable:</p>
+<ul>
+<li>with the <code>local</code>, <code>declare</code>, or <code>typeset</code> builtin commands, given the <code>-x</code> flag</li>
+<li>with the <code>export</code> builtin </li>
+<li>by running <code>set -a</code>, which will mark all subsequently-defined or -redefined functions and variables</li>
+</ul>
+<p>Applying any properties to an undeclared variable will also cause it to be declared, but with a null (empty) value.</p>
+<p>The marking may be removed by <code>unset</code>ting the variable or by explicitly removing it using the <code>local</code>, <code>declare</code>, or <code>typeset</code> builtins.</p>
+<p>You can define variables that only exist in the child process' environment simply by prefixing the command with the list of variable definitions:</p>
+<blockquote>
+<pre>foo=bar baz=woot /bin/bash -c 'echo $baz'<br />&gt; woot<br />echo $foo<br />&gt; <br /></pre>
+</blockquote>
+<h2>2. SIMPLE AND COMPOUND COMMANDS:</h2>
+<p>Compound commands are essentially just combinations of simple or compound commands.</p>
+<p>They can be formed by parenthesising a list of commands:</p>
+<blockquote>
+<pre>( exit 1 )<br /></pre>
+</blockquote>
+<p>Bracing them:</p>
+<blockquote>
+<pre>{ false; }<br /></pre>
+</blockquote>
+<p>Invoking arithmetic evaluation with <code>((</code> or conditional evaluation with <code>[[</code>,</p>
+<p>Or by invoking one of the shell's control flow keywords, like:</p>
+<blockquote>
+<pre>if for while until case select<br /></pre>
+</blockquote>
+<p>The exit value of any compound command is the exit value of the last simple command executed within it.</p>
+<p>Simple commands are the kinds of commands you're used to entering as you move about in a shell, like <code>chdir</code>, <code>rm</code>, <code>cat</code>, <code>grep</code>, et cetera. They may be functions, <code>bash</code> builtins, aliases, or executable files.</p>
+<h2>3. WORD SPLITTING:</h2>
+<p>You cannot understand shell programming without understanding word splitting. Word splitting is at the heart of all of your problems when you try to shell out from another program, the reason programmers hate spaces in filenames, and much more.</p>
+<p>Every simple command line is split into words. The first word is the command, and the remaining words are each an argument to the command.</p>
+<p>The special variable <code>IFS</code> contains the characters on which words are split. Normally this is a space, a tab, and a newline. Any unquoted, unescaped occurrence of any of these characters causes the previous word to be terminated and a new word to begin.</p>
+<p>Thus the command:</p>
+<blockquote>
+<pre>cat foo bar<br /></pre>
+</blockquote>
+<p>Is split into three words, the first of which is treated as the command name. The second and third words are given to <code>cat</code> as its arguments. This is basically the same as in other languages doing something like this:</p>
+<blockquote>
+<pre>cat('foo', 'bar')<br /></pre>
+</blockquote>
+<p>Or, more to the point:</p>
+<blockquote>
+<pre>fork || exec('cat', 'foo', 'bar')<br /></pre>
+</blockquote>
+<p>But in these:</p>
+<blockquote>
+<pre>cat foo bar<br />cat 'foo bar'<br />cat &quot;foo bar&quot;<br />cat <pre><!--[WPJCODEcat%20foo%5C%20bar%3Cbr%20/%3Ecat%20%27foo%20bar%27%3Cbr%20/%3Ecat%20%26quot%3Bfoo%20bar%26quot%3B%3Cbr%20/%3Ecat%20%24%26quot%3Bfoo%20bar%26quot%3B%3Cbr%20/%3Ecat%20foo%20bar%27%3Cbr%20/%3EWPJCODE]--></pre>
+<p>quot;foo bar&quot;</p>
+<p>
+cat foo bar'</p>
+<p>
+</p></blockquote>
+<p>The space has been escaped in the first instance and quoted in the others, so no word splitting occurs on that space, so the command is analogous to:</p>
+<blockquote>
+<pre>exec('cat', 'foo bar')<br /></pre>
+</blockquote>
+<p>The same is true for:</p>
+<blockquote>
+<pre>cat foo' 'bar<br />cat 'foo 'bar<br />cat fo'o b'ar<br /></pre>
+</blockquote>
+<p>And so forth.</p>
+<h2>4. QUOTING</h2>
+<p>There are several kinds of quoting available in <code>bash</code>, each with its own uses. The most common are double quotes, eminently useful because many sorts of substitution occur within them just as happens at the command line.</p>
+<blockquote>
+<pre>foo=bar; echo &quot;woot '$foo'`echo bang`&quot;<br /></pre>
+</blockquote>
+<p>This will output:</p>
+<blockquote>
+<pre>woot 'bar'bang<br /></pre>
+</blockquote>
+<p>Single quotes are easier to predict:</p>
+<blockquote>
+<pre>foo=bar; echo 'woot &quot;$foo&quot;`echo bang`'<br />&gt; woot &quot;$foo&quot;`echo bang`<br /></pre>
+</blockquote>
+<p>But the difficulty in single quotes is illustrated just there: you cannot escape anything inside of single quotes, because everything, including escape sequences, is already escaped.</p>
+<blockquote>
+<pre>foo=bar; echo 'woot '$foo' 'bang'<br />&gt; woot bar' bang<br /></pre>
+</blockquote>
+<p>The only way to get a literal single quote there is to close the single quotes, escape a single quote, and then reopen the single quotes:</p>
+<blockquote>
+<pre>foo=bar; echo 'woot '''$foo''' bang'<br />&gt; woot '$foo' bang<br /></pre>
+</blockquote>
+<p>That's where dollared single-quotes come in. These allow escape sequences, but no other substitutions occur.</p>
+<blockquote>
+<pre>foo=bar; echo woot '$foo' bang'<br />&gt; woot '$foo' bang<br /></pre>
+</blockquote>
+<p>Fancy. Even fancier:</p>
+<blockquote>
+<pre>echo wootnfoontbar'<br />&gt; woot<br />&gt; foo<br />&gt;     bar<br /></pre>
+</blockquote>
+<h2>5. VARIABLES (a.k.a. PARAMETERS):</h2>
+<p>In other languages, you're probably used to citing a variable and thereby treating the variable itself:</p>
+<blockquote>
+<pre>cat($foo)<br /></pre>
+</blockquote>
+<p>Regardless of the value of <code>$foo</code>, it's one argument.</p>
+<p>In <code>bash</code>, things are more complicated. Much more complicated.</p>
+<p>In <code>bash</code>, you're either dealing with a variable or its value.</p>
+<blockquote>
+<pre>foo=bar<br />cat $foo<br />&gt; cat: bar: No such file or directory<br /><br />foo=&quot;bar baz&quot;<br />cat $foo<br />&gt; cat: bar: No such file or directory<br />&gt; cat: baz: No such file or directory<br />cat foo<br />&gt; cat: foo: No such file or directory<br />cat &quot;$foo&quot;<br />&gt; cat: bar baz: No such file or directory<br /></pre>
+</blockquote>
+<p>Parameter expansion (a.k.a. variable substitution) occurs in line with word splitting, so if the variable contains word splitting characters (one of the characters in the <code>IFS</code> special variable's value), it will get split on those characters unless the variable is expanded into already-opened quotes.</p>
+<blockquote>
+<pre>foo='&quot;bar baz&quot;'<br />cat $foo<br />&gt; cat: &quot;bar: No such file or directory<br />&gt; cat: baz&quot;: No such file or directory<br /></pre>
+</blockquote>
+<p><code>bash</code> provides for two kinds of variables: scalar and array. Both types of variables may be declared and defined using name=value sets (although for arrays there's a little more to it), and/or by the <code>export</code>, <code>local</code>, <code>declare</code>, and <code>typeset</code> builtins.</p>
+<h3>5.1. SCALAR VARIABLES:</h3>
+<p>Scalar variables have, as the name implies, one value. These are the variables you commonly see tossed about in most shell scripts:</p>
+<blockquote>
+<pre>foo=bar<br />bar=`echo baz`<br /></pre>
+</blockquote>
+<p>It might not seem like there's much to these, but there's a lot more than just <code>foo=bar; echo $foo;</code> For starters, consider this:</p>
+<blockquote>
+<pre>thing=3<br />declare -i stuff=thing+2<br />echo $stuff<br />&gt; 5<br />stuff=thing+stuff<br />echo $stuff<br />&gt; 8<br /></pre>
+</blockquote>
+<p>That's arithmetic evaluation occurring at time of assignation, thanks to that <code>-i</code> mark we gave to the <code>stuff</code> variable. You don't necessarily need a variable for it, but it can be handy.</p>
+<blockquote>
+<pre>echo $((256 % 30))<br />&gt; 16<br /></pre>
+</blockquote>
+<p>Now consider this:</p>
+<blockquote>
+<pre>you=Jack<br />echo &quot;$you's bean business ($youbean) was booming.&quot;<br />&gt; Jack's bean business () was booming.<br /></pre>
+</blockquote>
+<p><code>bash</code> doesn't look very hard for variables. If the first character isn't a number, it looks for the longest possible identifier and uses it, even if it doesn't identify an already-defined variable.</p>
+<blockquote>
+<pre>you=Jack<br />echo &quot;$you's bean business (${you}bean) was booming.&quot;<br />&gt; Jack's bean business (Jackbean) was booming.<br /></pre>
+</blockquote>
+<p>Using braces on a variable name also lets us introduce all sorts of expansion tricks.</p>
+<blockquote>
+<pre>thing=&quot;to sleep and perchance to dream&quot;<br /></pre>
+</blockquote>
+<p>Let's chop off the first <code>to</code>:</p>
+<blockquote>
+<pre>echo &quot;${thing#to}&quot;<br />&gt;  sleep and perchance to dream<br /></pre>
+</blockquote>
+<p>Or everything up through the last <code>to</code>:</p>
+<blockquote>
+<pre>echo &quot;${thing##*to }&quot;<br />&gt; dream<br /></pre>
+</blockquote>
+<p>Or just the first two words:</p>
+<blockquote>
+<pre>echo &quot;${thing#* * }&quot;<br />&gt; and perchance to dream<br /></pre>
+</blockquote>
+<p>We can do the same thing for the end of the variable:</p>
+<blockquote>
+<pre>echo &quot;${thing%to*}&quot;<br />&gt; to sleep and perchance <br />echo &quot;${thing%%to*}&quot;<br />&gt; <br />echo &quot;${thing% * *}&quot;<br />&gt; to sleep and perchance<br /></pre>
+</blockquote>
+<p>What's more, we can also do searches and replaces with the <code>/</code> expansion:</p>
+<blockquote>
+<pre>echo &quot;${thing/to/2}&quot;<br />&gt; 2 sleep and perchance to dream<br />echo &quot;${thing//to/2}&quot;<br />&gt; 2 sleep and perchance 2 dream<br />echo &quot;${thing//e?/WOOT}&quot;<br />&gt; to slWOOTp and pWOOTchancWOOTto drWOOTm<br /></pre>
+</blockquote>
+<p>Sometimes we want to use a variable if it's defined, but have some other value if it's not, or has a null value:</p>
+<blockquote>
+<pre>undef=<br />echo &quot;${undef:-foo}&quot;<br />&gt; foo<br /></pre>
+</blockquote>
+<p>We can even assign it at the same time, which can be handy with the <code>:</code> builtin:</p>
+<blockquote>
+<pre>echo &quot;${undef:=foo}&quot;<br />&gt; foo<br />echo &quot;${undef:=what}&quot;<br />&gt; foo<br />undef=<br />: &quot;${undef:=foo}&quot;<br />echo &quot;$undef&quot;<br />&gt; foo<br /></pre>
+</blockquote>
+<p>We can even bork if it's null or not defined:</p>
+<blockquote>
+<pre>undef=<br />echo &quot;${undef:?BORK}&quot;<br />&gt; -bash: undef: BORK<br />echo $?<br />&gt; 1<br /></pre>
+</blockquote>
+<p>Substrings:</p>
+<blockquote>
+<pre>echo &quot;${thing:13}&quot;<br />&gt; perchance to dream<br />echo &quot;${thing:13:9}&quot;<br />&gt; perchance<br /></pre>
+</blockquote>
+<p>Length:</p>
+<blockquote>
+<pre>echo &quot;${#thing}&quot;<br />&gt; 31<br /></pre>
+</blockquote>
+<p>Weird combinations:</p>
+<blockquote>
+<pre>: &quot;${stuff:=&quot;${thing:13}&quot;}&quot;<br />echo &quot;${thing:${#stuff}:13}&quot;<br />&gt; ance to dream<br /></pre>
+</blockquote>
+<p>And even other vars:</p>
+<blockquote>
+<pre>stuff=thing<br />echo &quot;${!stuff}&quot;<br />&gt; to sleep and perchance to dream<br /></pre>
+</blockquote>
+<p>Notice that I quoted the <code>&quot;${thing:13}&quot;</code> inside the default assignment to <code>stuff</code>? It's a good idea to always quote your string expansions. Substitutions still occur inside of parameter expansions, even if they mean far less than they otherwise would. Inside of the expansion, quoting and word splitting are 'reset', so to speak. The quotation marks, rather than closing and reopening the outer quotes, actually opened and closed an inner set of quotes. When <code>${}</code> and <code>$()</code> are expanded, what's inside is evaluated independently of what contains it, with the only exceptions being arrays and the parameter list, which we'll deal with later.</p>
+<p>Mostly this precaution is to ease maintainability, as transforming the code later can get pretty hairy. This doesn't stop it from growing hair, it just makes it easier to shave.</p>
+<p>Keep a mental taint flag on all your variables you get from outside -- even if they're from a trusted command's output. Was there an error? Are you SURE you got what you expected? Treat these values with caution -- quote them, protect them. Any value might have a space in it, so quote its expansion where such things make an unwanted difference.</p>
+<h3>5.1.1. POSITIONAL PARAMETERS (a.k.a. ARGUMENTS):</h3>
+<p>The positional parameters are usually the arguments passed to the current script or function, with exception for <code>$0</code>, which is the program's idea of what path was used to run it.</p>
+<p>Notice that? <em>The program's idea of what path was used to run it.</em> It doesn't necessarily mean that that's the right idea. Don't <code>sudo</code> <code>$0</code>, because <code>$0</code> could very well be a lie. See exec(3). Hell, you can even use the shell's built-in <code>exec</code> to lie to a command about what it is:</p>
+<blockquote>
+<pre>( exec -a killer_sub /bin/bash -c 'echo $0' )<br />&gt; killer_sub<br /></pre>
+</blockquote>
+<p><strong><em>DON'T RUN <code>$0</code></em></strong><br />
+ K?</p>
+<p>The other positional parameters are the arguments to the program, and they're much easier and safer to deal with.</p>
+<p>Consider this program, which I call <code>yes</code>:</p>
+<blockquote>
+<pre>#!/bin/bash<br />s=&quot;${1:-y}&quot;<br />while true; do echo &quot;$s&quot;; done<br /></pre>
+</blockquote>
+<p>It works exactly like the <code>yes</code> we all know and love, excepting only the <code>--help</code> and <code>--version</code> arguments, which it doesn't support.</p>
+<p>You can use the <code>set</code> builtin to set the positional parameters (except <code>$0</code>):</p>
+<blockquote>
+<pre>set -- $thing<br />echo $4<br />&gt; perchance<br /></pre>
+</blockquote>
+<p>Unless you use braces, <code>bash</code> will only look at the first number following the <code>$</code> to determine which argument you want to retrieve, so to get the tenth argument you have to use braces.</p>
+<blockquote>
+<pre>set -- one two three four five six seven eight nine ten eleven<br />echo <pre>0<br />&gt; one0<br />echo ${10}<br />&gt; ten<br /></pre>
+</blockquote>
+<p>When you're done with an argument and want to dispose of it, you can <code>shift</code> it off:</p>
+<blockquote>
+<pre>shift<br />echo <pre><br />&gt; two<br />shift 3<br />echo <pre><br />&gt; five<br /></pre>
+</blockquote>
+<p>The positional parameters are subject to all of the same parameter expansions you saw in the previous section, except <code>:=</code>, which just won't work.</p>
+<blockquote>
+<pre>set --<br />echo &quot;${1:=foo}&quot;<br />&gt; -bash: <pre>: cannot assign in this way<br /></pre>
+</blockquote>
+<p>Now, if you want to access all of the positional parameters, there are two ways to do it, and each has its place. Consider this:</p>
+<blockquote>
+<pre>set -- foo 'foo bar' jazz<br />for i in $*; do echo $i; done<br />&gt; foo<br />&gt; foo<br />&gt; bar<br />&gt; jazz<br /></pre>
+</blockquote>
+<p>The <code>$*</code> expansion expands all of the positional parameters separated by spaces. Simple enough, but look what happened to <code>$2</code> -- it used to be <code>foo bar</code>, but it got word-split.</p>
+<p>The other way to get all of the positional parameters is with <code>$@</code>, which operates exactly the same way unless you wrap it in quotes.</p>
+<blockquote>
+<pre>for i in $*; do echo $i; done<br />&gt; foo<br />&gt; foo<br />&gt; bar<br />&gt; jazz<br />for i in &quot;$*&quot;; do echo $i; done<br />&gt; foo foo bar jazz<br />for i in $@; do echo $i; done<br />&gt; foo<br />&gt; foo<br />&gt; bar<br />&gt; jazz<br />for i in &quot;$@&quot;; do echo $i; done<br />&gt; foo<br />&gt; foo bar<br />&gt; jazz<br /></pre>
+</blockquote>
+<p>You'll almost always want to use the quoted <code>$@</code> expansion. What's happening here is that each positional parameter is being expanded into a separate word. Think about that: word-splitting is suspended upon the first quotation mark, but after the first positional parameter is expanded, the word is split anyway.</p>
+<blockquote>
+<pre>for i in &quot;woot$@jam&quot;; do echo $i; done<br />&gt; wootfoo<br />&gt; foo bar<br />&gt; jazzjam<br /></pre>
+</blockquote>
+<h3>5.2. ARRAY VARIABLES:</h3>
+<p><code>bash</code> provides simple, single-dimensional, numerically-indexed arrays.</p>
+<p>You can declare an array using the -a flag to the <code>local</code>, <code>declare</code>, or <code>typeset</code> builtins, and wrapping its value in parentheses:</p>
+<blockquote>
+<pre>declare -a foo=( bar baz )<br /></pre>
+</blockquote>
+<p>The <code>declare -a</code> isn't strictly necessary:</p>
+<blockquote>
+<pre>shaz=( era dotty )<br /></pre>
+</blockquote>
+<p>Like the overwhelming majority of programming languages, <code>bash</code> arrays are indexed from zero.</p>
+<blockquote>
+<pre>echo ${foo[0]}<br />&gt; bar<br /></pre>
+</blockquote>
+<p>You can assign to individual buckets within an array using the common bracket subscription:</p>
+<blockquote>
+<pre>foo[23]=jazz<br /></pre>
+</blockquote>
+<p>You can use the same subscripting assignment when you initialise the array:</p>
+<blockquote>
+<pre>foo=( bar baz [23]=jazz )<br /></pre>
+</blockquote>
+<p><code>bash</code> arrays are also sparse, which means that putting something into the 24th slot doesn't cause the previous 23 slots to suddenly exist.</p>
+<blockquote>
+<pre>echo ${#foo[*]}<br />&gt; 3<br /></pre>
+</blockquote>
+<p>Dealing with arrays can become rather verbose, because if you don't use braces you're only accessing the first element:</p>
+<blockquote>
+<pre>echo $foo[23]<br />&gt; bar[23]<br />echo ${foo[23]}<br />&gt; jazz<br /></pre>
+</blockquote>
+<p>Iterating through an array's values is pretty easy:</p>
+<blockquote>
+<pre>for i in &quot;${foo[@]}&quot;; do echo &quot;$i&quot;; done<br />&gt; bar<br />&gt; baz<br />&gt; jazz<br /></pre>
+</blockquote>
+<p>You can also iterate through its defined indices:</p>
+<blockquote>
+<pre>echo ${!foo[*]}<br />&gt; 0 1 23<br />for i in ${!foo[*]}; do echo &quot;${foo[$i]}&quot;; done<br />&gt; bar<br />&gt; baz<br />&gt; jazz<br /></pre>
+</blockquote>
+<p>Notice the use of <code>*</code> and <code>@</code> so far. Just like the positional parameters, <code>@</code> and <code>*</code> are the same except when used within double quotes. That is, when you use <code>@</code> within double-quotes, each value expands into its own word, whereas <code>*</code> will not. This doesn't affect <code>${#array[@]}</code>, which always expands to just a single number, but it does affect <code>${!array[@]}</code> (defined indices), and more importantly <code>${array[@]}</code> (values).</p>
+<p>Get a count of the values in an array: <code>${#array[*]}</code><br />
+ Get the list of defined indices in an array: <code>${!array[*]}</code><br />
+ Get the list of values in an array: <code>&quot;${array[@]}&quot;</code></p>
+<p>Arrays are particularly useful for protecting arguments you need to pass on to another program. Let's say we're building a specialised program that happens to use <code>rsync</code> in weird and esoteric ways. We have to build up a list of options we'll be passing to <code>rsync</code>, and some of those options take arguments that we're getting from user input.</p>
+<p>User input is like a box of chocolates... we need to protect the spaces the user took care to quote on the way into our arguments list, but we also need to protect ourselves because they might be trying to insert options we don't want in there.</p>
+<p>A scalar variable would have to be carefully examined and transformed to be well-sanitised and well-protected without getting mangled.</p>
+<p>But we could just shove the options into an array and expand each value into its own word using the quoted <code>@</code>:</p>
+<blockquote>
+<pre>rsync &quot;${options[@]}&quot;<br /></pre>
+</blockquote>
+<p>It's just as easy as that.</p>
+<h3>5.3. SPECIAL VARIABLES:</h3>
+<p><code>bash</code> has many, many special variables. Look them up in the manpage under <code>Special Parameters</code> and <code>Shell Variables</code>. Only a few are shown here:</p>
+<blockquote>
+<dl>
+<dt><code>$?</code></dt>
+<dd>the status of the most-recently-executed foreground command </dd>
+<dt><code>$$</code></dt>
+<dd>the process ID of the current shell (not subshell) </dd>
+<dt><code>$!</code></dt>
+<dd>the process ID the most-recently-executed background command </dd>
+<dt><code>$IFS</code></dt>
+<dd>word-splitting characters </dd>
+<dt><code>$BASH_REMATCH</code></dt>
+<dd>the substring matches when using <code>[[</code>'s built-in regular expression matching </dd>
+<dt><code>$RANDOM</code></dt>
+<dd>a random unsigned 32-bit integer, every time </dd>
+<dt><code>$USER</code></dt>
+<dd>don't trust this! it's not read-only. </dd>
+<dt><code>$UID</code></dt>
+<dd>trust this. it is read-only. </dd>
+<dt><code>$EUID</code></dt>
+<dd>also read-only. </dd>
+</dl>
+</blockquote>
+<p>Argument processing (see <code>getopts</code>):</p>
+<blockquote>
+<dl>
+<dt><code>$OPTIND</code></dt>
+<dd>the index of the next argument to be processed </dd>
+<dt><code>$OPTARG</code></dt>
+<dd>the value of the argument to the last option processed </dd>
+</dl>
+</blockquote>
+<p>Helpful debugging info:</p>
+<ul>
+<li><code>$FUNCNAME</code></li>
+<li><code>$BASH_ARGC</code></li>
+<li><code>$BASH_ARGV</code></li>
+<li><code>$BASH_SUBSHELL</code></li>
+<li><code>$BASH_SOURCE</code></li>
+<li><code>$BASH_COMMAND</code></li>
+<li><code>$BASH_LINENO</code></li>
+<li><code>$SECONDS</code></li>
+</ul>
+<p>Programmable completion:</p>
+<ul>
+<li><code>$COMP_WORDS</code></li>
+<li><code>$COMP_CWORD</code></li>
+<li><code>$COMP_LINE</code></li>
+</ul>
+<h2>6. CONTROL FLOW:</h2>
+<h3>6.1. CONDITIONALS:</h3>
+<p><code>bash</code> provides a few different ways to make decisions, at the basis of which is the conditional expression.</p>
+<p>Conditional expressions simply test the validity of an assertion. You can do this using the <code>[</code> or <code>[[</code> builtin commands, of which <code>[</code> is the more portable, but <code>[[</code> is (ever so slightly) faster and (much) more flexible. I won't tell you about <code>[</code>, because you've probably seen it all over the place anyway.</p>
+<p>You can also simply string commands together using the logical operators <code>&amp;&amp;</code> (and) and <code>||</code> (or).</p>
+<blockquote>
+<pre>false || echo nasty<br />&gt; nasty<br />true &amp;&amp; echo good<br />&gt; good<br />true &amp;&amp; false || echo huh<br />&gt; huh<br />true &amp;&amp; false || echo what || echo huh<br />&gt; what<br /></pre>
+</blockquote>
+<p>The <code>&amp;&amp;</code> and <code>||</code> operators have equal precedence, so they're simply evaluated from left to right.</p>
+<p>But on to <code>[[</code> - without getting into listing everything you can do with <code>[[</code>, here's a good taste of it:</p>
+<p>From testing files:</p>
+<blockquote>
+<pre>[[ -d &quot;$thing&quot; ]] || echo &quot;$thing is not a directory.&quot;<br />[[ -e &quot;$thing&quot; ]] || echo &quot;$thing does not exist.&quot;<br />[[ -t 0 ]] || stdout_is_terminal=no<br /></pre>
+</blockquote>
+<p>To comparing files:</p>
+<blockquote>
+<pre>[[ &quot;$file1&quot; -nt &quot;$file2&quot; ]] &amp;&amp; echo &quot;$file1 is newer&quot; || echo &quot;$file2 is newer&quot;<br />[[ &quot;$file1&quot; -ef &quot;$file2&quot; ]] &amp;&amp; echo &quot;$file1 is the same thing as $file2. hardlinks?&quot;<br /></pre>
+</blockquote>
+<p>To testing and comparing variables:</p>
+<blockquote>
+<pre>[[ &quot;$var1&quot; = &quot;$var2&quot; ]] &amp;&amp; echo &quot;var1 and var2 are the same&quot;<br />[[ &quot;$var1&quot; -gt &quot;$var2&quot; ]] &amp;&amp; echo &quot;$var1 is a bigger number than $var2&quot;<br />[[ &quot;$var&quot; ]] || echo &quot;var is null or not defined.&quot;<br />[[ -n &quot;$var&quot; ]] || echo &quot;var is null or not defined.&quot;<br />[[ -z &quot;$var&quot; ]] &amp;&amp; echo &quot;var is null or not defined.&quot;<br /></pre>
+</blockquote>
+<p>Glob pattern matches (don't quote the glob!):</p>
+<blockquote>
+<pre>[[ &quot;$var&quot; == f* ]] &amp;&amp; echo &quot;$var starts with f&quot;<br /></pre>
+</blockquote>
+<p>Regular expression pattern matches (quote the re!):</p>
+<blockquote>
+<pre>[[ &quot;$var&quot; =~ '(.).*(.) ]] &amp;&amp; echo &quot;$var starts with ${BASH_REMATCH[1]} and ends with ${BASH_REMATCH[2]}&quot;<br /></pre>
+</blockquote>
+<p>Combine conditionals:</p>
+<blockquote>
+<pre>[[ &quot;$abspath1&quot; -ef &quot;$abspath2&quot; &amp;&amp; &quot;$abspath1&quot; != &quot;$abspath2&quot; ]] &amp;&amp; echo &quot;$abspath1 and $abspath2 are hardlinks to the same file.&quot;<br />[[ -t 0 || &quot;$act_like_tty&quot; ]] || suppress_curses=1<br /></pre>
+</blockquote>
+<p>And so forth.</p>
+<h3>6.2. IF:</h3>
+<p><code>if</code> is the simplest control flow keyword. It takes a simple or compound command as the condition and executes the <code>then</code> list if the commands exits 0, or the <code>else</code> list otherwise.</p>
+<blockquote>
+<pre>if ! grep -qv '^#' &quot;file.conf&quot;; then<br />    echo &quot;file.conf doesn't have any instructions.&quot;<br />    exit 1<br />elif [[ -t 0 ]]; then<br />    echo &quot;output is not to a terminal.&quot;<br />    exit 1<br />else<br />    echo &quot;Ready.&quot;<br />fi<br /></pre>
+</blockquote>
+<h3>6.3. WHILE AND UNTIL:</h3>
+<p><code>while</code> executes a list of commands until its conditional expression becomes invalid.</p>
+<blockquote>
+<pre>while [[ ${c:=0} -lt 5 ]]; do<br />    c=$((++c))<br />    echo -n &quot;$c &quot;<br />done<br /></pre>
+</blockquote>
+<p><code>until</code> executes the list until the conditional becomes valid.</p>
+<blockquote>
+<pre>until [[ ${c:=0} -eq 4 ]]; do<br />    c=$((++c))<br />    echo -n &quot;$c &quot;<br />done<br /></pre>
+</blockquote>
+<h3>6.4. FOR:</h3>
+<p><code>for</code> has two ways of operating. The most common form executes a list of commands for each item in a sequence, a la foreach:</p>
+<blockquote>
+<pre>for c in 1 2 3 4; do<br />    echo -n &quot;$c &quot;<br />done<br /></pre>
+</blockquote>
+<p>The other, less common form mirrors the <code>for</code> construct in most other languages:</p>
+<blockquote>
+<pre>for ((c=0; c &lt; 5; c++)); do<br />    echo -n &quot;$c &quot;<br />done<br /></pre>
+</blockquote>
+<p>Here, the <code>(( ; ; ))</code> construct is three stanzas of arithmetic expressions. The first is evaluated prior to the first iteration over the command list list, and prior to the second stanza; the second is evaluated immediately prior to every iteration, including the first iteration; the third is evaluated immediately after each iteration. If the second stanza evaluates to a positive number (zero is neither positive nor negative, remember), iteration continues; otherwise, iteration stops and the program resumes at the next instruction after the <code>done</code>.</p>
+<h3>6.5. CASE:</h3>
+<p><code>case</code> allows you to compare a value to a series of glob patterns, executing a list of commands upon a match.</p>
+<blockquote>
+<pre>case &quot;$var&quot; in<br />    file)<br />        file=&quot;$var&quot;<br />        ;;<br />    f*)<br />        echo &quot;$var starts with f, but isn't a file.&quot;<br />        ;;<br />    o*)<br />        options[${#options[*]}]=&quot;$var&quot;<br />        ;;<br />    *)<br />        echo &quot;i don't understand '$var'.&quot;<br />        exit 1<br />        ;;<br />esac<br /></pre>
+</blockquote>
+<p>You'll commonly see <code>case</code> statements in init scripts:</p>
+<blockquote>
+<pre># see how we were called<br />case &quot;<pre>&quot; in<br />    start|stop|status) <pre> ;;<br />    restart)<br />        status &amp;&gt;/dev/null &amp;&amp; stop<br />        sleep 1<br />        status &amp;&gt;/dev/null || start<br />        ;;<br />    *) usage ;;<br />esac<br /></pre>
+</blockquote>
+<p>And in options processing:</p>
+<blockquote>
+<pre>OPTIND=0<br />while getopts 'ac:lu:' opt; do<br />    case &quot;$opt&quot; in<br />        a) all=1    ;;<br />        c) columns[${#columns[*]}]=&quot;$OPTARG&quot;    ;;<br />        l) : $((++local))    ;;<br />        u) user=&quot;$OPTARG&quot;    ;;<br />    esac<br />done<br />shift &quot;$((OPTIND-1))&quot;<br /></pre>
+</blockquote>
+<h3>6.6. SELECT:</h3>
+<p><code>select</code> implements a basic text menu loop system. Given a list of words, a list of numbered menu items is produced on <em>STDERR</em> and the user is prompted (a la <code>$PS3</code>) to select one. When a selection is made, the response is stored in <code>$REPLY</code>, the list of commands is executed, and the prompt is redisplayed.</p>
+<p>If the response was null, the menu is redisplayed, followed by the prompt. If an EOF is received, the loop ends and execution is resumed at the next instruction following <code>done</code>.</p>
+<blockquote>
+<pre>Who=&quot;The butler&quot; What=&quot;A lead pipe&quot; Where=&quot;The cellar&quot; When=&quot;Two hours ago&quot; How=&quot;Brutally&quot; <br />hmm=( Who What Where When How )<br />PS3=&quot;Ask: &quot;<br />select item in &quot;${hmm[@]}&quot;; do<br />    : &quot;${item:=$REPLY}&quot;<br />    echo &quot;${!item}&quot;<br />done<br /></pre>
+</blockquote>
+<h3>6.7. FUNCTIONS AND ALIASES:</h3>
+<p>Aliases are just different ways to enter commands.</p>
+<blockquote>
+<pre>alias foo=&quot;echo what&quot;<br />foo shoot<br />&gt; what shoot<br /></pre>
+</blockquote>
+<p>They're nice to have around for those times when all you need to do is change around which command gets run.</p>
+<blockquote>
+<pre>[[ -x ssh ]] &amp;&amp; alias rsh=ssh<br />rsh $host hostname<br /></pre>
+</blockquote>
+<p>But when you need more, but it still doesn't make sense to create a whole other script to do something... functions.</p>
+<blockquote>
+<pre>function foo () {<br />    echo bar<br />}<br /></pre>
+</blockquote>
+<p>The <code>function</code> keyword is optional here, but I always use it so it'll be easier to find in my editors.</p>
+<p>Functions are named compound commands (go back and read about compound commands).</p>
+<blockquote>
+<pre>function woot () if true; then echo true; else echo false; fi<br />woot<br />&gt; true<br /></pre>
+</blockquote>
+<p>They allow you to privately process arguments and define local variables.</p>
+<blockquote>
+<pre>function yes () {<br />    local s=&quot;${1:-y}&quot;<br />    x=shoo<br />    echo &quot;$s&quot;<br />}<br /><br />yes no<br />&gt; no<br />echo $s<br />&gt; <br />echo $x<br />&gt; shoo<br /></pre>
+</blockquote>
+<p>They can return their own exit status:</p>
+<blockquote>
+<pre>function false () { return 1; }<br />type -t false<br />&gt; function<br />false<br />echo $?<br />&gt; 1<br /></pre>
+</blockquote>
+<p>And you can make them run in subshells to implicitly protect the parent environment:</p>
+<blockquote>
+<pre>x=n<br />function killer_sub () (<br />	x=y<br />	echo $x<br />)<br /><br />killer_sub<br />&gt; y<br />echo $x<br />&gt; n<br /></pre>
+</blockquote>
+<p>You can even perform input and output redirections on the entire compound command, and these redirections will occur when the compound command runs:</p>
+<blockquote>
+<pre>function night () { cat; } &lt; bump<br /></pre>
+</blockquote>
+<h2>7. REDIRECTIONS:</h2>
+<p>You're probably used to seeing some redirections:</p>
+<blockquote>
+<pre>echo foo &gt; bar<br />cat /dev/null &gt; logfile<br />script.pl &gt;/dev/null 2&gt;&amp;1<br /></pre>
+</blockquote>
+<p>That's all well and good for saving or disposing of output, but it's only the tip of the iceberg.</p>
+<p>Consider the example at the very top of this document:</p>
+<blockquote>
+<pre>bar=woot<br />cat foo | while read<br />        do<br />            bar=&quot;$REPLY&quot;<br />        done<br />echo &quot;$bar&quot;<br /></pre>
+</blockquote>
+<p>If you really want the <code>while</code> loop to be defining <code>bar</code> for use outside the loop, you have to eliminate the subshell created by the pipeline.</p>
+<blockquote>
+<pre>bar=woot<br />while read; do<br />    bar=&quot;$REPLY&quot;<br />done &lt; foo<br />echo &quot;$bar&quot;<br /></pre>
+</blockquote>
+<p>Now the value of <code>bar</code> is the last line of the file <em>foo</em>.</p>
+<p>But what if you need, for instance, the output of a command? Combine redirection with process subsitution and you get:</p>
+<blockquote>
+<pre>while read; do<br />    bar=&quot;$REPLY&quot;<br />done &lt; &lt;(grep -v &quot;^#&quot; foo)<br /></pre>
+</blockquote>
+<p>Now bar is the last <em>uncommented</em> line from the file <em>foo</em>.</p>
+<p>You can duplicate file descriptors easily enough:</p>
+<blockquote>
+<pre>script.pl &gt;/dev/null 2&gt;&amp;1<br /></pre>
+</blockquote>
+<p>You just duplicated 2 (<em>STDERR</em>) to 1 (<em>STDOUT</em>), which was already redirected to <em>/dev/null</em>, thus disposing of both. There's shorthand for this:</p>
+<blockquote>
+<pre>script.pl &amp;&gt;/dev/null<br /></pre>
+</blockquote>
+<p>But if you did:</p>
+<blockquote>
+<pre>script.pl 2&gt;&amp;1 &gt;/dev/null<br /></pre>
+</blockquote>
+<p>Now you get what would have gone to <em>STDERR</em> coming out of <em>STDOUT</em>, and you're ignoring what otherwise would have gone out of <em>STDOUT</em>.</p>
+<p>Let's switch them around:</p>
+<blockquote>
+<pre>script.pl 3&gt;&amp;2 2&gt;&amp;1 1&gt;&amp;3<br /></pre>
+</blockquote>
+<p>Now errors go out <em>STDOUT</em> and normal output comes through <em>STDERR</em>. First we duplicated 2 and called it 3. Thus, 3 now goes out <em>STDERR</em>. Then we duplicated 1 to 2, so error output goes out <em>STDOUT</em>. Then we duplicated 3 to 1, so that normal output goes out <em>STDERR</em>.</p>
+<p>Don't do that. It's hard to follow.</p>
+<p>Put redirections before pipes, because pipes redirect <em>STDOUT</em> of the command at left to <em>STDIN</em> of the command at right -- you can't redirect it after that, because parsing of the left command ends at the pipe.</p>
+<blockquote>
+<pre>echo foo | grep foo<br />&gt; foo<br />echo foo | grep foo &lt;&lt;&lt;foobar<br />&gt; foobar<br /></pre>
+</blockquote>
+<p>There are other interesting redirections:</p>
+<blockquote>
+<pre>echo error &gt;/dev/stderr<br />echo error &gt;/dev/2<br />echo something &gt;/dev/fd/5<br />echo forgrep &gt; &gt;(grep for &gt;file)<br /></pre>
+</blockquote>
+<p>Run a program and send it input whenever we please:</p>
+<blockquote>
+<pre>fd=&gt;(grep for &gt;file)<br />echo some text &gt;$fd<br /># do some other stuff, then<br />echo some more text &gt;$fd<br /></pre>
+</blockquote>
+<p>Give a variable to a program's <em>STDIN</em>:</p>
+<blockquote>
+<pre>grep foo &lt;&lt;&lt;&quot;$thing&quot;<br /></pre>
+</blockquote>
+<p>Open a file:</p>
+<blockquote>
+<pre>exec 13&lt;inputfile<br />exec 14&gt;outputfile<br />read -u 13 line<br />echo &quot;$line&quot; &lt;&amp;14<br />echo &quot;that's all she wrote&quot; &gt;/dev/fd/14<br /></pre>
+</blockquote>
+<p>Riddle me this:</p>
+<blockquote>
+<pre>exec 15&lt;&gt;inoutinout<br />echo foo &gt;&amp;15<br />cat &lt;&amp;15<br />cat /dev/fd/15<br />&gt; foo<br /></pre>
+</blockquote>
+<p>What happened? The file descriptor's internal pointer was still set at the end of the file, so telling <code>bash</code> to read from it produced nothing. But the <code>cat /dev/fd/15</code> isn't telling <code>cat</code> to read file descriptor 15 -- it's telling it to open the file at the given path. New file descriptor = new position, so it read on through.</p>
+<p>This behaviour may differ on some systems, where separate reading and writing positions are maintained for each file descriptor.</p>
+<p>Where this sort of thing really comes in handy is with sockets. Yes, sockets.</p>
+<h3>7.1. SIMPLE SOCKETS:</h3>
+<p><code>bash</code> supports simple communication over both tcp and udp, using the fake <code>/dev/tcp</code> and <code>/dev/udp</code> paths.</p>
+<p>By 'fake' I mean that these paths needn't actually exist, even in <code>bash</code>'s world. Instead, <code>bash</code> looks for them when they are used in redirection, but ONLY when they are used in redirection.</p>
+<p>Let's find out what our <code>gmond</code> says about the health of our remote host <code>$host</code>.</p>
+<blockquote>
+<pre>    cat &lt;/dev/tcp/$host/8049<br /></pre>
+</blockquote>
+<p>Or we could have a brief affair with an HTTP daemon somewhere out in the wild.</p>
+<blockquote>
+<pre>exec 16&lt;&gt;/dev/tcp/$host/80<br />echo &quot;GET / HTTP/1.1<br />Host: $host<br />Connection: close<br /><br />&quot; &gt;&amp;16<br /># we don't want the headers...<br />while read -u 16 &amp;&amp; [[ &quot;$line&quot; ]]; do continue; done<br />cat &lt;&amp;16<br /></pre>
+</blockquote>
+<p>Crazy, ain't it?</p>
+<h2>8. OTHER TIPS AND TRICKS:</h2>
+<p>Don't use a <code>#!/bin/sh</code> shebang when you're writing <code>bash</code> scripts. On many systems, <code>#!/bin/sh</code> could be <code>ksh</code> or actually <code>sh</code>. Only write <code>sh</code> scripts with <code>#!/bin/sh</code> -- <code>bash</code> scripts should be <code>#!/bin/bash</code>, ksh should be <code>#!/bin/ksh</code>, and so forth.</p>
+<p>Some of the things discussed here are specific to <code>bash</code> 3+ (regexes, herestrings). You might do well to check the <code>$BASH_VERSION</code>.</p>
+<p>Read a file into a variable:</p>
+<blockquote>
+<pre>contents=&quot;$(&lt; file)&quot;<br /></pre>
+</blockquote>
+<p>Avoid nasty escaping in nested backticks by simply avoiding backticks:</p>
+<blockquote>
+<pre>var=&quot;$(cmd1 &quot;$(cmd2 &quot;arg 1&quot; arg2)&quot;)&quot;<br /></pre>
+</blockquote>
+<p>Forking is easy thanks to job control:</p>
+<blockquote>
+<pre>bg_command &amp;<br />fg_command<br />wait<br /></pre>
+</blockquote>
+<p>The <code>=~</code> comparison operator obviates many needs for <code>grep</code>, but don't expect it to work in <code>bash</code> &lt; 3.<br />
+ The <code>$(&lt; file)</code> and redirection operators obviate most needs for <code>cat</code>.</p>
+<p>Multi-line strings are fine-- just use them, and they work.<br />
+Use <code>&lt;&lt;&lt;&quot;herestrings&quot;</code> instead of piping <code>echo</code>.</p>
+<p>Use <code>-r</code> when you <code>read</code> from a file.<br />
+Use the <code>type</code> builtin to find out what a command really is.<br />
+Set vars to readonly when they should be: <code>readonly varname</code></p>
+<p><code>eval</code> when you need to-- there's nothing wrong with it, but be careful how you use it.<code>exec</code> when it's good for you.</p>
+<p><em><strong>DON'T RUN <code>$0</code></strong></em> -- did I mention that already?</p>
+<p>Quote as much as you can. It's safer than not, and users will appreciate it when they have to give input with spaces but the script still works.</p>
+<h3>8.1. DEBUGGING:</h3>
+<p>Check out the following options to the <code>set</code> builtin:</p>
+<blockquote>
+<pre>-uvETxe<br /></pre>
+</blockquote>
+<p>Take a look at 5.3: SPECIAL VARIABLES</p>
+<p>And the things you can do with the <code>trap</code> builtin and the pseudo-signals <code>DEBUG</code>, <code>ERR</code>, <code>RETURN</code>, and <code>EXIT</code>.</p>
