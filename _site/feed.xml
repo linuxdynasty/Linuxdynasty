@@ -2,26 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">Linuxdynasty</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://127.0.0.1:4001/feed.xml" />
-<link rel="alternate" type="text/html" href="http://127.0.0.1:4001" />
-<updated>2014-09-23T15:49:22-04:00</updated>
-<id>http://127.0.0.1:4001/</id>
+<link rel="self" type="application/atom+xml" href="http://linuxdynasty.github.io/Linuxdynasty/feed.xml" />
+<link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty" />
+<updated>2014-09-23T17:19:10-04:00</updated>
+<id>http://linuxdynasty.github.io/Linuxdynasty/</id>
 <author>
   <name>Allen Sanabria</name>
-  <uri>http://127.0.0.1:4001/</uri>
+  <uri>http://linuxdynasty.github.io/Linuxdynasty/</uri>
   <email>asanabria <@> linuxdynasty dot org</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Two years of silence]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/blog/years-silence/" />
-  <id>http://127.0.0.1:4001/blog/years-silence</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/blog/years-silence/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/blog/years-silence</id>
   <published>2014-06-14T11:11:22-04:00</published>
   <updated>2014-06-14T11:11:22-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I have been so focused on vFense, that I have been negligent of this blog.
@@ -47,19 +47,19 @@ major release 0.8.0, which is a complete server rewrite. Examples of what is com
   &lt;li&gt;Separated WEB authentication from Agent authentication.&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/years-silence/&quot;&gt;Two years of silence&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on June 14, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/blog/years-silence/&quot;&gt;Two years of silence&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on June 14, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo check redis availability and get stats using Redis-py, Zenoss, and Python]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/" />
-  <id>http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python</id>
   <published>2012-03-20T03:37:52-04:00</published>
   <updated>2012-03-20T03:37:52-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;My team was assigned to create a redis slave status check to be ran under Zenoss.
@@ -111,19 +111,19 @@ CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync &lt;span cl
 &lt;span class=&quot;nv&quot;&gt;uptime_in_seconds&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;290&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;changes_since_last_save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;redis_git_dirty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;keyspace_hits&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/&quot;&gt;HowTo check redis availability and get stats using Redis-py, Zenoss, and Python&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 20, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/&quot;&gt;HowTo check redis availability and get stats using Redis-py, Zenoss, and Python&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on March 20, 2012.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How To monitor RTSP streaming videos using openRTSP and Zenoss]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/" />
-  <id>http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss</id>
   <published>2011-12-30T22:26:23-05:00</published>
   <updated>2011-12-30T22:26:23-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Since I do currently work for a streaming company, that would imply that we should have some type of monitoring for our RTSP streams ;-). You will 1st need to get the openRTSP command.&lt;/p&gt;
@@ -147,19 +147,19 @@ packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 packet_l
 inter_packet_gap_ms_min=0.009000 inter_packet_gap_ms_ave=24.794672 inter_packet_gap_ms_max=528.923000&lt;/pre&gt;
 &lt;p&gt;So you can trend the different stats that openRTSP provides in Zenoss..&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/&quot;&gt;How To monitor RTSP streaming videos using openRTSP and Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 30, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/&quot;&gt;How To monitor RTSP streaming videos using openRTSP and Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on December 30, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How To Monitor and get Bind 9 stats using Zenoss]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss/" />
-  <id>http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss</id>
   <published>2011-12-28T21:27:47-05:00</published>
   <updated>2011-12-28T21:27:47-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Hey guys, here is another Python script by me :-) . The reason for this script, is to give you the capabilities to monitor and graph Bind 9 stats. This script will be executed through SNMP.. We will be using the UCD-MIB 1.3.6.1.4.1.2021.8.1&lt;/p&gt;
@@ -239,19 +239,19 @@ Options:
                         snmpd.conf&lt;/pre&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss/&quot;&gt;How To Monitor and get Bind 9 stats using Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 28, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/&quot;&gt;How To Monitor and get Bind 9 stats using Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on December 28, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How To monitor NodeJS using the Stats plugin that comes with Cluster using Zenoss.]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/" />
-  <id>http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss</id>
   <published>2011-12-28T00:31:28-05:00</published>
   <updated>2011-12-28T00:31:28-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;We needed a way to monitor all of our NodeJS instances in Zenoss and not just a simple TCP connection. Since we were already using the Cluster plugin for NodeJS 'http://learnboost.github.com/cluster/' and we are using the stats plugin for Cluster 'http://learnboost.github.com/cluster/docs/stats.html'. We decided to write a quick python script to connect to the stats plugin and parse that data to represent it to Zenoss.&lt;/p&gt;
@@ -286,19 +286,19 @@ Options:
                         times out&lt;/pre&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/&quot;&gt;How To monitor NodeJS using the Stats plugin that comes with Cluster using Zenoss.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 28, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/&quot;&gt;How To monitor NodeJS using the Stats plugin that comes with Cluster using Zenoss.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on December 28, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How To Monitor Http Status Codes using Zenoss and Snmp.]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/" />
-  <id>http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp</id>
   <published>2011-12-27T19:52:04-05:00</published>
   <updated>2011-12-27T19:52:04-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;We needed a way to monitor a few different type of HTTP Status Codes, specifically... ( 400, 404, 500, 503, 504, 200 ). This list is modifiable within the script. Though I'm thinking of turning this list into an option, since everyone might not one to gather the count just for those mentioned above.&lt;/p&gt;
@@ -315,36 +315,36 @@ You can download the script here.. {filelink=21}&lt;/p&gt;
 Example of the output of the script is 'SNMP OK - &quot;&lt;strong&gt;Nginx Codes OK|count200=181 count400=1 count404=0 count500=0 count503=0 count504=0&quot; |&lt;/strong&gt; '&lt;/p&gt;
 &lt;p&gt;If you have any feature request or have any questions, please leave a comment. Thank you&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/&quot;&gt;How To Monitor Http Status Codes using Zenoss and Snmp.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 27, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/&quot;&gt;How To Monitor Http Status Codes using Zenoss and Snmp.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on December 27, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[It's been a while..]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/blog/while/" />
-  <id>http://127.0.0.1:4001/blog/while</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/blog/while/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/blog/while</id>
   <published>2011-09-29T01:38:31-04:00</published>
   <updated>2011-09-29T01:38:31-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I have not been doing to many interesting projects as of the past year. This is the reason for my lack of updates. I am now starting to do some interesting stuff, so let the updates roll.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/while/&quot;&gt;It's been a while..&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on September 29, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/blog/while/&quot;&gt;It's been a while..&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on September 29, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo add Aggregate Data Graphs from existing datapoints in Zenoss]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/" />
-  <id>http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss</id>
   <published>2011-02-02T23:16:42-05:00</published>
   <updated>2011-02-02T23:16:42-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Recently I had to aggregate the amount of 200, 400, 404, 500, 503,  and 504 HTTP 1.1 Codes from all of our Nginx and Ruby On Rails systems. So I decided to write a quick plugin for Zenoss that all you need to do is pass the devices or Device Class you want to aggregate the data from and the DataPoint name.&lt;/p&gt;
@@ -367,19 +367,19 @@ OK Aggregate for /Server/Linux/Nginx class is 22|aggregate=22
 &lt;p&gt;{filelink=1}&lt;/p&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/&quot;&gt;HowTo add Aggregate Data Graphs from existing datapoints in Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 02, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/&quot;&gt;HowTo add Aggregate Data Graphs from existing datapoints in Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on February 02, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Monitoring RabbitMQ with Zenoss]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/" />
-  <id>http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/monitoring-rabbitmq-with-zenoss/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/zenoss/monitoring-rabbitmq-with-zenoss</id>
   <published>2010-09-10T16:17:03-04:00</published>
   <updated>2010-09-10T16:17:03-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;RabbitMQ was recently deployed in the company I currently work for. At the last minute ( as always ) they came to me and ask me to please add RabbitMQ monitoring to Zenoss. They said here is the url and now please monitor for a few stats ( &lt;a href=&quot;http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin&quot;&gt;using the RabbitMQ Status Plugi&lt;/a&gt;n ). So I said to myself, I could easily just write a quick shell script to get the 3 stats that they needed and add them into Zenoss. After thinking about it.... In the near future they might ask for more than those 3 stats. So I decided to write a quick python script ( Zenoss Compatible ) to get all the stats from that status page and input them into Zenoss...&lt;/p&gt;
@@ -416,19 +416,19 @@ Now we need to make the substitution.... So we are going to substitute, every ma
 &lt;div id=&quot;_mcePaste&quot; style=&quot;position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;&quot;&gt;3&lt;/div&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/&quot;&gt;Monitoring RabbitMQ with Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on September 10, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/zenoss/monitoring-rabbitmq-with-zenoss/&quot;&gt;Monitoring RabbitMQ with Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on September 10, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/" />
-  <id>http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk</id>
   <published>2010-08-03T19:42:42-04:00</published>
   <updated>2010-08-03T19:42:42-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;We needed to integrate the Splunk Alerts into Zenoss, because even though Splunk can indeed send out alerts. Splunk does not have any clue about what an &quot;Escalation Process&quot; is. With Zenoss you can create an &quot;Escalation Process&quot;.&lt;/p&gt;
@@ -464,36 +464,36 @@ The reason for the change above, is because Splunk will send &quot;=&quot; signs
 &lt;p&gt;Splunk2Zenoss.sh == {filelink=4}&lt;/p&gt;
 &lt;p&gt;SplunkTransfor.py == {filelink=5}&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/&quot;&gt;HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on August 03, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/&quot;&gt;HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on August 03, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Download Section, no longer requires you to be a member]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member/" />
-  <id>http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/download-section-no-longer-requires-you-to-be-a-member/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/download-section-no-longer-requires-you-to-be-a-member</id>
   <published>2010-04-08T14:11:33-04:00</published>
   <updated>2010-04-08T14:11:33-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I first made the Download Section for members only, just cause I wanted an idea on who is downloading the software I have written. Now, I no longer care who downloads it, as long as it helps out the people who did download it. That is all that matters. Though the forums section, does require you to be a member. I also recognize, most people are members of enough websites, that becoming a member of another one, can be over bearing.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/download-section-no-longer-requires-you-to-be-a-member/&quot;&gt;Download Section, no longer requires you to be a member&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on April 08, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/download-section-no-longer-requires-you-to-be-a-member/&quot;&gt;Download Section, no longer requires you to be a member&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on April 08, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo get 3par disk IO stats into Zenoss]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss/" />
-  <id>http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-get-3par-disk-io-stats-into-zenoss/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-get-3par-disk-io-stats-into-zenoss</id>
   <published>2010-03-29T02:15:13-04:00</published>
   <updated>2010-03-29T02:15:13-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I've come to realize, that CIM is the new SNMP, but on steroids. Most new SAN, NAS, Network, and Operating Systems now support &lt;a href=&quot;http://www.dmtf.org/standards/cim/&quot;&gt;CIM&lt;/a&gt;/&lt;a href=&quot;http://www.dmtf.org/standards/wbem/&quot;&gt;WBEM&lt;/a&gt;. To me it is easier to gather statistics and information through CIM, then it is through SNMP. In this article I am going to give you a script that will allow you to query the 3par for Disk IO stats. You will be able to grab Disk IO stats on a per Volume, per Port, or per Disk basis.You will also be able to search for a Volume, Port, or Disk, instead of just dumping all the Volumes, Ports, or Disk.&lt;/p&gt;
@@ -563,19 +563,19 @@ OK|2:0:1_ReadIOs=1646791211 2:0:1_WriteIOs=833778099 2:0:1_TotalIOs=2480569310 2
 3:5:2_WriteIOs=0 3:5:2_TotalIOs=0 3:5:3_ReadIOs=0 3:5:3_WriteIOs=0 3:5:3_TotalIOs=0 3:5:4_ReadIOs=0 
 3:5:4_WriteIOs=0 3:5:4_TotalIOs=0&lt;/pre&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/howto-get-3par-disk-io-stats-into-zenoss/&quot;&gt;HowTo get 3par disk IO stats into Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 29, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-get-3par-disk-io-stats-into-zenoss/&quot;&gt;HowTo get 3par disk IO stats into Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on March 29, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How to find Alerting Rules using the Zenoss API]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/" />
-  <id>http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/zenoss/how-to-find-alerting-rules-using-the-zenoss-api</id>
   <published>2010-03-19T19:31:11-04:00</published>
   <updated>2010-03-19T19:31:11-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Good Afternoon my fellow Zenoss users. here I bring you another Python tool to use with Zenoss. This tool will allow you to list all of your alerting rules, either by Group, User, or Query. If you are like me and have over 100 Alerting Rules. Managing these rules are more then a pain in the butt. Especially when you create a new rule and you know you created it correctly, but it just does not work... Well you might have another conflicting rule. Well what do you do in this situation?? You can go through each rule manually and sooner or later you will find it.&lt;/p&gt;
@@ -603,19 +603,19 @@ Example below...&lt;/p&gt;
 ################################################################################Owner = Java Self Axis Scorer Infinite Loop Alerting Rule Java Self Axis Scorer Infinite Loop Matching Query = (prodState = 1000) and (eventClassKey like '%Java Self Axis Scorer Infinite Loop%') and (deviceClass like '/Server/Linux/Tomcat/%') and (eventClass like '/App/Log/Java/%') and (eventState = 0) and (severity &amp;gt;= 3)&lt;/pre&gt;
 &lt;p&gt;Many more features to come.....&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/&quot;&gt;How to find Alerting Rules using the Zenoss API&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 19, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/&quot;&gt;How to find Alerting Rules using the Zenoss API&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on March 19, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo add Multiple DataPoints to Zenoss using the Zenoss API]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/" />
-  <id>http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api</id>
   <published>2010-03-05T04:12:26-05:00</published>
   <updated>2010-03-05T04:12:26-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I've seen a few people in the Zenoss community forums asking for an easier way to add multiple Datapoints into Zenoss, instead of adding 1 by 1. Well, I've decided to try and build such a tool today. Now even though the tool is not complete (IN MY EYES). It is already has been helpful to me! As of right now the script can List Templates in a Organizer ( aka /Devices/Server/Linux ) or in a Device ( zenoss1.linuxdynasty ).&lt;/p&gt;
@@ -719,19 +719,19 @@ eth1 Discards graph was created with ['eth0_ifInDiscards', 'eth0_ifOutDiscards']
 DataPoints attached at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/graphDefs/eth1%20Discards&lt;/pre&gt;
 &lt;p&gt;To see the Help output, just run it like this &lt;strong&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;python Zenoss_Template_Manager.py -h&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/&quot;&gt;HowTo add Multiple DataPoints to Zenoss using the Zenoss API&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on March 05, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/&quot;&gt;HowTo add Multiple DataPoints to Zenoss using the Zenoss API&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on March 05, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo backup all of your Zenoss Templates the easy way.]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/" />
-  <id>http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way</id>
   <published>2010-02-12T20:19:58-05:00</published>
   <updated>2010-02-12T20:19:58-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Recently I had to prepare for a Zenoss upgrade. During my prep work I had to create a zenpack of all of our Templates. For those of you who use Zenoss, you know how many templates you can start to accumulate in a short amount of time. You can have Templates attached to single Devices, to SubClasses, and to Classes. Now if you have a few devices this is not a big deal. But if you have a couple hundred to a couple of thousand devices, this could be a real hassle.&lt;/p&gt;
@@ -757,19 +757,19 @@ INFO:zen.HookReportLoader:loading reports from:/opt/zenoss/ZenPacks/ZenPacks.All
 options: -h, --help            show this help message and exit -p ZPACKNAME,         --packname=ZPACKNAME                       The name of the ZenPack that you want to create -a AUTHOR,            --author=AUTHOR                       Who is creating The ZenPack? -v VERSION,           --version=VERSION                       What Release is this? -r ROOT,              --root=ROOT                         What Device Class You want the Search to begin at? -l,                   --list                       List all the ZenPacks&lt;/pre&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/&quot;&gt;HowTo backup all of your Zenoss Templates the easy way.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 12, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/&quot;&gt;HowTo backup all of your Zenoss Templates the easy way.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on February 12, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[HowTo monitor the Netscaler using Python and Soap instead of SNMP]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/" />
-  <id>http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp</id>
   <published>2010-02-07T21:29:17-05:00</published>
   <updated>2010-02-07T21:29:17-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;In this HowTo, I will show you how you can get statistics off of the Netscaler without using SNMP. You might be asking why would I want to do that?? Well like many other devices that support SNMP, the Netscaler makes use of dynamic OID creation. For those of you that do not understand what I mean. Dynamic OID creation, is the way that Networking devices give OID's to variables that are not static in the device itself.&lt;/p&gt;
@@ -818,19 +818,19 @@ options:-h, --help                          show this help message and exit     
 -t TYPE, --type=TYPE                Here you either pass service, lbvserver, tcp or http.                                    example... --name=foobar --type=lbvserver  or                                    --type=tcp or --type=http or --name=foobar                                    --type=service&lt;/pre&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/&quot;&gt;HowTo monitor the Netscaler using Python and Soap instead of SNMP&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 07, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/&quot;&gt;HowTo monitor the Netscaler using Python and Soap instead of SNMP&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on February 07, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How to get information from the Netscaler using Python and Suds.]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" />
-  <id>http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds</id>
   <published>2010-02-01T13:22:22-05:00</published>
   <updated>2010-02-01T13:22:22-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Recently I just started to use the Citrix Netscalers again ( Load Balancers ). Being the person that I am, I wanted a way to grab the information using the SOAP API.&lt;br /&gt;
@@ -884,19 +884,19 @@ List all the names of the Virtual Servers, Services,
                        ServiceGroup that you want the info from -c SERVICE, 
 --service=SERVICE                       Service that you want the info from&lt;/pre&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/&quot;&gt;How to get information from the Netscaler using Python and Suds.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 01, 2010.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/&quot;&gt;How to get information from the Netscaler using Python and Suds.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on February 01, 2010.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Swatch Startup Script]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/shell/swatch-startup-script/" />
-  <id>http://127.0.0.1:4001/shell/swatch-startup-script</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script</id>
   <published>2009-11-12T21:46:56-05:00</published>
   <updated>2009-11-12T21:46:56-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I've been using Swatch for quite a while now and I never invested the time to  create a quick startup script. Today, I decided to create one and it works just fine under Centos and Ubuntu Server. You can download it here..&lt;br /&gt;
@@ -915,42 +915,42 @@ case &quot;$1&quot; in start) swatch_start ;; stop) swatch_stop ;; restart) swat
 
 exit $RETVAL&lt;/pre&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/shell/swatch-startup-script/&quot;&gt;Swatch Startup Script&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on November 12, 2009.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/&quot;&gt;Swatch Startup Script&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on November 12, 2009.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Updates to site]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/blog/updates-to-site/" />
-  <id>http://127.0.0.1:4001/blog/updates-to-site</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site</id>
   <published>2009-11-09T12:24:42-05:00</published>
   <updated>2009-11-09T12:24:42-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;For those of you who visit linuxdynasty everyday, you might have notice some subtle changes in the authorization aspect fo the site. I had to enable captch images in the login, and posting parts of the site. Since for the past few weeks, spammers have been hitting the comments and forums section. I'm hoping this does not annoy everyone, but the spamming is starting to really annoy me.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/updates-to-site/&quot;&gt;Updates to site&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on November 09, 2009.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/&quot;&gt;Updates to site&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on November 09, 2009.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Begun Development of Web Server and Database for Port Report and Device Manager]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/" />
-  <id>http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager</id>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager</id>
   <published>2009-10-18T21:14:43-04:00</published>
   <updated>2009-10-18T21:14:43-04:00</updated>
   <author>
     <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;It is official, I have begun development on the Web Server and Database for the Port Report Project and the Network Device Manager Project. I will be combining both scripts into a True Network Device Manager. My goal is to create an Open Source Network Device Manager that will give Admins and Engineers complete Insight/Access to their network. It does not matter if you want to know which switch your ESX host is directly connected to or if you want to manage all your Switches/Linux Hosts with this product. We have a few more ideas on what we want to do, but they are just ideas and I will not post them yet.&lt;/p&gt;
 &lt;p&gt;I will be using Python, Pexpect, PySnmp, SQLAlchemy, and Django for this project. I'm hoping to have an Alpha for users to test by late November or early December. If you are interested in this project, please give me ideas on what you would like to see in this Project. Currently we do not have an official name for the project.  If you have one, let me know as well. All ideas are welcome, as we are trying to make a complete enterprise product out of this project.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/&quot;&gt;Begun Development of Web Server and Database for Port Report and Device Manager&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on October 18, 2009.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/&quot;&gt;Begun Development of Web Server and Database for Port Report and Device Manager&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on October 18, 2009.&lt;/p&gt;</content>
 </entry>
 
 </feed>

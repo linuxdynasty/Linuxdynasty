@@ -10,8 +10,6 @@ author:
   url: ''
 author_login: dynasty
 author_email: asanabria@linuxdynasty.org
-wordpress_id: 852
-wordpress_url: http://linuxdynasty.org/?p=852
 date: !binary |-
   MjAxNC0wNi0xNCAxMToxMToyMiAtMDQwMA==
 date_gmt: !binary |-
