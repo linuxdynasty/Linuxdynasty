@@ -136,6 +136,44 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T04:58:19-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-restore-a-mysql-datbase/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-restore-a-mysql-datbase/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-restore-a-mysql-datbase/" rel="bookmark" title="How to restore a MySQL Database" itemprop="url">How to restore a MySQL Database</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong><span style="color: red">Now that you know how to backup your database,I will show you how to restore it on another database.</span></strong> </p>
+<ol>
+<li>
+<ul>
+The most common and basic way to restore, is a restore of a database.
+<li><span style="color: blue"><strong>mysql -u test1 --password=pass1 world &lt; world.sql</strong></span></li>
+</ul>
+<p><span style="color: blue"><strong><br />
+</strong></span> 
+<li>
+<ul>
+How about restoring your database to another database over the network with out logging into that box...
+<li><strong><span style="color: blue">mysqldump -u test1 --password=pass1 world | mysql --host=170.20.10.32 -C world</span></strong></li>
+</ul>
+</li>
+
+</p></li></ol>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-02-09T21:15:50-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-tos/">February 09, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-tos/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">

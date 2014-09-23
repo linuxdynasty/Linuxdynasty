@@ -136,6 +136,37 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T22:41:21-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-add-a-virtual-interface/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-add-a-virtual-interface/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-add-a-virtual-interface/" rel="bookmark" title="How to add a virtual interface" itemprop="url">How to add a virtual interface</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong><span style="color: rgb(255, 0, 0)">How to add Virtual Interfaces!!!</span></strong></p>
+<ol>
+<li>
+<ul>
+Here we will show you how to add a virtual interface
+<li>To do this manually and not set it as default you will do this...<br />
+<strong><span style="color: rgb(0, 0, 255)">&quot;ifconfig eth0:0 192.168.101.6 netmask 255.255.255.0 up&quot;</span></strong> </li>
+</ul>
+</li>
+</ol>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-02-10T22:34:53-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/synergy-how-to/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/synergy-how-to/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -375,51 +406,6 @@ All you need to do is create a reverse tunnel from your Work Desktop/Server to y
 <li>
 <ul><strong>We need to make sure we keep this connection open</strong>.
 <li>In <strong><span style="color: rgb(0, 0, 255)">/etc/ssh/sshd_config</span></strong> we need to make sure this is set <strong><span style="color: rgb(0, 0, 255)">TCPKeepAlive yes</span></strong>. </li>
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:28:35-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-recover-root-password/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-recover-root-password/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-recover-root-password/" rel="bookmark" title="How to recover root password" itemprop="url">How to recover root password</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><strong><span style="color: red">Have you forgotten the root password on your box and said @#$%%^. Well do not fear, Linux Dynasty is here to save the day.</span></strong></p>
-<ol>
-<li>
-<ul><strong>Booting into single user mode from GRUB</strong>.
-<li>First, reboot your system. </li>
-<li>Second, When GRUB comes up type e (got to be quick). </li>
-<li>Third, now select entry that begins with kernel and hit enter. </li>
-<li>Fourth, at the end of the kernel entry type either <strong><span style="color: blue">s</span></strong> or <strong><span style="color: blue">single</span></strong>, now hit enter. </li>
-<li>Fifth, type <strong><span style="color: blue">b</span></strong>, the box will boot up and now you can type in the cmd prompt <span style="color: blue"><strong>passwd</strong> <strong>root</strong></span>. This will reset the password to whatever you like. </li>
-<li>If this does not bring you to a root prompt, then try this. </li>
-<li>Then try appending <strong><span style="color: blue">single init=/bin/bash</span></strong> </li>
-</ul>
-<p> <strong><span style="color: red">Be happy, now you have root access again. or maybe for the first time... ;)<br />
- </span></strong></p>
-</li>
-<li>
-<ul><strong>Booting into single-user mode from LILO</strong>
-<li>First, reboot your system. </li>
-<li>Second, When LILO comes up, type in <strong><span style="color: blue">linux s</span></strong>. Hit enter. </li>
-<li>Box will boot into single user mode, which brings you to a root prompt. If this does not happen to you, and ask you for the root password, you will have to do the following. </li>
-<li>Try this <strong><span style="color: blue">linux init=/bin/bash</span></strong> </li>
 </ul>
 </li>
 </ol>

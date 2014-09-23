@@ -136,6 +136,47 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-17T14:44:47-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/dsladslxdsl-installingconfiguring/">May 17, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/dsladslxdsl-installingconfiguring/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/dsladslxdsl-installingconfiguring/" rel="bookmark" title="DSL/ADSL/XDSL - Installing/Configuring" itemprop="url">DSL/ADSL/XDSL - Installing/Configuring</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><font size="3"><strong>To Install/Configure DSL/ADSL On RedHat/Centos Linux</strong>:&nbsp;</font></p>
+<p>&nbsp;</p>
+<ol style="margin-top: 0cm" start="1" type="1">
+<li class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">Check to see if <strong>pppoe</strong> is installed<br />
+<strong>rpm –qa | grep rp-pppoe<br />
+</strong>if not then:<br />
+<strong>yum install rp-pppoe<br />
+<o:p></o:p></strong></span></li>
+<li class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">After the install, run<span>&nbsp; </span><strong>adsl-setup</strong><br />
+     and input your settings<br />
+<o:p></o:p></span></li>
+<li class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">/sbin/ifup ppp0</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
+     or <strong>adsl-start</strong><br />
+<o:p></o:p></span></li>
+<li class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">To stop your connection: <strong>adsl-stop</strong><br />
+<o:p></o:p></span></li>
+<li class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">To check the connection’s status: <strong>adsl-status</strong><br />
+<o:p></o:p></span></li>
+</ol>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-05-16T20:04:27-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/verify-current-rx-descriptors-on-all-nics-using-python-and-ethtool/">May 16, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/verify-current-rx-descriptors-on-all-nics-using-python-and-ethtool/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -428,40 +469,6 @@ Now that you are in a screen session, the fun begins now...</p>
 &nbsp; <font color="#0000ff"><strong>&quot;exit&quot; </strong><font color="#000000">or a</font><strong> <font color="#000000">(</font>ctrl+d<font color="#000000">)</font></strong></font></p>
 <p><span class="notice">The above commands are the most <strong>BASIC/COMMON</strong> for screen and its everyday use.</span></p>
 <p>Now time for a little more advance functionality.. Off to <a href="screen-howto-part-2.html" title="Screen Part 2">Part 2</a> of this HowTo</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-05T12:58:20-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/opinion-on-new-format-of-creating-scripts/">May 05, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/opinion-on-new-format-of-creating-scripts/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/opinion-on-new-format-of-creating-scripts/" rel="bookmark" title="Opinion on new format of creating Scripts?" itemprop="url">Opinion on new format of creating Scripts?</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>ikenticus created a tutorial/script on zenoss but instead of just doing it in one language he did it in 5 different languages.</p>
-<ul>
-<li><strong><span style="text-decoration: underline">Perl</span></strong></li>
-<li><strong><span style="text-decoration: underline">Python</span></strong></li>
-<li><strong><span style="text-decoration: underline">Shell</span></strong></li>
-<li><strong><span style="text-decoration: underline">PHP</span></strong></li>
-<li><strong><span style="text-decoration: underline">Ruby</span></strong></li>
-<li><strong><span style="text-decoration: underline">Expect</span></strong></li>
-</ul>
-<p>I was thinking of following his format for all of our tutorials that involve Programming/Scripting. I think this will greatly enhance the understanding of how to write and compare different programming languages.</p>
-<p>Please let me know how you feel about this and ony other <strong><span style="text-decoration: underline">IDEAS</span></strong> that you may have.</p>
-<p>Either by email or in the forums or in the comment section but we are looking to here from you guys/gals.</p>
-<p>We are looking to build a strong community with a focus on&nbsp;<strong><span style="text-decoration: underline">GREAT/EASY</span></strong>&nbsp;to read&nbsp;<strong><span style="text-decoration: underline">TUTORIALS</span></strong> as well as <strong><span style="text-decoration: underline">Scripting/Programming</span></strong>.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

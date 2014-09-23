@@ -136,6 +136,39 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-25T20:22:07-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/removing-multiple-rpms-with-similar-file-name/">May 25, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/removing-multiple-rpms-with-similar-file-name/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/removing-multiple-rpms-with-similar-file-name/" rel="bookmark" title="Removing Multiple RPMs with Similar File Name" itemprop="url">Removing Multiple RPMs with Similar File Name</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span>Removing<br />
+Multiple RPM's with Similar File Names</span></p>
+<p><span>Use<br />
+the rpm’s command <strong>-e</strong> (for remove) with the <strong>--allmatches</strong> option</span></p>
+<p><strong><span><font color="#0000ff"><font color="#000000">&quot;rpm</font></font><font color="#000000"><br />
+–e&nbsp; --allmatches</font> </span></strong><strong><span>&lt;<font color="#ff0000">package-to-be-removed</font>&gt;&quot;</span></strong></p>
+<p><span>i.e.:</span></p>
+<p><strong><span><font color="#0000ff"><font color="#000000">&quot;rpm</font></font><font color="#ff0000"><font color="#000000"> </font><font color="#000000">-e --allmatches</font> kernel-2.4.25-8tr<font color="#000000">&quot;</font></font></span></strong></p>
+<p><span>&nbsp;</span></p>
+<p><span>The <strong>--allmatches</strong><br />
+allows you to match all rpms with a given expression..</span></p>
+<p><span>&nbsp;</span></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-05-25T18:13:36-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/installconfigure-gpg-gnu-privacy-guard/">May 25, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/installconfigure-gpg-gnu-privacy-guard/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -302,53 +335,6 @@ mount &lt;<font color="#ff0000">file system</font>&gt; &lt;<font color="#ff0000"
 <p><strong><font color="#0000ff">rsync</font> -avH --delete --exclude=&lt;</strong><strong><font color="#ff0000">file/directory to exclude</font></strong><strong><font color="#ff0000"></font>&gt; &lt;</strong><strong><font color="#ff0000">source files/directories</font></strong><strong><font color="#ff0000"></font>&gt; &lt;</strong><strong>rsync://<font color="#ff0000">hostname</font>/<font color="#ff0000">path</font>&gt;</strong></p>
 <p><strong><font color="#0000ff">rsync</font> -avH --delete --exclude=&lt;</strong><strong><font color="#ff0000">file/directory to exclude</font></strong><strong>&gt; </strong><strong>&lt;</strong><strong>rsync://<font color="#ff0000">hostname</font>/<font color="#ff0000">path</font>&gt; </strong><strong>&lt;<font color="#ff0000">destination directory</font>&gt;</strong></p>
 <p><strong>&nbsp;</strong></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-24T10:21:35-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-netstat-to-find-active-network-connections/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-netstat-to-find-active-network-connections/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-netstat-to-find-active-network-connections/" rel="bookmark" title="Using netstat to find active network connections" itemprop="url">Using netstat to find active network connections</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>To list all open network ports on your machine, run <strong>netstat -lnptu</strong>. Here is a breakdown of the parameters:</p>
-<p><strong>l</strong> - List all listening ports<br />
-<strong>n</strong> - Display the numeric IP addresses (i.e., don't do reverse DNS lookups)<br />
-<strong>p</strong> - List the process name that is attached to that port<br />
-<strong>t</strong> - List all TCP connections<br />
-<strong>u</strong> - List all UDP connections</p>
-<p>&nbsp;</p>
-<p><img alt="" title="" src="http://core.dexxtreme.com/temp/netstat-l.png" width="750" height="460" />&nbsp;</p>
-<p>In this example, there are a number of open ports. For example, you can see: </p>
-<p>print server (lpd on port 515)<br />
- rsync server (rsyncd on port 873)<br />
-database server (mysqld on localhost port 3306)<br />
-web server (httpd on port 80)<br />
-dns server&nbsp; (named on port 53)<br />
-openssh (sshd on port 22)<br />
-syslog (syslog-ng on port 514)<br />
-snmp (snmpd on port 161) <br />
-dhcp server (dhcpd on port 67)<br />
-tftp server (in.tftpd on port 69)<br />
-time server (ntpd on port 123)<br />
-several services related to importing an NFS filesystem</p>
-<p>You can also change the &quot;<strong>l</strong>&quot; to an &quot;<strong>a</strong>&quot; to list both listening and active ports. </p>
-<p><img alt="" title="" src="http://core.dexxtreme.com/temp/netstat-a.png" width="750" height="530" />&nbsp;</p>
-<p>You can also use netstat to show the current routing table by running&nbsp; <strong>netstat -rn</strong>:</p>
-<p><img alt="" title="" src="http://core.dexxtreme.com/temp/netstat-r.png" width="750" height="105" /><br />
-&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

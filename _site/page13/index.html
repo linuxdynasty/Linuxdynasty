@@ -136,6 +136,49 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-03-17T17:02:34-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/you-dont-know-python/">March 17, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/you-dont-know-python/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/you-dont-know-python/" rel="bookmark" title="You don't know Python" itemprop="url">You don't know Python</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Not long ago I was mutually baited into an argument with one of our developers, in which he challenged me on why I had chosen Python for my most recent project. His claim that I didn't &quot;know Python&quot; he backed up with a few questions:</p>
+<ol>
+<li>What is Python's method resolution order?</li>
+<li>How does it bind variables on its stack?</li>
+<li>Does Python implement closures, and if so, how?</li>
+</ol>
+<p>Now, I'll be the first to admit that I don't &quot;know Python&quot;. I can express my logic in the Pythonic vernacular, but there's much about it that I don't yet know about or understand. In much the same way as a person unfamiliar with English will use the imperative mood where the subjunctive is called for, it still works, but it's not done in the clearest and most accurate way.</p>
+<p>I jokingly retorted that I didn't even know those things about Perl, not because it's true but to make a point. I know Perl (and I know the answers in Python, too). But I don't need to know its MRO, how it &quot;binds variables on its stack&quot;, or how to write a closure in it, in order to write good Perl code.</p>
+<blockquote><p>&quot;Fools ignore complexity. Pragmatists suffer it. Some can avoid it. Geniuses remove it.&quot; -- Alan J. Perlis, &quot;Epigrams in Programming&quot;, 1982.
+</p></blockquote>
+<p><p>Do you really have to know everything about X in order to &quot;know X&quot;? Do I need to know Python's opcodes and when they're invoked? Do I need to know Perl's SV, HV, and other such structs and the hints maintained therein? Really, half the point of using these interpretted languages is so that you <em>don't</em> need to know their guts.</p></p>
+<p><a id="more"></a><a id="more-208"></a></p>
+<p><p>So at what point do we say that someone &quot;knows a language&quot;? Is it when the person can write something in it that actually works?</p></p>
+<blockquote><p><code>print &quot;I know Perl and Python and PHP.&quot;;</code></p></blockquote>
+<p>Or is it really just a matter of being able to write the most easily used (i.e. imported, subclassed) and maintained code? Well, that kind of code usually costs more in terms of conciseness and efficiency.</p>
+<p>Is it when someone can effectively employ esoteric parts of the language, like Python's metaclasses, Perl's formats and indirect objects, or English's subjunctive mood? Some might argue that esoteric language features ought <em>not</em> to be used because they reduce semantic transparency, making the expressions more difficult to maintain.</p>
+<p>Perhaps &quot;knowing a language&quot; means being aware of those esoteric features, knowing how they work when you encounter them, and knowing what to not do. (On split infinitives, cf. Brown, 1851; Jespersen, 1905; Fowler, 1926; Curme, 1931; and many more.) At first reading, that seems like a good fit to me, but think about it: you couldn't say you knew the language until you were familiar and comfortable with <em>every language feature available.</em></p>
+<p>One of my former co-workers is notorious for writing terrible code. It works, yes, but consider: a Python script that provided singleton classes automatically instantiated which, upon instantiation, directly interacted with global collections which were in turn indexed by global functions that might or might not end up accessing methods of one (and no more than one) of those objects. And that's just the beginning. Or consider his project in which he invoked metaclasses like a crackhead invokes his pipe: as a solution to every problem he didn't want to deal with the right way.</p>
+<p>This person knew Python's features. What he didn't know was how to write good Python. The code he wrote is unmaintainable, inextensible, single-use garbage.</p>
+<p>There are plenty of examples I could bring up in Perl, Python, and even Bash, but the point is made: knowing a language doesn't mean using its every feature or knowing everything about it. It means being able to understand its less cryptic expressions without assistance; to discover and subsequently understand the meanings in its crypts; and to express oneself according to its grammar in a way that is clear, concise, correct, natural, and appropriate.</p>
+<blockquote><p>&quot;Don't have good ideas if you aren't willing to be responsible for them.&quot; -- Alan J. Perlis, &quot;Epigrams in Programming&quot;, 1982.
+</p></blockquote>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-03-08T23:08:31-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/from-perl-to-python-to-ruby/">March 08, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/from-perl-to-python-to-ruby/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -367,45 +410,6 @@ which contain 8 child OID's in each one. So all I had to do was create the 8 dat
 <li>Networking Design/Implementation/Maintenance/Load Balancing/Firewalls using either Cisco/Foundry/Nortel/Netscalers.. </li>
 </ul>
 <p>You can contact us at consulting@linuxdynasty.org or you can contact me directly at asanabria@linuxdynasty.org</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-11-07T22:16:00-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/cigars-and-technology/">November 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/cigars-and-technology/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/cigars-and-technology/" rel="bookmark" title="Cigars and Technology" itemprop="url">Cigars and Technology</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>For those of you who do know me, know that I just recently started a new hobby. That hobby is smoking Cigars! For those of you who might ask if I have smoke ciggarretes before the answer is <strong>NO</strong>. I love the smell of Cigars, and how relaxed I feel afterwards. Also I like the different flavors you get from the different Cigars out there, and NO I do not like flavor Cigars. The type of Cigars that I usually like to smoke are Medium to Full bodied Cigars like Corojo/Maduro type Cigars.</p>
-<p><p>Lately I have been smoking the brand Camacho Cigars which they mainly make are full bodied Cigars.&nbsp; For instance I just bought a box of Camacho Corojo/Maduro Figurado Cigars from <a href="http://atlanticcigar.com" title="">Atlantic Cigar</a>. They have a shop not to far from my house in Stroudsburg Pennsylvania. I usually get my Cigars from them as they usually have better prices then Cigars International, Famous-smoke and JR Cigars.</p></p>
-<p><a id="more"></a><a id="more-112"></a></p>
-<p><p>Luckily for me I have a good friend ( Keith ) who gave me 2 humidors full of Cigars, with all types of Cigars from Mild to Medium to Knock you on your butt Cigars. That's how I quickly learned what type of Cigars fits me in a very short amount of time. Since I've only been smoking for the past 3 months or so. In the 3 months that I have been smoking I went from loving Maduro type Cigars too Mild/Medium Cigars and now Corojo and Maduro type Cigars.</p></p>
-<p>So far I have 4 favorite brands and they are...</p>
-<ul>
-<li>Camacho</li>
-<li>Gran Habano</li>
-<li>J. Fuego</li>
-<li>There is no name for this Cigar yet as Atlantic Cigar is working on Manufacturing these Cigars, but I have had the privileged of tasting a few of them and I must say I do love them, especially the Connecticut&nbsp; Shade Wrapper Cigar that I smoked last week.&nbsp; </li>
-</ul>
-<p>I know there will be more that I will be adding to this list, but as of right now those are my top 4.</p>
-<p><p>I would like to know those of you who are into technology and smoke Cigars just like I do. I would like to know what type of Cigars you like, and how they make you feel? I might start posting pictures of the type of Cigars i smoke and maybe doing some reviews of them as well.... Who knows maybe putting a Cigar next to my Linux Work Stations :P</p></p>
-<div align="left">&nbsp;</div>
-<p>
-<p>&nbsp;</p></p>
-<p>
-<p>&nbsp;</p></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

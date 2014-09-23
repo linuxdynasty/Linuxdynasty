@@ -136,6 +136,49 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2010-02-12T20:19:58-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/">February 12, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-backup-all-of-your-zenoss-templates-the-easy-way/" rel="bookmark" title="HowTo backup all of your Zenoss Templates the easy way." itemprop="url">HowTo backup all of your Zenoss Templates the easy way.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Recently I had to prepare for a Zenoss upgrade. During my prep work I had to create a zenpack of all of our Templates. For those of you who use Zenoss, you know how many templates you can start to accumulate in a short amount of time. You can have Templates attached to single Devices, to SubClasses, and to Classes. Now if you have a few devices this is not a big deal. But if you have a couple hundred to a couple of thousand devices, this could be a real hassle.</p>
+<p>Now you can take a ton of your time and review Class by Class and Device by Device until you finally finish. You will eventually get it all in a Zenpack....... Well lucky for you guys I created a Python Script that runs as the Zenoss user and create a Zenpack for you. All you have to do is pick a name for the ZenPack and optionally the Device Class you want to scan. The script will scan the Device Class that you specified ( or by default scan the entire /Device Class and its Sub Classes). It will then create the ZenPack with all the locally attached Device Templates. I am thinking of also adding the Events class as part of the next release of this script.</p>
+<p><span class="note">Update 1.0.1, I added the --unique option. If you decide to use this option, This Zenpack will only add, The Device Templates that are not already part of an existing ZenPack. I also added the --verbose option, so that you can see which Device Templates are being added or being dismissed.<br />
+</span></p>
+<p>You can download the script here<br />
+{filelink=8}</p>
+<p><a id="more"></a><a id="more-85"></a></p>
+<p>Example.....</p>
+<pre>python createZenPack.py -p "ZenPacks.Allen.Test1" -a "Allen Sanabria" -v "0.9" -r "/Server/Linux/"
+
+INFO:zen.HookReportLoader:loading reports from:/opt/zenoss/ZenPacks/ZenPacks.Allen.Test1/ZenPacks/Allen/Test1/reportsCreated ZenPack ZenPacks.Allen.Test1Scanning for locally attached TemplatesScanning for locally attached TemplatesObjects Attached to Zenpack ZenPacks.Allen.Test1/zport/dmd/Devices/Server/Linux/foo1.com/foo/zport/dmd/Devices/Server/Linux/DNS/bind/zport/dmd/Devices/Server/Linux/Apache/http</pre>
+<p>Another Example, with the unique option and verbose option.</p>
+<pre>python createZenPack.py -p "ZenPacks.Allen.Test1" -a "Allen Sanabria" -v "0.9" -u -V 
+
+-INFO:zen.HookReportLoader:loading reports from:/opt/zenoss/ZenPacks/ZenPacks.Allen.Test1/ZenPacks/Allen/Test1/reportsCreated ZenPack ZenPacks.Allen.Test1Scanning for locally attached TemplatesScanning for locally attached TemplatesObjects Attached to Zenpack ZenPacks.Allen.Test1I'm not UNIQUE /zport/dmd/Devices/Server/rrdTemplates/LDAPServerI'm in ZenPacks.zenoss.LDAPMonitorI'm not UNIQUE /zport/dmd/Devices/Server/rrdTemplates/ApacheI'm in ZenPacks.zenoss.ApacheMonitorI'm UNIQUE /zport/dmd/Devices/Server/Linux/foo1.com/foo</pre>
+<p>Another Example...</p>
+<pre>python createZenPack.py --listHPTemperatureSensorsZenPacks.Allen.Test1ZenPacks.Allen.FullZenPacks.Allen.Tomcat</pre>
+<p>Help OutPut...</p>
+<pre>python createZenPack.py -husage: createZenPack.py  --packname=ZenPackName --author=name --version=1.0
+
+options: -h, --help            show this help message and exit -p ZPACKNAME,         --packname=ZPACKNAME                       The name of the ZenPack that you want to create -a AUTHOR,            --author=AUTHOR                       Who is creating The ZenPack? -v VERSION,           --version=VERSION                       What Release is this? -r ROOT,              --root=ROOT                         What Device Class You want the Search to begin at? -l,                   --list                       List all the ZenPacks</pre>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2010-02-07T21:29:17-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/">February 07, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -324,29 +367,6 @@ exit $RETVAL</pre>
   </header>
   <div class="entry-content">
     <p>For those of you who visit linuxdynasty everyday, you might have notice some subtle changes in the authorization aspect fo the site. I had to enable captch images in the login, and posting parts of the site. Since for the past few weeks, spammers have been hitting the comments and forums section. I'm hoping this does not annoy everyone, but the spamming is starting to really annoy me.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-10-18T21:14:43-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/">October 18, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/" rel="bookmark" title="Begun Development of Web Server and Database for Port Report and Device Manager" itemprop="url">Begun Development of Web Server and Database for Port Report and Device Manager</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>It is official, I have begun development on the Web Server and Database for the Port Report Project and the Network Device Manager Project. I will be combining both scripts into a True Network Device Manager. My goal is to create an Open Source Network Device Manager that will give Admins and Engineers complete Insight/Access to their network. It does not matter if you want to know which switch your ESX host is directly connected to or if you want to manage all your Switches/Linux Hosts with this product. We have a few more ideas on what we want to do, but they are just ideas and I will not post them yet.</p>
-<p>I will be using Python, Pexpect, PySnmp, SQLAlchemy, and Django for this project. I'm hoping to have an Alpha for users to test by late November or early December. If you are interested in this project, please give me ideas on what you would like to see in this Project. Currently we do not have an official name for the project.  If you have one, let me know as well. All ideas are welcome, as we are trying to make a complete enterprise product out of this project.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

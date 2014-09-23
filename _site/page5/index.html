@@ -136,6 +136,29 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-18T21:14:43-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/">October 18, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/" rel="bookmark" title="Begun Development of Web Server and Database for Port Report and Device Manager" itemprop="url">Begun Development of Web Server and Database for Port Report and Device Manager</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>It is official, I have begun development on the Web Server and Database for the Port Report Project and the Network Device Manager Project. I will be combining both scripts into a True Network Device Manager. My goal is to create an Open Source Network Device Manager that will give Admins and Engineers complete Insight/Access to their network. It does not matter if you want to know which switch your ESX host is directly connected to or if you want to manage all your Switches/Linux Hosts with this product. We have a few more ideas on what we want to do, but they are just ideas and I will not post them yet.</p>
+<p>I will be using Python, Pexpect, PySnmp, SQLAlchemy, and Django for this project. I'm hoping to have an Alpha for users to test by late November or early December. If you are interested in this project, please give me ideas on what you would like to see in this Project. Currently we do not have an official name for the project.  If you have one, let me know as well. All ideas are welcome, as we are trying to make a complete enterprise product out of this project.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-10-14T21:38:51-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/ld%20device%20manager/network-device-manager-update-023/">October 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/ld%20device%20manager/network-device-manager-update-023/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -256,33 +279,6 @@ Revision .21 10/01/2009</p>
 If you have SSH Keys then you do not need to pass a password unless you have to get root access or sudo access. example below..</pre>
 <pre>python ldNetDeviceManager.py -l dynasty -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --term=ssh  --output --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --output --save</pre>
 <p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-10-01T13:12:15-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/" rel="bookmark" title="LD Port Report 1.13 quick update. The Mac Address Reporting Tool" itemprop="url">LD Port Report 1.13 quick update. The Mac Address Reporting Tool</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Quick update today! User Christianha, pointed out to me that the port_report tool was not matching any MAC address he passed. The reason for this is because he was passing the MAC address in uppercase. As per his suggestion, I fixed line 348 so that before it returns the mac, it willl make the MAC lower case. Then I just realized something.... I reverted line 348 back to way it was and changed line 676 instead..</p>
-<p>It was if nmac == cmac:<br />
-Now it is  re.search(nmac, cmac, re.IGNORECASE):</p>
-<p>I felt this was the safer option..</p>
-<p>Thank you Christianha for pointing the issues out..</p>
-<p>LD Port Report == {filelink=15}</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
