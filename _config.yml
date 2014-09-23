@@ -4,7 +4,7 @@ disqus_shortname: linuxdynasty
 reading_time:     true
 words_per_minute: 200
 #Your site's domain goes here. Leave localhost server or blank when working locally.
-url:            
+url:               http://linuxdynasty.github.io/Linuxdynasty
 #url:              http://127.0.0.1:4001
 
 # Owner/author information
