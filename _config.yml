@@ -10,8 +10,8 @@ url:              http://127.0.0.1:4001
 owner:
   name:           Allen Sanabria
   avatar:         avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
-  email:          you@email.com
+  bio:            "DevOps developer who loves programming, monitoring, automation, and metrics."
+  email:          asanabria <@> linuxdynasty dot org
   # Social networking links used in footer. Update and remove as you like.
   twitter:        linuxdynasty
   facebook:       
@@ -23,13 +23,13 @@ owner:
   tumblr:         
   # For Google Authorship https://plus.google.com/authorship
   # google plus id, include the '+', eg +mmistakes
-  google_plus:    +yourid
+  google_plus:    +AllenSanabria
 
 # Background image to be tiled on all pages
 background: 
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   
+google_analytics:   UA-2333243-1
 google_verify:      
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:         
@@ -37,11 +37,8 @@ bing_verify:
 # Links to include in top navigation
 # For external links add external: true
 links:
-  - title: Theme Setup
-    url: /theme-setup
-  - title: External Link
-    url: http://mademistakes.com
-    external: true
+    title: vFense cross-platform patch management
+    url: http://github.com/vFense/vFense
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/New_York

@@ -6,22 +6,22 @@
 <head>
 <meta charset="utf-8">
 <title>Latest Posts &#8211; Linuxdynasty</title>
-<meta name="description" content="Describe this nonsense.">
-<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
+<meta name="description" content="What I am up too.">
+<meta name="keywords" content="Python, GoLang, automation, scripting, programming, vFense, metrics, monitoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://127.0.0.1:4001/images/abstract-1.jpg">
 
 <meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="Describe this nonsense.">
+<meta name="twitter:description" content="What I am up too.">
 <meta name="twitter:creator" content="@linuxdynasty">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:description" content="What I am up too.">
 <meta property="og:url" content="http://127.0.0.1:4001/page21/index.html">
 <meta property="og:site_name" content="Linuxdynasty">
 
@@ -31,7 +31,7 @@
 
 <link rel="canonical" href="http://127.0.0.1:4001/page21/">
 <link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
-<link rel="author" href="https://google.com/+yourid?rel=author">
+<link rel="author" href="https://google.com/+AllenSanabria?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -79,18 +79,18 @@
 				<li>
 					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
 					<h4>Allen Sanabria</h4>
-					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+					<p>DevOps developer who loves programming, monitoring, automation, and metrics.</p>
 				</li>
 				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
 				<li>
-					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:asanabria <@> linuxdynasty dot org"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
 				</li>
 				
 				<li>
-					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+					<a href="https://google.com/+AllenSanabria"><i class="fa fa-google-plus"></i> Google+</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
@@ -111,7 +111,7 @@
 				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
 			</ul>
 		</li>
-		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+		<li><a href="http://127.0.0.1:4001"></a></li><li><a href="http://127.0.0.1:4001"></a></li>
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -133,546 +133,6 @@
 
 <div id="main" role="main">
   
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-07T14:38:11-04:00"><a href="http://127.0.0.1:4001/run-levels-in-linux/">June 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/run-levels-in-linux/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~5 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/run-levels-in-linux/" rel="bookmark" title="Run Levels In Linux" itemprop="url">Run Levels In Linux</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p class="MsoNormal"><strong><span style="font-size: 14pt" lang="EN-US">RUN LEVELS</span></strong><strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></strong></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Background</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Linux can boot<br />
-into various configurations (much like with what you get with Windows when<br />
-hitting <strong>F8</strong> while booting)<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Linux has 6 boot<br />
-levels but outside of specialized situations, only levels 3 &amp; 5 are useful<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Runlevel 3 boots<br />
-to a command prompt –this is the default Runlevel for most servers<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Runlevel 5 boots<br />
-to a GUI interface similar to Windows – this is the default Runlevel for most<br />
-workstations<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p><br />
-<br /><a id="more"></a><a id="more-32"></a><br />&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Linux RunLevel Chart</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<table class="MsoNormalTable" style="border: 1pt solid windowtext; margin-left: 31.05pt" border="1" cellpadding="0" cellspacing="0">
-<thead>
-<tr>
-<td colspan="5" style="border: 1pt solid windowtext; padding: 3.75pt">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Runlevels<br />
-<o:p></o:p></span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Number<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Name<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Login<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Network<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Filesystems<br />
-<o:p></o:p></span></strong></p>
-</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">0<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Halt<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">1<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Single<br />
-  user<br />
-  (Very Useful for Troubleshooting)<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Down<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">2<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Multiuser<br />
-  without NFS<br />
-  (Network File System)<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
-  (partially)<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">3<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Multiuser</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt">(Standard boot level for servers)&nbsp;</span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">4<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">User<br />
-  defined<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">5<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Multiuser<br />
-  with X Windows/GUI</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt">(Standard boot level for desktops)&nbsp;</span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Graphical<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">6<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Reboot<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal"><span lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">How to change a Run Level</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">1. Make sure you<br />
-are logged in as root<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">2. <strong>init <em>runlevel</em></strong><span>&nbsp; </span><br />
-<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>i.e.<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">init 6<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">reboot the system<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">How to change The Default Run Level</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">NOTE: </span></strong><span style="font-size: 12pt" lang="EN-US"><span>&nbsp;</span>Be VERY care with this – DO NOT<br />
-set your run levels to 6 (forever rebooting) or 0 (your machine halts every<br />
-time you try and start it.<strong><br />
-<o:p></o:p></strong></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><strong><span style="font-size: 12pt">Steps:</span></strong><span style="font-size: 12pt"><br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">1.<br />
-vi /etc/inittab<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">2.<br />
-Look for a line the ends with <strong>initdefault</strong><br />
-i.e.:<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; margin-left: 0cm; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>id:3:initdefault:<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">3.<br />
-Change the number. Unless you are troubleshooting you should only use a value<br />
-of 3 or 5 in this line<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">4.<br />
-Save<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">5.<br />
-Reboot system to test.<br />
-<o:p></o:p></span></p>
-<p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-07T14:10:29-04:00"><a href="http://127.0.0.1:4001/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/">June 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/" rel="bookmark" title="Configuring IP on Linux from the Command Line (RedHat,CentOS,Fedora)" itemprop="url">Configuring IP on Linux from the Command Line (RedHat,CentOS,Fedora)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Configuring IP on Linux from the Command Line<br />
-(RedHat,CentOS,Fedora)<br />
-</span></strong></p>
-<p class="MsoNormal"><span style="font-size: 12pt">This<br />
-guide assumes that you are adding an the IP on eth0. If you are doing this on<br />
-another Eth card (i.e. eth1) just adjust the eth numbers accordingly<br />
-</span></p>
-<p class="MsoNormal"> </p>
-<p><a id="more"></a><a id="more-65"></a></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
-Step 1 -Add IP Address<br />
-</span></strong></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/sysconfig/network-scripts/ifcfg-eth0<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">and configure like<br />
-the following (pick any IP address available on your network)<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">DEVICE=eth0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">BOOTPROTO=none<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">BROADCAST=192.168.1.255<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">IPADDR=192.168.1.105<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">NETMASK=255.255.255.0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">NETWORK=192.168.1.0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">HWADDR=00:50:FC:4B:B8:98<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">ONBOOT=yes<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">TYPE=Ethernet<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">USERCTL=no<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">IPV6INIT=no<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">PEERDNS=no<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">GATEWAY=192.168.1.1<br />
-</span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt"><br />
- </span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 2 Restart the NIC<br />
-</span></strong></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">service network restart<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 3 - Add the Default Route:<br />
-</span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Default Route: </span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">route add default<br />
-gw <em>ip_address_of_your_default_gateway</em><br />
-eth0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">route add default gw 192.168.1.1 eth0<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">To make gw/route<br />
-permanent:<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/sysconfig/network<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">to make look like<br />
-this:<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; font-size: 12pt; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial" lang="EN-US">NETWORKING=yes<br />
-HOSTNAME= localhost.localdomain<br />
-GATEWAY=192.168.1.1<br />
-</span><span style="font-size: 12pt" lang="EN-US"><span> </span><span> </span><br />
-</span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 4 - Add DNS Servers<br />
-</span></strong></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><span> </span><br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/resolv.conf<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">so it looks like<br />
-this:<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">search yourdomain.com<br />
-nameserver 192.168.1.37<br />
-nameserver 192.168.1.36<br />
-nameserver 192.168.1.38<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><span> </span><br />
-</span></p>
-<p> </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-05T19:39:33-04:00"><a href="http://127.0.0.1:4001/vote-from-users/">June 05, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/vote-from-users/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/vote-from-users/" rel="bookmark" title="Vote from Users...." itemprop="url">Vote from Users....</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>In the next days to weeks, I will be focusing on programming to the VMware Perl SDK API as well as to libvert API for XEN... For instance yesterday I posted a VMware List Properties script of all Virtual Machines in a Cluster/Server in xml format. Just a few minutes ago I just finish updating that same script to print in standard format by default of all devices, but you can now pass it the --xml option to print them all in xml or if you just want linux devices you can just pass the --linux option or for windows Servers you can pass the --winserv option and for desktops you can pass the --windesk option. You can also pass the --hostname option and get that data as well.&nbsp;</p>
-<p> I will post the script but before I do that I would like to here<br />
-people opinion first?? If this is what you guys would like to see or<br />
-would you like to see other options ?? </p>
-<p><a id="more"></a><a id="more-101"></a></p>
-<p>&nbsp;</p>
-<p>Example output from the --linux option</p>
-<p>#################################################<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tester<br />
---------------------host_config-------------------<br />
-hostName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tester<br />
-guestFullName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Red Hat Enterprise Linux 3 (32-bit)<br />
-guestId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rhel3Guest<br />
-guestFamily&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; linuxGuest<br />
-guestState&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; running<br />
-numCPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1<br />
-memoryMB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2048<br />
-ipAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.20.30.23<br />
-toolsVersion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 32039<br />
-toolsStatus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; toolsOld</p>
-<p>--------------network_info-----------------<br />
-deviceConfigId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4000<br />
-network&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VM Network<br />
-macAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:50:56:87:43:3e<br />
-connected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1<br />
-deviceConfigId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4001<br />
-network&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VM Backup<br />
-macAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:50:56:87:43:3f<br />
-connected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
-<p>-----------------disk_info-------------------<br />
-diskPath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not Available<br />
-capacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4128894976<br />
-freeSpace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2150215680<br />
-diskPath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not Available<br />
-capacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 103515136<br />
-freeSpace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 88038400<br />
-diskPath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Not Available<br />
-capacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4266500096<br />
-freeSpace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4030660608</p>
-<p>#############################################<br />
-&nbsp;</p>
-<p>Now a --winserv example</p>
-<p>#################################################<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tester1<br />
---------------------host_config-------------------<br />
-hostName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tester1<br />
-guestFullName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Microsoft Windows Server 2003, Standard Edition (32-bit)<br />
-guestId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; winNetStandardGuest<br />
-guestFamily&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; windowsGuest<br />
-guestState&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; running<br />
-numCPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1<br />
-memoryMB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1024<br />
-ipAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.34.58.31<br />
-toolsVersion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 52542<br />
-toolsStatus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; toolsOk</p>
-<p>--------------network_info-----------------<br />
-deviceConfigId&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4000<br />
-network&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VM Network<br />
-macAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 00:50:53:96:1d:c7<br />
-connected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1</p>
-<p>-----------------disk_info-------------------<br />
-diskPath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C:<br />
-capacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 15027552256<br />
-freeSpace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4259139218<br />
-diskPath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; D:<br />
-capacity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4294566338<br />
-freeSpace&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4215537232</p>
-<p>#############################################<br />
-&nbsp;</p>
-<p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-05T01:06:29-04:00"><a href="http://127.0.0.1:4001/how-to-list-virtual-machines-and-all-its-properties-in-vmware/">June 05, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-list-virtual-machines-and-all-its-properties-in-vmware/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-list-virtual-machines-and-all-its-properties-in-vmware/" rel="bookmark" title="How to list Virtual Machines and all its properties in VMware." itemprop="url">How to list Virtual Machines and all its properties in VMware.</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I this script I will show you how to grab all the VM's in your ESX Cluster/Server and print out all of it's important data into XML format.. For instance you will get the name of the VM, HostName, Disk's, Networking, if VMware tools is installed, the version of vmware tools, and a little more.</p>
-<p>&nbsp;</p>
-<p><span class="attention"><font color="#000000"><strong>This script assumes you have the</strong></font><font color="#000000"><strong> </strong><strong>VMware<br />
-Infrastructure (VI) Perl Toolkit Packages installed and your<br />
-$HOME/.visdkrc set correctly. Without the above the script below will<br />
-not work!!</strong></font></span></p>
-<p><a id="more"></a><a id="more-178"></a></p>
-<p>To download click <a href="http://www.linuxdynasty.org/View-details/Perl-Scripts/14-vm_listing.pl.html" title="">here</a>. Must be a member in order to download the script below.</p>
-<p><a href="http://www.linuxdynasty.org/images/stories/Scripts/vm_listing_pl.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://www.linuxdynasty.org/images/stories/Scripts/vm_listing_pl.png" /></a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 <article class="hentry">
   <header>
     <div class="entry-meta">
@@ -730,6 +190,238 @@ foreach $views (sort(@$e_vm)) {<br />
 }<br />
 Util::disconnect();</p>
 </span></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-06-04T12:15:08-04:00"><a href="http://127.0.0.1:4001/sorry-for-no-updates-since-friday/">June 04, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/sorry-for-no-updates-since-friday/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/sorry-for-no-updates-since-friday/" rel="bookmark" title="Sorry for no updates since Friday." itemprop="url">Sorry for no updates since Friday.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I was in Atlantic City for the weekend, and I was not worried about updating the site... ENOUGH SAID....!!!!</p>
+<p>But I will be updating the site today with another Linux Distro Screenshot and maybe another Perl Script to be used with VMWare ESX Perl API...</p>
+<p>If you like what we are doing with the site please join the site and leave comments.. We are looking for Ideas for new HowTo's.... So please join and help us to help you!!!&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-30T14:00:36-04:00"><a href="http://127.0.0.1:4001/deli-80-install-screen-shots/">May 30, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/deli-80-install-screen-shots/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/deli-80-install-screen-shots/" rel="bookmark" title="Deli 8.0 Install Screen Shots" itemprop="url">Deli 8.0 Install Screen Shots</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span class="dropcap">T</span>his distribution shocked me on how fast it boots up and loads applications. I tested Deli Linux on one of my old P2 mmx box. And I was really impressed and shocked on how fast it boots up and loads applications. Though the install was pretty straight forward it is not for Linux Newbies... Now if you are a Linux Newbie and want to try this out then follow my screen shot.</p>
+<p><a id="more"></a><a id="more-141"></a></p>
+<p>Deli 8.0 uses lilo for its boot loader which I have not see in over 2 years since grub is pretty much the owner of the boot loader market. So make sure when you are doing the installation and you are about to choose where to install lilo...<strong> <span style="background-color: rgb(255, 102, 0)">Remember usee MBR not ROOT!! </span></strong><br />
+One more thing.. in my 2nd screen shot I forgot to type &quot;<font color="#0000ff"><strong>cfdisk</strong></font>&quot; which it does tell you to do when it boots up.</p>
+<p><a href="images/stories/distros/deli8.0/initial_boot.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/initial_boot.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/pre_install.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/pre_install.png" /></a><a href="images/stories/distros/deli8.0/install1.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install1.png" /></a><a href="images/stories/distros/deli8.0/install2.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install2.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install3.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install3.png" /></a><a href="images/stories/distros/deli8.0/install4.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install4.png" /></a><a href="images/stories/distros/deli8.0/install5.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install5.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install6.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install6.png" /></a><a href="images/stories/distros/deli8.0/install7.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install7.png" /></a><a href="images/stories/distros/deli8.0/install8.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install8.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install9.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install9.png" /></a><a href="images/stories/distros/deli8.0/install10.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install10.png" /></a><a href="images/stories/distros/deli8.0/install11.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install11.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install12.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install12.png" /></a><a href="images/stories/distros/deli8.0/install13.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install13.png" /></a><a href="images/stories/distros/deli8.0/install14.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install14.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install15.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install15.png" /></a><a href="images/stories/distros/deli8.0/install16.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install16.png" /></a><a href="images/stories/distros/deli8.0/install17.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install17.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install18.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install18.png" /></a><a href="images/stories/distros/deli8.0/install19.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install19.png" /></a><a href="images/stories/distros/deli8.0/install20.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install20.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install21.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install21.png" /></a><a href="images/stories/distros/deli8.0/install22.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install22.png" /></a><a href="images/stories/distros/deli8.0/install23.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install23.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install24.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install24.png" /></a><a href="images/stories/distros/deli8.0/install25.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install25.png" /></a><a href="images/stories/distros/deli8.0/install26.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install26.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install27.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install27.png" /></a><a href="images/stories/distros/deli8.0/install28.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install28.png" /></a><a href="images/stories/distros/deli8.0/install29.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install29.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install30.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install30.png" /></a><a href="images/stories/distros/deli8.0/install31.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install31.png" /></a><a href="images/stories/distros/deli8.0/install32.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install32.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install33.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install33.png" /></a><a href="images/stories/distros/deli8.0/install34.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install34.png" /></a><a href="images/stories/distros/deli8.0/install35.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install35.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install36.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install36.png" /></a><a href="images/stories/distros/deli8.0/install37.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install37.png" /></a><a href="images/stories/distros/deli8.0/install38.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install38.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install39.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install39.png" /></a><a href="images/stories/distros/deli8.0/install40.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install40.png" /></a><a href="images/stories/distros/deli8.0/install41.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install41.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install42.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install42.png" /></a><a href="images/stories/distros/deli8.0/install43.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install43.png" /></a><a href="images/stories/distros/deli8.0/install44.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install44.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install45.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install45.png" /></a><a href="images/stories/distros/deli8.0/install46.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install46.png" /></a><a href="images/stories/distros/deli8.0/install47.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install47.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install48.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install48.png" /></a><a href="images/stories/distros/deli8.0/install49.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install49.png" /></a><a href="images/stories/distros/deli8.0/install50.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install50.png" /></a></p>
+<p><a href="images/stories/distros/deli8.0/install51.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install51.png" /></a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-30T11:39:54-04:00"><a href="http://127.0.0.1:4001/mounting-and-partitioning-howto/">May 30, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/mounting-and-partitioning-howto/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~6 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/mounting-and-partitioning-howto/" rel="bookmark" title="Mounting and Partitioning HowTo" itemprop="url">Mounting and Partitioning HowTo</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span class="dropcap">I</span> see this question in forums all<br />
+the time.... How do I mount a file system? How do I create a new<br />
+partition and a file system? How do I set it to mount automatically?<br />
+how do I set the permissions on the mount? Well I'm going to do my best<br />
+here and answer all the questions above.</p>
+<p><a id="more"></a><a id="more-31"></a></p>
+<p><span class="attention">I'm doing this how to with the screen shots on <a target="_parent" href="/linux-mint-5-elyssa-install-screenshots.html" title="Linux Mint Screen Shots">Linux Mint</a> (based off of <strong>Ubuntu</strong>), which means I'm using <strong>sudo</strong> in front of all of my commands instead of being logged in as <strong>root</strong>, though you can be logged in as <strong>root</strong> as well </span></p>
+<div class="important"><span class="important-title"><strong>Delete/Create a Partition and Create a File System</strong></span>
+<p>I'm going to demonstrate how to delete and create a partition and create a file system using my trusty 4gig USB drive...<br />
+If you have a USB drive, testing this will be a cinch :). <span class="alert">Make sure there is nothing on there that you want unless it is GONE!!!</span></p>
+<p><span class="notice">You might have to delete the current file system first, if so please follow the directions below.</span> </p>
+<div class="important"><span class="important-title"><strong>Delete The Partition</strong></span>
+<ul>
+<li>Insert your USB drive </li>
+<li>Run <strong>&quot;<font color="#0000ff">fdisk -l</font>&quot;</strong> as the root user or &quot;<font color="#0000ff"><strong>sudo fdisk -l</strong></font>&quot; This command will print out your disks and its partitions</li>
+<li>Now run &quot;<font color="#0000ff"><strong>fdisk</strong></font> <font color="#ff0000"><strong>/dev/sdb</strong></font>&quot; (This might be different for you, refer back to the output of &quot;<font color="#0000ff"><strong>fdisk -l</strong></font>&quot;)&nbsp;</li>
+<li>Type&quot;<font color="#0000ff"><strong>p</strong></font>&quot; (This means print)</li>
+<li>Now delete the partition by typing &quot;<font color="#0000ff"><strong>d</strong></font>&quot; (this means delete). If you only have 1 partition in there it will choose that one by default</li>
+<li>Type &quot;<font color="#0000ff"><strong>p</strong></font>&quot; We are doing this is to verify that the partition is gone</li>
+<li>
+<p>Now finally type &quot;<font color="#0000ff"><strong>w</strong></font>&quot; This means to write the changes you just did<br />
+Here is the screen shot of the steps above..<br />
+<a href="images/stories/screenshots/fdisk_usb_del.jpg" rel="shadowbox[0]"><img alt="" style="width: 186px; height: 144px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/fdisk_usb_del.jpg" /></a></p>
+</li>
+</ul>
+</div>
+<p></p>
+<div class="important"><span class="important-title"><strong>Create The Partition</strong></span>
+<ul>
+<li>Now run &quot;<font color="#0000ff"><strong>fdisk</strong></font> <font color="#ff0000"><strong>/dev/sdb</strong></font>&quot; (This might be different for you, refer back to the output of &quot;<font color="#0000ff"><strong>fdisk -l</strong></font>&quot;) 
+</li>
+<li>Type&quot;<font color="#0000ff"><strong>p</strong></font>&quot; (This means print)</li>
+<li>Now create the partition by typing &quot;<font color="#0000ff"><strong>n</strong></font>&quot; (This means create a new partition)</li>
+<li>Type &quot;<font color="#0000ff"><strong>P</strong></font>&quot; (P for primary partition)</li>
+<li>Type &quot;<font color="#0000ff"><strong>1</strong></font>&quot; for the first partition (You can only choose 1-4 for primary partitions after that it would have to be extended) </li>
+<li>Now choose the default which is &quot;<font color="#0000ff"><strong>1</strong></font>&quot;. (You are choosing which cylinder to place the beginning of this partition at.)</li>
+<li>Time to choose the size of your partition or use the default which is the entire size of the disk<br />
+I chose to only use &quot;<font color="#0000ff"><strong>+1024M</strong></font>&quot; (which is 1G)</li>
+<li>If you want you can type &quot;<font color="#0000ff"><strong>p</strong></font>&quot; To print your partition table and see if the partition was created.</li>
+<li>Finally type &quot;<font color="#0000ff"><strong>w</strong></font>&quot; (This will commit your changes)</li>
+<li>Below is the screen shot of the whole process..<br />
+<a href="images/stories/screenshots/fdisk_usb_fs.jpg" rel="shadowbox[0]"><img alt="" style="width: 186px; height: 144px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/fdisk_usb_fs.jpg" /></a>
+</li>
+</ul>
+</div>
+<p>&nbsp;</p>
+<div class="important"><span class="important-title"><strong><strong>Create The File System</strong></strong></span>
+<p>Now it is time to choose the type of file system you want to create. I chose to use &quot;ext3&quot; file system. (Which is the default on most distributions of late)</p>
+<ul>
+<li>To create the ext3 file system you will have to run this command...<br />
+<strong>Example</strong> &quot;<strong><font color="#0000ff">mkfs -t</font> <font color="#ff0000">ext3 /dev/sdb1</font></strong>&quot;<br />
+<strong>Syntax</strong> &quot;<strong><font color="#0000ff">mkfs -t</font> &lt;<font color="#ff0000">File System Type</font>&gt; &lt;<font color="#ff0000">Target Partition</font>&gt;</strong>&quot;<br />
+Here is the screen shot below..<br />
+<a href="images/stories/screenshots/mkfs.jpg" rel="shadowbox[0]"><img alt="" style="width: 186px; height: 144px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/mkfs.jpg" /></a></li>
+</ul>
+</div>
+</div>
+<p>&nbsp;</p>
+<div class="important"><span class="important-title"><strong><strong>Mounting a File System</strong></strong></span>
+<p>Here I will show you how to mount an NTFS File System.</p>
+<ul>
+<li>Run <strong>&quot;<font color="#0000ff">fdisk -l</font>&quot;</strong> as the root user or &quot;<font color="#0000ff"><strong>sudo fdisk -l</strong></font>&quot;<br />
+Here is a screen shot of the output<br />
+<a href="images/stories/screenshots/fdisk.jpg" rel="shadowbox[0]"><img alt="" style="width: 186px; height: 144px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/fdisk.jpg" /></a></li>
+<li>From<br />
+that screen shot you can tell that my NTFS file system is /dev/sda2.<br />
+Now I want to mount it. First thing you need to do is create a<br />
+directory where you want to mount your NTFS file system at. <br />
+<strong>Example</strong> &quot;<strong><font color="#0000ff">mkdir</font> <font color="#ff0000">/mnt/share</font></strong>&quot;<br />
+<strong>Syntax</strong> &quot;<strong><font color="#0000ff">mkdir</font> &lt;<font color="#ff0000">Target Directory</font>&gt;</strong>&quot;
+</li>
+<li>Now it is time to mount the file system.<br />
+<strong>Example</strong> &quot;<strong><font color="#0000ff">mount -t <font color="#ff0000">ntfs</font></font> <font color="#ff0000">/dev/sda2</font> <font color="#ff0000">/mnt/share</font></strong>&quot; <strong><br />
+Syntax</strong> &quot;<strong><font color="#0000ff">mount -t</font> &lt;<font color="#ff0000">File System Type</font>&gt; &lt;<font color="#ff0000">File System</font>&gt; &lt;<font color="#ff0000">Target Directory</font>&gt;</strong>&quot;<br />
+<span class="attention">This command will mount /dev/sda2 to /mnt/share as Read and Write by default.</span><br />
+ just for sanity purposes,<br />
+verify that you can write to that directory... <br />
+<strong>Example</strong> &quot;<font color="#0000ff"><strong>touch</strong></font> <font color="#ff0000"><strong>/mnt/share/test</strong></font>&quot;<br />
+<strong>Syntax</strong> &quot;<font color="#0000ff"><strong>touch</strong></font> &lt;<font color="#ff0000"><strong>create empty file at current or target directory</strong></font>&gt;&quot;
+</li>
+<li>Now when you run a &quot;<font color="#0000ff"><strong>df -h</strong></font>&quot;&nbsp; or &quot;<font color="#0000ff"><strong>mount</strong></font>&quot; and now you should see your mount at the bottom of the output of either command.
+<p>here is a screen shot of the output of both commands.<br />
+<a href="images/stories/screenshots/df_mount.jpg" rel="shadowbox[0]"><img alt="" style="width: 186px; height: 144px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/df_mount.jpg" /></a>
+<li>Now what if you want to mount that NTFS Volume as Read Only??<br />
+First thing you need to do is unmount the volume. You can do this by running this command.<br />
+<strong>Example</strong> &quot;<strong><font color="#0000ff">umount</font> <font color="#ff0000">/mnt/share</font></strong>&quot;<br />
+<strong>Syntax</strong> &quot;<font color="#0000ff"><strong>umount</strong></font> <strong>&lt;<font color="#ff0000">Directory where file system is mounted</font>&gt;</strong><br />
+As you can see the &quot;<font color="#0000ff"><strong>umount</strong></font>&quot; command is to unmount a file system. <br />
+<span class="notice">There are quite a few good options to use with umount that we will discuss later.</span>&nbsp;</li>
+<li>Now mount the file system using this command..<br />
+<strong>Example</strong> &quot;<strong><font color="#0000ff">mount -t</font> <font color="#ff0000">ntfs</font> <font color="#0000ff">-o</font> <font color="#ff0000">ro /dev/sda2 /mnt/share</font></strong>&quot;<br />
+<strong>Syntax</strong> &quot;<strong><font color="#0000ff">mount -t</font> &lt;<font color="#ff0000">File System Type</font>&gt; <font color="#0000ff">-o</font> &lt;<font color="#ff0000">Permissions</font>&gt; &lt;<font color="#ff0000">file system</font>&gt; &lt;<font color="#ff0000">Target Directory</font>&gt;</strong></li>
+
+
+<p>&nbsp;</p>
+<div class="important"><span class="important-title"><strong>Add Mount to Automatically Mount After Every Reboot</strong></span>
+<p>In the steps above I showed you how to delete/create a partition, how to create a filesystem, and how to mount/unmount the file system. Now I will show you how to make your system automaticall mount your file system every time. We can do this 2 ways, either using an editor (vi) or by appending the output to /etc/fstab. I will show you how to append ( I do not feel like teaching <font color="#0000ff"><strong>VI</strong></font> right now ;).</p>
+<ul>
+<li>Lets show you how to append the output to &quot;/etc/fstab&quot;.<br />
+<span class="attention">I tried using <strong>sudo</strong> in front of echo but it did not work so I had to use the root account for the following..</span><br />
+The Example below will automatically mount /dev/sda2 to /mnt/share using the ntfs file system and mounting as &quot;<strong>ro</strong>&quot; Read Only. <br />
+You could also use the &quot;<strong>rw</strong>&quot; which is Read Write<br />
+Example <strong><font color="#0000ff">echo</font> &quot;<font color="#ff0000">/dev/sda2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /mnt/share &nbsp;&nbsp; ntfs&nbsp;&nbsp;&nbsp; ro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2</font>&quot; &gt;&gt;<font color="#ff0000"> /etc/fstab</font></strong><br />
+Syntax <font color="#0000ff"><strong>echo</strong></font> &quot;<strong>&lt;<font color="#ff0000">file system</font>&gt; &lt;<font color="#ff0000">mount point</font>&gt;&nbsp;&nbsp; &lt;<font color="#ff0000">type</font>&gt;&nbsp; &lt;<font color="#ff0000">options</font>&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;<font color="#ff0000">dump</font>&gt;&nbsp; &lt;<font color="#ff0000">pass</font>&gt;</strong>&quot; &gt;&gt; &lt;<font color="#ff0000"><strong>File To Append To</strong></font>&gt;<br />
+Here is the screen shot below..<br />
+<a href="images/stories/screenshots/fstab.jpg" rel="shadowbox[0]"><img alt="" style="width: 186px; height: 144px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/fstab.jpg" /></a>
+</li>
+</ul>
+</div>
+</p></li></ul></div>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-25T20:22:07-04:00"><a href="http://127.0.0.1:4001/removing-multiple-rpms-with-similar-file-name/">May 25, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/removing-multiple-rpms-with-similar-file-name/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/removing-multiple-rpms-with-similar-file-name/" rel="bookmark" title="Removing Multiple RPMs with Similar File Name" itemprop="url">Removing Multiple RPMs with Similar File Name</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span>Removing<br />
+Multiple RPM's with Similar File Names</span></p>
+<p><span>Use<br />
+the rpm’s command <strong>-e</strong> (for remove) with the <strong>--allmatches</strong> option</span></p>
+<p><strong><span><font color="#0000ff"><font color="#000000">&quot;rpm</font></font><font color="#000000"><br />
+–e&nbsp; --allmatches</font> </span></strong><strong><span>&lt;<font color="#ff0000">package-to-be-removed</font>&gt;&quot;</span></strong></p>
+<p><span>i.e.:</span></p>
+<p><strong><span><font color="#0000ff"><font color="#000000">&quot;rpm</font></font><font color="#ff0000"><font color="#000000"> </font><font color="#000000">-e --allmatches</font> kernel-2.4.25-8tr<font color="#000000">&quot;</font></font></span></strong></p>
+<p><span>&nbsp;</span></p>
+<p><span>The <strong>--allmatches</strong><br />
+allows you to match all rpms with a given expression..</span></p>
+<p><span>&nbsp;</span></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -922,17 +614,12 @@ Util::disconnect();</p>
         
       </li>
     
-      <li>
-        
-          <a href="http://127.0.0.1:4001/page31">31</a>
-        
-      </li>
-    
   </ul>
   
     <a href="http://127.0.0.1:4001/page22" class="btn">Next</a>
   
 </div><!-- /.pagination -->
+
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
@@ -944,6 +631,18 @@ Util::disconnect();</p>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2333243-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
           
 

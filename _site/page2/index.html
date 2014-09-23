@@ -6,22 +6,22 @@
 <head>
 <meta charset="utf-8">
 <title>Latest Posts &#8211; Linuxdynasty</title>
-<meta name="description" content="Describe this nonsense.">
-<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
+<meta name="description" content="What I am up too.">
+<meta name="keywords" content="Python, GoLang, automation, scripting, programming, vFense, metrics, monitoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://127.0.0.1:4001/images/abstract-1.jpg">
 
 <meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="Describe this nonsense.">
+<meta name="twitter:description" content="What I am up too.">
 <meta name="twitter:creator" content="@linuxdynasty">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:description" content="What I am up too.">
 <meta property="og:url" content="http://127.0.0.1:4001/page2/index.html">
 <meta property="og:site_name" content="Linuxdynasty">
 
@@ -31,7 +31,7 @@
 
 <link rel="canonical" href="http://127.0.0.1:4001/page2/">
 <link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
-<link rel="author" href="https://google.com/+yourid?rel=author">
+<link rel="author" href="https://google.com/+AllenSanabria?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -79,18 +79,18 @@
 				<li>
 					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
 					<h4>Allen Sanabria</h4>
-					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+					<p>DevOps developer who loves programming, monitoring, automation, and metrics.</p>
 				</li>
 				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
 				<li>
-					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:asanabria <@> linuxdynasty dot org"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
 				</li>
 				
 				<li>
-					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+					<a href="https://google.com/+AllenSanabria"><i class="fa fa-google-plus"></i> Google+</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
@@ -111,7 +111,7 @@
 				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
 			</ul>
 		</li>
-		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+		<li><a href="http://127.0.0.1:4001"></a></li><li><a href="http://127.0.0.1:4001"></a></li>
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -136,7 +136,7 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-12-13T16:51:16-05:00"><a href="http://127.0.0.1:4001/reply-to-script-downloads/">December 13, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/reply-to-script-downloads/#disqus_thread">Comment</a></span>
+      <span class="entry-date date published updated"><time datetime="2011-12-27T19:52:04-05:00"><a href="http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/">December 27, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
         <i class="fa fa-clock-o"></i>
@@ -146,11 +146,23 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/reply-to-script-downloads/" rel="bookmark" title="Reply To: Script downloads" itemprop="url">Reply To: Script downloads</a></h1>
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/" rel="bookmark" title="How To Monitor Http Status Codes using Zenoss and Snmp." itemprop="url">How To Monitor Http Status Codes using Zenoss and Snmp.</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>You should be able to now.</p>
+    <p>We needed a way to monitor a few different type of HTTP Status Codes, specifically... ( 400, 404, 500, 503, 504, 200 ). This list is modifiable within the script. Though I'm thinking of turning this list into an option, since everyone might not one to gather the count just for those mentioned above.</p>
+<p>So In order to get this data, you will need to use SNMP and install logtail. To make this script work you will need to have an snmpd exec statement in the snmpd.conf file and a crontab entry for the script to run as often as you like.</p>
+<p>This script has been tested, using Nginx and Ruby On Rails.<br />
+You can download the script here.. {filelink=21}</p>
+<ul>
+<li>On cron, remember this is modifiable '<strong>* * * * * /usr/local/bin/get_http_codes.py -d "/var/log/nginx" -f "www-access.log" &gt;/tmp/errorcount.txt'</strong></li>
+<li>In snmpd.conf without quotes '<strong>exec GetHttpStats /bin/cat /tmp/errorcount.txt</strong>'</li>
+</ul>
+<p>In Zenoss you will have to use the check_snmp nagios command or the inherent snmp check from zenoss. The oid you need to use is the UCDavis OID. For instance I'm using 2 exec statements in snmpd.conf, so the OID I am using for this check is this one '<strong>.1.3.6.1.4.1.2021.8.1.101.2</strong>' The command I'm using in zenoss is like this <strong>'check_snmp -H ${dev/manageIp} -C readonly -P 2c -o .1.3.6.1.4.1.2021.8.1.101.2</strong>'</p>
+<p>The current options for get_http_codes.py is '<strong>-d</strong>' which is the directory where the log file is located and '<strong>-f</strong> ' the name of the logfile. This script uses logtail so that I can always get the difference from the last time I scanned the log file.</p>
+<p>The purpose of this script is so that you can graph or create a threshold of how many of the below Http Error Codes you are getting between every check. For instance we run this check every 30 seconds in Cron and in Zenoss and we divide the results by 30 so we can get how many of the error codes are happening per second.<br />
+Example of the output of the script is 'SNMP OK - "<strong>Nginx Codes OK|count200=181 count400=1 count404=0 count500=0 count503=0 count504=0" |</strong> '</p>
+<p>If you have any feature request or have any questions, please leave a comment. Thank you</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -158,7 +170,7 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-12-12T00:57:13-05:00"><a href="http://127.0.0.1:4001/forums/">December 12, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/forums/#disqus_thread">Comment</a></span>
+      <span class="entry-date date published updated"><time datetime="2011-09-29T01:38:31-04:00"><a href="http://127.0.0.1:4001/blog/while/">September 29, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/blog/while/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
         <i class="fa fa-clock-o"></i>
@@ -168,11 +180,11 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/forums/" rel="bookmark" title="Forums" itemprop="url">Forums</a></h1>
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/blog/while/" rel="bookmark" title="It's been a while.." itemprop="url">It's been a while..</a></h1>
     
   </header>
   <div class="entry-content">
-    
+    <p>I have not been doing to many interesting projects as of the past year. This is the reason for my lack of updates. I am now starting to do some interesting stuff, so let the updates roll.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -180,7 +192,7 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-12-11T20:19:21-05:00"><a href="http://127.0.0.1:4001/general-site/">December 11, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/general-site/#disqus_thread">Comment</a></span>
+      <span class="entry-date date published updated"><time datetime="2011-02-02T23:16:42-05:00"><a href="http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/">February 02, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
         <i class="fa fa-clock-o"></i>
@@ -190,11 +202,29 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/general-site/" rel="bookmark" title="General Help for this site.." itemprop="url">General Help for this site..</a></h1>
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/" rel="bookmark" title="HowTo add Aggregate Data Graphs from existing datapoints in Zenoss" itemprop="url">HowTo add Aggregate Data Graphs from existing datapoints in Zenoss</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Anything that has nothing to do with the other Forums that I created :)</p>
+    <p>Recently I had to aggregate the amount of 200, 400, 404, 500, 503,  and 504 HTTP 1.1 Codes from all of our Nginx and Ruby On Rails systems. So I decided to write a quick plugin for Zenoss that all you need to do is pass the devices or Device Class you want to aggregate the data from and the DataPoint name.</p>
+<p>Also this makes it simple to use the Zenoss Thresholds and create Aggregate Reports based on the datapoints you use with out having to do some fancy python coding... :) Enjoy</p>
+<p>&nbsp;</p>
+<p>Example..</p>
+<pre>python AllenZenossAggregate.py -h
+Usage: AllenZenossAggregate.py -d "nginx-1" -d "nginx-2" -p "nginx_codes_count200"
+OK Aggregate for devices  nginx-1 nginx-2 is 34|aggregate=34
+     AllenZenossAggregate.py -o "/Server/Linux/Nginx" -p "nginx_codes_count200"
+OK Aggregate for /Server/Linux/Nginx class is 22|aggregate=22
+ Options:
+  -h, --help            show this help message and exit
+  -d DEVICE, --device=DEVICE
+                        The device you want to grab the datapoints from.
+  -o ORGANIZER, --organizer=ORGANIZER
+                        The Class you want to get your list of devices from.
+  -p DPOINTS, --dpoints=DPOINTS
+                        Name of DataPoint nginx_codes_count200</pre>
+<p>{filelink=1}</p>
+<p>&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -202,21 +232,53 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-12-11T20:15:13-05:00"><a href="http://127.0.0.1:4001/zenoss/">December 11, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/zenoss/#disqus_thread">Comment</a></span>
+      <span class="entry-date date published updated"><time datetime="2010-09-10T16:17:03-04:00"><a href="http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/">September 10, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
         <i class="fa fa-clock-o"></i>
         
-        Reading time ~1 minute
+        Reading time ~2 minutes
       </span><!-- /.entry-reading-time -->
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/zenoss/" rel="bookmark" title="Zenoss" itemprop="url">Zenoss</a></h1>
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/zenoss/monitoring-rabbitmq-with-zenoss/" rel="bookmark" title="Monitoring RabbitMQ with Zenoss" itemprop="url">Monitoring RabbitMQ with Zenoss</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>If you have questions or need help with any of my scripts that I run for Zenoss, please post them here</p>
+    <p>RabbitMQ was recently deployed in the company I currently work for. At the last minute ( as always ) they came to me and ask me to please add RabbitMQ monitoring to Zenoss. They said here is the url and now please monitor for a few stats ( <a href="http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin">using the RabbitMQ Status Plugi</a>n ). So I said to myself, I could easily just write a quick shell script to get the 3 stats that they needed and add them into Zenoss. After thinking about it.... In the near future they might ask for more than those 3 stats. So I decided to write a quick python script ( Zenoss Compatible ) to get all the stats from that status page and input them into Zenoss...</p>
+<p>Prerequisites</p>
+<ol>
+<li>Zenoss 2.5 and above ( I have not tested on 3.+ or &lt;2 .4 )</li>
+<li>lxml Python module    "<strong>easy_install lxml</strong>" as the zenoss user</li>
+<li>"<strong><a href="View-details/Zenoss/54-Zenoss_Template_Manager.html">Zenoss_Template_Manager.py</a></strong>" Optional, Only needed if you do not want to add all the datapoints manually... I DON'T!!!!</li>
+<li>RabbitMQ Installed</li>
+<li>RabbitMQ Status Plugin from <a href="http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin">http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin</a></li>
+<li>"<strong><a href="View-details/LD-Network-Manager-Project/60-RabiitMQ-monitoring-Zenoss-Style.html">check_rabbitmq.py</a></strong>"</li>
+</ol>
+<p>Zenoss Template Manager = {filelink=3}</p>
+<p>CheckRabbitMQ.py = {filelink=2}</p>
+<p>Once you have all the above, we are ready to go..</p>
+<ol>
+<li>copy both Python Scripts above into the /opt/zenoss/libexec/ folder  ( If you are using RedHat/CentOS ) and make sure they are executable.</li>
+</ol>
+<p>As the Zenoss user run the script ....<br />
+/opt/zenoss/libexec/check_rabbitmq.py -u 'http://rabbitmq-server:55672' -a 'mon-user mon-passwd' |sed -re "s/^OK|/ /g" |sed -re "s/([A-Za-z0-9_.]+*)?=[0-9]+/-p "1,G"/g" |xargs /opt/zenoss/libexec/Zenoss_Template_Manager.py -o "/Devices/Server/Linux/RabbitMQ" -c '/opt/zenoss/libexec/check_rabbitmq.py -u "http://rabbitmq-server:55672" -a "mon-user mon-passwd"' --template=RabbitMQ --dsource=RabbitMQStats -V $1</p>
+<p>If you need to know how to use the Zenoss_Template_Manager.y script, check here <a href="howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html">http://www.linuxdynasty.org/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html</a></p>
+<p>So let me explain what the sed statements above are doing...</p>
+<ul>
+<li>"sed -re "s/^OK|/ /g"" This sed statement is removing the OK| from the beginning of the line</li>
+<li>"sed -re "s/([A-Za-z0-9_.]+*)?=[0-9]+/-p "1,G"/g"<br />
+This 1st part of the sed statement is matching any letter,number,underscore, and period, any number of times until it reaches the equal "="  "<strong>[A-Za-z0-9_.]+*)?=</strong>"<br />
+The  2nd part of this statement is going to match the "=" and any number of integers after it. "<strong>[0-9]+</strong>"<br />
+Now we need to make the substitution.... So we are going to substitute, every match with a -p,  then a space and then the 1st group match in escaped quotes, then a comma and G for GAUGE.</li>
+</ul>
+<p>The 2 sed statements above will do that for every match it finds. If you were to add each datapoint by hand, it would look like this....<br />
+/opt/zenoss/libexec/Zenoss_Template_Manager.py -o "/Devices/Server/Linux//RabbitMQ" -c '/opt/zenoss/libexec/check_rabbitmq.py -u "http://rabbitmq-server:55672" -a "mon-user mon-passwd"' --template=RabbitMQ --dsource=RabbitMQStats -V -p "queue.conversion.event.tracking_msg_unack,G" -p "connections,G" -p "erlang_processes_used,G" -p "erlang_processes_avail,G" -p "file_descriptors_used,G" -p "file_descriptors_avai,G" -p "binary_memory,G" -p "memory_used,G" -p "memory_avail,G"</p>
+<p>I hope the above scripts will save someone time and frustration......</p>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;">connections=26 erlang_processes_used=252 erlang_processes_avail=1048576 file_descriptors_used=1 file_descriptors_avail=1024 pid=3167  binary_memory=0 ets_memory=0  memory_used=27 memory_avail=99</div>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;">3</div>
+<p>&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -224,23 +286,52 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-10-18T15:59:51-04:00"><a href="http://127.0.0.1:4001/script-downloads/">October 18, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/script-downloads/#disqus_thread">Comment</a></span>
+      <span class="entry-date date published updated"><time datetime="2010-08-03T19:42:42-04:00"><a href="http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/">August 03, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
         <i class="fa fa-clock-o"></i>
         
-        Reading time ~1 minute
+        Reading time ~2 minutes
       </span><!-- /.entry-reading-time -->
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/script-downloads/" rel="bookmark" title="Script downloads" itemprop="url">Script downloads</a></h1>
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/" rel="bookmark" title="HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk" itemprop="url">HowTo Send Splunk Alerts To Zenoss, And make them Look Like Splunk</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Nice site.</p>
-<p>Don't seem to be able to download py scripts- links not there or broken.  Am I doing something wrong?</p>
-<p>E</p>
+    <p>We needed to integrate the Splunk Alerts into Zenoss, because even though Splunk can indeed send out alerts. Splunk does not have any clue about what an "Escalation Process" is. With Zenoss you can create an "Escalation Process".</p>
+<p>I have 2 ways to send events to Zenoss from Splunk..</p>
+<ol>
+<li>Write a Script that uses the snmptrap command.</li>
+<li>Write a Script that uses the Zenoss zensendevent command.</li>
+</ol>
+<p>I decided to go with the Zenoss zensendevent command ( Which is a python script with no external dependencies, which can be copied from the Zenoss Server at $ZENHOME/bin/zensendevent ).</p>
+<p>Now it's time to get the ball rolling..</p>
+<ol>
+<li>On the Splunk Server I copied the zensendevent script from the Zenoss Server to Splunk on /opt/splunk/bin/scripts/zensendevent.</li>
+<li>I then created a shell script called Splunk2Zenoss.sh. ( This script takes the Saved Splunk Search and passes it over to Zenoss )This script will also be located in /opt/splunk/bin/scripts/Splunk2Zenoss.sh</li>
+<li>You will then need to modify the options in the script. (For instance the severity of the alert, the zenoss server, the event mapping, event key, login and passwd )</li>
+<li>I then created the saved search in Splunk and make sure to check the Trigger Shell Script option. ( Make sure to put the script name in here )</li>
+</ol>
+<p><a id="more"></a><a id="more-197"></a></p>
+<p><a href="images/stories/Zenoss/SavedSearch.png" rel="shadowbox[0]"><img style="width: 200px; height: 200px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/SavedSearch.png" alt="" /></a><a href="images/stories/Zenoss/Splunk2Zenoss.png" rel="shadowbox[0]"><img style="width: 200px; height: 200px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/Splunk2Zenoss.png" alt="" /></a><a href="images/stories/Zenoss/Transform ScreenShot.png" rel="shadowbox[0]"><img style="width: 200px; height: 200px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/Transform ScreenShot.png" alt="" /></a></p>
+<p>I did my best to mimic the Splunk Saved Search Alert that you get by email through Splunk, into Zenoss. As of right now any searches that you have saved, can now be sent to Zenoss by using zensendevent that comes with Zenoss.</p>
+<p style="margin-top: 10px; margin-bottom: 15px;"><span class="attention">There are 2 caveats to this though....</span></p>
+<ol>
+<li>You will need to add to the following ( | fields - _raw ) to all your saved searches, with out the ().</li>
+<li>modify zensendevent on line number 170,<br />
+from..<br />
+field, value = line.split('=')<br />
+to..<br />
+field, value = line.split('=',1)<br />
+The reason for the change above, is because Splunk will send "=" signs in the message output, and zensendevent is splitting by "=". So to get rid if this issue, you set the maxsplit to 1.</li>
+</ol>
+<p>&nbsp;</p>
+<p>Here are ScreenShot Examples of a Splunk Email and a Zenoss Email<br />
+<a href="images/stories/Zenoss/ZenossSevereTest1.png" rel="shadowbox[0]"><img style="width: 200px; height: 200px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/ZenossSevereTest1.png" alt="" /></a><a href="images/stories/Zenoss/severeTest1_splunk.png" rel="shadowbox[0]"><img style="width: 200px; height: 200px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Zenoss/severeTest1_splunk.png" alt="" /></a></p>
+<p>Splunk2Zenoss.sh == {filelink=4}</p>
+<p>SplunkTransfor.py == {filelink=5}</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -433,17 +524,12 @@
         
       </li>
     
-      <li>
-        
-          <a href="http://127.0.0.1:4001/page31">31</a>
-        
-      </li>
-    
   </ul>
   
     <a href="http://127.0.0.1:4001/page3" class="btn">Next</a>
   
 </div><!-- /.pagination -->
+
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
@@ -455,6 +541,18 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2333243-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
           
 

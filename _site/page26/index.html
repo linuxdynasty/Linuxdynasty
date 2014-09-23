@@ -6,22 +6,22 @@
 <head>
 <meta charset="utf-8">
 <title>Latest Posts &#8211; Linuxdynasty</title>
-<meta name="description" content="Describe this nonsense.">
-<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
+<meta name="description" content="What I am up too.">
+<meta name="keywords" content="Python, GoLang, automation, scripting, programming, vFense, metrics, monitoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://127.0.0.1:4001/images/abstract-1.jpg">
 
 <meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="Describe this nonsense.">
+<meta name="twitter:description" content="What I am up too.">
 <meta name="twitter:creator" content="@linuxdynasty">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:description" content="What I am up too.">
 <meta property="og:url" content="http://127.0.0.1:4001/page26/index.html">
 <meta property="og:site_name" content="Linuxdynasty">
 
@@ -31,7 +31,7 @@
 
 <link rel="canonical" href="http://127.0.0.1:4001/page26/">
 <link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
-<link rel="author" href="https://google.com/+yourid?rel=author">
+<link rel="author" href="https://google.com/+AllenSanabria?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -79,18 +79,18 @@
 				<li>
 					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
 					<h4>Allen Sanabria</h4>
-					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+					<p>DevOps developer who loves programming, monitoring, automation, and metrics.</p>
 				</li>
 				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
 				<li>
-					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:asanabria <@> linuxdynasty dot org"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
 				</li>
 				
 				<li>
-					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+					<a href="https://google.com/+AllenSanabria"><i class="fa fa-google-plus"></i> Google+</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
@@ -111,7 +111,7 @@
 				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
 			</ul>
 		</li>
-		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+		<li><a href="http://127.0.0.1:4001"></a></li><li><a href="http://127.0.0.1:4001"></a></li>
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -133,274 +133,6 @@
 
 <div id="main" role="main">
   
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-29T03:30:41-04:00"><a href="http://127.0.0.1:4001/how-to-remove-the-last-character-of-every-filename-in-a-directory/">April 29, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-remove-the-last-character-of-every-filename-in-a-directory/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-remove-the-last-character-of-every-filename-in-a-directory/" rel="bookmark" title="How to remove the last character of every filename in a directory" itemprop="url">How to remove the last character of every filename in a directory</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <pre>#!/usr/bin/env python<br />#Created by LinuxDynasty<br />import os, re, sys<br /><br />os.chdir(sys.argv[1])<br />ls = os.listdir('./')<br />for file_o in ls:<br />  file_n = re.sub(&quot;w.&quot;, &quot;.&quot;, file_o)<br />  os.rename(file_o, file_n)<br /><br />print os.listdir(&quot;./&quot;)<br /></pre>
-<p><a id="more"></a><a id="more-71"></a></p>
-<p><strong>To run this script you will do this.</strong></p>
-<p><strong>python &lt;script&gt; &lt;&quot;directory&quot;&gt;</strong></p>
-<p><strong>python rename1.py &quot;/home/dynasty/test&quot;</strong></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-28T17:31:06-04:00"><a href="http://127.0.0.1:4001/script-to-locate-edit-apache-virtualhost-entries/">April 28, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/script-to-locate-edit-apache-virtualhost-entries/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~5 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/script-to-locate-edit-apache-virtualhost-entries/" rel="bookmark" title="Script to locate, edit Apache VirtualHost entries" itemprop="url">Script to locate, edit Apache VirtualHost entries</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span style="font-family: courier new">#!/usr/bin/perl<br />
-# Author: Christopher Hahn, 2006</span></p>
-<p><span style="font-family: courier new">sub usage {<br />
- print STDERR &lt;&lt;EOT;<br />
-usage:<br />
-$0 &lt;match&gt; [&lt;path&gt; [...]]</span></p>
-<p><span style="font-family: courier new">Find and edit Apache virtual hosts matching &lt;match&gt;</span></p>
-<p><span style="font-family: courier new">&lt;path&gt;  Path to an Apache conf to edit.<br />
- If a directory, equivalent to all files in &lt;path&gt;/<br />
- If omitted, &quot;./&quot; is assumed</span></p>
-<p><span style="font-family: courier new">&lt;match&gt; is a PERL regular expression to match against ServerName or<br />
- ServerAlias for the virtual host entry you want to edit.</span></p>
-<p><span style="font-family: courier new">If &lt;match&gt; is not found and &lt;path&gt; evaluates to a single file (extant or not)<br />
-a template is provided to append a VirtualHost to the file.<br />
-EOT</span></p>
-<p><span style="font-family: courier new"> die &quot;n&quot;;<br />
-}</span></p>
-<p><a id="more"></a><a id="more-86"></a></p>
-<p><span style="font-family: courier new">my $editor = $ENV{EDITOR} || $ENV{VISUAL} || '/bin/vi';<br />
-my $re = shift;<br />
-my @files = @ARGV;</span></p>
-<p><span style="font-family: courier new">&amp;usage unless $re;</span></p>
-<p><span style="font-family: courier new">my $rv = 0;<br />
-my $rc = 0;</span></p>
-<p><span style="font-family: courier new"># Put something in front so the script won't match itself. :)<br />
-my $template = &quot;<br />
-V&lt;VirtualHost *&gt;<br />
-V ServerName $re<br />
-V ServerAlias *.$re<br />
-V # DocumentRoot /content/data/$re/htdocs/<br />
-V # DocumentRoot /spln/data/<br />
-V # Redirect / </span><a href="http://www.cbs.com/"><span style="font-family: courier new">http://</span></a><br />
-<span style="font-family: courier new">V # RedirectMatch ^(.*) </span><a href="http://www.cbs.com/"><span style="font-family: courier new">http://</span></a><br />
-<span style="font-family: courier new">V&lt;/VirtualHost&gt;</span><br />
-<span style="font-family: courier new">&quot;;</span><br />
-<span style="font-family: courier new">$template =~ s/^V//mg;</span></p>
-<p><span style="font-family: courier new">$re = qr/.*?$re/;</span></p>
-<p><span style="font-family: courier new">@files = ( '.' ) unless @files;<br />
-@files = build_file_list(@files);</span></p>
-<p><span style="font-family: courier new">my $edit_file = &quot;virt.$$&quot;;</span></p>
-<p><span style="font-family: courier new">foreach $file (@files) {<br />
- # A single success is considered an overall success<br />
- $rc = virt($re, $file);<br />
- if($rc &lt; 1 &amp;&amp; $rv) { $rv = 0 }<br />
- else { $rv = $rc }<br />
-}</span></p>
-<p><span style="font-family: courier new">if($rv &gt; 0) {<br />
- print $rv;<br />
- die &quot;$!n&quot;;<br />
-}</span></p>
-<p>
-<span style="font-family: courier new">unlink $edit_file;<br />
-if( $rv == -1 &amp;&amp; $#files == 0 ) {<br />
- open EDITFILE, '&gt;&gt;', $edit_file;<br />
- print EDITFILE $template;<br />
- close EDITFILE;</span></p>
-<p><span style="font-family: courier new"> open TARGFILE, '&gt;&gt;', $files[0];<br />
- print TARGFILE edit($edit_file);<br />
- close TARFILE;<br />
-}</span></p>
-<p><span style="font-family: courier new"></span></p>
-<p><span style="font-family: courier new"></span></p>
-<p><span style="font-family: courier new"># copy each matching virt to a temp file and run our editor (edit()) against it<br />
-# then copy the virt back into place and rewrite the rest of the file<br />
-sub virt {<br />
- my $re = shift;<br />
- my $file = shift;</span></p>
-<p><span style="font-family: courier new"> my $invirt = -1; # position within the file when in a virt<br />
- my @virt_content = ();<br />
- my $match_flag = 0; # whether we are 'in' a matching virt<br />
- my $any_match = 0; # whether we have matched any virt<br />
- my $tmpfile = new_temp_file();</span></p>
-<p><span style="font-family: courier new"> return $! unless open(IN, '+&lt;', $file);<br />
- return $! unless open(OUT, '+&gt;', $tmpfile);</span></p>
-<p><span style="font-family: courier new"> while(&lt;IN&gt;) {<br />
- if($invirt &lt; 0) {<br />
- if(/^s*&lt;VirtualHost/) {<br />
- $invirt = tell IN;<br />
- $match_flag = 0;<br />
- @virt_content = (&quot;#!! You are editing $file. Leave this line here please.n&quot;, $_);<br />
- } else {<br />
- # Not part of a virt at all, so continue on our merry way...<br />
- print OUT $_;<br />
- }</span></p>
-<p><span style="font-family: courier new"> } else {<br />
- # we're in a virt, so add the line<br />
- push @virt_content, $_;</span></p>
-<p><span style="font-family: courier new"> # is it a match?<br />
- if(/^s*Server(?:Name|Alias) $re/) {<br />
- $any_match = $match_flag = 1;</span></p>
-<p><span style="font-family: courier new"> } elsif(/^s*&lt;/VirtualHost/) {<br />
- # End of a virt -- to edit, or not to edit?<br />
- if( $match_flag ) {<br />
- unless(open EDIT, '&gt;', $edit_file) {<br />
- warn &quot;Write to $edit_file failed: $!n&quot;;<br />
- return $!;<br />
- }</span></p>
-<p><span style="font-family: courier new"> print EDIT @virt_content;<br />
- close EDIT;</span></p>
-<p><span style="font-family: courier new"> @virt_content = edit($edit_file);<br />
- }</span></p>
-<p><span style="font-family: courier new"> shift @virt_content;<br />
- print OUT @virt_content;<br />
- $invirt = -1;<br />
- }<br />
- }<br />
- }</span></p>
-<p><span style="font-family: courier new"> if($any_match) {<br />
- unlink $edit_file;<br />
- # Why not just move it a la rename()?<br />
- # Well think about it -- that's a new inode with a new ctime,<br />
- # possibly the wrong perms, and the old file might be open<br />
- # elsewhere, meaning a dangling file somewhere... et cetera.<br />
- seek OUT, 0, 0; # $tmpfile<br />
- seek IN, 0, 0; # $file</span></p>
-<p><span style="font-family: courier new"> print IN $_ while &lt;OUT&gt;;</span></p>
-<p><span style="font-family: courier new"> close IN;<br />
- unless(truncate $file, tell OUT) {<br />
- warn &quot;Truncating $file failed: $!n&quot;;<br />
- return $!;<br />
- }<br />
- close OUT;</span></p>
-<p><span style="font-family: courier new"> } else {<br />
- close OUT;<br />
- close IN;<br />
- }</span></p>
-<p><span style="font-family: courier new"> unlink $tmpfile;</span></p>
-<p><span style="font-family: courier new"> return 0 if $any_match;<br />
- return -1;<br />
-}</span></p>
-<p><span style="font-family: courier new">sub build_file_list {<br />
- my @in_files = @_;<br />
- my @files = ();</span></p>
-<p><span style="font-family: courier new"> foreach $file ( @in_files ) {<br />
- if( -d $file ) {<br />
- push @files, dirlist( $file );<br />
- } else {<br />
- push @files, $file;<br />
- }<br />
- }</span></p>
-<p><span style="font-family: courier new"> return @files;<br />
-}</span></p>
-<p><span style="font-family: courier new">sub new_temp_file {<br />
- my $file = '/tmp/virt.';<br />
- my @c = split(//, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_');</span></p>
-<p><span style="font-family: courier new"> do {<br />
- $file .= $c[ rand @c ];</span></p>
-<p><span style="font-family: courier new"> } while(-e $file);</span></p>
-<p><span style="font-family: courier new"> return $file;<br />
-}</span></p>
-<p><span style="font-family: courier new">sub dirlist {<br />
- my $dir = shift;<br />
- my @files = ();</span></p>
-<p><span style="font-family: courier new"> die &quot;$dir: $!n&quot;<br />
- unless opendir DIR, $dir;</span></p>
-<p><span style="font-family: courier new"> -f &quot;$dir/$_&quot; &amp;&amp; push @files, $_<br />
- while $_ = readdir DIR;</span></p>
-<p><span style="font-family: courier new"> closedir DIR;</span></p>
-<p><span style="font-family: courier new"> return @files;<br />
-}</span></p>
-<p>
-<span style="font-family: courier new">sub edit {<br />
- my $file = shift;<br />
- my @contents = ();</span></p>
-<p><span style="font-family: courier new"> system &quot;$editor $file&quot;;</span></p>
-<p><span style="font-family: courier new"> die &quot;Failed reading $file after edit: $!n&quot;<br />
- unless open EDITFILE, $file;</span></p>
-<p><span style="font-family: courier new"> @contents = &lt;EDITFILE&gt;;</span></p>
-<p><span style="font-family: courier new"> close EDITFILE;</span></p>
-<p><span style="font-family: courier new"> return @contents;<br />
-}<br />
-</span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-28T16:09:22-04:00"><a href="http://127.0.0.1:4001/generate-mac-addresses-for-xen/">April 28, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/generate-mac-addresses-for-xen/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/generate-mac-addresses-for-xen/" rel="bookmark" title="Generate MAC addresses for XEN using shell" itemprop="url">Generate MAC addresses for XEN using shell</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span style="font-family: courier new;">#!/bin/bash<br /># Generate unique valid XEN MAC addresses in shell, 'cause it's faster ;)<br /># Xen MAC's begin with 00:16:3e</span></p>
-<p><span style="font-family: courier new;">declare -i num="${1:-0}"<br />until [[ $num -gt 0 ]]; do<br /> read -p "How many MAC's do you want to generate? " num<br />done</span></p>
-<p><span style="font-family: courier new;">declare -a macs=( )</span></p>
-<p><span style="font-family: courier new;">while [[ $num -gt 0 ]]; do<br /> mac=$(printf '%02x:%02x:%02x' $((RANDOM % 256)) $((RANDOM % 256)) $((RANDOM % 256)))</span></p>
-<p><span style="font-family: courier new;"> for i in "${macs[@]}"; do<br /> [[ $mac = $i ]] &amp;&amp; continue 2<br /> done</span></p>
-<p><span style="font-family: courier new;"> macs[${#macs[*]}]=$mac<br /> echo 00:16:3e:$mac<br /> num=$((num-1))<br />done</span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-28T13:32:46-04:00"><a href="http://127.0.0.1:4001/idoit-run-commands-based-on-input-records/">April 28, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/idoit-run-commands-based-on-input-records/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~9 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/idoit-run-commands-based-on-input-records/" rel="bookmark" title="idoit - Run commands based on input records" itemprop="url">idoit - Run commands based on input records</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <pre>#!/bin/bash<br /># Execute commands locally or remotely based on fields in records.<br /><br /># Only supports single-character record separators, but field delimiters may be<br /># many characters (and that's probably a good idea).<br /><br /># Author: Christopher Hahn, Apr 2008<br /><br /><a id="more"></a><a id="more-89"></a><br /><br />function usage () {<br />	local rc=&quot;&quot;<br />	echo &quot;usage:<br />  $(basename &quot;$0&quot;) [-lnpHP] [&lt;input options&gt;] [&lt;parallel options&gt;] [&lt;cmd options&gt;] &lt;cmd&gt; ...<br /><br />Run commands based on input records. Run me through perldoc for (lots) more<br />info.<br /><br />  &lt;input options&gt;<br />    -d &lt;delim&gt;      The field delimiter. Default is tab.<br />    -k &lt;hostfield&gt;  The field number to use as the hostname. Default is to use<br />                    fields named hostlan or host.<br />    -s &lt;sep&gt;        The record separator. Must be single-character. Default is<br />                    newline.<br />    -H              First record is NOT column names. Disallows $colname<br />                    notation.<br /><br />  &lt;parallel options&gt;<br />    -n &lt;fanout&gt;  Maximum number of simultaneous processes. Default is 32<br />    -p           Don't fanout at all-- just run in serial.<br />    -P           Don't limit fanout. Same as -n 0<br /><br />  &lt;cmd options&gt;<br />    -c &lt;cmd2&gt;    Run &lt;cmd2&gt; before &lt;cmd&gt;.<br />    -e &lt;rcmd&gt;    Use &lt;rcmd&gt; to run commands remotely. Implies -r.<br />    -f &lt;filter&gt;  Run commands' output through &lt;filter&gt;<br />                 Default is to prepend ${hostlan:-$host}:<br />    -l           Run commands locally. Default is remote.<br />    -r           Run commands remotely. This is the default.<br />                 Remote host is from the environment or from input records.<br />    -u &lt;user&gt;    Run commands as &lt;user&gt; (locally uses sudo)<br />&quot; &gt;&amp;2<br />	exit &quot;${rc:-1}&quot;<br />}<br /><br /><br /># defaults...<br />sep=n'<br />delim=t'<br />set | grep -E -q '^filter_prefix=' <br />	|| filter_prefix='${hostlan:-$host}'<br />set | grep -E -q '^preamble=' <br />	|| preamble='******************* ${hostlan:-$host} *******************'<br />set | grep -E -q '^postamble=' <br />	|| postamble=''<br /><br />have_headers=1<br />cmd=<br />filter_cmd=<br />user=<br />remote=1<br />in_parallel=1<br />verbose=<br />hostfield=<br />declare -i fanout=32<br /><br />export filter_prefix<br />export cmd<br /><br /># inputs...<br />OPTIND=0<br />while getopts 'c:d:e:f:hk:ln:prs:u:vHP' opt; do<br />	case &quot;$opt&quot; in<br />		c) cmd=&quot;$cmd&quot;n'&quot;$OPTARG&quot;	;;<br />		d) delim=&quot;$OPTARG&quot;	;;<br />		e) rcmd=&quot;$OPTARG&quot; remote=1	;;<br />		f) filter_cmd=&quot;$OPTARG&quot;	;;<br />		h) usage 0	;;<br />		k) hostfield=&quot;$OPTARG&quot;	;;<br />		l) remote=	;;<br />		n) fanout=&quot;$OPTARG&quot;	in_parallel=1 ;;<br />		p) in_parallel=	;;<br />		r) remote=1	;;<br />		s) sep=&quot;$OPTARG&quot;	;;<br />		u) user=&quot;$OPTARG&quot;	;;<br />		v) verbose=1	;;<br />		H) have_headers=	;;<br />		P) fanout=0 in_parallel=1	;;<br />	esac<br />done<br /><br />shift $((OPTIND-1))<br />OPTIND=0<br /><br />[[ &quot;$*&quot; ]] &amp;&amp; cmd=&quot;$cmd<br />$*&quot;<br /><br />if [[ &quot;$remote&quot; ]]; then<br />	: &quot;${user:=root}&quot; &quot;${rcmd:=&quot;ssh -T -o BatchMode=yes&quot;}&quot;<br />	rcmd=&quot;$rcmd -l $user&quot;<br />else<br />	if [[ &quot;$user&quot; ]]; then<br />		: &quot;${rcmd:=sudo}&quot;<br />		rcmd=&quot;$rcmd -u $user&quot;<br />	fi<br />fi<br /><br />readonly cmd<br /><br /># convince me to keep on living...<br />[[ 1 = 1 ]] <br />	&amp;&amp; [[ &quot;$cmd&quot; ]] <br />	&amp;&amp; [[ &quot;$delim&quot; &amp;&amp; &quot;$sep&quot; ]] <br />	&amp;&amp; [[ ${#sep} -eq 1 ]] <br />	&amp;&amp; [[ &quot;$rcmd&quot; || -z &quot;$remote&quot; ]] <br />	|| usage 1<br /><br /><br /><br /><br /># execs $cmd after performing a few per-process preliminaries<br />function run_cmd () (<br />	[[ &quot;$remote&quot; &amp;&amp; &quot;$rcmd&quot; ]] &amp;&amp; rhost=&quot;${hostlan:-$host}&quot;<br />	if [[ &quot;$remote&quot; || &quot;$rcmd&quot; ]]; then<br />		todo=&quot;eval export $(fix_var vars)<br />set -- $(<br />	for i in &quot;${fields[@]}&quot;; do<br />		echo -n &quot; $(fix_var i)&quot;<br />	done<br />)<br />$cmd<br />&quot;<br />		todo=&quot;$(fix_var todo ')&quot;<br />		[[ &quot;$verbose&quot; ]] &amp;&amp; set -x<br />		exec $rcmd $rhost &quot;exec /bin/bash -c $todo&quot;<br />	else<br />		eval &quot;export $vars&quot;<br />		[[ &quot;$verbose&quot; ]] &amp;&amp; set -x<br />		cat &lt; &lt;(eval &quot;$cmd&quot;)<br />	fi &lt;/dev/null<br />)<br /><br />function killemall () {<br />	trap '' TERM<br />	kill -TERM 0<br />	trap - TERM<br />	exit<br />}<br /><br /># echo a double-quoted string of a variable<br /># useful only for protecting an argument to an eval'd command<br /># while still performing substitutions into the arg<br />function fix_var () {<br />	local val=&quot;${!1}&quot; q=&quot;${2:-&quot;}&quot;<br />	val=&quot;${val//\/\}&quot;<br />	val=&quot;${val//$q/\$q}&quot;<br />	[[ &quot;$q&quot; = &quot;'&quot; ]] &amp;&amp; echo -n '<br />	echo &quot;$q$val$q&quot;<br />}<br /><br /># Parallel ChrisDidit SHell<br />function pcdsh () {<br />	[[ $fanout -gt 0 ]] <br />		&amp;&amp; until [[ $(jobs | wc -l) -lt $fanout ]]; do<br />			sleep 1<br />		done<br /><br />	# preserve STDERR, but filter it too<br />	run_cmd 2&gt; &gt;(${filter_cmd:-cat}) | ${filter_cmd:-cat} &amp;<br />}<br /><br />if ! type &quot;$filter_cmd&quot; &amp;&gt;/dev/null; then<br />	# Output filtering for parallel operations<br />	function filter () {<br />		[[ &quot;$filter_prefix&quot; ]] <br />			&amp;&amp; grep --with-filename --label=&quot;$filter_prefix&quot; -E '^' <br />			|| cat <br /><br />	}<br />	export filter_cmd=filter<br />fi<br /><br /><br /># We like headers, because it means we can use $varname instead of<br /># $fieldnum<br />if [[ &quot;$have_headers&quot; ]]; then<br />	declare -ax headers=( )<br /><br />	# gimme column names<br />	read -d &quot;$sep&quot; line<br />	while [[ ${#line} -gt 0 &amp;&amp; &quot;${line##*&quot;$delim&quot;}&quot; != &quot;$line&quot; ]]; do<br />		field=&quot;${line%%&quot;$delim&quot;*}&quot;<br />		# conform....<br />		line=&quot;${line#&quot;$field$delim&quot;}&quot;<br />		field=&quot;$(sed 's/[^_[:alnum:]]/_/g' &lt;&lt;&lt;&quot;$field&quot;)&quot;<br />		headers[${#headers[*]}]=&quot;$field&quot;<br />	done<br />	headers[${#headers[*]}]=&quot;$line&quot;<br /><br />	readonly -a headers<br />fi<br /><br />trap wait EXIT<br />trap killemall INT<br /><br /># Now process input records<br />while read -d &quot;$sep&quot; line; do<br />	# Nasty, but... Green Peace.<br />	# We need to protect the environment.<br />	declare -i c=-1<br />	declare -ax fields=( )<br />	export real_hostlan= field= vars= hostlan=<br /><br />	# make our vars<br />	while [[ ${#line} -gt 0 &amp;&amp; &quot;${line##*&quot;$delim&quot;}&quot; != &quot;$line&quot; ]]; do<br />		field=&quot;${line%%&quot;$delim&quot;*}&quot;<br />		line=&quot;${line#&quot;$field$delim&quot;}&quot;<br />		fields[${#fields[*]}]=&quot;$field&quot;<br /><br />		[[ $((++c)) = &quot;$hostfield&quot; ]] <br />			&amp;&amp; real_hostlan=&quot;$field&quot;<br /><br />		if [[ &quot;$have_headers&quot; ]]; then<br />			[[ &quot;${headers[$c]}&quot; = hostlan ]] &amp;&amp; hostlan=&quot;$field&quot;<br />			vars=&quot;$vars ${headers[$c]}=$(fix_var field)&quot;<br />		fi<br /><br />	done<br /><br />	if [[ &quot;$line&quot; ]]; then<br />		fields[${#fields[*]}]=&quot;$line&quot;<br />		[[ &quot;$have_headers&quot; ]] <br />			&amp;&amp; vars=&quot;$vars ${headers[$c]}=$(fix_var line)&quot;<br />	fi<br /><br />	# special treatment of hostlan<br />	[[ &quot;$hostfield&quot; &amp;&amp; &quot;$real_hostlan&quot; ]] <br />		&amp;&amp; vars=&quot;$vars hostlan=$(fix_var real_hostlan)&quot; <br />		&amp;&amp; hostlan=&quot;$real_hostlan&quot;<br /><br /><br />	vars=&quot;$vars filter_prefix=$(fix_var filter_prefix)&quot;<br /><br />	# and run the cmd<br />	if [[ &quot;$in_parallel&quot; ]]<br />	then<br />		eval $vars pcdsh<br />	else<br />		[[ &quot;$preamble&quot; ]] <br />			&amp;&amp; eval &quot;$vars echo $(fix_var preamble)&quot;<br /><br />		eval $vars run_cmd<br /><br />		[[ &quot;$postamble&quot; ]] <br />			&amp;&amp; eval &quot;$vars echo $(fix_var postamble)&quot;<br />	fi<br />done<br /><br /># wait for them to finish...<br />wait<br /><br />exit 0<br /><br />cat &lt;&lt;EOF<br /><br />=head1 NAME<br /><br />B&lt;idoit&gt; - Run commands based on input records<br /><br />=head1 SYNOPSIS<br /><br />B&lt;idoit&gt;<br />S&lt;B&lt;[-lnpHP]&gt;&gt;<br />S&lt;B&lt;[&gt;I&lt;L&lt;input options|/Input Options&gt;&gt;B&lt;]&gt;&gt;<br />S&lt;B&lt;[&gt;I&lt;L&lt;parallel option|/Parallel Options&gt;&gt;B&lt;]&gt;&gt;<br />S&lt;B&lt;[&gt;I&lt;L&lt;cmd options|/Cmd Options&gt;&gt;B&lt;]&gt;&gt;<br />S&lt;I&lt;cmd ...&gt;&gt;<br /><br />=head1 DESCRIPTION<br /><br />B&lt;idoit&gt; accepts delimited records on F&lt;STDIN&gt;, parses the input into fields, and runs commands for each record either locally or remotely, providing the field values to the commands' environment.<br />For example, one could pipe in the output of the mysql(1) or C&lt;sqlplus&gt; commands, redirect input from a simple csv (comma-separated values) file, I&lt;et cetera&gt;.<br /><br />Currently no provision is made for escaping field delimiters within fields.<br /><br />The commands are executed within a bash(1) subshell, so normal shell quoting, escaping, variable naming, and substitution rules apply.<br />Field names will have all non-word (alpha-numeric, underscore) characters transliterated into underscores.<br /><br />=head1 ENVIRONMENT AND INTERPOLATION<br /><br />=over 4<br /><br />=item Positional parameters<br /><br />The positional parameters of the subshell (local or remote) are set to input field values.<br />This occurs immediately prior to execution, i.e. on the remote host when executing remotely.<br /><br />=item File descriptors<br /><br />F&lt;STDIN&gt; is closed (redirected from F&lt;/dev/null&gt;).<br />Other file descriptors are not touched.<br /><br />=item Field names<br /><br />When field names are available, these fields become environment variables for the commands to be run.<br />Like the positional parameters, these variables are defined immediately prior to execution, i.e. on the remote host when executing remotely.<br />They are also defined locally, prior to executing I&lt;rcmd&gt;.<br /><br />The special field C&lt;hostlan&gt; is defined as the value of the field indicated by I&lt;hostfield&gt;, even if a field by that name is given, but only if that field has a non-null value.<br />If the field indicated by I&lt;hostfield&gt; has a null value, then the field C&lt;hostlan&gt; is not overridden.<br /><br />=item $preamble<br /><br />=item $postamble<br /><br />When executing serially, these local variables specify the preamble and postamble to output respectively prior to and after each execution of the requested commands.<br /><br />=item $filter_prefix<br /><br />When executing in parallel and using the default output filter, this local variable specifies the string with which to prefix the output.<br /><br />=item $headers<br /><br />A reserved, read-only local array variable containing the field names.<br />Fields with this name will not be defined locally, but will be defined remotely.<br /><br />=back<br /><br />=head1 OPTIONS<br /><br />=over 4<br /><br />=item B&lt;-h&gt;<br /><br />Display a usage and brief help message.<br /><br />=back<br /><br />=head2 Input Options<br /><br />Records accepted on F&lt;STDIN&gt; should be clearly separated by a single character (I&lt;sep&gt;), and fields in each record should be clearly delimited by a constant string (I&lt;delim&gt;).<br />Normally, the first record is taken as list field names, which will have all non-word characters translated into underscores.<br /><br />=over 4<br /><br />=item B&lt;-d&gt; I&lt;delim&gt;<br /><br />Specifies the field delimiter. The default is C&lt;t&gt; (tab).<br /><br />=item B&lt;-k&gt; I&lt;hostfield&gt;<br /><br />Indicates by number which field to use as the hostname.<br /><br />=item B&lt;-s&gt; I&lt;sep&gt;<br /><br />Specifies the record separator. The default is C&lt;n&gt; (newline).<br /><br />=item B&lt;-H&gt;<br /><br />Indicates that the first input record does I&lt;not&gt;, in fact, give field names, but is just another input record.<br /><br />=back<br /><br />=head2 Cmd Options<br /><br />Normally, the command is taken as the concatenation of all arguments remaining after options processing.<br />Command options then affect how the requested command is executed.<br /><br />Naturally, commands may only be run remotely when a hostname is available.<br />Hostnames are taken from the input fields named either C&lt;hostlan&gt; (preferred) or C&lt;host&gt;, or from the field indicated by I&lt;hostfield&gt;.<br />It is an error to attempt remote commands without a destination hostname.<br /><br />=over 4<br /><br />=item B&lt;-c&gt; I&lt;cmd2&gt;<br /><br />Run I&lt;cmd2&gt; prior to I&lt;cmd&gt;.<br /><br />=item B&lt;-e&gt; I&lt;rcmd&gt;<br /><br />Implies B&lt;-r&gt;.<br />Provides the command list as the last argument (singular) to I&lt;rcmd&gt;.<br />For instance:<br /><br /> idoit -u web -e rsh uptime<br /><br />Causes the following command to be run:<br /><br /> rsh -uweb $host &quot;bash -c 'uptime'&quot;<br /><br />The default when running remotely is C&lt;ssh -T&gt;.<br />The default when running locally is nothing, unless a I&lt;user&gt; is specified, in which case the default is C&lt;sudo -u&gt;.<br /><br />=item B&lt;-f&gt; I&lt;filter&gt;<br /><br />Runs requested commands' output through the command I&lt;filter&gt;'s F&lt;STDIN&gt; prior to sending to our F&lt;STDOUT&gt;.<br />The default is an internal function called B&lt;filter&gt;, which prepends '${hostlan:-host}:' to each line.<br /><br />Set to C&lt;cat&gt; to disable output filtering.<br /><br />=item B&lt;-l&gt;<br /><br />Run commands locally.<br />This changes the default I&lt;rcmd&gt; to nothing unless a I&lt;user&gt; is specified, in which case the default I&lt;rcmd&gt; becomes C&lt;sudo&gt;.<br /><br />=back<br /><br />=head1 REQUIRES<br /><br />bash(1) &gt;= 3<br />grep(1) with extended regular expression support.<br /><br />=head1 AUTHOR<br /><br />Christopher Hahn &lt;cjhahn, gmail&gt;<br /><br />=cut<br /><br /><br />EOF<br /></pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 <article class="hentry">
   <header>
     <div class="entry-meta">
@@ -470,6 +202,190 @@ ACK<span> </span>Acknowledgment<br />
 URG<span> </span>Urgent</p>
 <p class="MsoNormal">
 </p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-04-26T04:25:17-04:00"><a href="http://127.0.0.1:4001/zenoss/discovered-zenoss-devices/">April 26, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/zenoss/discovered-zenoss-devices/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/zenoss/discovered-zenoss-devices/" rel="bookmark" title="Discovered Zenoss Devices" itemprop="url">Discovered Zenoss Devices</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <h3><strong>For those Zenoss users out there, this script will send a emailof devices that are in the discovered class.</strong></h3>
+<h3><strong>So once you receive this email you will know that you need to move those devices into there appropriate classes.</strong></h3>
+<pre><br />#!/bin/env python<br /><span>#Copyright (C) 2008  Allen Sanabria<br /><br />#This program is free software; you can redistribute it and/or modify<br />#it under the terms of the GNU General Public License as published by<br />#the Free Software Foundation; either version 2 of the License, or<br />#(at your option) any later version.<br /><br />#This program is distributed in the hope that it will be useful,<br />#but WITHOUT ANY WARRANTY; without even the implied warranty of<br />#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br />#GNU General Public License for more details.<br /><br />#You should have received a copy of the GNU General Public License along<br />#with this program; if not, write to the Free Software Foundation, Inc.,<br />#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span><br />##############################################################<br />#Created by Allen Sanabria aka LinuxDynasty aka PrNino69<br />#This script is to check how many devices are in the<br />#Discovered Class<br />#Started Nov 28th<br />#Completed, Nov 28th<br />##############################################################<br /><br />import os, sys<br />from re import sub<br />from string import split<br />from string import join<br />from urllib import urlopen<br />from smtplib import SMTP<br />from time import sleep<br /><br /><br />user = &quot;zenoss&quot;<br />passwd = 'zenoss'<br />util = '@zenoss'<br />base = &quot;http://%s:%s%s:8080&quot; % (user,passwd,util)<br />discovered_url = urlopen(base+'/zport/dmd/Devices/Discovered/getSubDevices').read()<br />discovered_sub = sub(&quot;&lt;Device at /zport/dmd/Devices/Discovered/devices/|&gt;|^[|]$|,&quot;, &quot;&quot;, discovered_url)<br />discovered_list = list(split(discovered_sub))<br /><br /><br />message = &quot;&quot;&quot;nThe boxes below were discovered in the last run of zendisc.nThey are all located under /Devices/Discovered Class.n<br />                     Please move Devices to appropriate Device class, if one does not exist please create one.n<br />                     This script runs on the zenoss (cc17-22) server.&quot;&quot;&quot;<br />devices = sub(&quot;,|[|]&quot;, &quot;n&quot;, str(discovered_list))<br />BODY = join((message, devices),&quot;n&quot;)<br />print BODY<br />FROM = &quot;zenoss@linuxdynasty.org&quot;<br />TO = &quot;sa@linuxdynasty.org&quot;<br />SUBJECT = &quot;Devices That Were Discovered During The Network Scan!&quot;<br />body = join((&quot;From: %s&quot; % FROM, &quot;To: %s&quot; % TO, &quot;Subject: %s&quot; % SUBJECT, &quot;&quot;, BODY), &quot;n&quot;)<br />server = SMTP('localhost')<br />server.set_debuglevel(1)<br />server.sendmail(FROM, [TO], body)<br />sleep(10)<br />server.quit()<br /></pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-04-23T01:18:45-04:00"><a href="http://127.0.0.1:4001/blog/how-to-generate-mac-addresses-for-xen/">April 23, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/blog/how-to-generate-mac-addresses-for-xen/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/blog/how-to-generate-mac-addresses-for-xen/" rel="bookmark" title="How to generate MAC Addresses for XEN" itemprop="url">How to generate MAC Addresses for XEN</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <pre>#!/usr/bin/env python# Quick Python script to generate random valid MAC address for XEN Domains#Copyright (C) 2008 Allen Sanabria #This program is free software; you can redistribute it and/or modify#it under the terms of the GNU General Public License as published by#the Free Software Foundation; either version 2 of the License, or#(at your option) any later version. #This program is distributed in the hope that it will be useful,#but WITHOUT ANY WARRANTY; without even the implied warranty of#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the#GNU General Public License for more details. #You should have received a copy of the GNU General Public License along#with this program; if not, write to the Free Software Foundation, Inc.,#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.# This address range is reserved for use by Xen 00:16:3E# I'm importing the function choice of the random module# The reason for this is so that it will pick a random character from the string I gave it to generate a valid MAC for XEN</pre>
+<pre>from random import choice
+from sys import stdin
+
+def x():  
+    X = choice("0123456789ABCDEF")  
+    return str(X)
+
+print "Enter how many MAC Addresses do you want me to generate: "
+mac = stdin.readline()
+mac_list = []
+for i in range(int(mac)):  
+    mac_list.append("00:16:3E"+":"+x()+x()+":"+x()+x()+":"+x()+x())
+for con in range(len(mac_list)):  
+    while mac_list.count(mac_list[con]) &gt; 1:    
+        print "OH NOOO DUPPPE "+mac_list[con]    
+    mac_list.pop(con)    
+    mac_list.insert(con, "00:16:3E"+":"+x()+x()+":"+x()+x()+":"+x()+x())  
+    print mac_list[con]</pre>
+<p>&nbsp;</p>
+<p><span style="text-decoration: underline;">OUTPUT</span></p>
+<div>python random1.py</div>
+<div>Enter how many MAC Addresses do you want me to generate:</div>
+<div>5</div>
+<div>00:16:3E:09:EB:6F</div>
+<div>00:16:3E:5E:4B:AE</div>
+<div>00:16:3E:E0:EC:F9</div>
+<div>00:16:3E:CF:2A:AE</div>
+<div>00:16:3E:A9:D8:DB</div>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T23:55:18-05:00"><a href="http://127.0.0.1:4001/ssh-blocking-how-to-using-iptables/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/ssh-blocking-how-to-using-iptables/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/ssh-blocking-how-to-using-iptables/" rel="bookmark" title="SSH Blocking How To using Iptables" itemprop="url">SSH Blocking How To using Iptables</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong><span style="color: red">This quick how to is for those linux admin/users who have there Linux server accessible to the outside world.</span></strong></p>
+<p><strong><span style="color: red">Don't you hate when those bots start hitting you with a ssh dictionary attack??? Well block using IPTABLES.</span></strong></p>
+<ol>
+<li>
+<ul><strong>Here I will show you how to add the first rule in iptables...</strong>
+<li>The 1st rule we add is where we tell iptables to create a list called ssh_attempt and store the source ip of every recent ssh attempt on port 22 using tcp on interface eth0. </li>
+<li><span style="color: blue">&quot;<strong>iptables -A INPUT -i eth0 -p tcp -m tcp --dport 22 -m state --state NEW -m recent --set --name ssh_attempt --rsource</strong>&quot;</span>
+</li>
+<li>step by step explanation.. </li>
+<li>iptables is the command that you use to enter the firewall rules in. </li>
+<li>&quot;<strong><span style="color: blue">-A INPUT</span></strong>&quot; means APPEND to the INPUT chain </li>
+<li>&quot;<strong><span style="color: blue">-i eth0</span></strong>&quot; means this rule will use the interface eth0 </li>
+<li>&quot;<strong><span style="color: blue">-p tcp</span></strong>&quot; means we are using the TCP protocol </li>
+<li>&quot;<strong><span style="color: blue">-m tcp</span></strong>&quot; means we are matching the TCP protocol </li>
+<li>&quot;<strong><span style="color: blue">--dport 22</span></strong>&quot; means we are matching based on the destination port 22 </li>
+<li>&quot;<strong><span style="color: blue">-m state --state NEW</span></strong>&quot; This rule will only apply to NEW incoming ssh connections not ESTABLISHED or RELATED. </li>
+<li>&quot;<strong><span style="color: blue">-m recent --set --name ssh_attempt --rsource</span></strong>&quot; allows us to match packets based on recent events that we have previously matched and sets the name of the list , while saving the source ip address and port. </li>
+</ul>
+</li>
+<li>
+<ul><strong>In this step we will show you how to deny those bots..</strong>
+<li><span style="color: blue">&quot;<strong>iptables -A INPUT -i eth0 -p tcp -m tcp --dport 22 -m state --state NEW -m recent --update --seconds 10 --hitcount 2 --name ssh_attempt --rsource -j DROP</strong>&quot;</span></li>
+<li>The only difference in this rule is these options. </li>
+<li>&quot;<strong><span style="color: blue">--update --seconds 10 --hitcount 1 --name ssh_attempt</span></strong>&quot; This will match true if the source is available in the specified list and it also updates the last-seen time in the list. The &quot;<strong><span style="color: blue">--seconds 10</span></strong>&quot; match is used to specify how long since the &quot;last seen&quot;. The &quot;<strong><span style="color: blue">--hitcount 2</span></strong>&quot; will limit the match to only include packets that have seen at least the hitcount amount of packets.</li>
+</ul>
+</li>
+</ol>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T23:52:33-05:00"><a href="http://127.0.0.1:4001/how-to-setup-a-network-interface/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-setup-a-network-interface/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-setup-a-network-interface/" rel="bookmark" title="How to setup a network interface" itemprop="url">How to setup a network interface</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong><span style="color: red">I will try to make this tutorial as general as possible, as I can give you the REDHAT way of doing things as concerns to where REDHAT base systems maintain there networking files or Gentoo based systems...etc</span></strong></p>
+<ol>
+<li>
+<ul>
+Lets start with the basics....
+<li>To view all your active network interface<br />
+ run this command <span style="color: blue">&quot;<strong>ifconfig</strong>&quot;</span></li>
+<pre>  sabayon-dynasty ~ # ifconfig<br />eth0      <br />Link encap:Ethernet  HWaddr 00:0E:35:94:FB:D9<br />inet addr:192.168.101.5  Bcast:192.168.101.255 Mask:255.255.255.0<br />inet6 addr: fe80::20e:35ff:fe94:fbd9/64 Scope:Link<br />UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1<br />RX packets:2656195 errors:0 dropped:19 overruns:0 frame:0<br />TX packets:1762149 errors:0 dropped:0 overruns:0 carrier:0<br />collisions:0 txqueuelen:1000<br />RX bytes:3593125256 (3426.6 Mb)  TX bytes:144856589 (138.1 Mb)<br />Interrupt:10 Base address:0xe000 Memory:e0200000-e0200fff<br />  </pre>
+<li>Or you can be specific and run (ifconfig and the interface name)<span style="color: blue">&quot;<strong>ifconfig  eth0</strong>&quot;</span> </li>
+</ul>
+</li>
+<li>
+<ul>
+Setup your network interfaces!
+<li><strong>REDHAT WAY</strong>For redhat based systems you will have to do this (assuming your network interface is eth0 and using DHCP)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/sysconfig/network-scripts/ifcfg-eth0</strong>&quot;</span>
+<pre>DEVICE=eth0<br />BOOTPROTO=dhcp<br />HWADDR=00:E0:81:24:CQ:82<br />ONBOOT=yes<br />  </pre>
+</li>
+<li> Now for a static ip setup (assuming eth0)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/sysconfig/network-scripts/ifcfg-eth0</strong>&quot;</span>
+<pre><br />DEVICE=eth0<br />BROADCAST=192.168.101.255<br />BOOTPROTO=static<br />HWADDR=00:E0:81:24:CQ:82<br />IPADDR=192.168.101.5<br />NETMASK=255.255.255.0<br />NETWORK=192.168.101.0<br />ONBOOT=yes<br />TYPE=Ethernet<br /></pre>
+</li>
+<li>Now run this <span style="color: blue">&quot;<strong>service network restart</strong>&quot;</span> or run this <span style="color: blue">&quot;<strong>ifdown eth0</strong>&quot;</span> to make sure the interface is down, then <span style="color: blue">&quot;<strong>ifup eth0</strong>&quot;</span> </li>
+</ul>
+</li>
+<li>
+<ul><strong>GENTOO WAY</strong>For gentoo based systems you will have to do this.
+<li>(assuming your network interface is eth0 and using DHCP)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/conf.d/net</strong>&quot;</span>
+<pre><br />config_eth0=( &quot;dhcp&quot; )<br />dhcp_eth0=&quot;nosendhost&quot;<br />dns_domain_eth0=&quot;linuxdynasty&quot;<br />  </pre>
+</li>
+<li>Now for a static ip setup (assuming eth0)..<br />
+<span style="color: blue">&quot;<strong>vi /etc/conf.d/net</strong>&quot;</span>
+<pre><br />config_eth0=( &quot;192.168.0.2 netmask 255.255.255.0 broadcast 192.168.0.255&quot; )<br />routes_eth0=(&quot;default via 192.168.0.1&quot;)   # IPv4 default route<br />  </pre>
+</li>
+<li>Now run this <span style="color: blue">&quot;<strong>rc-update add net.eth0 default</strong>&quot;</span> so that it is in the default run level. </li>
+<li>Now to get the interface up and running...<br />
+<span style="color: blue">&quot;<strong>/etc/init.d/net.eth0 restart</strong>&quot;</span> </li>
+</ul>
+</li>
+</ol>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -662,17 +578,12 @@ URG<span> </span>Urgent</p>
         
       </li>
     
-      <li>
-        
-          <a href="http://127.0.0.1:4001/page31">31</a>
-        
-      </li>
-    
   </ul>
   
     <a href="http://127.0.0.1:4001/page27" class="btn">Next</a>
   
 </div><!-- /.pagination -->
+
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
@@ -684,6 +595,18 @@ URG<span> </span>Urgent</p>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2333243-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
           
 

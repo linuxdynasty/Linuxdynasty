@@ -6,22 +6,22 @@
 <head>
 <meta charset="utf-8">
 <title>Latest Posts &#8211; Linuxdynasty</title>
-<meta name="description" content="Describe this nonsense.">
-<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
+<meta name="description" content="What I am up too.">
+<meta name="keywords" content="Python, GoLang, automation, scripting, programming, vFense, metrics, monitoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://127.0.0.1:4001/images/abstract-1.jpg">
 
 <meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="Describe this nonsense.">
+<meta name="twitter:description" content="What I am up too.">
 <meta name="twitter:creator" content="@linuxdynasty">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:description" content="What I am up too.">
 <meta property="og:url" content="http://127.0.0.1:4001/page29/index.html">
 <meta property="og:site_name" content="Linuxdynasty">
 
@@ -31,7 +31,7 @@
 
 <link rel="canonical" href="http://127.0.0.1:4001/page29/">
 <link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
-<link rel="author" href="https://google.com/+yourid?rel=author">
+<link rel="author" href="https://google.com/+AllenSanabria?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -79,18 +79,18 @@
 				<li>
 					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
 					<h4>Allen Sanabria</h4>
-					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+					<p>DevOps developer who loves programming, monitoring, automation, and metrics.</p>
 				</li>
 				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
 				<li>
-					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:asanabria <@> linuxdynasty dot org"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
 				</li>
 				
 				<li>
-					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+					<a href="https://google.com/+AllenSanabria"><i class="fa fa-google-plus"></i> Google+</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
@@ -111,7 +111,7 @@
 				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
 			</ul>
 		</li>
-		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+		<li><a href="http://127.0.0.1:4001"></a></li><li><a href="http://127.0.0.1:4001"></a></li>
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -133,239 +133,6 @@
 
 <div id="main" role="main">
   
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:36:38-05:00"><a href="http://127.0.0.1:4001/how-to-setup-serial-console-on-linux/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-setup-serial-console-on-linux/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-setup-serial-console-on-linux/" rel="bookmark" title="How to setup serial console on linux" itemprop="url">How to setup serial console on linux</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><b><span style="color: red;">This tutorial is for those Admins who need to setup serial console on there LINUX servers</span></b></p>
-<p> <strong>Section-1</strong></p>
-<ol>
-<li>
-<ul>
-In this first part of of the how to I will show you how to setup serial console on a <br /><strong>RedHat(Fedora,CentOS)</strong> based systems<strong>(Does work on other systems as well)</strong>.
-<li>First step is to make sure you have a serial port. </li>
-<li>Second step is to make sure you have a console cable. You can do this by running this..
-<pre>linuxdynasty.org]# dmesg |grep ttyS0<br />ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A<br />  </pre>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-Once you verified you have the necessary <strong>hardware</strong> configuration, <br />we are on to configuring the server.
-<li>Add this <b><span style="color: blue;">co:2345:respawn:/sbin/agetty ttyS0 9600 vt100-nav</span></b> to <b><span style="color: green;">/etc/inittab</span></b> <br />using your favorite editor. (mine is vi :) ) This is how mine looks like..
-<pre># Run gettys in standard runlevels<br />co:2345:respawn:/sbin/agetty ttyS0 57600 vt100-nav<br />1:2345:respawn:/sbin/mingetty tty1<br />2:2345:respawn:/sbin/mingetty tty2<br />3:2345:respawn:/sbin/mingetty tty3<br />4:2345:respawn:/sbin/mingetty tty4<br />5:2345:respawn:/sbin/mingetty tty5<br />6:2345:respawn:/sbin/mingetty tty6<br /> </pre>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-Now it is time to edit <b><span style="color: green;">/boot/grub.conf</span></b>. These two entries need to be added into grub.conf<br /><b><span style="color: blue;">serial --unit=0 --speed=57600</span><br /><span style="color: blue;">terminal --timeout=5 serial console</span></b><br />And append this to <b><span style="color: blue;">console=ttyS0,57600n8</span></b> to your kernel entry.
-<li>Here is the all in one solution..
-<p> <small></small></p>
-<pre><small><br />serial --unit=0 --speed=57600<br />terminal --timeout=5 serial console<br />title CentOS (2.6.9-55.0.2.EL)<br />   root (hd1,0)<br />   kernel /vmlinuz-2.6.9-55.0.2.EL ro root=/dev/VolGroup00/LogVol00 console=tty0 console=ttyS0,57600n8<br />   initrd /initrd-2.6.9-55.0.2.EL.img<br />  </small></pre>
-</li>
-<li>Now reboot your server and from another box console in. </li>
-</ul>
-</li>
-</ol>
-<p> <strong>Section-2</strong></p>
-<ol>
-<li>
-<ul>
-Now we will show you how to setup a serial console for <strong>Ubuntu Feisty 7.0.4</strong>, <br />(Reason I chose Feisty is that Feisty no longer uses the <b><span style="color: green;">/etc/inittab</span></b> . <br />Instead uses upstart for its init functions)
-<li>First step, follow the First step in Section-1 of this tutorial.</li>
-</ul>
-</li>
-<li>
-<ul>
-Once you verified you have the necessary <strong>hardware</strong> configuration, <br />we are on to configuring the server.
-<li>Add this <b><span style="color: blue;">exec /sbin/getty -L 57600 ttyS0 vt102</span></b> to <b><span style="color: green;">/etc/event.d/ttyS0</span></b> (<b><br />If this file does not exist please create it</b>) using your favorite editor. (mine is vi :) ) <br />This is how mine looks like..
-<pre># tty0 - getty<br />#<br /># This service maintains a getty on tty1 from the point the system is<br /># started until it is shut down again.<br /><br />start on runlevel 2<br />start on runlevel 3<br />start on runlevel 4<br />start on runlevel 5<br /><br />stop on runlevel 0<br />stop on runlevel 1<br />stop on runlevel 6<br /><br />respawn<br />exec /sbin/getty -L 57600 ttyS0 vt102<br />  </pre>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-Now proceed to third step of Section-1 of this tutorial.
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:33:52-05:00"><a href="http://127.0.0.1:4001/lvm2-how-to/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/lvm2-how-to/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/lvm2-how-to/" rel="bookmark" title="LVM2 How To" itemprop="url">LVM2 How To</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span style="color: red;"><strong>Do you have the need for speed???... OK OK enough with the comments :P...Before reading this tutorial you should understand a little how LVM works</strong></span></p>
-<p> <strong>How to create a physical volume, volume group, and logical volume.</strong></p>
-<ol>
-<li>
-<ul>
-First thing we have to do is initialize the disk..
-<li>Figure out which disk and partitions you have that are being used <b><span style="color: blue;">df -h</span></b>. </li>
-<li>Now we need to run <b><span style="color: blue;">fdisk -l</span></b> and see all the partitions, including the ones that we have that are not mounted up </li>
-<li>Now that we know which disks and partitions that you can not destroy, we can start our process of creating lvm volumes. </li>
-</ul>
-</li>
-<li>
-<ul>
-Here we will start with the initialization of the lvm volumes.(Either we use the entire disk or a partition)Here we will show you on partitions.
-<li>Lets initialize the first partition..<br /><b><span style="color: blue;">pvcreate /dev/sda1</span>.</b> </li>
-<li>Now lets initialize the second partition..<br /><b><span style="color: blue;">pvcreate /dev/sdb1</span>.</b> </li>
-<li>To display info on the physical volume, just run this<br /><b><span style="color: blue;">pvdisplay</span>.</b> </li>
-</ul>
-</li>
-<li>
-<ul>
-Now that both partitions have been initialized, it is time to create the volume group and activate it.
-<li><b><span style="color: blue;">vgcreate linuxdynasty /dev/sda1 /dev/sdb1</span></b> </li>
-<li><b><span style="color: blue;">vgchange -a y  linuxdynasty</span></b> </li>
-<li>To display info on the volume group, just run this<br /><b><span style="color: blue;">vgdisplay</span>.</b> </li>
-</ul>
-</li>
-<li>
-<ul>
-We have reached the final step (for the LVM part of it).
-<li>Now we create the logical volume. <br /><b><span style="color: blue;">lvcreate -L10G -nHomeLV linuxdynasty</span></b> </li>
-<li>To display info on the logical volume, just run this<br /><b><span style="color: blue;">lvdisplay</span>.</b> </li>
-</ul>
-</li>
-<li>
-<ul>
-Final steps, we need to make a file system on that volume and mount it.
-<li>First, we create the file system<br /><b><span style="color: blue;">mkfs.ext3 /dev/linuxdynasty/HomeLV</span></b> </li>
-<li>Second, we mount the file system<br /><b><span style="color: blue;">mount -t ext3 /dev/linuxdynasty/HomeLV /home</span></b> </li>
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:30:35-05:00"><a href="http://127.0.0.1:4001/how-to-setup-a-reverse-ssh-tunnel/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-setup-a-reverse-ssh-tunnel/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-setup-a-reverse-ssh-tunnel/" rel="bookmark" title="How to setup a reverse ssh tunnel" itemprop="url">How to setup a reverse ssh tunnel</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><strong><span style="color: rgb(255, 0, 0)">Ever wanted to know how you can ssh into your work desktop/server? Well do not worry any longer.....</span></strong></p>
-<ol>
-<li>
-<ul>
-All you need to do is create a reverse tunnel from your Work Desktop/Server to your home server.<br />
-<strong><br />
-</strong>
-<li><strong><span style="color: rgb(0, 0, 255)">ssh -nNT -R 5000:local_server:22 username@remote_server</span></strong> </li>
-<li>Now from the <strong><span style="color: rgb(0, 0, 255)">remote_server</span></strong> run this<br />
-<strong><span style="color: rgb(0, 0, 255)">ssh -p5000 localhost</span></strong>.... now we are in our work desktop/server. </li>
-</ul>
-</li>
-<li>
-<ul><strong>Lets brake this down a bit..</strong>
-<li>The <strong><span style="color: rgb(0, 0, 255)">-n</span></strong> option Redirects stdin from /dev/null. This must be used when ssh is run in the background. </li>
-<li>The <strong><span style="color: rgb(0, 0, 255)">-N</span></strong> option does not execute a remote command. This is useful for just forwarding ports. </li>
-<li>The <strong><span style="color: rgb(0, 0, 255)">-T</span></strong> option disables pseudo-tty allocation. </li>
-<li>The <strong><span style="color: rgb(0, 0, 255)">-R</span></strong> option does tha job of setting up the reverse tunnel. </li>
-<li>Port <strong><span style="color: rgb(0, 0, 255)">5000</span></strong> is the port that will be listening on the remote_server (this can be any random port over 1024, if you want to run this as a non-root user). </li>
-<li><strong><span style="color: rgb(0, 0, 255)">local_server</span></strong> is the desktop/server that you are creating the connection from. </li>
-<li>Port <strong><span style="color: rgb(0, 0, 255)">22</span></strong> is the port that you are making the ssh connection to. </li>
-<li><strong><span style="color: rgb(0, 0, 255)">user_name@remote_server</span></strong> is where you are making the ssh connection to for the reverse tunnel. </li>
-</ul>
-</li>
-<li>
-<ul><strong>We need to make sure we keep this connection open</strong>.
-<li>In <strong><span style="color: rgb(0, 0, 255)">/etc/ssh/sshd_config</span></strong> we need to make sure this is set <strong><span style="color: rgb(0, 0, 255)">TCPKeepAlive yes</span></strong>. </li>
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:28:35-05:00"><a href="http://127.0.0.1:4001/how-to-recover-root-password/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-recover-root-password/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-recover-root-password/" rel="bookmark" title="How to recover root password" itemprop="url">How to recover root password</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><strong><span style="color: red">Have you forgotten the root password on your box and said @#$%%^. Well do not fear, Linux Dynasty is here to save the day.</span></strong></p>
-<ol>
-<li>
-<ul><strong>Booting into single user mode from GRUB</strong>.
-<li>First, reboot your system. </li>
-<li>Second, When GRUB comes up type e (got to be quick). </li>
-<li>Third, now select entry that begins with kernel and hit enter. </li>
-<li>Fourth, at the end of the kernel entry type either <strong><span style="color: blue">s</span></strong> or <strong><span style="color: blue">single</span></strong>, now hit enter. </li>
-<li>Fifth, type <strong><span style="color: blue">b</span></strong>, the box will boot up and now you can type in the cmd prompt <span style="color: blue"><strong>passwd</strong> <strong>root</strong></span>. This will reset the password to whatever you like. </li>
-<li>If this does not bring you to a root prompt, then try this. </li>
-<li>Then try appending <strong><span style="color: blue">single init=/bin/bash</span></strong> </li>
-</ul>
-<p> <strong><span style="color: red">Be happy, now you have root access again. or maybe for the first time... ;)<br />
- </span></strong></p>
-</li>
-<li>
-<ul><strong>Booting into single-user mode from LILO</strong>
-<li>First, reboot your system. </li>
-<li>Second, When LILO comes up, type in <strong><span style="color: blue">linux s</span></strong>. Hit enter. </li>
-<li>Box will boot into single user mode, which brings you to a root prompt. If this does not happen to you, and ask you for the root password, you will have to do the following. </li>
-<li>Try this <strong><span style="color: blue">linux init=/bin/bash</span></strong> </li>
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 <article class="hentry">
   <header>
     <div class="entry-meta">
@@ -430,6 +197,207 @@ You can do this <strong><span style="color: blue">gpg -o decrypt_example -d encr
 </li>
 </ol>
 <p><strong>Remember if file extension is .asc, it is a ASCII encrypted file and if file extension is .gpg, it is a binary encrypted file.</strong></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T05:16:41-05:00"><a href="http://127.0.0.1:4001/how-to-store-encrypted-passwords-in-mysql/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-store-encrypted-passwords-in-mysql/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-store-encrypted-passwords-in-mysql/" rel="bookmark" title="How to store encrypted passwords in MySQL" itemprop="url">How to store encrypted passwords in MySQL</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong>Mysql storing encrypted passwords howto, All these commands were tested on MySQL5</strong></p>
+<ol>
+<li>
+<ul>
+<span style="color: #ff0000;"><strong>This example we will create a MD5 encrypted password</strong></span>
+<li>We need to create a table called user_md5, (The value is returned as a binary string of 32 hex digits)<span style="color: #0000ff;"><br /><strong>"CREATE TABLE user_md5 (user_name VARCHAR(16), password VARCHAR(32));"</strong></span><br />Query OK, 0 rows affected (0.10 sec)</li>
+<li>Now we need to insert a user into the table<span style="color: #0000ff;"><br /><strong>"INSERT INTO user_md5 VALUES ('test',MD5('test') );"</strong></span><br />Query OK, 1 row affected (0.00 sec)</li>
+<li>Now lets see if we query the user with the unencrypted password will it work<span style="color: #0000ff;"><br /><strong>"SELECT * FROM user_md5 where user_name = 'test' AND password=MD5('test');"</strong></span></li>
+<pre><br />+-----------+----------------------------------+<br />| user_name | password                         |<br />+-----------+----------------------------------+<br />| test      | 098f6bcd4621d373cade4e832627b4f6 | <br />+-----------+----------------------------------+<br />1 row in set (0.00 sec)<br /></pre>
+</ul>
+<p> </p>
+</li>
+<li>
+<ul>
+<span style="color: #ff0000;"><strong>This example we will create a SHA1 encrypted password</strong></span>
+<li>We need to create a table called user_sha1 ((Secure Hash Algorithm). The value is returned as a binary string of 40 hex digits)<span style="color: #0000ff;"><br /><strong>"CREATE TABLE user_sha1 (user_name VARCHAR(16), password VARCHAR(40));"</strong></span><br />Query OK, 0 rows affected (0.10 sec)</li>
+<li>Now we need to insert a user into the table<span style="color: #0000ff;"><br /><strong>"INSERT INTO user_sha1 VALUES ('test',SHA1('test') );"</strong></span><br />Query OK, 1 row affected (0.00 sec)</li>
+<li>Now lets see if we query the user with the unencrypted password will it work<span style="color: #0000ff;"><br /><strong>"SELECT * FROM user_sha1 where user_name = 'test' AND</strong> password=SHA1('test');"</span></li>
+<pre><br />+-----------+------------------------------------------+<br />| user_name | password                                 |<br />+-----------+------------------------------------------+<br />| test      | a94a8fe5ccb19ba61c4c0873d391e987982fbbd3 | <br />+-----------+------------------------------------------+<br />1 row in set (0.00 sec)<br /></pre>
+</ul>
+<p> </p>
+<p> </p>
+</li>
+<li>
+<ul>
+<span style="color: #ff0000;"><strong>This example we will create a AES encrypted password</strong></span>
+<p> </p>
+<li>We need to create a table called user_aes, ((Advanced Encryption Standard) encryption, you will need to specify the password field to be of type BLOB)<span style="color: #0000ff;"><br /><strong>"CREATE TABLE user_aes (user_name VARCHAR(16), password BLOB);"</strong></span><br />Query OK, 0 rows affected (0.10 sec)</li>
+<li>Now we need to insert a user into the table<span style="color: #0000ff;"><br /><strong>"INSERT INTO user_aes VALUES('test', AES_ENCRYPT('password', 'key') );"</strong></span><br />Query OK, 1 row affected (0.00 sec)</li>
+<li>Now lets see the results<span style="color: #0000ff;"><br /><strong>"SELECT * FROM user_aes WHERE user_name='test' AND</strong> password=AES_ENCRYPT('password','key');"</span></li>
+<pre><br />+-----------+------------------+<br />| user_name | password         |<br />+-----------+------------------+<br />| test      | ��}��� ���n�<br />                          &lt;-� | <br />+-----------+------------------+<br />1 row in set (0.00 sec)<br /></pre>
+<p> </p>
+<li>AES provides reversible encryption (provided you have the key), we can obtain the password in plain text format./ </li>
+<li><br type="_moz" /></li>
+<li>Now lets see the unecrypted password<br /><b><span style="color: #0000ff;">"SELECT AES_DECRYPT(password,'key') FROM user_aes;"</span></b></li>
+<pre><br />+-----------------------------+<br />| AES_DECRYPT(password,'key') |<br />+-----------------------------+<br />| password                    | <br />+-----------------------------+<br />1 row in set (0.00 sec)<br /></pre>
+</ul>
+</li>
+</ol>
+<p><a href="http://dev.mysql.com/doc/refman/4.1/en/encryption-functions.html"><br />For further info on encryption in MySQL</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T05:11:09-05:00"><a href="http://127.0.0.1:4001/how-to-add-users-and-their-permissions-in-mysql/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-add-users-and-their-permissions-in-mysql/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-add-users-and-their-permissions-in-mysql/" rel="bookmark" title="How to add users and their permissions in MySQL" itemprop="url">How to add users and their permissions in MySQL</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong><span style="color: red">Mysql user howto, All these commands were tested on MySQL5</span></strong></p>
+<ol>
+<li>How to add a user.
+<ul>
+<li> I am using the user test as a example as well as the host localhost as an example...<strong><br />
+<span style="color: blue">&quot;CREATE USER 'test'@'localhost' IDENTIFIED BY 'passwd';&quot;</span></strong> </li>
+</ul>
+</li>
+<li>How to change a users password
+<ul>
+<li><strong><span style="color: blue">&quot;SET PASSWORD FOR 'test'@'localhost' = PASSWORD('passwd');&quot;</span></strong> </li>
+</ul>
+</li>
+<li>How to delete a user<strong><br />
+</strong>
+<ul>
+<li><strong><span style="color: blue">&quot;DROP USER 'test'@'localhost';&quot;</span></strong> </li>
+</ul>
+</li>
+<li>How to rename a users account
+<ul>
+<li><strong><span style="color: blue">&quot;RENAME USER 'test'@'localhost' TO 'test1'@'localhost';&quot;</span></strong> </li>
+</ul>
+</li>
+<li>How to grant different permissions to users
+<ul>
+<li>This statement give the SELECT(query) access to the user test on all databases on localhost... <br />
+<strong><span style="color: blue">&quot;GRANT SELECT on *.* TO 'test'@'localhost' IDENTIFIED BY 'passwd';&quot;</span></strong> </li>
+<li>This statement gives the test user super user privileges on all databases on localhost to user test.... <br />
+<strong><span style="color: blue">&quot;GRANT ALL PRIVILEGES on *.* TO 'test'@'localhost' IDENTIFIED BY 'passwd';&quot;</span></strong> </li>
+</ul>
+</li>
+</ol>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T05:02:48-05:00"><a href="http://127.0.0.1:4001/how-to-create-a-database-in-mysql/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-create-a-database-in-mysql/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-create-a-database-in-mysql/" rel="bookmark" title="How to create a database in MySQL" itemprop="url">How to create a database in MySQL</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span style="color: red">How to create a database?</span></p>
+<ol>
+<li> By default mysql installs as the root user with no passwd (unless noted otherwise)
+<ul>
+<li> Verify that mysql is running by one way (out of many ways). This is the command....<strong><br />
+<span style="color: blue">&quot;ps -fe |grep mysqld |grep -v grep&quot;</span></strong>The output should be similiar to this... /(usr/libexec/mysqld --defaults-file=/etc/my.cnf --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --skip-locking --socket=/var/lib/mysql/mysql.sock)</li>
+</ul>
+</li>
+<li>Once you verified that mysql is running, log in to mysql using this command
+<ul>
+<li>Run this command...<strong><br />
+<span style="color: blue">&quot;mysql&quot;</span>.</strong>... (This should suffice unless your installation of mysql required a username and password) </li>
+<li>The output should be similar to this..
+<pre><br />Welcome to the MySQL monitor.  Commands end with ; or g.<br />Your MySQL connection id is 24365 to server version: 4.1.20<br /><br />Type 'help;' or 'h' for help. Type 'c' to clear the buffer.<br /><br />mysql&gt; <br /></pre>
+</li>
+</ul>
+</li>
+<li>Run this command..
+<ul>
+<li><strong><span style="color: blue">&quot;Create database TEST;&quot;</span></strong>....Output should look like this...
+<pre><br />       Query OK, 1 row affected (0.02 sec)<br /></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Now for the all in one Feature......</strong></p>
+<pre><br />[root@s15261720 wiki]# ps -e |grep mysqld<br /> 7209 ?        00:00:00 mysqld_safe<br /> 7242 ?        00:00:12 mysqld<br /><br /># mysql  <br />Enter password: <br />Welcome to the MySQL monitor.  Commands end with ; or g.<br />Your MySQL connection id is 24415 to server version: 4.1.20<br /><br />Type 'help;' or 'h' for help. Type 'c' to clear the buffer.<br /><br />mysql&gt; <br /><br />mysql&gt; create database test;<br />Query OK, 1 row affected (0.00 sec)<br /><br />mysql&gt;<br /></pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T04:58:19-05:00"><a href="http://127.0.0.1:4001/how-to-restore-a-mysql-datbase/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-restore-a-mysql-datbase/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-restore-a-mysql-datbase/" rel="bookmark" title="How to restore a MySQL Database" itemprop="url">How to restore a MySQL Database</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong><span style="color: red">Now that you know how to backup your database,I will show you how to restore it on another database.</span></strong> </p>
+<ol>
+<li>
+<ul>
+The most common and basic way to restore, is a restore of a database.
+<li><span style="color: blue"><strong>mysql -u test1 --password=pass1 world &lt; world.sql</strong></span></li>
+</ul>
+<p><span style="color: blue"><strong><br />
+</strong></span> 
+<li>
+<ul>
+How about restoring your database to another database over the network with out logging into that box...
+<li><strong><span style="color: blue">mysqldump -u test1 --password=pass1 world | mysql --host=170.20.10.32 -C world</span></strong></li>
+</ul>
+</li>
+
+</p></li></ol>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -622,17 +590,12 @@ You can do this <strong><span style="color: blue">gpg -o decrypt_example -d encr
         
       </li>
     
-      <li>
-        
-          <a href="http://127.0.0.1:4001/page31">31</a>
-        
-      </li>
-    
   </ul>
   
     <a href="http://127.0.0.1:4001/page30" class="btn">Next</a>
   
 </div><!-- /.pagination -->
+
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
@@ -644,6 +607,18 @@ You can do this <strong><span style="color: blue">gpg -o decrypt_example -d encr
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2333243-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
           
 

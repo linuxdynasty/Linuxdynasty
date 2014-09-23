@@ -153,22 +153,10 @@
         <loc>http://127.0.0.1:4001/page30/index.html</loc>
     </url>
     
-    <url>
-        <loc>http://127.0.0.1:4001/page31/index.html</loc>
-    </url>
-    
 
     
     <url>
-        <loc>http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/</loc>
-    </url>
-    
-    <url>
         <loc>http://127.0.0.1:4001/blog/years-silence/</loc>
-    </url>
-    
-    <url>
-        <loc>http://127.0.0.1:4001/trouble-getting-a-script/</loc>
     </url>
     
     <url>
@@ -176,27 +164,19 @@
     </url>
     
     <url>
-        <loc>http://127.0.0.1:4001/reply-to-script-downloads-2/</loc>
+        <loc>http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/</loc>
     </url>
     
     <url>
-        <loc>http://127.0.0.1:4001/reply-to-script-downloads/</loc>
+        <loc>http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss/</loc>
     </url>
     
     <url>
-        <loc>http://127.0.0.1:4001/forums/</loc>
+        <loc>http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/</loc>
     </url>
     
     <url>
-        <loc>http://127.0.0.1:4001/general-site/</loc>
-    </url>
-    
-    <url>
-        <loc>http://127.0.0.1:4001/zenoss/</loc>
-    </url>
-    
-    <url>
-        <loc>http://127.0.0.1:4001/script-downloads/</loc>
+        <loc>http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/</loc>
     </url>
     
     <url>

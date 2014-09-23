@@ -4,43 +4,13 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://127.0.0.1:4001/feed.xml" />
 <link rel="alternate" type="text/html" href="http://127.0.0.1:4001" />
-<updated>2014-09-22T17:38:44-04:00</updated>
+<updated>2014-09-23T15:49:22-04:00</updated>
 <id>http://127.0.0.1:4001/</id>
 <author>
   <name>Allen Sanabria</name>
   <uri>http://127.0.0.1:4001/</uri>
-  <email>you@email.com</email>
+  <email>asanabria <@> linuxdynasty dot org</email>
 </author>
-
-
-<entry>
-  <title type="html"><![CDATA[Welcome to Jekyll!]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/" />
-  <id>http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll</id>
-  <published>2014-09-22T12:10:21-04:00</published>
-  <updated>2014-09-22T12:10:21-04:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
-  </author>
-  <content type="html">&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve --watch&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/jekyll/update/welcome-to-jekyll/&quot;&gt;Welcome to Jekyll!&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on September 22, 2014.&lt;/p&gt;</content>
-</entry>
 
 
 <entry>
@@ -52,33 +22,32 @@
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
-  <content type="html">&lt;p&gt;I have been so focused on vFense, that I have been negligent of this blog. vFense has come a long way from it's inception a little over 20 months ago. We are still in the Beta, but we are continuously making improvements. As of right now there&lt;/p&gt;
+  <content type="html">&lt;p&gt;I have been so focused on vFense, that I have been negligent of this blog.
+vFense has come a long way from it’s inception a little over 20 months ago.
+We are still in the Beta, but we are continuously making improvements.
+As of right now, I’m currently the only active developer working on the next
+major release 0.8.0, which is a complete server rewrite. Examples of what is comming…&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;All functions, methods, and classes will be fully documented.&lt;/li&gt;
+  &lt;li&gt;Vulnerability correlation for the following operating systems…
+    &lt;ul&gt;
+      &lt;li&gt;RedHat and clones&lt;/li&gt;
+      &lt;li&gt;Ubuntu and clones&lt;/li&gt;
+      &lt;li&gt;Windows&lt;/li&gt;
+      &lt;li&gt;CVE/NVD&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Moved to using &lt;a href=&quot;https://linuxdynasty@bitbucket.org/linuxdynasty/apscheduler.git&quot;&gt;APScheduler v3.1.0&lt;/a&gt; for managing scheduled jobs&lt;/li&gt;
+  &lt;li&gt;Logging of all administrative tasks into RethinkDB.&lt;/li&gt;
+  &lt;li&gt;Remote command line tool for making API calls to vFense (Think of chef’s knife command)&lt;/li&gt;
+  &lt;li&gt;Token based authentication for the agents&lt;/li&gt;
+  &lt;li&gt;Separated WEB authentication from Agent authentication.&lt;/li&gt;
+&lt;/ul&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/years-silence/&quot;&gt;Two years of silence&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on June 14, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Trouble getting a script...]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/trouble-getting-a-script/" />
-  <id>http://127.0.0.1:4001/trouble-getting-a-script</id>
-  <published>2012-11-11T23:39:23-05:00</published>
-  <updated>2012-11-11T23:39:23-05:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
-  </author>
-  <content type="html">&lt;p&gt;I was trying to download this script from the entry &quot;Akamai: Collecting and Graphing&quot;:&lt;/p&gt;
-&lt;p&gt;http://www.linuxdynasty.org/View-details/Perl-Scripts/18-akamai_collector.pl.html&lt;/p&gt;
-&lt;p&gt;I keep getting redirected to the homepage.  Is there a way I could get this script?&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;Thanks,&lt;/p&gt;
-&lt;p&gt;Eric Garcia&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/trouble-getting-a-script/&quot;&gt;Trouble getting a script...&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on November 11, 2012.&lt;/p&gt;</content>
 </entry>
 
 
@@ -91,7 +60,7 @@
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;My team was assigned to create a redis slave status check to be ran under Zenoss.
 So while they are creating that check, I decided to google for redis checks
@@ -147,109 +116,206 @@ CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync &lt;span cl
 
 
 <entry>
-  <title type="html"><![CDATA[Reply To: Script downloads]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/reply-to-script-downloads-2/" />
-  <id>http://127.0.0.1:4001/reply-to-script-downloads-2</id>
-  <published>2012-01-28T07:31:27-05:00</published>
-  <updated>2012-01-28T07:31:27-05:00</updated>
+  <title type="html"><![CDATA[How To monitor RTSP streaming videos using openRTSP and Zenoss]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/" />
+  <id>http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss</id>
+  <published>2011-12-30T22:26:23-05:00</published>
+  <updated>2011-12-30T22:26:23-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
-  <content type="html">&lt;p&gt;Hi,&lt;/p&gt;
-&lt;p&gt;Trying to download snmp_branch.py but having difficulties.  Any chance you could confirm that the links are set up properly.&lt;/p&gt;
-&lt;p&gt;Thanks,&lt;br /&gt;
--j&lt;/p&gt;
+  <content type="html">&lt;p&gt;Since I do currently work for a streaming company, that would imply that we should have some type of monitoring for our RTSP streams ;-). You will 1st need to get the openRTSP command.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You will need to download the openRTSP command from http://www.live555.com/openRTSP/&lt;/li&gt;
+&lt;li&gt;Or if you are running Zenoss on top of Debian you can just run a apt-get install livemedia-utils&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you do that, all you have to do next is to download my script and have a valid server to point at and a path to test... Example below.. {filelink=24}&lt;/p&gt;
+&lt;pre&gt;./check_rtsp.py -d remote_server -p /iphone/2012 
+OK /iphone/2012, test completed successfull against remote_server |status=0&lt;/pre&gt;
+&lt;p&gt;or with stats...&lt;/p&gt;
+&lt;pre&gt;./check_rtsp.py -d remote_server -p /iphone/2012 -s
+OK /iphone/2012, test completed successfull against remote_server |status=0 num_packets_received=16 num_packets_lost=0 elapsed_measurement_time=3.000073 kBytes_received_total=16.309000 
+measurement_sampling_interval_ms=1000 kbits_per_second_min=29.245485 kbits_per_second_ave=43.489608 
+kbits_per_second_max=51.737449 packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 
+packet_loss_percentage_max=0.000000 inter_packet_gap_ms_min=0.018000 inter_packet_gap_ms_ave=161.139313 
+inter_packet_gap_ms_max=901.439000 subsession=video/H264 num_packets_received=61 num_packets_lost=0 
+elapsed_measurement_time=3.000073 kBytes_received_total=27.630000 measurement_sampling_interval_ms=1000 
+kbits_per_second_min=0.000000 kbits_per_second_ave=73.678207 kbits_per_second_max=122.923442 
+packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 packet_loss_percentage_max=0.000000 
+inter_packet_gap_ms_min=0.009000 inter_packet_gap_ms_ave=24.794672 inter_packet_gap_ms_max=528.923000&lt;/pre&gt;
+&lt;p&gt;So you can trend the different stats that openRTSP provides in Zenoss..&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/reply-to-script-downloads-2/&quot;&gt;Reply To: Script downloads&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on January 28, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/&quot;&gt;How To monitor RTSP streaming videos using openRTSP and Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 30, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
-  <title type="html"><![CDATA[Reply To: Script downloads]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/reply-to-script-downloads/" />
-  <id>http://127.0.0.1:4001/reply-to-script-downloads</id>
-  <published>2011-12-13T16:51:16-05:00</published>
-  <updated>2011-12-13T16:51:16-05:00</updated>
+  <title type="html"><![CDATA[How To Monitor and get Bind 9 stats using Zenoss]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss/" />
+  <id>http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss</id>
+  <published>2011-12-28T21:27:47-05:00</published>
+  <updated>2011-12-28T21:27:47-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
-  <content type="html">&lt;p&gt;You should be able to now.&lt;/p&gt;
+  <content type="html">&lt;p&gt;Hey guys, here is another Python script by me :-) . The reason for this script, is to give you the capabilities to monitor and graph Bind 9 stats. This script will be executed through SNMP.. We will be using the UCD-MIB 1.3.6.1.4.1.2021.8.1&lt;/p&gt;
+&lt;pre&gt;The stats are from named.stats... Here is an example of named.stats..
+cat /var/cache/bind/named.stats
++++ Statistics Dump +++ (1325089261)
+++ Incoming Requests ++
+            83318718 QUERY
+++ Incoming Queries ++
+            54293282 A
+                1929 NS
+                3186 CNAME
+                  27 SOA
+            13645272 PTR
+                7921 MX
+                 781 TXT
+            15224426 AAAA
+                 200 SRV
+                   1 NAPTR
+                1271 A6
+                  95 DS
+                   2 NSEC
+                  66 SPF
+              140257 ANY
+                   2 Others&lt;/pre&gt;
+&lt;p&gt;You can download the script here .. {filelink=23}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-415&quot;&gt;&lt;/a&gt;&lt;br /&gt;
+I purposely made this script so that it can be used with snmpd.conf. I made an option called '&lt;strong&gt;-g&lt;/strong&gt;', and this option will actualy generate the snmpd.conf file for you with the entries that can be monitored. Example below..&lt;/p&gt;
+&lt;pre&gt;exec ResolverStatisticsqueries-with-RTT---1600ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT &amp;gt; 1600ms'
+exec ResolverStatisticsqueries-with-RTT-800-1600ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 800-1600ms'
+exec ResolverStatisticsqueries-with-RTT-10-100ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 10-100ms'
+exec ResolverStatisticsSERVFAIL-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'SERVFAIL received'
+exec ResolverStatisticsother-errors-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'other errors received'
+exec ResolverStatisticsquery-timeouts /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'query timeouts'
+exec ResolverStatisticsIPv4-responses-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'IPv4 responses received'
+exec ResolverStatisticsqueries-with-RTT-500-800ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 500-800ms'
+exec ResolverStatisticsqueries-with-RTT---10ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT &amp;lt; 10ms'
+exec ResolverStatisticsqueries-with-RTT-100-500ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 100-500ms'
+exec ResolverStatisticsIPv4-queries-sent /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'IPv4 queries sent'
+exec ResolverStatisticsIPv4-NS-address-fetches /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'IPv4 NS address fetches'
+exec ResolverStatisticsEDNS(0)-query-failures /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'EDNS(0) query failures'
+exec ResolverStatisticsquery-retries /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'query retries'
+exec ResolverStatisticslame-delegations-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'lame delegations received'
+exec ResolverStatisticsFORMERR-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'FORMERR received'
+exec ResolverStatisticsNXDOMAIN-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'NXDOMAIN received'&lt;/pre&gt;
+&lt;p&gt;That is just a sample above as there is a lot more data from the original output. Here is the output with the '&lt;strong&gt;-h&lt;/strong&gt;' option..&lt;/p&gt;
+&lt;pre&gt;/usr/local/bin/getBindStats.py -h
+Usage: getBindStats.py arg --grouptype='Incoming Requests' --printstat='A'
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/reply-to-script-downloads/&quot;&gt;Reply To: Script downloads&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 13, 2011.&lt;/p&gt;</content>
+Options:
+  -h, --help            show this help message and exit
+  -t GTYPE, --grouptype=GTYPE
+                        Cache DB RRsets,Incoming Queries,Incoming
+                        Requests,Name Server Statistics,Outgoing
+                        Queries,Resolver Statistics,Socket I/O Statistics,Zone
+                        Maintenance Statistics
+  -s PRINT_STAT, --printstat=PRINT_STAT
+                        Acceptable Values are these:::TXT,PTR,SPF,queries
+                        caused recursion,A,IPv4 NS address fetch
+                        failed,mismatch responses received,TCP/IPv4
+                        connections established,queries with RTT
+                        100-500ms,query timeouts,query retries,NSEC,IPv4
+                        responses received,requests with EDNS(0)
+                        received,TCP/IPv4 sockets closed,IPv4 IXFR
+                        requested,SRV,NOTIFY,queries with RTT
+                        10-100ms,TCP/IPv4 connections accepted,lame
+                        delegations received,FORMERR received,RRSIG,queries
+                        with RTT &amp;gt; 1600ms,UDP/IPv4 recv errors,NS,IPv4
+                        notifies sent,queries with RTT 800-1600ms,SERVFAIL
+                        received,IPv4 AXFR requested,auth queries
+                        rejected,ANY,IPv4 requests received,queries with RTT &amp;lt;
+                        10ms,IPv4 notifies received,IPv4 queries sent,queries
+                        resulted in referral answer,NXDOMAIN,other errors
+                        received,QUERY,truncated responses received,MX,TCP
+                        requests received,
+  -g, --gensnmp         This will generate in STDOUT the SNMP info you need in
+                        snmpd.conf&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/snmp/monitor-bind-9-stats-zenoss/&quot;&gt;How To Monitor and get Bind 9 stats using Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 28, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
-  <title type="html"><![CDATA[Forums]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/forums/" />
-  <id>http://127.0.0.1:4001/forums</id>
-  <published>2011-12-12T00:57:13-05:00</published>
-  <updated>2011-12-12T00:57:13-05:00</updated>
+  <title type="html"><![CDATA[How To monitor NodeJS using the Stats plugin that comes with Cluster using Zenoss.]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/" />
+  <id>http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss</id>
+  <published>2011-12-28T00:31:28-05:00</published>
+  <updated>2011-12-28T00:31:28-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
-  <content type="html">
+  <content type="html">&lt;p&gt;We needed a way to monitor all of our NodeJS instances in Zenoss and not just a simple TCP connection. Since we were already using the Cluster plugin for NodeJS 'http://learnboost.github.com/cluster/' and we are using the stats plugin for Cluster 'http://learnboost.github.com/cluster/docs/stats.html'. We decided to write a quick python script to connect to the stats plugin and parse that data to represent it to Zenoss.&lt;/p&gt;
+&lt;p&gt;You have 2 options... Run this script by itself using Zenoss to connect to the host or if you are using a socket connection or connecting to localhost only then use SNMP.&lt;/p&gt;
+&lt;p&gt;Download Here .. {filelink=22}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;( IN SNMP ) Options are modifiable &lt;strong&gt;'exec CheckClusterLiveStats /usr/local/bin/check_clusterlive_stats.py -t tcp -c localhost:8888&lt;/strong&gt;'&lt;/li&gt;
+&lt;li&gt;Or directly in Zenoss '&lt;strong&gt;/usr/local/bin/check_clusterlive_stats.py -t tcp -c remotehost:8888'&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This script can be used to connect to a TCP socket or to a local file socket. Example output from Zenoss Test Command...&lt;/p&gt;
+&lt;pre&gt;Using SNMP Preparing Command...
+Executing command /usr/local/zenoss/libexec/check_snmp -H 127.0.0.1 -o .1.3.6.1.4.1.8072.1.3.2.3.1.1.21.67.104.101.99.107.67.108.117.115.116.101.114.76.105.118.101.83.116.97.116.115 -C readonly -R OK against 127.0.0.1
+SNMP OK - &quot;Deaths Has not increased, Deaths count is 0 NodeJS cluster OK |restarts=0 workers=4 deaths=0 connections_total=193463 connections_active=0&quot; |
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/forums/&quot;&gt;Forums&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 12, 2011.&lt;/p&gt;</content>
+Using Command only...&lt;/pre&gt;
+&lt;pre&gt;Preparing Command...
+Executing command /usr/local/zenoss/libexec/check_clusterlive_stats.py -t tcp -c remotehost:8888
+&quot;Deaths Has not increased, Deaths count is 0 NodeJS cluster OK |restarts=0 workers=4 deaths=0 connections_total=193463 connections_active=0&quot; |&lt;/pre&gt;
+&lt;p&gt;The command above you can run with out snmp. The reason we use snmp because we only allow the stats plugin to run on the localhost interface. So we use snmp to execute the script and in return, it returns the results.&lt;/p&gt;
+&lt;pre&gt;Here is the help output..
+check_clusterlive_stats.py -h
+Usage: check_clusterlive_stats.py arg --contype=socket|tcp --connection=pathto socket|host:port
+
+Options:
+  -h, --help            show this help message and exit
+  -t CONTYPE, --contype=CONTYPE
+                        socket or tcp
+  -c CONNECTION, --connection=CONNECTION
+                        /tmp/cluster-repl.sock or localhost:8888
+  -w TIMEOUT, --timeout=TIMEOUT
+                        int of how long you want this script to wait until it
+                        times out&lt;/pre&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto/nodejs/monitor-nodejs-stats-plugin-cluster-zenoss/&quot;&gt;How To monitor NodeJS using the Stats plugin that comes with Cluster using Zenoss.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 28, 2011.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
-  <title type="html"><![CDATA[General Help for this site..]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/general-site/" />
-  <id>http://127.0.0.1:4001/general-site</id>
-  <published>2011-12-11T20:19:21-05:00</published>
-  <updated>2011-12-11T20:19:21-05:00</updated>
+  <title type="html"><![CDATA[How To Monitor Http Status Codes using Zenoss and Snmp.]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/" />
+  <id>http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp</id>
+  <published>2011-12-27T19:52:04-05:00</published>
+  <updated>2011-12-27T19:52:04-05:00</updated>
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
-  <content type="html">&lt;p&gt;Anything that has nothing to do with the other Forums that I created :)&lt;/p&gt;
+  <content type="html">&lt;p&gt;We needed a way to monitor a few different type of HTTP Status Codes, specifically... ( 400, 404, 500, 503, 504, 200 ). This list is modifiable within the script. Though I'm thinking of turning this list into an option, since everyone might not one to gather the count just for those mentioned above.&lt;/p&gt;
+&lt;p&gt;So In order to get this data, you will need to use SNMP and install logtail. To make this script work you will need to have an snmpd exec statement in the snmpd.conf file and a crontab entry for the script to run as often as you like.&lt;/p&gt;
+&lt;p&gt;This script has been tested, using Nginx and Ruby On Rails.&lt;br /&gt;
+You can download the script here.. {filelink=21}&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;On cron, remember this is modifiable '&lt;strong&gt;* * * * * /usr/local/bin/get_http_codes.py -d &quot;/var/log/nginx&quot; -f &quot;www-access.log&quot; &amp;gt;/tmp/errorcount.txt'&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;In snmpd.conf without quotes '&lt;strong&gt;exec GetHttpStats /bin/cat /tmp/errorcount.txt&lt;/strong&gt;'&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In Zenoss you will have to use the check_snmp nagios command or the inherent snmp check from zenoss. The oid you need to use is the UCDavis OID. For instance I'm using 2 exec statements in snmpd.conf, so the OID I am using for this check is this one '&lt;strong&gt;.1.3.6.1.4.1.2021.8.1.101.2&lt;/strong&gt;' The command I'm using in zenoss is like this &lt;strong&gt;'check_snmp -H ${dev/manageIp} -C readonly -P 2c -o .1.3.6.1.4.1.2021.8.1.101.2&lt;/strong&gt;'&lt;/p&gt;
+&lt;p&gt;The current options for get_http_codes.py is '&lt;strong&gt;-d&lt;/strong&gt;' which is the directory where the log file is located and '&lt;strong&gt;-f&lt;/strong&gt; ' the name of the logfile. This script uses logtail so that I can always get the difference from the last time I scanned the log file.&lt;/p&gt;
+&lt;p&gt;The purpose of this script is so that you can graph or create a threshold of how many of the below Http Error Codes you are getting between every check. For instance we run this check every 30 seconds in Cron and in Zenoss and we divide the results by 30 so we can get how many of the error codes are happening per second.&lt;br /&gt;
+Example of the output of the script is 'SNMP OK - &quot;&lt;strong&gt;Nginx Codes OK|count200=181 count400=1 count404=0 count500=0 count503=0 count504=0&quot; |&lt;/strong&gt; '&lt;/p&gt;
+&lt;p&gt;If you have any feature request or have any questions, please leave a comment. Thank you&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/general-site/&quot;&gt;General Help for this site..&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 11, 2011.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Zenoss]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/zenoss/" />
-  <id>http://127.0.0.1:4001/zenoss</id>
-  <published>2011-12-11T20:15:13-05:00</published>
-  <updated>2011-12-11T20:15:13-05:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
-  </author>
-  <content type="html">&lt;p&gt;If you have questions or need help with any of my scripts that I run for Zenoss, please post them here&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/zenoss/&quot;&gt;Zenoss&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 11, 2011.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Script downloads]]></title>
- <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/script-downloads/" />
-  <id>http://127.0.0.1:4001/script-downloads</id>
-  <published>2011-10-18T15:59:51-04:00</published>
-  <updated>2011-10-18T15:59:51-04:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Nice site.&lt;/p&gt;
-&lt;p&gt;Don't seem to be able to download py scripts- links not there or broken.  Am I doing something wrong?&lt;/p&gt;
-&lt;p&gt;E&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/script-downloads/&quot;&gt;Script downloads&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on October 18, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/howto/monitor-http-status-codes-zenoss-snmp/&quot;&gt;How To Monitor Http Status Codes using Zenoss and Snmp.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on December 27, 2011.&lt;/p&gt;</content>
 </entry>
 
 
@@ -262,7 +328,7 @@ CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync &lt;span cl
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I have not been doing to many interesting projects as of the past year. This is the reason for my lack of updates. I am now starting to do some interesting stuff, so let the updates roll.&lt;/p&gt;
 
@@ -279,7 +345,7 @@ CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync &lt;span cl
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Recently I had to aggregate the amount of 200, 400, 404, 500, 503,  and 504 HTTP 1.1 Codes from all of our Nginx and Ruby On Rails systems. So I decided to write a quick plugin for Zenoss that all you need to do is pass the devices or Device Class you want to aggregate the data from and the DataPoint name.&lt;/p&gt;
 &lt;p&gt;Also this makes it simple to use the Zenoss Thresholds and create Aggregate Reports based on the datapoints you use with out having to do some fancy python coding... :) Enjoy&lt;/p&gt;
@@ -314,7 +380,7 @@ OK Aggregate for /Server/Linux/Nginx class is 22|aggregate=22
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;RabbitMQ was recently deployed in the company I currently work for. At the last minute ( as always ) they came to me and ask me to please add RabbitMQ monitoring to Zenoss. They said here is the url and now please monitor for a few stats ( &lt;a href=&quot;http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin&quot;&gt;using the RabbitMQ Status Plugi&lt;/a&gt;n ). So I said to myself, I could easily just write a quick shell script to get the 3 stats that they needed and add them into Zenoss. After thinking about it.... In the near future they might ask for more than those 3 stats. So I decided to write a quick python script ( Zenoss Compatible ) to get all the stats from that status page and input them into Zenoss...&lt;/p&gt;
 &lt;p&gt;Prerequisites&lt;/p&gt;
@@ -363,7 +429,7 @@ Now we need to make the substitution.... So we are going to substitute, every ma
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;We needed to integrate the Splunk Alerts into Zenoss, because even though Splunk can indeed send out alerts. Splunk does not have any clue about what an &quot;Escalation Process&quot; is. With Zenoss you can create an &quot;Escalation Process&quot;.&lt;/p&gt;
 &lt;p&gt;I have 2 ways to send events to Zenoss from Splunk..&lt;/p&gt;
@@ -411,7 +477,7 @@ The reason for the change above, is because Splunk will send &quot;=&quot; signs
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I first made the Download Section for members only, just cause I wanted an idea on who is downloading the software I have written. Now, I no longer care who downloads it, as long as it helps out the people who did download it. That is all that matters. Though the forums section, does require you to be a member. I also recognize, most people are members of enough websites, that becoming a member of another one, can be over bearing.&lt;/p&gt;
 
@@ -428,7 +494,7 @@ The reason for the change above, is because Splunk will send &quot;=&quot; signs
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I've come to realize, that CIM is the new SNMP, but on steroids. Most new SAN, NAS, Network, and Operating Systems now support &lt;a href=&quot;http://www.dmtf.org/standards/cim/&quot;&gt;CIM&lt;/a&gt;/&lt;a href=&quot;http://www.dmtf.org/standards/wbem/&quot;&gt;WBEM&lt;/a&gt;. To me it is easier to gather statistics and information through CIM, then it is through SNMP. In this article I am going to give you a script that will allow you to query the 3par for Disk IO stats. You will be able to grab Disk IO stats on a per Volume, per Port, or per Disk basis.You will also be able to search for a Volume, Port, or Disk, instead of just dumping all the Volumes, Ports, or Disk.&lt;/p&gt;
 &lt;p&gt;Before you download this script, you will need to download &lt;a href=&quot;http://sourceforge.net/projects/pywbem/&quot;&gt;pywbem&lt;/a&gt; from sourceforge and install it. .&lt;/p&gt;
@@ -510,7 +576,7 @@ OK|2:0:1_ReadIOs=1646791211 2:0:1_WriteIOs=833778099 2:0:1_TotalIOs=2480569310 2
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Good Afternoon my fellow Zenoss users. here I bring you another Python tool to use with Zenoss. This tool will allow you to list all of your alerting rules, either by Group, User, or Query. If you are like me and have over 100 Alerting Rules. Managing these rules are more then a pain in the butt. Especially when you create a new rule and you know you created it correctly, but it just does not work... Well you might have another conflicting rule. Well what do you do in this situation?? You can go through each rule manually and sooner or later you will find it.&lt;/p&gt;
 &lt;p&gt;Or you can use my tool to find it for you. You might ask... How will yout tool find the conflicting rule for me??? Well to be honest it will not find the rule for you. What it can do is search all the rules for a certain query. Which can return one or more alerting rules if they are similiar in nature. or you can have the tool, list all of your Alerting rules. Or you can have the script list all of your alerting rules by group or user. The toll will report back to you The Group/User, The Alerting Rules attached to that Group/user, and the Schedules Attached to that Alerting Rules.&lt;/p&gt;
@@ -550,7 +616,7 @@ Example below...&lt;/p&gt;
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I've seen a few people in the Zenoss community forums asking for an easier way to add multiple Datapoints into Zenoss, instead of adding 1 by 1. Well, I've decided to try and build such a tool today. Now even though the tool is not complete (IN MY EYES). It is already has been helpful to me! As of right now the script can List Templates in a Organizer ( aka /Devices/Server/Linux ) or in a Device ( zenoss1.linuxdynasty ).&lt;/p&gt;
 &lt;p&gt;It can also create a Template, with a Command DataSource, with Multiple DataPoints. This means you can now automate the creation of Templates and DataSources and DataPoints. So if you are using a tool like Puppet, Cfengine, Bcfg2, or Chef, this process can be automated. I will be adding more features in the next few weeks.&lt;/p&gt;
@@ -666,7 +732,7 @@ DataPoints attached at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/graph
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;Recently I had to prepare for a Zenoss upgrade. During my prep work I had to create a zenpack of all of our Templates. For those of you who use Zenoss, you know how many templates you can start to accumulate in a short amount of time. You can have Templates attached to single Devices, to SubClasses, and to Classes. Now if you have a few devices this is not a big deal. But if you have a couple hundred to a couple of thousand devices, this could be a real hassle.&lt;/p&gt;
 &lt;p&gt;Now you can take a ton of your time and review Class by Class and Device by Device until you finally finish. You will eventually get it all in a Zenpack....... Well lucky for you guys I created a Python Script that runs as the Zenoss user and create a Zenpack for you. All you have to do is pick a name for the ZenPack and optionally the Device Class you want to scan. The script will scan the Device Class that you specified ( or by default scan the entire /Device Class and its Sub Classes). It will then create the ZenPack with all the locally attached Device Templates. I am thinking of also adding the Events class as part of the next release of this script.&lt;/p&gt;
@@ -704,7 +770,7 @@ options: -h, --help            show this help message and exit -p ZPACKNAME,    
   <author>
     <name>Allen Sanabria</name>
     <uri>http://127.0.0.1:4001</uri>
-    <email>you@email.com</email>
+    <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;In this HowTo, I will show you how you can get statistics off of the Netscaler without using SNMP. You might be asking why would I want to do that?? Well like many other devices that support SNMP, the Netscaler makes use of dynamic OID creation. For those of you that do not understand what I mean. Dynamic OID creation, is the way that Networking devices give OID's to variables that are not static in the device itself.&lt;/p&gt;
 &lt;p&gt;Here are some common static variables/OID's, amongst most devices out there.&lt;/p&gt;
@@ -753,6 +819,138 @@ options:-h, --help                          show this help message and exit     
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/&quot;&gt;HowTo monitor the Netscaler using Python and Soap instead of SNMP&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 07, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[How to get information from the Netscaler using Python and Suds.]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" />
+  <id>http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds</id>
+  <published>2010-02-01T13:22:22-05:00</published>
+  <updated>2010-02-01T13:22:22-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;Recently I just started to use the Citrix Netscalers again ( Load Balancers ). Being the person that I am, I wanted a way to grab the information using the SOAP API.&lt;br /&gt;
+Now Citrix has a ton of documentation for Perl/C/C# and Java ( None for Python ). SOAP client support has not been the best for Python, in my opinion.&lt;br /&gt;
+I know you have &lt;a href=&quot;http://pywebsvcs.sourceforge.net/&quot;&gt;soappy/ZSI&lt;/a&gt;, which I have had issues with consuming Broken WSDL files ( Having to fix the Broken WSDL file manually, SUCKS!).&lt;/p&gt;
+&lt;p&gt;Just 2 weeks ago, I encounterd &lt;a href=&quot;https://fedorahosted.org/suds/&quot;&gt;SUDS&lt;/a&gt;. This module is by far, the best SOAP client for Python.&lt;br /&gt;
+There documentation is simple and straight to the point, with a bunch of nice samples to get you on your way.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;attention&quot;&gt;Install SUDS before proceeding further. You can get suds from here. &lt;a href=&quot;https://fedorahosted.org/suds/&quot;&gt;https://fedorahosted.org/suds/&lt;/a&gt;&lt;/span&gt;&lt;br /&gt;
+Connection to my netscaler was as simple as this...&lt;/p&gt;
+&lt;pre&gt;Python 2.4.3 (#1, Sep  3 2009, 15:37:37)[GCC 4.1.2 20080704 (Red Hat 4.1.2-46)]&lt;/pre&gt;
+&lt;pre&gt;on linux2Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&amp;gt;&amp;gt;&amp;gt; from suds.client import Client
+&amp;gt;&amp;gt;&amp;gt; url = &quot;http://nsip/api/NSConfig.wsdl&quot;
+&amp;gt;&amp;gt;&amp;gt; from suds.xsd.doctor import *
+&amp;gt;&amp;gt;&amp;gt; imp = Import('http://schemas.xmlsoap.org/soap/encoding/')
+&amp;gt;&amp;gt;&amp;gt; imp.filter.add(&quot;urn:NSConfig&quot;)
+&amp;gt;&amp;gt;&amp;gt; d = ImportDoctor(imp)
+&amp;gt;&amp;gt;&amp;gt; client = Client(url, doctor=d, location=&quot;http://nsip/soap/&quot;)
+&amp;gt;&amp;gt;&amp;gt; client.service.login(username=&quot;login&quot;, password=&quot;pass&quot;)(simpleResult){ rc = 0 message = &quot;Done&quot; }
+&amp;gt;&amp;gt;&amp;gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-83&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As you can see above, I used the xsd doctor to import Soap encoding URL and added a filter for the Netscaler URN.&lt;br /&gt;
+If you do not import the SOAP encoding schema, this is the error you will receive..&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;alert&quot;&gt;suds.TypeNotFound: Type not found: '(Array, http://schemas.xmlsoap.org/soap/encoding/, )&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Once you type the above, you can now run commands in the python shell. for instance...&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;client.service.getlbvserver()&lt;/li&gt;
+&lt;li&gt;client.service.getservice()&lt;/li&gt;
+&lt;li&gt;client.service.getservicegroup()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I am attaching a script that I have written, to get Load Balanced Virtual Servers and its Services and ServiceGroups.&lt;br /&gt;
+This script can also just list all the Virtual Servers, Services, or Service Groups. Examples below..&lt;br /&gt;
+queryns.py == {filelink=10}&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;python queryns.py -c &quot;ZenossTest2_svc&quot; -n &quot;nsip&quot; -u &quot;login&quot; -p &quot;pass&quot; Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP python queryns.py -s foobar_test -n &quot;nsip&quot; -u &quot;login&quot; -p &quot;pass&quot; Virtual Server State IPAddress Port Protocol foobar_test UP 192.168.101.19 55555 HTTP ServiceGroup Name SG State Server Name Status IPAddress Port Protocol &quot;Foo Bar&quot; ENABLED billyboy UP 192.168.101.31 8080 HTTP &quot;Foo Bar&quot; ENABLED zenossTest UP 192.168.101.221 8080 HTTP Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP ------------------------------------------------------------------------------------------------------------------------&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;All the options are here..&lt;/p&gt;
+&lt;pre&gt;python queryns.py -husage: queryns.py [options] arg --username=username --password=password --netscaler=netscalerip
+
+options: -h, --help            
+show this help message and exit 
+-n NETSCALER, --netscaler=NETSCALER
+                       Here you will put the netscaler IPAddress or the                       netscaler hostname-u USERNAME, --username=USERNAME
+                       Your username -p PASSWORD, --password=PASSWORD                       Your password -l LIST, --list=LIST  
+List all the names of the Virtual Servers, Services,
+                       ServiceGroups. Example --list=lbvserver, --list=service, --list=servicegroup -s SERVER, ---vserver=SERVER
+                       Virtual Server that you want to query. You can choose
+                       a Virtual Server or you can pass all, so you get all
+                       the Virtual Servers and its associated
+                       ServiceGroups or Services. Example....
+                       --vserver=&quot;foobar_test&quot; or --vserver=&quot;all&quot; 
+-g SGROUP, --sgroup=SGROUP
+                       ServiceGroup that you want the info from -c SERVICE, 
+--service=SERVICE                       Service that you want the info from&lt;/pre&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/&quot;&gt;How to get information from the Netscaler using Python and Suds.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on February 01, 2010.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Swatch Startup Script]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/shell/swatch-startup-script/" />
+  <id>http://127.0.0.1:4001/shell/swatch-startup-script</id>
+  <published>2009-11-12T21:46:56-05:00</published>
+  <updated>2009-11-12T21:46:56-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;I've been using Swatch for quite a while now and I never invested the time to  create a quick startup script. Today, I decided to create one and it works just fine under Centos and Ubuntu Server. You can download it here..&lt;br /&gt;
+swatch init script == {filelink=11}&lt;/p&gt;
+&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-92&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Or you can copy and paste it below..&lt;/p&gt;
+&lt;pre&gt;#!/bin/bash## /etc/init.d/swatch# init script for Swatch.## chkconfig: 2345 90 60# description: Swatch#November 11th 2009 Allen Sanabria#http://linuxdynasty.org#CONFIG=&quot;/etc/swatch/swatch.conf&quot;PID=&quot;/var/run/swatch.pid&quot;LOGFILE=&quot;/var/log/secure&quot;PIDS=&quot;/tmp/pids.txt&quot;RETVAL=0
+
+swatch_start() {if [ -f $PID ] then echo &quot;Swatch is already running&quot;   cat $PID else echo &quot;Starting Swatch&quot; /usr/bin/swatch --config-file=$CONFIG --tail-file=$LOGFILE --pid-file=$PID &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp; RETVAL=$?fi}
+
+swatch_stop() {if [ -f $PID ] then echo &quot;Stopping Swatch&quot; PARENT=&quot;$(&amp;lt; &quot;$PID&quot;)&quot; INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` CPID1=`ps --ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` kill -9 $INIT_PID $PARENT $CPID1   rm -f $PID $PIDS RETVAL=$? else echo &quot;Swatch is not running!&quot;fi}
+
+swatch_status() {if [ -f $PID ] then echo &quot;Swatch is running&quot; PARENT=&quot;$(&amp;lt; &quot;$PID&quot;)&quot; INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` ps -o pid -o command --pid $INIT_PID --pid $PARENT --ppid $PARENT else echo &quot;Swatch is not running&quot; RETVAL=$?fi}
+
+case &quot;$1&quot; in start) swatch_start ;; stop) swatch_stop ;; restart) swatch_stop swatch_start ;; status) swatch_status ;; *) echo &quot;Usage: $0 {start|stop|restart|status}&quot; exit 1esac
+
+exit $RETVAL&lt;/pre&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/shell/swatch-startup-script/&quot;&gt;Swatch Startup Script&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on November 12, 2009.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Updates to site]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/blog/updates-to-site/" />
+  <id>http://127.0.0.1:4001/blog/updates-to-site</id>
+  <published>2009-11-09T12:24:42-05:00</published>
+  <updated>2009-11-09T12:24:42-05:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;For those of you who visit linuxdynasty everyday, you might have notice some subtle changes in the authorization aspect fo the site. I had to enable captch images in the login, and posting parts of the site. Since for the past few weeks, spammers have been hitting the comments and forums section. I'm hoping this does not annoy everyone, but the spamming is starting to really annoy me.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/blog/updates-to-site/&quot;&gt;Updates to site&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on November 09, 2009.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Begun Development of Web Server and Database for Port Report and Device Manager]]></title>
+ <link rel="alternate" type="text/html" href="http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/" />
+  <id>http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager</id>
+  <published>2009-10-18T21:14:43-04:00</published>
+  <updated>2009-10-18T21:14:43-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://127.0.0.1:4001</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;It is official, I have begun development on the Web Server and Database for the Port Report Project and the Network Device Manager Project. I will be combining both scripts into a True Network Device Manager. My goal is to create an Open Source Network Device Manager that will give Admins and Engineers complete Insight/Access to their network. It does not matter if you want to know which switch your ESX host is directly connected to or if you want to manage all your Switches/Linux Hosts with this product. We have a few more ideas on what we want to do, but they are just ideas and I will not post them yet.&lt;/p&gt;
+&lt;p&gt;I will be using Python, Pexpect, PySnmp, SQLAlchemy, and Django for this project. I'm hoping to have an Alpha for users to test by late November or early December. If you are interested in this project, please give me ideas on what you would like to see in this Project. Currently we do not have an official name for the project.  If you have one, let me know as well. All ideas are welcome, as we are trying to make a complete enterprise product out of this project.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/&quot;&gt;Begun Development of Web Server and Database for Port Report and Device Manager&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://127.0.0.1:4001&quot;&gt;Linuxdynasty&lt;/a&gt; on October 18, 2009.&lt;/p&gt;</content>
 </entry>
 
 </feed>

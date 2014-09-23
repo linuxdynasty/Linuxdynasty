@@ -6,22 +6,22 @@
 <head>
 <meta charset="utf-8">
 <title>Latest Posts &#8211; Linuxdynasty</title>
-<meta name="description" content="Describe this nonsense.">
-<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
+<meta name="description" content="What I am up too.">
+<meta name="keywords" content="Python, GoLang, automation, scripting, programming, vFense, metrics, monitoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://127.0.0.1:4001/images/abstract-1.jpg">
 
 <meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="Describe this nonsense.">
+<meta name="twitter:description" content="What I am up too.">
 <meta name="twitter:creator" content="@linuxdynasty">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:description" content="What I am up too.">
 <meta property="og:url" content="http://127.0.0.1:4001/page5/index.html">
 <meta property="og:site_name" content="Linuxdynasty">
 
@@ -31,7 +31,7 @@
 
 <link rel="canonical" href="http://127.0.0.1:4001/page5/">
 <link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
-<link rel="author" href="https://google.com/+yourid?rel=author">
+<link rel="author" href="https://google.com/+AllenSanabria?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -79,18 +79,18 @@
 				<li>
 					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
 					<h4>Allen Sanabria</h4>
-					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+					<p>DevOps developer who loves programming, monitoring, automation, and metrics.</p>
 				</li>
 				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
 				<li>
-					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:asanabria <@> linuxdynasty dot org"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
 				</li>
 				
 				<li>
-					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+					<a href="https://google.com/+AllenSanabria"><i class="fa fa-google-plus"></i> Google+</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
@@ -111,7 +111,7 @@
 				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
 			</ul>
 		</li>
-		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+		<li><a href="http://127.0.0.1:4001"></a></li><li><a href="http://127.0.0.1:4001"></a></li>
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -133,158 +133,6 @@
 
 <div id="main" role="main">
   
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2010-02-01T13:22:22-05:00"><a href="http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/">February 01, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" rel="bookmark" title="How to get information from the Netscaler using Python and Suds." itemprop="url">How to get information from the Netscaler using Python and Suds.</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Recently I just started to use the Citrix Netscalers again ( Load Balancers ). Being the person that I am, I wanted a way to grab the information using the SOAP API.<br />
-Now Citrix has a ton of documentation for Perl/C/C# and Java ( None for Python ). SOAP client support has not been the best for Python, in my opinion.<br />
-I know you have <a href="http://pywebsvcs.sourceforge.net/">soappy/ZSI</a>, which I have had issues with consuming Broken WSDL files ( Having to fix the Broken WSDL file manually, SUCKS!).</p>
-<p>Just 2 weeks ago, I encounterd <a href="https://fedorahosted.org/suds/">SUDS</a>. This module is by far, the best SOAP client for Python.<br />
-There documentation is simple and straight to the point, with a bunch of nice samples to get you on your way.</p>
-<p><span class="attention">Install SUDS before proceeding further. You can get suds from here. <a href="https://fedorahosted.org/suds/">https://fedorahosted.org/suds/</a></span><br />
-Connection to my netscaler was as simple as this...</p>
-<pre>Python 2.4.3 (#1, Sep  3 2009, 15:37:37)[GCC 4.1.2 20080704 (Red Hat 4.1.2-46)]</pre>
-<pre>on linux2Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; from suds.client import Client
-&gt;&gt;&gt; url = "http://nsip/api/NSConfig.wsdl"
-&gt;&gt;&gt; from suds.xsd.doctor import *
-&gt;&gt;&gt; imp = Import('http://schemas.xmlsoap.org/soap/encoding/')
-&gt;&gt;&gt; imp.filter.add("urn:NSConfig")
-&gt;&gt;&gt; d = ImportDoctor(imp)
-&gt;&gt;&gt; client = Client(url, doctor=d, location="http://nsip/soap/")
-&gt;&gt;&gt; client.service.login(username="login", password="pass")(simpleResult){ rc = 0 message = "Done" }
-&gt;&gt;&gt;</pre>
-<p><a id="more"></a><a id="more-83"></a></p>
-<p>As you can see above, I used the xsd doctor to import Soap encoding URL and added a filter for the Netscaler URN.<br />
-If you do not import the SOAP encoding schema, this is the error you will receive..</p>
-<p><span class="alert">suds.TypeNotFound: Type not found: '(Array, http://schemas.xmlsoap.org/soap/encoding/, )</span></p>
-<p>Once you type the above, you can now run commands in the python shell. for instance...</p>
-<ul>
-<li>client.service.getlbvserver()</li>
-<li>client.service.getservice()</li>
-<li>client.service.getservicegroup()</li>
-</ul>
-<p>I am attaching a script that I have written, to get Load Balanced Virtual Servers and its Services and ServiceGroups.<br />
-This script can also just list all the Virtual Servers, Services, or Service Groups. Examples below..<br />
-queryns.py == {filelink=10}</p>
-<p><small>python queryns.py -c "ZenossTest2_svc" -n "nsip" -u "login" -p "pass" Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP python queryns.py -s foobar_test -n "nsip" -u "login" -p "pass" Virtual Server State IPAddress Port Protocol foobar_test UP 192.168.101.19 55555 HTTP ServiceGroup Name SG State Server Name Status IPAddress Port Protocol "Foo Bar" ENABLED billyboy UP 192.168.101.31 8080 HTTP "Foo Bar" ENABLED zenossTest UP 192.168.101.221 8080 HTTP Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP ------------------------------------------------------------------------------------------------------------------------</small></p>
-<p>All the options are here..</p>
-<pre>python queryns.py -husage: queryns.py [options] arg --username=username --password=password --netscaler=netscalerip
-
-options: -h, --help            
-show this help message and exit 
--n NETSCALER, --netscaler=NETSCALER
-                       Here you will put the netscaler IPAddress or the                       netscaler hostname-u USERNAME, --username=USERNAME
-                       Your username -p PASSWORD, --password=PASSWORD                       Your password -l LIST, --list=LIST  
-List all the names of the Virtual Servers, Services,
-                       ServiceGroups. Example --list=lbvserver, --list=service, --list=servicegroup -s SERVER, ---vserver=SERVER
-                       Virtual Server that you want to query. You can choose
-                       a Virtual Server or you can pass all, so you get all
-                       the Virtual Servers and its associated
-                       ServiceGroups or Services. Example....
-                       --vserver="foobar_test" or --vserver="all" 
--g SGROUP, --sgroup=SGROUP
-                       ServiceGroup that you want the info from -c SERVICE, 
---service=SERVICE                       Service that you want the info from</pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-11-12T21:46:56-05:00"><a href="http://127.0.0.1:4001/shell/swatch-startup-script/">November 12, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/shell/swatch-startup-script/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/shell/swatch-startup-script/" rel="bookmark" title="Swatch Startup Script" itemprop="url">Swatch Startup Script</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I've been using Swatch for quite a while now and I never invested the time to  create a quick startup script. Today, I decided to create one and it works just fine under Centos and Ubuntu Server. You can download it here..<br />
-swatch init script == {filelink=11}</p>
-<p><a id="more"></a><a id="more-92"></a></p>
-<p>Or you can copy and paste it below..</p>
-<pre>#!/bin/bash## /etc/init.d/swatch# init script for Swatch.## chkconfig: 2345 90 60# description: Swatch#November 11th 2009 Allen Sanabria#http://linuxdynasty.org#CONFIG="/etc/swatch/swatch.conf"PID="/var/run/swatch.pid"LOGFILE="/var/log/secure"PIDS="/tmp/pids.txt"RETVAL=0
-
-swatch_start() {if [ -f $PID ] then echo "Swatch is already running"   cat $PID else echo "Starting Swatch" /usr/bin/swatch --config-file=$CONFIG --tail-file=$LOGFILE --pid-file=$PID &gt; /dev/null 2&gt;&amp;1 &amp; RETVAL=$?fi}
-
-swatch_stop() {if [ -f $PID ] then echo "Stopping Swatch" PARENT="$(&lt; "$PID")" INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` CPID1=`ps --ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` kill -9 $INIT_PID $PARENT $CPID1   rm -f $PID $PIDS RETVAL=$? else echo "Swatch is not running!"fi}
-
-swatch_status() {if [ -f $PID ] then echo "Swatch is running" PARENT="$(&lt; "$PID")" INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` ps -o pid -o command --pid $INIT_PID --pid $PARENT --ppid $PARENT else echo "Swatch is not running" RETVAL=$?fi}
-
-case "$1" in start) swatch_start ;; stop) swatch_stop ;; restart) swatch_stop swatch_start ;; status) swatch_status ;; *) echo "Usage: $0 {start|stop|restart|status}" exit 1esac
-
-exit $RETVAL</pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-11-09T12:24:42-05:00"><a href="http://127.0.0.1:4001/blog/updates-to-site/">November 09, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/blog/updates-to-site/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/blog/updates-to-site/" rel="bookmark" title="Updates to site" itemprop="url">Updates to site</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>For those of you who visit linuxdynasty everyday, you might have notice some subtle changes in the authorization aspect fo the site. I had to enable captch images in the login, and posting parts of the site. Since for the past few weeks, spammers have been hitting the comments and forums section. I'm hoping this does not annoy everyone, but the spamming is starting to really annoy me.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-10-18T21:14:43-04:00"><a href="http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/">October 18, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/" rel="bookmark" title="Begun Development of Web Server and Database for Port Report and Device Manager" itemprop="url">Begun Development of Web Server and Database for Port Report and Device Manager</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>It is official, I have begun development on the Web Server and Database for the Port Report Project and the Network Device Manager Project. I will be combining both scripts into a True Network Device Manager. My goal is to create an Open Source Network Device Manager that will give Admins and Engineers complete Insight/Access to their network. It does not matter if you want to know which switch your ESX host is directly connected to or if you want to manage all your Switches/Linux Hosts with this product. We have a few more ideas on what we want to do, but they are just ideas and I will not post them yet.</p>
-<p>I will be using Python, Pexpect, PySnmp, SQLAlchemy, and Django for this project. I'm hoping to have an Alpha for users to test by late November or early December. If you are interested in this project, please give me ideas on what you would like to see in this Project. Currently we do not have an official name for the project.  If you have one, let me know as well. All ideas are welcome, as we are trying to make a complete enterprise product out of this project.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 <article class="hentry">
   <header>
     <div class="entry-meta">
@@ -310,6 +158,131 @@ Thanks to masweb21 for pointing that out.</li>
 </ul>
 <p>&nbsp;</p>
 <p>{filelink=14}</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-05T19:08:31-04:00"><a href="http://127.0.0.1:4001/python/blog/vmware/todays-task/">October 05, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/python/blog/vmware/todays-task/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/python/blog/vmware/todays-task/" rel="bookmark" title="Today's task!" itemprop="url">Today's task!</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Today I was given a task to have my manager emailed once a day. If any of our Data Stores in ESX 3.5 are over 80% utilized. So I said to my self. What would be the easiest way to do this???? Well I've written two scripts in the past, that could help me accomplish that. The first script VMstoragePool.py will list all of the Data Stores in Vmware and its utilization. The 2nd script is check_datastore.py, and this script will return OK, WARNING, or CRITICAL, depending on the thresholds you set. So by effectively combining the 2 scripts I was able to get what I want. Example below...</p>
+<pre>python VMstoragePool.py -u "https://esxhostA" -a "login passwd" |grep "DataStore Name" |awk {'print $3'} |for line in `xargs`;do python check_datastore.py -u "https://esxhostA" -a "login passwd" -d $line -w 80 -c 90 -m "GB"|grep -P "WARNING|CRITICAL";done|mail user@domain.com
+CRITICAL XythosVol2 57GB Avail 94% used |avail=57
+WARNING XythosVol1 62GB Avail 87% used |avail=62
+WARNING LinuxVol1 57GB Avail 88% used |avail=57
+WARNING WinVol1 75GB Avail 84% used |avail=75
+WARNING BBSCVOL1 122GB Avail 88% used |avail=122
+CRITICAL NSSharedVOL1 46GB Avail 95% used |avail=46</pre>
+<p>&nbsp;</p>
+<p>So I can run this script in cron once a day and pipe the output to email him directly. Simple yet effective! On a side note, I fixed both chec_datastore.py and VMstoragePool.py to effectivly parse passwd's that used characters like !@#$%^.</p>
+<p>Both scripts can be downlaoded here..<br />
+check_datastore.py == {filelink=12}</p>
+<p>VMstoragePool.py == {filelink=13}</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-02T19:47:59-04:00"><a href="http://127.0.0.1:4001/python/ld%20device%20manager/network-device-manager-update-022/">October 02, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/python/ld%20device%20manager/network-device-manager-update-022/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/python/ld%20device%20manager/network-device-manager-update-022/" rel="bookmark" title="Network Device Manager update 0.22" itemprop="url">Network Device Manager update 0.22</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>We are please to announce the release of Network Device Manager 0.22. Release notes below..</p>
+<p>Revision 0.22 10/02/2009</p>
+<ul>
+<li>Threading has been implemented into the script. Drastic Speed increase!!<br />
+It use to take about 18 minutes to run this script against 285 devices. It now just takes me 23 seconds.</li>
+<li>Better error checking!</li>
+</ul>
+<p>{quickdown:49}</p>
+<p>To see how to use the tool above, please check this link <a href="howto-manage-your-networked-devices-using-python-and-pexpect.html">http://www.linuxdynasty.org/howto-manage-your-networked-devices-using-python-and-pexpect.html</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-01T13:28:56-04:00"><a href="http://127.0.0.1:4001/python/ld%20device%20manager/ld-network-device-manager-update-21/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/python/ld%20device%20manager/ld-network-device-manager-update-21/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/python/ld%20device%20manager/ld-network-device-manager-update-21/" rel="bookmark" title="LD Network Device Manager update .21" itemprop="url">LD Network Device Manager update .21</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Here is another quick update for today. This time it is for ldNetDeviceManager.py.<br />
+Revision .21 10/01/2009</p>
+<ul>
+<li>Can now save output to a file. using the --save option</li>
+</ul>
+<p>{quickdown:49}</p>
+<p><a id="more"></a><a id="more-220"></a></p>
+<p>Here are some examples below...</p>
+<pre>python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -C './cmd.txt' -t ssh -e 'p@55wd' --output --tout=2python ldNetDeviceManager.py --login=dynasty --passwd='passwd' --dlist='./switches' --clist='./cmd.txt' --term=both --enable='p@55wd' --output --tout=2python ldNetDeviceManager.py --login=dynasty --passwd='passwd' --dlist='./switches' --command='service snmpd restart' --term=ssh --enable='p@55wd' --output --tout=20, --savepython ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2
+
+If you have SSH Keys then you do not need to pass a password unless you have to get root access or sudo access. example below..</pre>
+<pre>python ldNetDeviceManager.py -l dynasty -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --term=ssh  --output --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --output --save</pre>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-01T13:12:15-04:00"><a href="http://127.0.0.1:4001/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/" rel="bookmark" title="LD Port Report 1.13 quick update. The Mac Address Reporting Tool" itemprop="url">LD Port Report 1.13 quick update. The Mac Address Reporting Tool</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Quick update today! User Christianha, pointed out to me that the port_report tool was not matching any MAC address he passed. The reason for this is because he was passing the MAC address in uppercase. As per his suggestion, I fixed line 348 so that before it returns the mac, it willl make the MAC lower case. Then I just realized something.... I reverted line 348 back to way it was and changed line 676 instead..</p>
+<p>It was if nmac == cmac:<br />
+Now it is  re.search(nmac, cmac, re.IGNORECASE):</p>
+<p>I felt this was the safer option..</p>
+<p>Thank you Christianha for pointing the issues out..</p>
+<p>LD Port Report == {filelink=15}</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -502,17 +475,12 @@ Thanks to masweb21 for pointing that out.</li>
         
       </li>
     
-      <li>
-        
-          <a href="http://127.0.0.1:4001/page31">31</a>
-        
-      </li>
-    
   </ul>
   
     <a href="http://127.0.0.1:4001/page6" class="btn">Next</a>
   
 </div><!-- /.pagination -->
+
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
@@ -524,6 +492,18 @@ Thanks to masweb21 for pointing that out.</li>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2333243-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
           
 

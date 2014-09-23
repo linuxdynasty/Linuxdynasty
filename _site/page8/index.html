@@ -6,22 +6,22 @@
 <head>
 <meta charset="utf-8">
 <title>Latest Posts &#8211; Linuxdynasty</title>
-<meta name="description" content="Describe this nonsense.">
-<meta name="keywords" content="Jekyll, theme, themes, responsive, blog, modern">
+<meta name="description" content="What I am up too.">
+<meta name="keywords" content="Python, GoLang, automation, scripting, programming, vFense, metrics, monitoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://127.0.0.1:4001/images/abstract-1.jpg">
 
 <meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="Describe this nonsense.">
+<meta name="twitter:description" content="What I am up too.">
 <meta name="twitter:creator" content="@linuxdynasty">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="Describe this nonsense.">
+<meta property="og:description" content="What I am up too.">
 <meta property="og:url" content="http://127.0.0.1:4001/page8/index.html">
 <meta property="og:site_name" content="Linuxdynasty">
 
@@ -31,7 +31,7 @@
 
 <link rel="canonical" href="http://127.0.0.1:4001/page8/">
 <link href="http://127.0.0.1:4001/feed.xml" type="application/atom+xml" rel="alternate" title="Linuxdynasty Feed">
-<link rel="author" href="https://google.com/+yourid?rel=author">
+<link rel="author" href="https://google.com/+AllenSanabria?rel=author">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -79,18 +79,18 @@
 				<li>
 					<img src="http://127.0.0.1:4001/images/avatar.jpg" alt="Allen Sanabria photo" class="author-photo">
 					<h4>Allen Sanabria</h4>
-					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+					<p>DevOps developer who loves programming, monitoring, automation, and metrics.</p>
 				</li>
 				<li><a href="http://127.0.0.1:4001/about/">Learn More</a></li>
 				<li>
-					<a href="mailto:you@email.com"><i class="fa fa-envelope"></i> Email</a>
+					<a href="mailto:asanabria <@> linuxdynasty dot org"><i class="fa fa-envelope"></i> Email</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/linuxdynasty"><i class="fa fa-twitter"></i> Twitter</a>
 				</li>
 				
 				<li>
-					<a href="https://google.com/+yourid"><i class="fa fa-google-plus"></i> Google+</a>
+					<a href="https://google.com/+AllenSanabria"><i class="fa fa-google-plus"></i> Google+</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/in/linuxdynasty"><i class="fa fa-linkedin"></i> LinkedIn</a>
@@ -111,7 +111,7 @@
 				<li><a href="http://127.0.0.1:4001/tags/">All Tags</a></li>
 			</ul>
 		</li>
-		<li><a href="http://127.0.0.1:4001/theme-setup">Theme Setup</a></li><li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+		<li><a href="http://127.0.0.1:4001"></a></li><li><a href="http://127.0.0.1:4001"></a></li>
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -136,298 +136,6 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-08-24T01:25:22-04:00"><a href="http://127.0.0.1:4001/clustering/howto-setup-a-quorum-disk/">August 24, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/clustering/howto-setup-a-quorum-disk/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~5 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/clustering/howto-setup-a-quorum-disk/" rel="bookmark" title="HowTo setup a Quorum Disk" itemprop="url">HowTo setup a Quorum Disk</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Today's tutorial will be on the infamous Quorum disk.  When I first setup my <a title="" href="http://www.linuxdynasty.org/howto-setup-gfs2-with-clustering.html">GFS2 shared Cluster of 3 nodes</a>, I was quite impressed with the fact that 3 nodes were sharing the same file system.  Now that everything was up and running, I wanted to see what would happen if I brought down, 2 out of the 3 nodes in the cluster. I turned off 1st node and all was well, I was still able to access my GFS2 mount on the other 2 nodes. Then I decided to reboot the 2nd node, and guess what happened???? QUORUM DISSOLVED!!! Now on my final node the GFS2 file system was still mounted but I could not touch a file or run a ls on the mount... It just hung there!!</p>
-<p>Well I knew this was not going to be acceptable.... Since if I still have 1 node available, the node should still be able to use the GFS2 mount. So I did some research about this quorum disk and what it can do for me. Let me tell you, this was exactly what I was looking for. 1st let me start out my explaining what a quorum is ( relating to clustering ). A quorum is the minimal number of votes that is needed in a cluster, usually the majority. So if you have 3 nodes in a cluster, that means you have a total of 3 votes in the cluster and you will need a minimum of 2 votes to remain in a quorate state. Which means you can lose 1 node in the cluster and the other nodes are still functional. But if you lose 2 nodes, your quorum will be dissolved. Which means even though your GFS2 file system is still mounted on your final node, it will not be accessible to you.</p>
-<p>The quorum disk will help this particular situation... You ask how???? Well here it is...  Qdisk needs at a minimum of a 10MB disk partition shared across the cluster.<br />
-Qdiskd runs on each node in the cluster, periodically checking its<br />
-own health and then placing its state information into its assigned<br />
-portion of the shared disk. On each node qdiskd then looks at the state of<br />
-the other nodes in the cluster as posted in their area of the qdisk<br />
-partition. When all the nodes that are running qdiskd are in a healthy state, the quorum of the cluster is increased by the value of the shared Quorum Disk.</p>
-<p><span class="attention">The Value of the Quorum Disk should be n-1 ( Number of nodes - 1 ). In this case the Value should be 2 ( 3 -1 ).</span></p>
-<p><a id="more"></a><a id="more-217"></a></p>
-<p>If on a particular node, qdisk is unable to access its shared disk<br />
-area after several attempts. The qdiskd running on another node in<br />
-the cluster will request that the node which has issues communicating, to be fenced. Now that you have the basic understanding of what Qdisk is, I will now show you how to set it up.</p>
-<ol>
-<li>You will need a shared volume like ( iscsi, Fiber, VMware Shared Disk, etc.. )  that can be accessed by all nodes in the cluster. In this tutorial I am using a shared vmdk, and on all my nodes that is /dev/sdc. I will be using the 1st partition on /dev/sdc
-<pre>fdisk -l /dev/sdc
-
-Disk /dev/sdc: 5368 MB, 5368709120 bytes255 heads, 63 sectors/track, 652 cylindersUnits = cylinders of 10065 * 512 = 8225280 bytes
-
-   Device Boot      Start         End      Blocks   Id  System/dev/sdc1               1           2       16033+  83  Linux/dev/sdc2               3         652     5221125   83  Linux</pre>
-<p>&nbsp;
-<li>Once the volumes are accessible from all the nodes, you will now need to create the Quorum Disk.example below...
-<pre>mkqdisk -c /dev/sdc1 -l testQdisk
-
-mkqdisk v0.6.0Writing new quorum disk label 'testQdisk' to /dev/sdc1.WARNING: About to destroy all data on /dev/sdc1; proceed [N/y] ? yWarning: Initializing previously initialized partitionInitializing status block for node 1...Initializing status block for node 2...Initializing status block for node 3...Initializing status block for node 4...Initializing status block for node 5...Initializing status block for node 6...Initializing status block for node 7...Initializing status block for node 8...Initializing status block for node 9...Initializing status block for node 10...Initializing status block for node 11...Initializing status block for node 12...Initializing status block for node 13...Initializing status block for node 14...Initializing status block for node 15...Initializing status block for node 16...</pre>
-</li>
-<li>Now we need to verify that the quorum disk has been initialized correctly. You should run the blow command on all 3 nodes, so that you have a piece of mind.... Example below..
-<pre>mkqdisk -L
-
-mkqdisk v0.6.0/dev/disk/by-path/pci-0000:00:11.0-scsi-0:0:1:0-part1:/dev/sdc1:        Magic:                eb7a62c2        Label:                testQdisk        Created:              Mon Aug 24 10:20:25 2009        Host:                 gfs1        Kernel Sector Size:   512        Recorded Sector Size: 512</pre>
-</li>
-<li>We now need to add the qdisk information into /etc/cluster/cluster.conf after the  &lt;/clusternodes&gt; but before we do that, lets make a backup of cluster.conf... .example below
-<pre>cp /etc/cluster/cluster.conf /etc/cluster.conf.orig</pre>
-<p>Now we edit cluster.conf</p>
-<pre>        &lt;/clusternodes&gt;        &lt;quorumd interval="3" tko="23" votes="2" label="testQdisk"&gt;        &lt;/quorumd&gt;</pre>
-</li>
-<li>Once you added the above info into cluster.conf, you should also increase the version number by 1. Example below..
-<pre>&lt;cluster config_version="31" name="MyCluster"&gt;</pre>
-</li>
-<li>Now to verify that your config is correct, run ccs_tool update /etc/cluster/cluster.conf. If you get no errors from ccs_tool, you are now able to proceed to the next step.</li>
-<li>You will then copy the new /etc/cluster/cluster.conf to the other 2 nodes in the cluster.
-<pre>scp /etc/cluster/cluster.conf gfs2:/etc/clusterscp /etc/cluster/cluster.conf gfs3:/etc/cluster</pre>
-</li>
-<li>Now restart the CMAN daemon on all 3 nodes like so "service cman restart". Now wait a minutes or so and run clustat on all 3 nodes, you will notice that a quorum disk entry should popup on the bottom of the list like so..
-<pre>clustatCluster Status for MyCluster @ Mon Aug 24 10:40:47 2009Member Status: Quorate
-
- Member Name                                                     ID   Status ------ ----                                                     ---- ------ gfs1                                                            1 Online, Local gfs2                                                            2 Online gfs3                                                            3 Online /dev/disk/by-path/pci-0000:00:11.0-scsi-0:0:1:0-part1           0 Offline, Quorum Disk</pre>
-<p>Or you can taill -f /var/log/messages</p>
-<p><small>Aug 24 10:39:32 gfs3 qdiskd[14488]: &lt;info&gt; Quorum Partition: /dev/disk/by-path/pci-0000:00:11.0-scsi-0:0:3:0-part1 Label: testQdisk Aug 24 10:39:32 gfs3 qdiskd[14489]: &lt;info&gt; Quorum Daemon Initializing Aug 24 10:40:47 gfs3 qdiskd[14489]: &lt;info&gt; Initial score 1/1 Aug 24 10:40:47 gfs3 qdiskd[14489]: &lt;info&gt; Initialization complete Aug 24 10:40:47 gfs3 openais[2561]: [CMAN ] quorum device registered Aug 24 10:40:47 gfs3 qdiskd[14489]: &lt;notice&gt; Score sufficient for master operation (1/1; required=1); upgrading </small>&nbsp;
-<li>We are pretty much done now. All we need to do now is verify that our total votes went from 3 to 5 and our expected votes went from 2 to 3..
-<pre>cman_tool status
-
-Version: 6.1.0Config Version: 32Cluster Name: MyClusterCluster Id: 46516Cluster Member: YesCluster Generation: 384Membership state: Cluster-MemberNodes: 3Expected votes: 3Quorum device votes: 2Total votes: 5Quorum: 3  Active subsystems: 10Flags: Dirty Ports Bound: 0 11 177  Node name: gfs1Node ID: 1Multicast addresses: 239.192.181.106 Node addresses: 192.168.101.100</pre>
-</li>
-
-<p>Well that was not that bad.... Was it??? If all went well you can now have the GFS2 shared file system mounted on either 1 or 3 nodes and it will still be accessible by your cluster. Also your cluster will still be quorate, even if you are down to 1 node in that cluster.</p>
-</p></li></p></li></ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-08-14T17:05:15-04:00"><a href="http://127.0.0.1:4001/clustering/howto-increase-gfs2-performance-in-a-cluster/">August 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/clustering/howto-increase-gfs2-performance-in-a-cluster/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/clustering/howto-increase-gfs2-performance-in-a-cluster/" rel="bookmark" title="HowTo Increase GFS2 Performance in a Cluster" itemprop="url">HowTo Increase GFS2 Performance in a Cluster</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>In the last HowTo, I showed you how to setup GFS2 file system with Red Hat Clustering. I will now show you how to optimize the performance of your GFS2 mounts. The gfs_controld daemon manages the mounting, unmounting, and the recovery of the GFS2 mounts. gfs_controld also manages the posix lock.</p>
-<p>By default  the plock_rate_limit option is set to 100. This will allow a maximum of 100 locks per second, which will decrease your GFS2 performance. See below...</p>
-<p><strong> &lt;dlm plock_ownership="0" plock_rate_limit="100"/&gt;<br />
-&lt;gfs_controld plock_rate_limit="100"/&gt;</strong></p>
-<p>You can test the performance of you cluster by downloading the program <strong><a title="" href="http://wiki.samba.org/index.php/Ping_pong">ping_pong.c.</a></strong> This program was very helpful to me in debugging the poor performance in my GFS2 cluster.<br />
-The instructions on how to compile the program and run it is on the site http://wiki.samba.org/index.php/Ping_pong.When I initially ran ping_pong, I only got a max of 97 plocks per second. After removing the rate limit I was able to get about 3000 Plocks per second.</p>
-<p><a id="more"></a><a id="more-216"></a></p>
-<p>You should change the plock_rate_limit to 0 and the dlm plock_ownership to 1. See below..</p>
-<p><strong> &lt;dlm plock_ownership="1" plock_rate_limit="0"/&gt;<br />
-&lt;gfs_controld plock_rate_limit="0"/&gt;</strong></p>
-<p>FYI.. The settings above are set in <strong>/etc/cluster/cluster.conf</strong>   Example below...<br />
-<strong>    &lt;cman/&gt;<br />
-&lt;dlm plock_ownership="1" plock_rate_limit="0"/&gt;<br />
-&lt;gfs_controld plock_rate_limit="0"/&gt;</strong><br />
-<strong>&lt;/cluster&gt;</strong></p>
-<p>My settings were added to the end of cluster.conf.<br />
-<span class="attention">After adding the above settings, please reboot all the nodes for the settings to take affect. </span></p>
-<p>The above will increase locking operations at the cost of an increase in network utilization. You also can increase the performance of your GFS2 mount by mounting it with these options ( <strong>noatime</strong> and <strong>nodiratime</strong> )... Example below..</p>
-<p><strong>mount -o noatime,nodiratime, /dev/mapper/mytest_gfs2-MyGFS2test /GFS/</strong></p>
-<p>Another way to tune GFS2 directly, is by decreasing how often GFS2 demotes its locks.  Demote_secs is the number of seconds that gfsd will wake up and demote locks and flush data to disk. The default is set to 300 seconds which is equal to 5 minutes. I currently have mine to demote every 20 seconds, and believe you me... I saw a big performance increase.</p>
-<p><strong>gfs2_tool settune /GFS demote_secs 20</strong></p>
-<p>I chose 20 seconds, but it does not mean that is what you need to chose. You can play with those numbers and see how performance either increases or decreases. The option needs to be set every time the file system is mounted. So you might want to add this option in rc.local or in the gfs2 startup script at the end.</p>
-<p><strong> echo "gfs2_tool settune /GFS demote_secs 20" &gt;&gt; /etc/rc.local</strong></p>
-<p>When all was said and done I was able to get over 3000 plocks per sec after the optimization was done and my file level operations drastically increased in performance. I Hope the above helps you the way it helped me.</p>
-<p><span class="attention">Very Important.... Make sure that updatedb does not run on your GFS2 mounts.. This will kill your GFS2 mount!!!! </span></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-08-14T16:48:49-04:00"><a href="http://127.0.0.1:4001/clustering/howto-setup-gfs2-with-clustering/">August 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/clustering/howto-setup-gfs2-with-clustering/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~4 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/clustering/howto-setup-gfs2-with-clustering/" rel="bookmark" title="HowTo setup GFS2 with Clustering" itemprop="url">HowTo setup GFS2 with Clustering</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>In my last project at work, I had to replace NFS with GFS2 and Clustering. So in this tutorial I will show you how to create a Red Hat or CentOS cluster with GFS2. I will also show you how to optimize GFS2 performance in the next HowTo, because you will quickly notice some loss of performance until you do a little optimization first.I will 1st show you how do build a Cluster with GFS2 on the Command Line and in the next tutorial I will show you how to do the same thing using Conga.</p>
-<p>In this tutorial I am using 3 CentOS Virtual Machines running CentOS 5.3 in VMware ESX 3.5. For the GFS2 File System I am using a vmdk built with the thick option, that is shared among all the Virtual Machines. You also can use iscsi or fiber... This option is up to you.</p>
-<p><span class="attention">Always make sure your iptables (If you know the port's and protocols for clustering, then add it to iptables ) and selinux is OFF. If not you will run into issues.</span></p>
-<p>The 3 machines I am using are called</p>
-<ul>
-<li>gfs1 == 192.168.101.100</li>
-<li>gfs2 == 192.168.101.101</li>
-<li>gfs3 == 192.168.101.103</li>
-</ul>
-<p><a id="more"></a><a id="more-215"></a></p>
-<p>Since I'm using VMware ESX for the 3 machines above I will also be using vmware for fencing. The info is below for my test setup</p>
-<ul>
-<li>ESX Host Name == esxtest<br />
-ESX IP Address == 192.168.101.50</li>
-<li>ESX user login info below<br />
-login == esxuser<br />
-password == esxpass</li>
-<li>ESX admin login info below<br />
-login == root<br />
-password == esxpass</li>
-</ul>
-<p>&nbsp;</p>
-<p>The 1st command you need to know for creating and modifying your cluster is the '<strong>ccs_tool</strong>' command.</p>
-<p>Below I will show you the necessary steps to create a cluster and then the GFS2 filesystem</p>
-<ol>
-<li>First step is to install the necessary RPM's..<br />
-<strong>yum -y install modcluster rgmanager gfs2 gfs2-utils lvm2-cluster cman</strong></li>
-<li>Second step is to create a cluster on gfs1<br />
-<strong>ccs_tool create GFStestCluster</strong></li>
-<li>Now that the cluster is created, we will now need to add the fencing devices.<br />
-( For simplicity you can just use fence_manual for each host.. <strong>ccs_tool addfence -C gfs1_ipmi fence_manual</strong> )<br />
-But if you are using VMware ESX like I am you should use fence_vmware like so...<br />
-<strong>ccs_tool addfence -C gfs1_vmware fence_vmware ipaddr=esxtest login=esxuser passwd=esxpass vmlogin=root vmpasswd=esxpass port="/vmfs/volumes/49086551-c64fd83c-0401-001e0bcd6848/eagle1/gfs1.vmx"</strong><br />
-<strong>ccs_tool addfence -C gfs2_vmware fence_vmware ipaddr=esxtest login=esxuser passwd=esxpass vmlogin=root vmpasswd=esxpass port="vmfs/volumes/49086551-c64fd83c-0401-001e0bcd6848/gfs2/gfs2.vmx"</strong><br />
-<strong>ccs_tool addfence -C gfs3_vmware fence_vmware ipaddr=esxtest login=esxuser passwd=esxpass vmlogin=root vmpasswd=esxpass port="/vmfs/volumes/49086551-c64fd83c-0401-001e0bcd6848/gfs3/gfs3.vmx"</strong></li>
-<li>Now that we added the Fencing devices, it is time to add the nodes..<br />
-<strong>ccs_tool addnode -C gfs1 -n 1 -v 1 -f gfs1_vmware<br />
-ccs_tool addnode -C gfs2 -n 2 -v 1 -f gfs2_vmware<br />
-ccs_tool addnode -C gfs3 -n 3 -v 1 -f gfs3_vmware</strong></li>
-<li>Now we need to copy this configuration over to the other 2 nodes from gfs1 or we can run the exact same commands above on the other 2 nodes..<br />
-<strong>scp /etc/cluster/cluster.conf root@gfs2:/etc/cluster/cluster.conf<br />
-scp /etc/cluster/cluster.conf root@gfs3:/etc/cluster/cluster.conf</strong></li>
-<li>You can verify the config on all 3 nodes by running the following commands below..<br />
-<strong>ccs_tool lsnode<br />
-ccs_tool lsfence</strong></li>
-<li>You are ready to proceed with starting up the following daemons on all the nodes in the cluster, once you either copied over the configs or re ran the same commands above on the other 2 nodes<br />
-<strong>/etc/init.d/cman start<br />
-/etc/init.d/rgmanager start</strong></li>
-<li>You can now check the status of your cluster by running the commands below...<strong><br />
-clustat<br />
-cman_tool status</strong></li>
-<li>If you want to test the vmware fencing you can do so by doing the following..<strong> ( </strong>run the command below on the 1st node and use the 2nd node as the node to be fenced<strong> )<br />
-fence_vmware -a esxtest -l esxuser -p esxpass -L root -P esxpass -n "/vmfs/volumes/49086551-c64fd83c-0401-001e0bcd6848/gfs2/gfs2.vmx" -v<br />
-</strong></li>
-<li>Before we start to create the LVM2 volumes and Proceed to GFS2, we will need to enable clustering in LVM2.<br />
-<strong>lvmconf --enable-cluster</strong></li>
-<li>Now it is time to create the LVM2 Volumes...<br />
-<strong>pvcreate MyTestGFS /dev/sdb<br />
-vgcreate -c y mytest_gfs2 /dev/sdb<br />
-lvcreate -n MyGFS2test -L 5G mytest_gfs2<br />
-/etc/init.d/clvmd start</strong></li>
-<li>You should now also start <strong>clvmd</strong> on the other 2 nodes..<strong><br />
-</strong></li>
-<li>Once the above has been completed, you will now need to create the GFS2 file system.. Example below..<br />
-mkfs -t &lt;filesystem&gt; -p &lt;locking mechanism&gt; -t &lt;ClusterName&gt;:&lt;PhysicalVolumeName&gt; -j &lt;JournalsNeeded == amount of nodes in cluster&gt; &lt;location of filesystem&gt;<br />
-<strong>mkfs -t gfs2 -p lock_dlm -t MyCluster:MyTestGFS -j 4 /dev/mapper/mytest_gfs2-MyGFS2test</strong></li>
-<li>All we need to do on the 3 nodes, is to mount the GFS2 file system.<br />
-<strong>mount /dev/mapper/mytest_gfs2-MyGFS2test /mnt/<br />
-</strong></li>
-<li>Once you mounted your GFS2 file system You can the following commands..<strong><br />
-gfs2_tool list<br />
-gfs2_tool df </strong></li>
-</ol>
-<p>Now it is time to wrap it up with some final commands...</p>
-<ol>
-<li>Now that we have a fully functional cluster and a mountable GFS2 file system, we need to make sure all the necessary daemons start up with the cluster..<br />
-<strong>chkconfig --level 345 rgmanager on<br />
-chkconfig --level 345 clvmd on<br />
-chkconfig --level 345 cman on<br />
-chkconfig --level 345 gfs2 on</strong></li>
-<li>If you want the GFS2 file system to be mounted at startup you can add this to /etc/fstab..<br />
-<strong>echo "/dev/mapper/mytest_gfs2-MyGFS2test /GFS gfs2 defaults,noatime,nodiratime 0 0" &gt;&gt; /etc/fstab</strong></li>
-</ol>
-<p>In the next up coming tutorials I will show you how to do the same as above but with the Red Hat Conga gui and I will also show you how to optimize your GFS2 Cluster setup.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-07-14T12:18:45-04:00"><a href="http://127.0.0.1:4001/how-to-install-the-data-protector-6-linux-install-server-on-linux/">July 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-install-the-data-protector-6-linux-install-server-on-linux/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://127.0.0.1:4001/how-to-install-the-data-protector-6-linux-install-server-on-linux/" rel="bookmark" title="How To install the Data Protector 6.+ Linux Install Server on Linux" itemprop="url">How To install the Data Protector 6.+ Linux Install Server on Linux</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Now for those of you who are like me and really do not like reading<br />
-long winded PDF Installation guides. Here is the SHORT on how to get<br />
-Data Protector Installation server installed on RedHat/CentOS/Suse Linux System.</p>
-<p user="true" style="display: none" mce_style="display:none">&nbsp;</p>
-<ol>
-<li>Download the 2 Data Protector Linux Installer ISO Images from HP's WebSite.</li>
-<li>Mount both images on the server you are installing this on<br />
-Example... ( <strong>mount -o loop -t iso9660 /root/B6960-10011.iso /mnt1/</strong> )<br />
-Example... ( <strong>mount -o loop -t iso9660 /root/B6960-10012.iso /mnt2/</strong> )</li>
-<li>Now copy over the contents of DP_DEPOT and LOCAL_INSTALL to a local mount of disc1<br />
-Example... ( <strong>mkdir /root/DPINSTALL</strong> )<br />
-Example... ( <strong>cp -rf /mnt1/DP_DEPOT /root/DPINSTALL</strong>/</li>
-<li>Now copy over the contents of DP_DEPOT from disc2 into /root/DPINSTALL/DP_DEPOT/<br />
-Example... ( <strong>cp -rf /mnt2/DP_DEPOT/* DP_DEPOT/</strong> )&nbsp;&nbsp; You will be overiding 2 rpm's, but that is alright</li>
-<li>Change over to the DPINSTALL directory and install the RPM's<br />
-Example... ( <strong>cd /root/DPINSTALL</strong> )<br />
-Example... ( <strong>rpm -ivh *.rpm</strong> )</li>
-<li>Almost done..... :)</li>
-<li>I'm<br />
-assuming you will install clients using SSH Keys. And this is how I<br />
-will be showing you on how to get this to work. You can copy over the<br />
-example omnirc file and use that one..<br />
-Example... ( <strong>cp /opt/omni/.omnirc.TMPL&nbsp; /opt/omni/.omnirc</strong> )</li>
-<li>Now you will need to enable the ssh keys option.<br />
-Example.... ( open up /opt/omni/.omnirc using your favorite editor ) and modify this line....<br />
-<strong>#&nbsp; OB2_SSH_ENABLED=0|1</strong><br />
-and change it to....<br />
-<strong>OB2_SSH_ENABLED=1</strong></li>
-<li>We now need to generate a SSH KEY<br />
-Example... ( <strong>ssh-keygen -t rsa -b 2048</strong> )</li>
-<li>Once the key is generated ( assuming with&nbsp; out a password ) you now need to copy that key over to the clients that you want Data Protector installed on.<br />
-Example... ( <strong>scp /root/.ssh/id_rsa.pub client:/root/.ssh/authorized_keys</strong> ) This is assuming that you have a /root/.ssh/ directory on your clients. If not you will have to create one.
-</li>
-</ol>
-<p user="true" style="display: none" mce_style="display:none">&nbsp;</p>
-<p>You are now ready to import the installtion server into your Data<br />
-Protector Cell Manager... <span class="attention">VERY IMPORTANT &quot;&quot;&quot;&quot; DNS or your HOST entries<br />
-for your Installation Server/Cell Manager/ and all your Clients has to<br />
-be correct &quot;&quot;&quot;&quot;</span></p>
-<p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-07-06T15:06:37-04:00"><a href="http://127.0.0.1:4001/how-to-automate-the-install-of-vmware-tools-after-any-kernel-update/">July 06, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/how-to-automate-the-install-of-vmware-tools-after-any-kernel-update/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -445,6 +153,342 @@ be correct &quot;&quot;&quot;&quot;</span></p>
     <p>The other day I was installing kernel updates on a few of my Red Hat servers and I ran into a minor nuisance.&nbsp; After each reboot, I no longer had network connectivity on the hosts, that has the updated kernel. I then realized, that vmware-tools was not running on all of those hosts. So after a few manual instance of me running &quot;<strong>vmware-tools-config.pl -d</strong>&quot; and &quot;<strong>/etc/init.d/network restart</strong>&quot;....I decided to automate that, by adding the below into &quot;<strong>/etc/rc.local</strong>&quot; </p>
 <pre>rkernel=`uname -r`<br />if [ -e /etc/vmware-tools/not_configured ]; then<br />    echo &quot;vmware-tools not configured for running kernel $rkernel&quot;<br />    echo &quot;running vmware-config-tools.pl&quot;<br />    /usr/bin/vmware-config-tools.pl -d<br />    echo &quot;vmware-tools now compiled for running kernel $rkernel&quot;<br />    echo &quot;restarting networking&quot;<br />    /etc/init.d/network restart<br />    echo &quot;network restarted&quot;<br />    exit 0<br />fi<br />&nbsp;</pre>
 <p>&nbsp;After each host rebooted, I now had network connectivity and vmware-tools was running. I hope the above will save you some time. </p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-05-09T01:28:35-04:00"><a href="http://127.0.0.1:4001/linux-dynasty-switch-port-mapper-tool-update-1-9/">May 09, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/linux-dynasty-switch-port-mapper-tool-update-1-9/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/linux-dynasty-switch-port-mapper-tool-update-1-9/" rel="bookmark" title="Linux Dynasty Switch Port Mapper Tool Update 1.9" itemprop="url">Linux Dynasty Switch Port Mapper Tool Update 1.9</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I'm really excited to introduce Port Report Update 1.9  aka the Switch Port Mapper Tool. We've done quite a few code modifications to the previous release of Port Report. The most important feature we just finish adding to Port Report, is to detect CDP Neighbors during the scan for MAC Addresses or IP Addresses. We are still adding features as the days pass, so please stay tuned....</p>
+<p>Revision 1.9<br /> Code changes and Added CDP support..</p>
+<ul>
+<li>Detect CDP Neighbors during the scan for MAC Addresses or IP Addresses </li>
+</ul>
+<p>You can download the script <a href="Port-Report-Project/">http://www.linuxdynasty.org/Port-Report-Project/<br /></a>{quickdown:39}</p>
+<p><a id="more"></a><a id="more-210"></a></p>
+<p> </p>
+<p> Here is an example below..</p>
+<pre><pre><code>python port_report.py -d switch -c community -m "00 13 20 16 5f f7"<br />Switch Connected to 192.168.101.1<br />SwitchPort = GigabitEthernet10/3<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan176<br />SnmpHostName = requestTimedOut<br />SnmpHostDescr = requestTimedOut<br />HostMAC  = 00 13 20 16 5f f7<br />HostIP = 192.168.101.101<br />HostName = Pointer Record Not set for 192.168.101.101<br /><br />Found 00 13 20 16 5f f7 on 192.168.101.5<br /><br />Switch Connected to 192.168.101.5<br />SwitchPort = GigabitEthernet0/24<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan176<br />SnmpHostName = No SNMP Access<br />SnmpHostDescr = No SNMP Access<br />HostMAC  = 00 13 20 16 5f f7<br />HostIP = None<br />HostName = None<br /><br />Found 00 13 20 16 5f f7 on 192.168.101.6<br /><br />Switch Connected to 192.168.101.6<br />SwitchPort = GigabitEthernet0/22<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan176<br />SnmpHostName = No SNMP Access<br />SnmpHostDescr = No SNMP Access<br />HostMAC  = 00 13 20 16 5f f7<br />HostIP = None<br />HostName = None<br /><br />This MAC 00 13 20 16 5f f7 was finally traced to this switch 192.168.101.6</code> </pre>
+<p></p>
+</pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-05-05T08:10:41-04:00"><a href="http://127.0.0.1:4001/port%20report%20projects/ld-port-report-project/">May 05, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/port%20report%20projects/ld-port-report-project/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~5 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/port%20report%20projects/ld-port-report-project/" rel="bookmark" title="LD Port Report Project aka Switch Port Mapper Tool" itemprop="url">LD Port Report Project aka Switch Port Mapper Tool</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>The Port Report Project is essentially a Switch Port Mapper Tool or a Switch Port Mapping Tool like a few other commercial products out there, except The Port Report Project is free. Right now there is no GUI or WEB interface for the project but it is in the works.</p>
+<p>This project started off as being a simple 150 line script that did something quite simple... Its only purpose was to find MAC Addresses on a switch. Then I was asked could you also search by IP, so I added that. Now I was asked to search by Port, so I added that. Well you get where this is all going.... My goal now is to build the equivalent of other commercial port mapping tools, but Open Source....</p>
+<p>On this page I will be keeping all the updates to this Project, so please keep checking back every now and again for updates.<br />
+You can get any revision of the Port Report tool here <a title="title" href="Port-Report-Project/">http://www.linuxdynasty.org/Port-Report-Project/ </a><br />
+{quickdown:39}</p>
+<p>Any issues with the LD Port Report Project, please discuss here in the<a href="http://linuxdynasty.org/index.php?option=com_agora&amp;id=7&amp;Itemid=7"> forums</a><br />
+This script requires, Pysnmp and Pyasn1. If you have python-setuptools, you can install it by running this..<br />
+easy_install pysnmp, easy_install pyasn1</p>
+<p>Three things you will need for this script to work..</p>
+<ol>
+<li>Pysnmp</li>
+<li>Pyasn1</li>
+<li>SNMP Access to the switch you want to talk too and its community string.</li>
+</ol>
+<div>To make your life easier you should do the following</div>
+<ol>
+<li>install <a title="title" href="http://pypi.python.org/pypi/setuptools">python-setuptools</a></li>
+<li>then run easy_install pysnmp</li>
+<li>and easy_install pyasn1</li>
+<li>or you can download the 2 modules manually.<br />
+<a title="title" href="http://sourceforge.net/projects/pysnmp/">pysnmp</a> and <a title="title" href="http://sourceforge.net/projects/pyasn1/">pyasn1</a></li>
+<li>then unzip the 2 files and in each directory run <strong>python setup.py install</strong></li>
+</ol>
+<p>I am using the following revisions from the python cheese shop pysnmp 4.1.12a and pyasn1 0.0.9a</p>
+<div>For revision 1.12 and above..... If you installed <strong>pyasn1</strong> and <strong>pysnmp</strong> using <strong>easy_install</strong>. Please uninstall it now and install the newest revision and run <strong>python setup.py install</strong> Instead of using <strong>easy_install</strong>.<br />
+Revision history and Examples below.....</div>
+<dl>
+<dd>Revision 1.13 10/01/09
+<ul>
+<li>Fixed line 348 as per christianha. return nmac.lower()<br />
+This fix will allow you to pass a MAC in all uppercase and still match though the switch is responding in lowercase.<br />
+00 E0 B8 81 E8 B7 will now match 00 e0 b8 81 e8 b7</li>
+</ul>
+<p>Revision 1.12 09/18/09</p>
+<ul>
+<li>The report option of the script can now follow cdp neighbors using the <strong>--follow</strong> option or <strong>-f</strong>.<br />
+When you run the command below it will create ONE CSV file per cdp neighbor it scanned.<br />
+I was able to scan from my core Switch down to the last neighbor in the line ( 44 Neighbors in just under 20 minutes. )<br />
+Which equaled to a little over 4K Mac Addresses<br />
+For instance...port_report.py -d 192.168.101.1 -c public -r -f</li>
+</ul>
+<p>Revision 1.11 09/13/09</p>
+<ul>
+<li>More code clean up and another increase in speed.</li>
+<li>Also port_report can now follow EtherChannel</li>
+</ul>
+<ul>
+<li>Added better verbosity</li>
+<li>Added Sanity Checking for cdp neighbors</li>
+</ul>
+<p>&nbsp;</p>
+<p>Revision 1.10 09/09/09</p>
+<ul>
+<li>Code Clean up and a slight increase in speed ( by a few seconds ) during the search by mac or ip</li>
+</ul>
+<p>Revision 1.9<br />
+Code changes and Added CDP Support</p>
+<ul>
+<li>Detect CDP Neighbors during the scan for MAC Addresses or IP Addresses</li>
+</ul>
+<p>Revision 1.8<br />
+Here is a quick update.....</p>
+<ul>
+<li>I just add dns reverse lookups to the output of this script.</li>
+</ul>
+<p>Revision 1.7<br />
+Adds support to the following devices..</p>
+<ol>
+<li>Cisco
+<ul>
+<li>Catalyst 6509 w/ Supervisor 720 running IOS</li>
+<li>Catalyst 3560</li>
+<li>Catalyst 3550 (SMI)</li>
+<li>Cisco CIGESM series Chassis Blades</li>
+<li>Cisco Catalyst 2960</li>
+</ul>
+</li>
+<li>Foundry
+<ul>
+<li>Foundry Server Iron</li>
+</ul>
+</li>
+<li>Nortel
+<ul>
+<li>Nortel Passport 8600</li>
+<li>Nortel 5520 Ethernet Routing Switch</li>
+</ul>
+</li>
+<li>HP
+<ul>
+<li>HP Procurve 5406xl</li>
+</ul>
+</li>
+</ol>
+<p>&nbsp;</p>
+<p>Revision 1.6<br />
+New additions to this revision ....</p>
+<ul>
+<li>Support for HP Procurve Switches, ( Tested on the newer versions of HP )</li>
+<li>combined switch_report.py in port_report.py.</li>
+<li>Added --verbose flag</li>
+</ul>
+<p>Previous Releases....</p>
+<ul>
+<li>Search by MAC or IP or PORT</li>
+</ul>
+</dd>
+</dl>
+<p>&nbsp;</p>
+<p><img title="More..." src="http://linuxdynasty.org/wp-includes/js/tinymce/plugins/wordpress/img/trans.gif" alt="" /></p>
+<p>EXAMPLES BELOW...</p>
+<p><strong>Below is an example of the integrated CDP following of switches using the -m ( --mac ) option</strong><code></code></p>
+<p>&nbsp;</p>
+<pre>python port_report.py -d switch -c community -m "00 13 20 16 5f f7" 
+Switch Connected to 192.168.101.1 
+SwitchPort = GigabitEthernet10/3 
+SwitchPortSpeed = 1000mb 
+SwitchPortDuplex = fullDuplex 
+SwitchVlan = vlan176 
+SnmpHostName = requestTimedOut 
+SnmpHostDescr = requestTimedOut 
+HostMAC = 00 13 20 16 5f f7 
+HostIP = 192.168.101.101 
+HostName = Pointer Record Not set for 192.168.101.101 
+
+Found 00 13 20 16 5f f7 on 192.168.101.5
+Switch Connected to 192.168.101.5 
+SwitchPort = GigabitEthernet0/24 
+SwitchPortSpeed = 1000mb 
+SwitchPortDuplex = fullDuplex 
+SwitchVlan = vlan176 
+SnmpHostName = No SNMP Access 
+SnmpHostDescr = No SNMP Access 
+HostMAC = 00 13 20 16 5f f7 
+HostIP = None 
+HostName = None 
+
+Found 00 13 20 16 5f f7 on 192.168.101.6 
+Switch Connected to 192.168.101.6 
+SwitchPort = GigabitEthernet0/22 
+SwitchPortSpeed = 1000mb 
+SwitchPortDuplex = fullDuplex 
+SwitchVlan = vlan176 
+SnmpHostName = No SNMP Access 
+SnmpHostDescr = No SNMP Access 
+HostMAC = 00 13 20 16 5f f7 
+HostIP = None 
+HostName = None 
+
+This MAC 00 13 20 16 5f f7 was finally traced to this switch 192.168.101.6</pre>
+<p><strong>Below I will show you an example of the listing of MAC Addresses per Port using the n (--pname) option </strong></p>
+<pre>python port_report.py -d 192.168.101.1 -c community -n "10/3"
+SwitchPort = GigabitEthernet10/3
+SwitchPortSpeed = 1000mb
+SwitchPortDuplex = fullDuplex
+SwitchVlan = vlan176
+SnmpHostName = requestTimedOut
+HostDescr = requestTimedOut
+HostMAC  = 00 22 64 bb 3e 17
+HostIP = 192.168.101.146
+HostName = Pointer Record Not set for 192.168.101.146
+
+SwitchPort = GigabitEthernet10/3
+SwitchPortSpeed = 1000mb
+SwitchPortDuplex = fullDuplex
+SwitchVlan = vlan176
+SnmpHostName = requestTimedOut
+HostDescr = requestTimedOut
+HostMAC  = 00 0c f1 bb bf eb
+HostIP = 192.168.101.147
+HostName = Pointer Record Not set for 192.168.101.147
+
+SwitchPort = GigabitEthernet10/3
+SwitchPortSpeed = 1000mb
+SwitchPortDuplex = fullDuplex
+SwitchVlan = vlan176
+SnmpHostName = requestTimedOut
+HostDescr = requestTimedOut
+HostMAC  = 00 20 4a 83 20 97
+HostIP = 192.168.101.30
+HostName = Pointer Record Not set for 192.168.101.30</pre>
+<p><strong>Below is an example of running the --report option.. Also the report option will save the output to disk in a CSV file. </strong></p>
+<pre>python port_report.py -d 192.168.101.5 -c community --report
+GigabitEthernet0/1,00 1c c0 12 6a 8b,None,None,vlan180,up,up,fullDuplex,1000mb,
+GigabitEthernet0/1,00 20 4a 12 2b 68,None,None,vlan180,up,up,fullDuplex,1000mb,
+GigabitEthernet0/1,00 12 44 94 dc 40,192.168.101.132,Pointer Record Not set for 192.168.101.132,vlan180,up,up,fullDuplex,1000mb,
+GigabitEthernet0/1,00 21 5a c7 81 16,None,None,vlan180,up,up,fullDuplex,1000mb,
+GigabitEthernet0/3,00 20 4a 12 2b 71,None,None,vlan180,up,up,halfDuplex,10mb,</pre>
+<p><strong>Below is an example of searching by IP Addresses -i (--ip)..</strong></p>
+<pre>python port_report.py -d 192.168.101.1 -c ommunity -i "192.168.101.200"
+Switch Connected to 192.168.101.1
+SwitchPort = GigabitEthernet1/17
+SwitchPortSpeed = 1000mb
+SwitchPortDuplex = unknown
+SwitchVlan = vlan175
+SnmpHostName = zenmon.linuxdynasty.org
+SnmpHostDescr = Linux zenmon.linuxdynasty.org 2.6.18-92.1.22.el5 #1 SMP Tue Dec 16 12:03:43 EST 2008 i686HostMAC  = 00 14 38 4f 5e 38HostIP = 192.168.101.200HostName = zenmon.linuxdynasty.org</pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-05-04T11:44:11-04:00"><a href="http://127.0.0.1:4001/switch-port-report-update-18/">May 04, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/switch-port-report-update-18/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/switch-port-report-update-18/" rel="bookmark" title="Switch Port Report Update 1.8" itemprop="url">Switch Port Report Update 1.8</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>The Port Report Project is essentially a Switch Port Mapper Tool or a Switch Port Mapping Tool like a few other commercial products out there, except The Port Report Project is free.  Right now there is no GUI or WEB interface for the project but it is in the works.</p>
+<p>Here is a quick update..... I just add dns reverse lookups to the output of this script.. So if you have Pointer Records set on a good part of your infrastructure, you will get the host name to those MAC Addresses that have the IP addresses in the ARP table.</p>
+<p>You can download Port Report 1.8 here <a href="View-details/Port-Report-Project/43-Port-Report-1.8.html" title="title">http://www.linuxdynasty.org/View-details/Python-Scripts/39-port_report.py.htmll<br /> </a>{quickdown:39}<br />Example below...</p>
+<p> </p>
+<p>Here is an example from running port_report.py with the --report option..</p>
+<pre><small>GigabitEthernet3/2,00 50 56 aa 06 63,192.168.101.64,lists.linuxdynasty.org,vlan32,up,up,fullDuplex,1000mb,conan vmnic6<br />GigabitEthernet3/2,00 50 56 aa 1e 9b,192.168.101.54,Pointer Record Not set for 192.168.101.54,vlan32,up,up,fullDuplex,1000mb,conan vmnic6<br />GigabitEthernet2/28,00 11 21 35 1d da,The IP Address for 00 11 21 35 1d da is not in the ARP Table,None,vlan15,up,up,fullDuplex,1000mb,<br /> </small></pre>
+<p>Here is an example running  with the --pname option..</p>
+<pre>SwitchPort = GigabitEthernet3/2<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan32<br />SnmpHostName = requestTimedOut<br />HostDescr = requestTimedOut<br />HostMAC  = 00 50 56 aa 06 63<br />HostIP = 192.168.101.64<br />HostName = lists.linuxdynasty.org<br /><br />SwitchPort = GigabitEthernet3/2<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan32<br />SnmpHostName = requestTimedOut<br />HostDescr = requestTimedOut<br />HostMAC  = 00 50 56 aa 1e 9b<br />HostIP = 192.168.101.54<br />HostName = Pointer Record Not set for 192.168.101.54<br /><br />SwitchPort = GigabitEthernet3/2<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan5<br />SnmpHostName = No SNMP Access<br />HostDescr = No SNMP Access<br />HostMAC  = 00 50 56 aa 51 6a<br />HostIP = The IP Address for 00 50 56 aa 51 6a is not in the ARP Table<br />HostName = None<br /> </pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-05-01T01:56:43-04:00"><a href="http://127.0.0.1:4001/port-report-17-update/">May 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://127.0.0.1:4001/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://127.0.0.1:4001/port-report-17-update/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://127.0.0.1:4001/port-report-17-update/" rel="bookmark" title="Port Report 1.7 Update" itemprop="url">Port Report 1.7 Update</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>This is a big update for Port Report.... In this revision the following brands and devices are supported</p>
+<ol>
+<li>Cisco<br /> 
+<ul>
+<li>Catalyst 6509 w/ Supervisor 720 running IOS</li>
+<li>Catalyst 3560</li>
+<li>Catalyst 3550 (SMI)</li>
+<li>Cisco CIGESM series Chassis Blades</li>
+<li>Cisco Catalyst 2960</li>
+</ul>
+</li>
+<li>Foundry<br /> 
+<ul>
+<li>Foundry Server Iron</li>
+</ul>
+</li>
+<li>Nortel<br /> 
+<ul>
+<li>Nortel Passport 8600</li>
+<li>Nortel 5520 Ethernet Routing Switch</li>
+</ul>
+</li>
+<li>HP<br /> 
+<ul>
+<li>HP Procurve 5406xl</li>
+</ul>
+</li>
+</ol>
+<p>The Script has been tested with the above devices... If you have run this script against other devices, please let us know. Also the speed in the report function has drastically increased. I ran this script against a 6509 with 800+ devices connected to it in just over 2 minutes.</p>
+<p>The main article for this script is located here <a href="howto-find-the-port-on-a-switch-that-a-host-belongs-to-the-easy-way-part-1.html" title="title">http://www.linuxdynasty.org/howto-find-the-port-on-a-switch-that-a-host-belongs-to-the-easy-way-part-1.html </a></p>
+<p>You can download the script here <a href="View-details/Python-Scripts/39-port_report.py.html">http://www.linuxdynasty.org/View-details/Python-Scripts/39-port_report.py.html</a><br />{quickdown:39}</p>
+<p><a id="more"></a><a id="more-125"></a></p>
+<p>Examples below...</p>
+<pre>python port_report.py -d 192.168.101.1 -c public --report <br />GigabitEthernet1/11,00 21 5a 80 0b a6,192.168.101.23,vlan51,up,up,fullDuplex,1gbps,<br />GigabitEthernet1/12,00 12 79 83 3b f3,192.168.101.24,vlan51,up,up,fullDuplex,1gbps,<br /><br />python port_report.py -d 192.168.101.1 -c public -i "192.168.101.201"<br />This IPAddress is not in the ARP table<br /><br />python port_report.py -d 192.168.101.1 -c public -i "192.168.101.202"--verbose<br />Fri Apr 24 15:15:41 2009  Main Started<br />Fri Apr 24 15:15:41 2009  In snmpget function <br />Fri Apr 24 15:15:42 2009  Out of snmpget function <br />Cisco Internetwork Operating System Software <br />IOS (tm) s72033_rp Software (s72033_rp-JK9S-M), Version 12.2(17d)SXB7, RELEASE SOFTWARE (fc2)<br />Technical Support: http://www.cisco.com/techsupport<br />Copyright (c) 1986-2005 by cisco Systems, Inc.<br />Compiled Thu<br />Fri Apr 24 15:15:42 2009  Finished Checking for mac<br />Fri Apr 24 15:15:42 2009  Found IP<br />Fri Apr 24 15:15:42 2009  192.168.101.202 is a Cisco Switch <br />Fri Apr 24 15:15:42 2009  In generic_mac_or_ip Function<br />00 14 38 4f 5e 38 <br />Fri Apr 24 15:15:42 2009  Looping Through CommTable<br />Fri Apr 24 15:15:42 2009  In CommTable For Loop<br />Fri Apr 24 15:15:42 2009  First If Statement <br />Fri Apr 24 15:15:42 2009  Looping Through CommTable<br />Fri Apr 24 15:15:42 2009  In CommTable For Loop<br />Fri Apr 24 15:15:42 2009  Looping Through CommTable<br />Fri Apr 24 15:15:42 2009  In CommTable For Loop<br /><br /><br />python port_report.py -d 192.168.101.1 -c public -i "192.168.101.209"<br />MAC  = 00 14 38 7f 6e 38<br />Port = GigabitEthernet1/17<br />Vlan = 175<br />IPAddr = 192.168.101.209<br /><br />python port_report.py -d 192.168.101.1 -c public -m "00 14 38 4f 5e 39"<br />MAC  = 00 14 38 4f 5e 39<br />Port = GigabitEthernet1/17<br />Vlan = 175<br />IPAddr = 192.168.101.201<br /><br />python port_report.py -d 192.168.101.1 -c public -n "1/40"<br />Port 1/40 has the below MAC Addresses associated with it<br />MAC  = 00 1b 95 97 3c 81<br />Port = GigabitEthernet1/40<br />Vlan = 1<br />IPAddr = The IP Address for this MAC is not in the ARP Table<br /><br />MAC  = 00 15 fa b4 10 06<br />Port = GigabitEthernet1/40<br />Vlan = 174<br />IPAddr = The IP Address for this MAC is not in the ARP Table<br /><br />Total MAC Addresses associated with this interface 2<br /><br />python port_report.py -d 192.168.101.1 -c public -n "1/2"<br />Port 1/2 has the below MAC Addresses associated with it<br />MAC  = 08 00 0f 20 b3 aa<br />Port = GigabitEthernet1/2<br />Vlan = 176<br />IPAddr = 192.168.101.104<br /><br />MAC  = 08 00 0f 21 d3 78<br />Port = GigabitEthernet1/2<br />Vlan = 173<br />IPAddr = 192.168.101.105<br /><br />MAC  = 08 00 0f 20 b3 aa<br />Port = GigabitEthernet1/2<br />Vlan = 175<br />IPAddr = 192.168.101.115<p><br /><br /> </p></pre>
+<p> </p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -637,17 +681,12 @@ be correct &quot;&quot;&quot;&quot;</span></p>
         
       </li>
     
-      <li>
-        
-          <a href="http://127.0.0.1:4001/page31">31</a>
-        
-      </li>
-    
   </ul>
   
     <a href="http://127.0.0.1:4001/page9" class="btn">Next</a>
   
 </div><!-- /.pagination -->
+
 </div><!-- /#main -->
 
 <div class="footer-wrapper">
@@ -659,6 +698,18 @@ be correct &quot;&quot;&quot;&quot;</span></p>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="http://127.0.0.1:4001/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="http://127.0.0.1:4001/assets/js/scripts.min.js"></script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2333243-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
           
 
