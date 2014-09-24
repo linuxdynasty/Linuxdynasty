@@ -1,7 +1,7 @@
 #!/bin/env python
 ######################################################################
-#Created by Allen Sanabria aka LinuxDynasty aka PrNino69
-#This scrip will sync the Netscaler Virtual Servers and Virtual Hosts
+#Created by Allen Sanabria aka LinuxDynasty
+#This script will sync the Netscaler Virtual Servers and Virtual Hosts
 #To Zenoss. I made the Virtual Servers to be Systems in Zenoss
 #Virtual Servers are == Systems in Zenoss
 #Virtual Hosts are == Devices that are under the specified System.
@@ -58,7 +58,7 @@ def snmp_vsrv_parse(VserverOid):
     NULL = ([])
     if vHost != NULL:
       snmp_client_parse(vserverCL, vHost)
-    
+
 def snmp_client_parse(vserver, vclients):
    clientoid = vclients[0][0][0]
    clientname = vclients[0][0][1]
@@ -72,7 +72,7 @@ def snmp_client_parse(vserver, vclients):
 
 def editDevice(cluster, host):
 
-  Zenoss = {'deviceName': '', 'devicePath': '', 'tag': '', 'serialNumber': '', 'zSnmpCommunity': 'cci-ro', 
+  Zenoss = {'deviceName': '', 'devicePath': '', 'tag': '', 'serialNumber': '', 'zSnmpCommunity': 'cci-ro',
             'zSnmpPort': '161', 'zSnmpVer': 'v2c', 'rackSlot': '0', 'productionState': '1000', 'comments': '',
             'hwManufacturer': '', 'hwProductName': '', 'osManufacturer': '', 'osProductName': '',
             'locationPath': '', 'groupPaths': '', 'systemPaths': '', 'statusMonitors': '',
@@ -135,8 +135,8 @@ def http(url):
 
 def usage(code=0):
     print '''\nUsage: %s [-s|--switch]' % script
-    -h, --help         This help message 
-    -v, --verbose      Added verbosity    
+    -h, --help         This help message
+    -v, --verbose      Added verbosity
     '''
 
 try:
