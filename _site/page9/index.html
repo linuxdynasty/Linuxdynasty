@@ -136,6 +136,35 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-05-04T11:44:11-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/switch-port-report-update-18/">May 04, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/switch-port-report-update-18/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/switch-port-report-update-18/" rel="bookmark" title="Switch Port Report Update 1.8" itemprop="url">Switch Port Report Update 1.8</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>The Port Report Project is essentially a Switch Port Mapper Tool or a Switch Port Mapping Tool like a few other commercial products out there, except The Port Report Project is free.  Right now there is no GUI or WEB interface for the project but it is in the works.</p>
+<p>Here is a quick update..... I just add dns reverse lookups to the output of this script.. So if you have Pointer Records set on a good part of your infrastructure, you will get the host name to those MAC Addresses that have the IP addresses in the ARP table.</p>
+<p>You can download Port Report 1.8 here <a href="View-details/Port-Report-Project/43-Port-Report-1.8.html" title="title">http://www.linuxdynasty.org/View-details/Python-Scripts/39-port_report.py.htmll<br /> </a>{quickdown:39}<br />Example below...</p>
+<p> </p>
+<p>Here is an example from running port_report.py with the --report option..</p>
+<pre><small>GigabitEthernet3/2,00 50 56 aa 06 63,192.168.101.64,lists.linuxdynasty.org,vlan32,up,up,fullDuplex,1000mb,conan vmnic6<br />GigabitEthernet3/2,00 50 56 aa 1e 9b,192.168.101.54,Pointer Record Not set for 192.168.101.54,vlan32,up,up,fullDuplex,1000mb,conan vmnic6<br />GigabitEthernet2/28,00 11 21 35 1d da,The IP Address for 00 11 21 35 1d da is not in the ARP Table,None,vlan15,up,up,fullDuplex,1000mb,<br /> </small></pre>
+<p>Here is an example running  with the --pname option..</p>
+<pre>SwitchPort = GigabitEthernet3/2<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan32<br />SnmpHostName = requestTimedOut<br />HostDescr = requestTimedOut<br />HostMAC  = 00 50 56 aa 06 63<br />HostIP = 192.168.101.64<br />HostName = lists.linuxdynasty.org<br /><br />SwitchPort = GigabitEthernet3/2<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan32<br />SnmpHostName = requestTimedOut<br />HostDescr = requestTimedOut<br />HostMAC  = 00 50 56 aa 1e 9b<br />HostIP = 192.168.101.54<br />HostName = Pointer Record Not set for 192.168.101.54<br /><br />SwitchPort = GigabitEthernet3/2<br />SwitchPortSpeed = 1000mb<br />SwitchPortDuplex = fullDuplex<br />SwitchVlan = vlan5<br />SnmpHostName = No SNMP Access<br />HostDescr = No SNMP Access<br />HostMAC  = 00 50 56 aa 51 6a<br />HostIP = The IP Address for 00 50 56 aa 51 6a is not in the ARP Table<br />HostName = None<br /> </pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-05-01T01:56:43-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port-report-17-update/">May 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port-report-17-update/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -264,37 +293,6 @@
 <li>Search by MAC or IP or PORT </li>
 </ul>
 <div>You can get the newest revision Here ... <a href="View-details/Python-Scripts/39-port_report.py.html">http://www.linuxdynasty.org/View-details/Python-Scripts/39-port_report.py.html</a><br />{quickdown:39}</div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-04-22T19:37:16-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-portreportpy/">April 22, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-portreportpy/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-portreportpy/" rel="bookmark" title="Quick Update on port_report.py" itemprop="url">Quick Update on port_report.py</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I have been extremely busy trying to get port_report.py to be stable with Cisco device, ( So Far No Problems what so ever in the newest revision ). Kshort and eschapecharacter have been extremely helpful with helping me test my script on HP PROCURVE Switches. As of right now the of the 2 PROCURVE Switches we tested this script on, both ran with out issues. <br />
-The next steps are...</p>
-<ul>
-<li>Getting Foundry Switches to work</li>
-<li>Getting Nortel Switches to work</li>
-<li>Convert Script to a frame work</li>
-<li>Build a GUI off of the framework using Python and QT</li>
-<li>More Features to come....  </li>
-</ul>
-<p>Revision 1.6 of port_report.py should be out shortly ( In the next day or two ).. </p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

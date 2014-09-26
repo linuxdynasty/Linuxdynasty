@@ -136,6 +136,54 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T05:02:48-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-create-a-database-in-mysql/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-create-a-database-in-mysql/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-create-a-database-in-mysql/" rel="bookmark" title="How to create a database in MySQL" itemprop="url">How to create a database in MySQL</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span style="color: red">How to create a database?</span></p>
+<ol>
+<li> By default mysql installs as the root user with no passwd (unless noted otherwise)
+<ul>
+<li> Verify that mysql is running by one way (out of many ways). This is the command....<strong><br />
+<span style="color: blue">&quot;ps -fe |grep mysqld |grep -v grep&quot;</span></strong>The output should be similiar to this... /(usr/libexec/mysqld --defaults-file=/etc/my.cnf --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/run/mysqld/mysqld.pid --skip-locking --socket=/var/lib/mysql/mysql.sock)</li>
+</ul>
+</li>
+<li>Once you verified that mysql is running, log in to mysql using this command
+<ul>
+<li>Run this command...<strong><br />
+<span style="color: blue">&quot;mysql&quot;</span>.</strong>... (This should suffice unless your installation of mysql required a username and password) </li>
+<li>The output should be similar to this..
+<pre><br />Welcome to the MySQL monitor.  Commands end with ; or g.<br />Your MySQL connection id is 24365 to server version: 4.1.20<br /><br />Type 'help;' or 'h' for help. Type 'c' to clear the buffer.<br /><br />mysql&gt; <br /></pre>
+</li>
+</ul>
+</li>
+<li>Run this command..
+<ul>
+<li><strong><span style="color: blue">&quot;Create database TEST;&quot;</span></strong>....Output should look like this...
+<pre><br />       Query OK, 1 row affected (0.02 sec)<br /></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Now for the all in one Feature......</strong></p>
+<pre><br />[root@s15261720 wiki]# ps -e |grep mysqld<br /> 7209 ?        00:00:00 mysqld_safe<br /> 7242 ?        00:00:12 mysqld<br /><br /># mysql  <br />Enter password: <br />Welcome to the MySQL monitor.  Commands end with ; or g.<br />Your MySQL connection id is 24415 to server version: 4.1.20<br /><br />Type 'help;' or 'h' for help. Type 'c' to clear the buffer.<br /><br />mysql&gt; <br /><br />mysql&gt; create database test;<br />Query OK, 1 row affected (0.00 sec)<br /><br />mysql&gt;<br /></pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-02-10T04:58:19-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-restore-a-mysql-datbase/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-restore-a-mysql-datbase/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">

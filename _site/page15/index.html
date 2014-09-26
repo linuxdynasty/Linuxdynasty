@@ -136,6 +136,37 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-10-01T18:11:26-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/daily-nagios-report-python-script-part-one/">October 01, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/daily-nagios-report-python-script-part-one/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/daily-nagios-report-python-script-part-one/" rel="bookmark" title="Daily Nagios Report Python Script Part One" itemprop="url">Daily Nagios Report Python Script Part One</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I had to create a script that will output every host that has went down in the past day and how many times that host went down and at what times did that host go down and when it came back up in a nice readable format ( Executives who do not know what they are looking at ). Now this is the first release of my script and I do mean first release as I really want to expand it to not just do daily reports from nagios.log but as well as get the archives and any to pass it dates.</p>
+<div></div>
+<p>I hope you Nagios users who have to send reports to your executives find this script useful but check back soon as I'm going to be adding more to it or even changing it into its own class. As of right now it consist of three functions. The only draw back of the script is that it takes a while to parse the log file since it has to find all the uniq hosts in nagios.log and find only the hard down and hard up events compared to the uniq hosts.</p>
+<p>For now I run this script in cron at 6AM and have the txt file that it creates sent to a list of users at 7AM on a daily basis.  Again this is my first revision it will go through alot more and if you have suggestions or you have expanded on this script by all means let me know so I can post it up here or you can become a member and post it yourself. Also if you have request please become a member and ask in the forums section.</p>
+<p><strong>UPDATE!!!</strong><br /> Cambid, fixed the regex in the script. It  should now match correctly in all environments!</p>
+<p><a id="more"></a><a id="more-75"></a></p>
+<p>The output looks like this</p>
+<pre>Host host1 Status Report<br />-----------------------------------------------------------------<br />Total Times Down = 1<br />host1 went DOWN  at Thu Oct  2 01:34:31 2008<br />-----------------------------------------------------------------<br /><br />Host host2 Status Report<br />-----------------------------------------------------------------<br />Total Times Down = 1<br />host2 went DOWN  at Thu Oct  2 03:16:11 2008<br />host2 went UP    at Thu Oct  2 03:26:51 2008<br />-----------------------------------------------------------------<br /><br />Host host3 Status Report<br />-----------------------------------------------------------------<br />Total Times Down = 1<br />host3 went DOWN  at Thu Oct  2 04:16:31 2008<br />-----------------------------------------------------------------<br /><br />Host host4 Status Report<br />-----------------------------------------------------------------<br />Total Times Down = 3<br />host4 went DOWN  at Tue Oct  2 04:13:58 2008<br />host4 went DOWN  at Tue Oct  2 08:50:28 2008<br />host4 went DOWN  at Tue Oct  2 12:17:08 2008<br />host4 went UP    at Tue Oct  2 07:28:38 2008<br />host4 went UP    at Tue Oct  2 10:53:08 2008<br />host4 went UP    at Tue Oct  2 12:43:48 2008 <br /></pre>
+<p>You can download the script <a href="View-details/Linux-Dynasty-Scripts-and-Programs/2-Daily-Nagios-Report.html" title="title">here. </a> To download the script you must become a member first<br />{quickdown:2}</p>
+<p><a href="images/stories/Scripts/nagios_report.png" rel="shadowbox[0]"><img alt="alt" style="width: 274px; height: 224px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/Scripts/nagios_report.png" /></a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-09-24T13:58:54-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zfs-howto-howto-create-a-zfs-file-system/">September 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zfs-howto-howto-create-a-zfs-file-system/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -439,50 +470,6 @@ Example.. { <font color="#0000ff"><strong>su -</strong></font> } or { <font colo
 </li>
 
 </p></li></ul>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-08-13T18:59:44-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-solaris-or-opensolaris/">August 13, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-solaris-or-opensolaris/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-solaris-or-opensolaris/" rel="bookmark" title="How to mount an ISO image under Solaris or OpenSolaris" itemprop="url">How to mount an ISO image under Solaris or OpenSolaris</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Whats up guys here is another quick and simple, yet necessary HowTo...&nbsp; Since as most of you know, I come from a Linux background and mounting an ISO image under linux is as simple as .... Ok, follow the link HAHAHAHA <a href="http://www.linuxdynasty.org/how-to-mount-an-iso-image-under-linux.html" title="">http://www.linuxdynasty.org/how-to-mount-an-iso-image-under-linux.html</a>.</p>
-<p><a id="more"></a><a id="more-201"></a></p>
-<p>For me it feels like Solaris tries to make our lives a tad bit more complicated then it needs to be by adding another step to mount an iso image and ahemm quite a few other things as well which I will not get into right now... </p>
-<p>So in order to mount an ISO image under Solaris you will need to use the lofiadm command. The lofiadm command adminsters the loopback file driver aka <strong>lofi</strong>. lofi allows a file ( in this case an ISO image ) to be associated with a block device. That file then can be accessed though the block device ( such as a disk ).</p>
-<p></p>
-<ol>
-<li>
-<p><span>Here we use lofiadm to associate the file to a block device.. Example { &quot;<strong><font color="#0000ff">lofiadmin -a</font> <font color="#ff0000">/var/tmp/sol-nv-b95-x86-dvd.iso</font>&quot; </strong>}<br />
-By default Solaris will use the next available block device, Example of the output of lofiadm { <font color="#ff0000"><strong>/dev/lofi/1</strong></font></span> }</p>
-</li>
-<li>You now can run <font color="#0000ff"><strong>lofiadm</strong></font> to verify that the block device was created successfully.. Example { &quot;<font color="#0000ff"><strong>lofiadm</strong></font>&quot; }
-<p><span></span></p>
-</li>
-<li>
-<p><span>Now you will need to mount the block device as ReadOnly and specify the File System.. Example { <strong>&quot;<font color="#0000ff">mount -o ro -F hsfs</font> /dev/lofi/1 <font color="#ff0000">/mnt</font></strong>&quot; }<br />
-</span></p>
-</li>
-<li>
-<p><span>Finally all you need or better yet may want to do is run a <br />
-{ &quot;<font color="#0000ff"><strong>df -k</strong></font>&quot; or &quot;<font color="#0000ff"><strong>df -h</strong></font>&quot;&nbsp; To verify that the device is mounted and then run a &quot;<font color="#0000ff"><strong>ls</strong></font>&quot; to view the contents of the directory}<br />
-</span></p>
-</li>
-</ol>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

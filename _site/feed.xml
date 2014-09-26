@@ -4,13 +4,87 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://linuxdynasty.github.io/Linuxdynasty/feed.xml" />
 <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty" />
-<updated>2014-09-23T17:31:01-04:00</updated>
+<updated>2014-09-26T09:47:44-04:00</updated>
 <id>http://linuxdynasty.github.io/Linuxdynasty/</id>
 <author>
   <name>Allen Sanabria</name>
   <uri>http://linuxdynasty.github.io/Linuxdynasty/</uri>
   <email>asanabria <@> linuxdynasty dot org</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Graph nginx status codes in Graphite.]]></title>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite</id>
+  <published>2014-09-26T00:00:00-04:00</published>
+  <updated>2014-09-26T00:00:00-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;I’m currently at the tail end of collecting metrics for the current company I work for.
+We are using a combination of..
+* &lt;a href=&quot;http://sensuapp.org/&quot;&gt;Sensu&lt;/a&gt; (shipper)]
+* &lt;a href=&quot;http://graphite.wikidot.com/&quot;&gt;Graphite&lt;/a&gt;/&lt;a href=&quot;https://github.com/etsy/statsd/&quot;&gt;StatsD&lt;/a&gt; (metrics handler)
+* &lt;a href=&quot;http://grafana.org/&quot;&gt;Grafana&lt;/a&gt; (Beautiful Dashboards).&lt;/p&gt;
+
+&lt;p&gt;I built a python script, that leverages the awesome tool &lt;a href=&quot;http://linux.die.net/man/8/logtail&quot;&gt;logtail&lt;/a&gt;
+in order to collect http status codes, without consuming too much cpu/ram.&lt;/p&gt;
+
+&lt;p&gt;I have tested this script against nginx logs and against 2 different formats (txt and json).&lt;/p&gt;
+
+&lt;h3 id=&quot;basic-logging&quot;&gt;Basic Logging&lt;/h3&gt;
+&lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
+  &lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&amp;quot;GET /test/foo HTTP/1.0&amp;quot; 200 76288 &amp;quot;-&amp;quot; &amp;quot;Ruby&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;json-logging&quot;&gt;Json Logging&lt;/h3&gt;
+&lt;p&gt;I printed the json on multiple lines, but in the log, the json is all in 1 line.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;&amp;lt;a href=&amp;#39;https://github.com/timestamp&amp;#39; class=&amp;#39;user-mention&amp;#39;&amp;gt;@timestamp&amp;lt;/a&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2014-09-26T08:45:35-04:00&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;&amp;lt;a href=&amp;#39;https://github.com/fields&amp;#39; class=&amp;#39;user-mention&amp;#39;&amp;gt;@fields&amp;lt;/a&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;remote_addr&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;remote_user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;body_bytes_sent&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;4823&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;request_time&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;0.127&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;status&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;200&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;request&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;POST /rubyamf_gateway/ HTTP/1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;request_method&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;POST&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;http_referrer&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;https://foo.bar.net/test/test&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;quot;http_user_agent&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The only dependency of this script is logtail which you can install easily on any *nix system.
+* apt-get install logtail
+* yum install logtail&lt;/p&gt;
+
+&lt;p&gt;If you do not have logtail installed you will get the following error&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;9:45&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;~/Linuxdynasty/scripts/sensu/metrics:master ✓ python nginx-status-code-metrics.py -h
+Please install logtail&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The following options are available&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;9:45&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;~/Linuxdynasty/scripts/sensu/metrics:master ✓ ➭ python nginx-status-code-metrics.py -h
+Options:
+  -h, --help            show this &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;message and &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+  -d DIRECTORY, --directory&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;DIRECTORY
+                        The directory where the access logs exist
+  -f FILE, --file&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;FILE  name of the access log
+  -t FILE_FORMAT, --file_format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;FILE_FORMAT
+                        json or txt
+  -s SCHEME, --scheme&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;SCHEME
+                        the metric naming scheme&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/&quot;&gt;Graph nginx status codes in Graphite.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on September 26, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -24,8 +98,8 @@
     <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
-  <content type="html">&lt;p&gt;I just finished migrating from wordpress, and I love haveing the simplicity of 
-just managing static pages and being able to edit right from vim.
+  <content type="html">&lt;p&gt;I just finished migrating from wordpress, and I love having the simplicity of 
+just managing static pages and being able to edit them right from vim.
 I will be updating my old posts little by little, so if a download link is not valid
 than just check my &lt;a href=&quot;https://github.com/linuxdynasty/Linuxdynasty&quot;&gt;GitHub Page&lt;/a&gt;&lt;/p&gt;
 
@@ -936,23 +1010,6 @@ case &quot;$1&quot; in start) swatch_start ;; stop) swatch_stop ;; restart) swat
 exit $RETVAL&lt;/pre&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/&quot;&gt;Swatch Startup Script&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on November 12, 2009.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Updates to site]]></title>
- <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/" />
-  <id>http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site</id>
-  <published>2009-11-09T12:24:42-05:00</published>
-  <updated>2009-11-09T12:24:42-05:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
-    <email>asanabria <@> linuxdynasty dot org</email>
-  </author>
-  <content type="html">&lt;p&gt;For those of you who visit linuxdynasty everyday, you might have notice some subtle changes in the authorization aspect fo the site. I had to enable captch images in the login, and posting parts of the site. Since for the past few weeks, spammers have been hitting the comments and forums section. I'm hoping this does not annoy everyone, but the spamming is starting to really annoy me.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/&quot;&gt;Updates to site&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on November 09, 2009.&lt;/p&gt;</content>
 </entry>
 
 </feed>

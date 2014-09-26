@@ -136,6 +136,40 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-01T13:28:56-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/" rel="bookmark" title="LD Network Device Manager update .21" itemprop="url">LD Network Device Manager update .21</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Here is another quick update for today. This time it is for ldNetDeviceManager.py.<br />
+Revision .21 10/01/2009</p>
+<ul>
+<li>Can now save output to a file. using the --save option</li>
+</ul>
+<p>{quickdown:49}</p>
+<p><a id="more"></a><a id="more-220"></a></p>
+<p>Here are some examples below...</p>
+<pre>python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -C './cmd.txt' -t ssh -e 'p@55wd' --output --tout=2python ldNetDeviceManager.py --login=dynasty --passwd='passwd' --dlist='./switches' --clist='./cmd.txt' --term=both --enable='p@55wd' --output --tout=2python ldNetDeviceManager.py --login=dynasty --passwd='passwd' --dlist='./switches' --command='service snmpd restart' --term=ssh --enable='p@55wd' --output --tout=20, --savepython ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2
+
+If you have SSH Keys then you do not need to pass a password unless you have to get root access or sudo access. example below..</pre>
+<pre>python ldNetDeviceManager.py -l dynasty -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --term=ssh  --output --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --output --save</pre>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-10-01T13:12:15-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld-port-report-113-quick-update-the-mac-address-reporting-tool/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -419,102 +453,6 @@ New additions to this revision ....</p>
 </dd>
 </dl>
 </div>
-</div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-09-15T13:58:17-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-111-update/">September 15, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-111-update/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-111-update/" rel="bookmark" title="LD Port Report 1.11 update" itemprop="url">LD Port Report 1.11 update</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div>We are happy to announce the release of Port Report 1.11. In this release, we have fixed quite a few bugs that were in the previous release. Included in this release is the ability to follow EtherChannel aka PortChannel Ports using the Port Agreggation Protocol.<br />
-Release notes are below.... If you want to see an example of the Port Report output and how to run it, please check this link</div>
-<div>LD Port Report == {filelink=15}</div>
-<div>..<a href="ld-port-report-project.html">http://www.linuxdynasty.org/ld-port-report-project.html</a>
-</div>
-<div>
-<dl>
-<dd>Revision 1.11 09/13/09
-<ul>
-<li>More code clean up and another increase in speed.</li>
-<li>Also port_report can now follow EtherChannel</li>
-<li>Fixed issue, where the matching of the cdp neighbor was not matching correctly</li>
-<li>Added better verbosity</li>
-<li>Added Sanity Checking for cdp neighbors</li>
-</ul>
-<p>Revision 1.10 09/09/09</p>
-<ul>
-<li>Code Clean up and a slight increase in speed ( by a few seconds ) during the search by mac or ip</li>
-</ul>
-<p>Revision 1.9<br />
-Code changes and Added CDP Support</p>
-<ul>
-<li>Detect CDP Neighbors during the scan for MAC Addresses or IP Addresses</li>
-</ul>
-<p>Revision 1.8<br />
-Here is a quick update.....</p>
-<ul>
-<li>I just add dns reverse lookups to the output of this script.</li>
-</ul>
-<p>Revision 1.7<br />
-Adds support to the following devices..</p>
-<ol>
-<li>Cisco
-<ul>
-<li>Catalyst 6509 w/ Supervisor 720 running IOS</li>
-<li>Catalyst 3560</li>
-<li>Catalyst 3550 (SMI)</li>
-<li>Cisco CIGESM series Chassis Blades</li>
-<li>Cisco Catalyst 2960</li>
-</ul>
-</li>
-<li>Foundry
-<ul>
-<li>Foundry Server Iron</li>
-</ul>
-</li>
-<li>Nortel
-<ul>
-<li>Nortel Passport 8600</li>
-<li>Nortel 5520 Ethernet Routing Switch</li>
-</ul>
-</li>
-<li>HP
-<ul>
-<li>HP Procurve 5406xl</li>
-</ul>
-</li>
-</ol>
-<p>&nbsp;</p>
-<p>Revision 1.6<br />
-New additions to this revision ....</p>
-<ul>
-<li>Support for HP Procurve Switches, ( Tested on the newer versions of HP )</li>
-<li>combined switch_report.py in port_report.py.</li>
-<li>Added --verbose flag</li>
-</ul>
-<p>Previous Releases....</p>
-<ul>
-<li>Search by MAC or IP or PORT</li>
-</ul>
-<p>&nbsp;</p>
-<p>LD Port Reporter == {filelink=15}</p>
-</dd>
-</dl>
 </div>
 
   </div><!-- /.entry-content -->

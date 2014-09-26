@@ -136,6 +136,85 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-09-26T00:00:00-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/">September 26, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/" rel="bookmark" title="Graph nginx status codes in Graphite." itemprop="url">Graph nginx status codes in Graphite.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I’m currently at the tail end of collecting metrics for the current company I work for.
+We are using a combination of..
+* <a href="http://sensuapp.org/">Sensu</a> (shipper)]
+* <a href="http://graphite.wikidot.com/">Graphite</a>/<a href="https://github.com/etsy/statsd/">StatsD</a> (metrics handler)
+* <a href="http://grafana.org/">Grafana</a> (Beautiful Dashboards).</p>
+
+<p>I built a python script, that leverages the awesome tool <a href="http://linux.die.net/man/8/logtail">logtail</a>
+in order to collect http status codes, without consuming too much cpu/ram.</p>
+
+<p>I have tested this script against nginx logs and against 2 different formats (txt and json).</p>
+
+<h3 id="basic-logging">Basic Logging</h3>
+<div><div class="CodeRay">
+  <div class="code"><pre>&quot;GET /test/foo HTTP/1.0&quot; 200 76288 &quot;-&quot; &quot;Ruby&quot;
+</pre></div>
+</div>
+</div>
+
+<h3 id="json-logging">Json Logging</h3>
+<p>I printed the json on multiple lines, but in the log, the json is all in 1 line.</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;&lt;a href=&#39;https://github.com/timestamp&#39; class=&#39;user-mention&#39;&gt;@timestamp&lt;/a&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-26T08:45:35-04:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;&lt;a href=&#39;https://github.com/fields&#39; class=&#39;user-mention&#39;&gt;@fields&lt;/a&gt;&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;remote_user&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;body_bytes_sent&quot;</span><span class="p">:</span> <span class="s2">&quot;4823&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_time&quot;</span><span class="p">:</span> <span class="s2">&quot;0.127&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;200&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request&quot;</span><span class="p">:</span> <span class="s2">&quot;POST /rubyamf_gateway/ HTTP/1.0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;request_method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;http_referrer&quot;</span><span class="p">:</span> <span class="s2">&quot;https://foo.bar.net/test/test&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;http_user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>The only dependency of this script is logtail which you can install easily on any *nix system.
+* apt-get install logtail
+* yum install logtail</p>
+
+<p>If you do not have logtail installed you will get the following error</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{</span>9:45<span class="o">}</span>~/Linuxdynasty/scripts/sensu/metrics:master ✓ python nginx-status-code-metrics.py -h
+Please install logtail</code></pre></div>
+
+<p>The following options are available</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{</span>9:45<span class="o">}</span>~/Linuxdynasty/scripts/sensu/metrics:master ✓ ➭ python nginx-status-code-metrics.py -h
+Options:
+  -h, --help            show this <span class="nb">help </span>message and <span class="nb">exit</span>
+  -d DIRECTORY, --directory<span class="o">=</span>DIRECTORY
+                        The directory where the access logs exist
+  -f FILE, --file<span class="o">=</span>FILE  name of the access log
+  -t FILE_FORMAT, --file_format<span class="o">=</span>FILE_FORMAT
+                        json or txt
+  -s SCHEME, --scheme<span class="o">=</span>SCHEME
+                        the metric naming scheme</code></pre></div>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2014-09-23T00:00:00-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/migrated-from-wordpress-to-github-dot-io-pages/">September 23, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>
       
       <span class="entry-reading-time pull-right">
@@ -150,8 +229,8 @@
     
   </header>
   <div class="entry-content">
-    <p>I just finished migrating from wordpress, and I love haveing the simplicity of 
-just managing static pages and being able to edit right from vim.
+    <p>I just finished migrating from wordpress, and I love having the simplicity of 
+just managing static pages and being able to edit them right from vim.
 I will be updating my old posts little by little, so if a download link is not valid
 than just check my <a href="https://github.com/linuxdynasty/Linuxdynasty">GitHub Page</a></p>
 
@@ -307,103 +386,6 @@ kbits_per_second_min=0.000000 kbits_per_second_ave=73.678207 kbits_per_second_ma
 packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 packet_loss_percentage_max=0.000000 
 inter_packet_gap_ms_min=0.009000 inter_packet_gap_ms_ave=24.794672 inter_packet_gap_ms_max=528.923000</pre>
 <p>So you can trend the different stats that openRTSP provides in Zenoss..</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-12-28T21:27:47-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/">December 28, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/" rel="bookmark" title="How To Monitor and get Bind 9 stats using Zenoss" itemprop="url">How To Monitor and get Bind 9 stats using Zenoss</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Hey guys, here is another Python script by me :-) . The reason for this script, is to give you the capabilities to monitor and graph Bind 9 stats. This script will be executed through SNMP.. We will be using the UCD-MIB 1.3.6.1.4.1.2021.8.1</p>
-<pre>The stats are from named.stats... Here is an example of named.stats..
-cat /var/cache/bind/named.stats
-+++ Statistics Dump +++ (1325089261)
-++ Incoming Requests ++
-            83318718 QUERY
-++ Incoming Queries ++
-            54293282 A
-                1929 NS
-                3186 CNAME
-                  27 SOA
-            13645272 PTR
-                7921 MX
-                 781 TXT
-            15224426 AAAA
-                 200 SRV
-                   1 NAPTR
-                1271 A6
-                  95 DS
-                   2 NSEC
-                  66 SPF
-              140257 ANY
-                   2 Others</pre>
-<p>You can download the script here .. {filelink=23}</p>
-<p><a id="more"></a><a id="more-415"></a><br />
-I purposely made this script so that it can be used with snmpd.conf. I made an option called '<strong>-g</strong>', and this option will actualy generate the snmpd.conf file for you with the entries that can be monitored. Example below..</p>
-<pre>exec ResolverStatisticsqueries-with-RTT---1600ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT &gt; 1600ms'
-exec ResolverStatisticsqueries-with-RTT-800-1600ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 800-1600ms'
-exec ResolverStatisticsqueries-with-RTT-10-100ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 10-100ms'
-exec ResolverStatisticsSERVFAIL-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'SERVFAIL received'
-exec ResolverStatisticsother-errors-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'other errors received'
-exec ResolverStatisticsquery-timeouts /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'query timeouts'
-exec ResolverStatisticsIPv4-responses-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'IPv4 responses received'
-exec ResolverStatisticsqueries-with-RTT-500-800ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 500-800ms'
-exec ResolverStatisticsqueries-with-RTT---10ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT &lt; 10ms'
-exec ResolverStatisticsqueries-with-RTT-100-500ms /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'queries with RTT 100-500ms'
-exec ResolverStatisticsIPv4-queries-sent /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'IPv4 queries sent'
-exec ResolverStatisticsIPv4-NS-address-fetches /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'IPv4 NS address fetches'
-exec ResolverStatisticsEDNS(0)-query-failures /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'EDNS(0) query failures'
-exec ResolverStatisticsquery-retries /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'query retries'
-exec ResolverStatisticslame-delegations-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'lame delegations received'
-exec ResolverStatisticsFORMERR-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'FORMERR received'
-exec ResolverStatisticsNXDOMAIN-received /usr/local/bin/getBindStats.py -t 'Resolver Statistics' -s 'NXDOMAIN received'</pre>
-<p>That is just a sample above as there is a lot more data from the original output. Here is the output with the '<strong>-h</strong>' option..</p>
-<pre>/usr/local/bin/getBindStats.py -h
-Usage: getBindStats.py arg --grouptype='Incoming Requests' --printstat='A'
-
-Options:
-  -h, --help            show this help message and exit
-  -t GTYPE, --grouptype=GTYPE
-                        Cache DB RRsets,Incoming Queries,Incoming
-                        Requests,Name Server Statistics,Outgoing
-                        Queries,Resolver Statistics,Socket I/O Statistics,Zone
-                        Maintenance Statistics
-  -s PRINT_STAT, --printstat=PRINT_STAT
-                        Acceptable Values are these:::TXT,PTR,SPF,queries
-                        caused recursion,A,IPv4 NS address fetch
-                        failed,mismatch responses received,TCP/IPv4
-                        connections established,queries with RTT
-                        100-500ms,query timeouts,query retries,NSEC,IPv4
-                        responses received,requests with EDNS(0)
-                        received,TCP/IPv4 sockets closed,IPv4 IXFR
-                        requested,SRV,NOTIFY,queries with RTT
-                        10-100ms,TCP/IPv4 connections accepted,lame
-                        delegations received,FORMERR received,RRSIG,queries
-                        with RTT &gt; 1600ms,UDP/IPv4 recv errors,NS,IPv4
-                        notifies sent,queries with RTT 800-1600ms,SERVFAIL
-                        received,IPv4 AXFR requested,auth queries
-                        rejected,ANY,IPv4 requests received,queries with RTT &lt;
-                        10ms,IPv4 notifies received,IPv4 queries sent,queries
-                        resulted in referral answer,NXDOMAIN,other errors
-                        received,QUERY,truncated responses received,MX,TCP
-                        requests received,
-  -g, --gensnmp         This will generate in STDOUT the SNMP info you need in
-                        snmpd.conf</pre>
-<p>&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

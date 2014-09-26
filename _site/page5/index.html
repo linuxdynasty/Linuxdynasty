@@ -136,6 +136,28 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-11-09T12:24:42-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/">November 09, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/" rel="bookmark" title="Updates to site" itemprop="url">Updates to site</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>For those of you who visit linuxdynasty everyday, you might have notice some subtle changes in the authorization aspect fo the site. I had to enable captch images in the login, and posting parts of the site. Since for the past few weeks, spammers have been hitting the comments and forums section. I'm hoping this does not annoy everyone, but the spamming is starting to really annoy me.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-10-18T21:14:43-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/">October 18, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port%20report%20projects/ld%20device%20manager/begun-development-of-web-server-and-database-for-port-report-and-device-manager/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -245,40 +267,6 @@ It use to take about 18 minutes to run this script against 285 devices. It now j
 </ul>
 <p>{quickdown:49}</p>
 <p>To see how to use the tool above, please check this link <a href="howto-manage-your-networked-devices-using-python-and-pexpect.html">http://www.linuxdynasty.org/howto-manage-your-networked-devices-using-python-and-pexpect.html</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-10-01T13:28:56-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/" rel="bookmark" title="LD Network Device Manager update .21" itemprop="url">LD Network Device Manager update .21</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Here is another quick update for today. This time it is for ldNetDeviceManager.py.<br />
-Revision .21 10/01/2009</p>
-<ul>
-<li>Can now save output to a file. using the --save option</li>
-</ul>
-<p>{quickdown:49}</p>
-<p><a id="more"></a><a id="more-220"></a></p>
-<p>Here are some examples below...</p>
-<pre>python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -C './cmd.txt' -t ssh -e 'p@55wd' --output --tout=2python ldNetDeviceManager.py --login=dynasty --passwd='passwd' --dlist='./switches' --clist='./cmd.txt' --term=both --enable='p@55wd' --output --tout=2python ldNetDeviceManager.py --login=dynasty --passwd='passwd' --dlist='./switches' --command='service snmpd restart' --term=ssh --enable='p@55wd' --output --tout=20, --savepython ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2
-
-If you have SSH Keys then you do not need to pass a password unless you have to get root access or sudo access. example below..</pre>
-<pre>python ldNetDeviceManager.py -l dynasty -d 192.168.101.11 -C './cmd.txt' -t ssh  -o --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --term=ssh  --output --tout=2python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo service snmpd restart' --output --save</pre>
-<p>&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

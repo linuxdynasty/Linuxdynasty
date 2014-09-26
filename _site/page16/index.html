@@ -136,6 +136,50 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-08-13T18:59:44-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-solaris-or-opensolaris/">August 13, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-solaris-or-opensolaris/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-solaris-or-opensolaris/" rel="bookmark" title="How to mount an ISO image under Solaris or OpenSolaris" itemprop="url">How to mount an ISO image under Solaris or OpenSolaris</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Whats up guys here is another quick and simple, yet necessary HowTo...&nbsp; Since as most of you know, I come from a Linux background and mounting an ISO image under linux is as simple as .... Ok, follow the link HAHAHAHA <a href="http://www.linuxdynasty.org/how-to-mount-an-iso-image-under-linux.html" title="">http://www.linuxdynasty.org/how-to-mount-an-iso-image-under-linux.html</a>.</p>
+<p><a id="more"></a><a id="more-201"></a></p>
+<p>For me it feels like Solaris tries to make our lives a tad bit more complicated then it needs to be by adding another step to mount an iso image and ahemm quite a few other things as well which I will not get into right now... </p>
+<p>So in order to mount an ISO image under Solaris you will need to use the lofiadm command. The lofiadm command adminsters the loopback file driver aka <strong>lofi</strong>. lofi allows a file ( in this case an ISO image ) to be associated with a block device. That file then can be accessed though the block device ( such as a disk ).</p>
+<p></p>
+<ol>
+<li>
+<p><span>Here we use lofiadm to associate the file to a block device.. Example { &quot;<strong><font color="#0000ff">lofiadmin -a</font> <font color="#ff0000">/var/tmp/sol-nv-b95-x86-dvd.iso</font>&quot; </strong>}<br />
+By default Solaris will use the next available block device, Example of the output of lofiadm { <font color="#ff0000"><strong>/dev/lofi/1</strong></font></span> }</p>
+</li>
+<li>You now can run <font color="#0000ff"><strong>lofiadm</strong></font> to verify that the block device was created successfully.. Example { &quot;<font color="#0000ff"><strong>lofiadm</strong></font>&quot; }
+<p><span></span></p>
+</li>
+<li>
+<p><span>Now you will need to mount the block device as ReadOnly and specify the File System.. Example { <strong>&quot;<font color="#0000ff">mount -o ro -F hsfs</font> /dev/lofi/1 <font color="#ff0000">/mnt</font></strong>&quot; }<br />
+</span></p>
+</li>
+<li>
+<p><span>Finally all you need or better yet may want to do is run a <br />
+{ &quot;<font color="#0000ff"><strong>df -k</strong></font>&quot; or &quot;<font color="#0000ff"><strong>df -h</strong></font>&quot;&nbsp; To verify that the device is mounted and then run a &quot;<font color="#0000ff"><strong>ls</strong></font>&quot; to view the contents of the directory}<br />
+</span></p>
+</li>
+</ol>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-08-13T18:38:31-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-linux/">August 13, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-mount-an-iso-image-under-linux/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -615,58 +659,6 @@ Or you can access this through your favorite Web Browser ..<br />
 'http://VCserver/cgi/vm_admin.cgi?&amp;vmachine=VirtualMachineName&amp;action=vmachineReset' </p>
 <p>You can download the script <a href="http://www.linuxdynasty.org/View-details/VMware-Perl/13-vm_virtualmachine.cgi.html" title="">here</a>. You must become a member before downloading </p>
 <p><a href="http://www.linuxdynasty.org/images/stories/Scripts/vm_virtual_machine_cgi.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://www.linuxdynasty.org/images/stories/Scripts/vm_virtual_machine_cgi.png" /></a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-07-29T16:19:32-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/services-provided/">July 29, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/services-provided/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/services-provided/" rel="bookmark" title="Services Provided" itemprop="url">Services Provided</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Here at Linux Dynasty we provide a very cost-effective access to technology. We<br />
-are like an IT department in a box: providing Networking, Server/Client<br />
-Support, Virtualization, System Automation, Database Design/Administration, Application Programming, Infrastructure Design, Web<br />
-Development and Hosting solutions at far less expense than you would pay to<br />
-maintain that expertise in house!</p>
-<p><a id="more"></a><a id="more-175"></a></p>
-<p>&nbsp;</p>
-<p>We provide the following services...&nbsp; </p>
-<ul>
-<li>Virtualization</li>
-<li>System Automation
-</li>
-<li>Website Development</li>
-<li>Application Programming</li>
-<li>Database Design/Administration</li>
-<li>Network Infrastructure Design and Implementation&nbsp;</li>
-<li>Monitoring of your website or of your complete Infrastructure</li>
-<li>Deploy/Maintain your favorite Operation System; Linux/Solaris/BSD or Windows</li>
-<li>Design and Maintain Enterprise to Small Office Email/Collaboration systems.</li>
-</ul>
-<p>&nbsp;</p>
-<p>We have over 20 Years combined in the IT industry. Our expertise spans a wide range of industries. Such as ...</p>
-<ul>
-<li>Top Tier Banks</li>
-<li>Insurance Companies</li>
-<li>Social Web Sites</li>
-<li>Top Media/Advertisement Companies</li>
-</ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&lt;/p&gt;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

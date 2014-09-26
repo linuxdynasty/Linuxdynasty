@@ -136,6 +136,34 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-13T16:14:44-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/site-possible-enhancements/">April 13, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/site-possible-enhancements/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/site-possible-enhancements/" rel="bookmark" title="Site possible enhancements...." itemprop="url">Site possible enhancements....</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Today I was thinking of adding some more features to the site. But before I do that, I want to ask the help of the linuxdynasty community. Also I want some feedback on the site... Good or Bad!</p>
+<ul>
+<li>What features would you like to see on the site?</li>
+<li>If you can change something what would that be?</li>
+<li>I would like to make the forums more active. Any Suggestions?</li>
+<li>We are looking for more Authors as well. Do any of you guys want to contribute HowTo's or Scripts? </li>
+</ul>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-04-12T22:07:27-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-find-the-port-on-a-switch-that-a-host-belongs-to-the-easy-way-part-2/">April 12, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-find-the-port-on-a-switch-that-a-host-belongs-to-the-easy-way-part-2/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -397,46 +425,6 @@ MAC  = 08 00 0f 20 b3 aaPort = GigabitEthernet1/2Vlan = 175IPAddr = 192.168.101.
 <p><strong>Or you can do it on a per Virtual Machine basis...</strong></p>
 <pre>perl vmToolsStatus.pl --toolsOk --vm_name "Mail"<br />Mail<br />  Status toolsOk and Version 110268 <br /></pre>
 <p> </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-03-31T19:51:26-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/">March 31, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/" rel="bookmark" title="VMware ESX SDK SnapShot Perl Script Part 3" itemprop="url">VMware ESX SDK SnapShot Perl Script Part 3</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>This is the 3rd and I think final revision of this script. I added the --list function, which before had to be combined with the --vm_name function. The main reason for creating this script was so that there can be an easy way to manage snapshots, especially automating the deletion, creation, reverting, and listing of snapshots. If you find this script or any of my scripts useful, please let me know. </p>
-<p>&nbsp;</p>
-<pre>perl vm_snapshot.pl --list<br />Platinum<br />  name:         test1<br />  description:  <br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-17T10:26:34.605171-04:00<br /><br />Gold <br />  name:         test2<br />  description:  <br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-17T13:32:05Z<br /><br />Silver<br />  name:         test3<br />  description:  <br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-17T13:32:22Z&nbsp; <br /></pre>
-<p><span class="attention"> <strong>Remember!!! That in order to use this script you will need the Perl VI SDK installed on your linux box as well as $home/.visdkrc setup correctly</strong></span></p>
-<p>Here is an example .visdkrc...</p>
-<pre>VI_SERVER = Virtual Console Server<br />VI_USERNAME = login<br />VI_PASSWORD = passwd<br />VI_PROTOCOL = https <br />VI_PORTNUMBER = 443<br /></pre>
-<p><a id="more"></a><a id="more-189"></a></p>
-<p>
-You can still run this script with the Virtual Machine Name as well...</p>
-<pre>perl vm_snapshot.pl --list --vm_name &quot;Platinum&quot;<br />  name:         test1<br />  description:  test snap<br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-18T16:21:45.447627-04:00<br />&nbsp;</pre>
-<p>You can also remove snapshots too...</p>
-<pre><pre>perl vm_snapshot.pl --vm_name &quot;Platinum&quot; --delete --sn_name &quot;test1&quot;<br />Snapshot 'test1' removed for VM Development Server of Platinum </pre>
-<p>You can also revert and do a powerOn as well.</p>
-<pre>perl vm_snapshot.pl --vm_name &quot;Platinum&quot; --revert --sn_name &quot;new_snap&quot; --vm_on<br /><br />Operation :: Revert To Snapshot new_snap For Virtual Machine Platinum completed <br /><br /> Virtual machine 'Platinum' has been started <br /></pre>
-<p>Also you can create snapshots as well...</p>
-<pre>perl vm_snapshot.pl --vm_name &quot;Platinum&quot; --create --descr &quot;nice&quot; --sn_name &quot;new_snap&quot;<br />Snapshot 'new_snap' completed for VM The Platinum</pre>
-<p></p>
-<p><a href="http://www.linuxdynasty.org/View-details/VMware-Perl/35-VMware-ESX-SDK-SnapShot-Perl-Script-Part-3.html" title="">You can download the script here</a></p>
-</pre>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

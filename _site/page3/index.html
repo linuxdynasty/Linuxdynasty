@@ -136,6 +136,60 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2010-09-10T16:17:03-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/monitoring-rabbitmq-with-zenoss/">September 10, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/monitoring-rabbitmq-with-zenoss/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/monitoring-rabbitmq-with-zenoss/" rel="bookmark" title="Monitoring RabbitMQ with Zenoss" itemprop="url">Monitoring RabbitMQ with Zenoss</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>RabbitMQ was recently deployed in the company I currently work for. At the last minute ( as always ) they came to me and ask me to please add RabbitMQ monitoring to Zenoss. They said here is the url and now please monitor for a few stats ( <a href="http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin">using the RabbitMQ Status Plugi</a>n ). So I said to myself, I could easily just write a quick shell script to get the 3 stats that they needed and add them into Zenoss. After thinking about it.... In the near future they might ask for more than those 3 stats. So I decided to write a quick python script ( Zenoss Compatible ) to get all the stats from that status page and input them into Zenoss...</p>
+<p>Prerequisites</p>
+<ol>
+<li>Zenoss 2.5 and above ( I have not tested on 3.+ or &lt;2 .4 )</li>
+<li>lxml Python module    "<strong>easy_install lxml</strong>" as the zenoss user</li>
+<li>"<strong><a href="View-details/Zenoss/54-Zenoss_Template_Manager.html">Zenoss_Template_Manager.py</a></strong>" Optional, Only needed if you do not want to add all the datapoints manually... I DON'T!!!!</li>
+<li>RabbitMQ Installed</li>
+<li>RabbitMQ Status Plugin from <a href="http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin">http://www.lshift.net/blog/2009/11/30/introducing-rabbitmq-status-plugin</a></li>
+<li>"<strong><a href="View-details/LD-Network-Manager-Project/60-RabiitMQ-monitoring-Zenoss-Style.html">check_rabbitmq.py</a></strong>"</li>
+</ol>
+<p>Zenoss Template Manager = {filelink=3}</p>
+<p>CheckRabbitMQ.py = {filelink=2}</p>
+<p>Once you have all the above, we are ready to go..</p>
+<ol>
+<li>copy both Python Scripts above into the /opt/zenoss/libexec/ folder  ( If you are using RedHat/CentOS ) and make sure they are executable.</li>
+</ol>
+<p>As the Zenoss user run the script ....<br />
+/opt/zenoss/libexec/check_rabbitmq.py -u 'http://rabbitmq-server:55672' -a 'mon-user mon-passwd' |sed -re "s/^OK|/ /g" |sed -re "s/([A-Za-z0-9_.]+*)?=[0-9]+/-p "1,G"/g" |xargs /opt/zenoss/libexec/Zenoss_Template_Manager.py -o "/Devices/Server/Linux/RabbitMQ" -c '/opt/zenoss/libexec/check_rabbitmq.py -u "http://rabbitmq-server:55672" -a "mon-user mon-passwd"' --template=RabbitMQ --dsource=RabbitMQStats -V $1</p>
+<p>If you need to know how to use the Zenoss_Template_Manager.y script, check here <a href="howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html">http://www.linuxdynasty.org/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html</a></p>
+<p>So let me explain what the sed statements above are doing...</p>
+<ul>
+<li>"sed -re "s/^OK|/ /g"" This sed statement is removing the OK| from the beginning of the line</li>
+<li>"sed -re "s/([A-Za-z0-9_.]+*)?=[0-9]+/-p "1,G"/g"<br />
+This 1st part of the sed statement is matching any letter,number,underscore, and period, any number of times until it reaches the equal "="  "<strong>[A-Za-z0-9_.]+*)?=</strong>"<br />
+The  2nd part of this statement is going to match the "=" and any number of integers after it. "<strong>[0-9]+</strong>"<br />
+Now we need to make the substitution.... So we are going to substitute, every match with a -p,  then a space and then the 1st group match in escaped quotes, then a comma and G for GAUGE.</li>
+</ul>
+<p>The 2 sed statements above will do that for every match it finds. If you were to add each datapoint by hand, it would look like this....<br />
+/opt/zenoss/libexec/Zenoss_Template_Manager.py -o "/Devices/Server/Linux//RabbitMQ" -c '/opt/zenoss/libexec/check_rabbitmq.py -u "http://rabbitmq-server:55672" -a "mon-user mon-passwd"' --template=RabbitMQ --dsource=RabbitMQStats -V -p "queue.conversion.event.tracking_msg_unack,G" -p "connections,G" -p "erlang_processes_used,G" -p "erlang_processes_avail,G" -p "file_descriptors_used,G" -p "file_descriptors_avai,G" -p "binary_memory,G" -p "memory_used,G" -p "memory_avail,G"</p>
+<p>I hope the above scripts will save someone time and frustration......</p>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;">connections=26 erlang_processes_used=252 erlang_processes_avail=1048576 file_descriptors_used=1 file_descriptors_avail=1024 pid=3167  binary_memory=0 ets_memory=0  memory_used=27 memory_avail=99</div>
+<div id="_mcePaste" style="position: absolute; left: -10000px; top: 162px; width: 1px; height: 1px; overflow-x: hidden; overflow-y: hidden;">3</div>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2010-08-03T19:42:42-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/">August 03, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-send-splunk-alerts-to-zenoss-and-make-them-look-like-splunk/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -336,127 +390,6 @@ Example below...</p>
 
 ################################################################################Owner = Java Self Axis Scorer Infinite Loop Alerting Rule Java Self Axis Scorer Infinite Loop Matching Query = (prodState = 1000) and (eventClassKey like '%Java Self Axis Scorer Infinite Loop%') and (deviceClass like '/Server/Linux/Tomcat/%') and (eventClass like '/App/Log/Java/%') and (eventState = 0) and (severity &gt;= 3)</pre>
 <p>Many more features to come.....</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2010-03-05T04:12:26-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/">March 05, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~5 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/" rel="bookmark" title="HowTo add Multiple DataPoints to Zenoss using the Zenoss API" itemprop="url">HowTo add Multiple DataPoints to Zenoss using the Zenoss API</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I've seen a few people in the Zenoss community forums asking for an easier way to add multiple Datapoints into Zenoss, instead of adding 1 by 1. Well, I've decided to try and build such a tool today. Now even though the tool is not complete (IN MY EYES). It is already has been helpful to me! As of right now the script can List Templates in a Organizer ( aka /Devices/Server/Linux ) or in a Device ( zenoss1.linuxdynasty ).</p>
-<p>It can also create a Template, with a Command DataSource, with Multiple DataPoints. This means you can now automate the creation of Templates and DataSources and DataPoints. So if you are using a tool like Puppet, Cfengine, Bcfg2, or Chef, this process can be automated. I will be adding more features in the next few weeks.</p>
-<p>Any question or help about this script, please post them here <a href="forums/Scripting/scripting/ZenossTemplateManager">http://www.linuxdynasty.org/forums/Scripting/scripting/ZenossTemplateManager</a><br />
-<span style="text-decoration: underline;"><strong>UPDATES!!!!!!</strong></span></p>
-<ul>
-<li>Update 1.0.6, Fixed an issue where if youdo not pass the -G option for graph it will fail.</li>
-<li>Update 1.0.5, Now have the ability to add multiple graphs with multiple datapoints</li>
-<li>Update 1.0.4, Now have the ability to create thresholds, bind templates to class or device, set severities on thresholds and<br />
-datasources, attach datapoints to thresholds.</li>
-<li>Update 1.0.3, I broke down the templateManager function into 3 smaller functions. You also can now list templates and datasources for either device or organizer, and list datapoints for a device. I also added more verbosity with the -V option.</li>
-<li>Update 1.0.2, You now do not have to pass a command with the script. So i f you already have a command in the DataSource, it wll not get overwritten.. Thank you Eangel, for telling me about this issue..</li>
-</ul>
-<p>Upcoming Features such as....</p>
-<ul>
-<li>Deleteing Templates, DataSources, and DataPoints</li>
-<li>Copying Templates</li>
-<li>Adding Graphs</li>
-</ul>
-<p>The tool is called Zenoss_Template_Manager.py. You can download it here..<br />
-{filelink=3}</p>
-<p><a id="more"></a><a id="more-194"></a></p>
-<p>Here are some examples....</p>
-<pre>Examples: python Zenoss_Template_Manager.py -d "zenoss.linuxdynasty" -c'/opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival="1" --label="ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific"'--template=TESTER4LIFE2 -p "ifSpeed,G" -p "ifInOctets,C" -p "ifInUcastPkts,C" -p "ifInNUcastPkts,C" -p "ifInDiscards,C" -p "ifInErrors,C" -p "ifOutOctets,C" -p "ifOutUcastPkts,C" -p "ifOutNUcastPkts,C" -p "ifOutDiscards,C" -p "ifOutErrors,C" --dsource="WoW2</pre>
-<p>If you already have the command in place for that DataSource, then run the script with out the -c option...</p>
-<p>Examples:</p>
-<pre>python Zenoss_Template_Manager.py -d "zenoss.linuxdynasty" --template=TESTER4LIFE2 \
--p "ifSpeed,G" -p "ifInOctets,C" -p "ifInUcastPkts,C" -p "ifInNUcastPkts,C" -p "ifInDiscards,C" \
--p "ifInErrors,C" -p "ifOutOctets,C" -p "ifOutUcastPkts,C" -p "ifOutNUcastPkts,C" -p "ifOutDiscards,C" \
--p "ifOutErrors,C" --dsource="WoW2"</pre>
-<p>Another Example With The Verbose Option..</p>
-<pre>[zenoss@zenoss2 ~]$ python Zenoss_Template_Manager.py -o "/Devices/Server/Linux" \
--c '/opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival="1"
---label="ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,
-ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific"' \
--t FooYoo -p "ifSpeed,G" -p "ifInOctets,C" -p "ifInUcastPkts,C" -p "ifInNUcastPkts,C" -p "ifInDiscards,C" -p "ifInErrors,C" -p "ifOutOctets,C" -p "ifOutUcastPkts,C" \
--p "ifOutNUcastPkts,C" -p "ifOutDiscards,C" -p "ifOutErrors,C" -s "eth0" -S "Critical" -P "Nagios" -b -V
-
-Template FooYoo already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYooBinded Templates : ['Shaolin', 'Device', 'NtpMonitor', 'TESTER4L1F3', 'TESTER', 'FooYoo', 'FooYoo']DataSource eth0 already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Command /opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival="1" --label="ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific" has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Parser = NagiosSeverity = 5eth0 DataSource is EnabledDataPoint ifSpeed of type GAUGE has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifInErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint ifOutErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0</pre>
-<p>I also added the ability to list templates, datasources, and datapoints...<br />
-Examples Below...</p>
-<pre>python Zenoss_Template_Manager.py -d "qazenoss" --list="datapoints" -t "TESTER4LIFE2"
-ifInDiscards /zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInDiscardsifInErrors
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInErrorsifInNUcastPkts
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInNUcastPktsifInOctets
-/zport/dmd/Devices/Server/Tomcat/qdevices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInOctetsifInUcastPkts
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifInUcastPktsifOutDiscards
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutDiscardsifOutErrors
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutErrorsifOutNUcastPkts
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutNUcastPktsifOutOctets
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutOctetsifOutUcastPkts
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifOutUcastPktsifSpeed
-/zport/dmd/Devices/Server/Tomcat/devices/qazenoss/TESTER4LIFE2/datasources/WoW2/datapoints/ifSpeed</pre>
-<p>&nbsp;</p>
-<pre>python Zenoss_Template_Manager.py -o "/Devices/Server/Tomcat" -l "datasources" -t "Tomcat Thread Pool"
-Tomcat Current Thread Count
-/zport/dmd/Devices/Server/Tomcat/rrdTemplates/Tomcat%20Thread%20Pool/datasources/Tomcat%20Current%20Thread%20CountTomcat
-Current Threads Busy /zport/dmd/Devices/Server/Tomcat/rrdTemplates/Tomcat%20Thread%20Pool/datasources/Tomcat%20Current%20Threads%20Busy
-
-python Zenoss_Template_Manager.py -o "/Devices/Server/Tomcat" -l "templates"
-DigMonitor
-/zport/dmd/Devices/Server/rrdTemplates/DigMonitorFtpMonitor
-/zport/dmd/Devices/rrdTemplates/FtpMonitorJava
-/zport/dmd/Devices/rrdTemplates/Java</pre>
-<p>Example of creating a Threshold..</p>
-<pre>[zenoss@zenoss ~]$ python Zenoss_Template_Manager.py -o "/Devices/Server/Linux" -t FooYoo -T FooYee -p "eth0_ifInOctets" -s "eth0" -S "Warning" -m 0 -M 20 -V
-
-Template FooYoo already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYooDataSource
-eth0 already exists at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0FooYee
-threshold created at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/thresholds/FooYeeminval = 0maxval = 20Severity = 3
-eth0_ifInOctets datapoint added to threshold /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/thresholds/FooYeeFooYee
-Threshold is Enabled</pre>
-<p>Now here is an example of Adding Graphs..</p>
-<p><span class="attention"> Remember, when adding DataPoints to your graphs, you are adding the name of the DataSource_Datapoint. You can see what the names of the DataPoints you have available by using the --list="datapoints" option with the --template=TEMPLATE_NAME option</span></p>
-<pre>python Zenoss_Template_Manager.py -d "zenoss.linuxdynasty" -t "TESTER" -G "eth0 Discards, eth0_ifInDiscards, eth0_ifOutDiscards, units=discards"</pre>
-<p>here is an example of adding graphs with a template and a datasource and multiple datapoints..</p>
-<pre>python Zenoss_Template_Manager.py -o "/Devices/Server/Linux" -c '/opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival="1" \
---label="ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific"' \
--t FooYoo -p "ifSpeed,G" -p "ifInOctets,C" -p "ifInUcastPkts,C" -p "ifInNUcastPkts,C" -p "ifInDiscards,C" -p "ifInErrors,C" -p "ifOutOctets,C" -p "ifOutUcastPkts,C" -p "ifOutNUcastPkts,C" -p "ifOutDiscards,C" -p "ifOutErrors,C"\
- -s "eth0" -S "Critical" -P "Nagios" -b -G "eth0 Discards, eth0_ifInDiscards, eth0_ifOutDiscards, units=discards" -G "eth1 Discards, eth0_ifInDiscards, eth0_ifOutDiscards, units=discards" -V
-
-Template FooYoo created at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYooBinded Templates : ['Shaolin', 'Device', 'NtpMonitor', 'TESTER4L1F3', 'TESTER', 'FooYoo', 'FooYoo']
-DataSource eth0 created at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Parser = NagiosCommand /opt/zenoss/libexec/snmp_branch.py -c public -d localhost -p 161 -o 1.3.6.1.2.1.2.2.1 --ival="1" --label="ifIndex,ifDescr,ifType,ifMtu,ifSpeed,ifPhysAddress,ifAdminStatus,ifOperStatus,ifLastChange,ifInOctets,ifInUcastPkts,ifInNUcastPkts,InDiscards,ifInErrors,ifInUnknownProtos,ifOutOctets,ifOutUcastPkts,ifOutNUcastPkts,ifOutDiscards,ifOutErrors,ifOutQLen,ifSpecific" has been added to DataSource 
-/zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0Severity = 5
-eth0 DataSource is EnabledDataPoint 
-ifSpeed of type GAUGE has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifInOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifInUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifInNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifInDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifInErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifOutOctets of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifOutUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifOutNUcastPkts of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifOutDiscards of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0DataPoint 
-ifOutErrors of type COUNTER has been added to DataSource /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/datasources/eth0
-eth0 Discards graph was created with ['eth0_ifInDiscards', 'eth0_ifOutDiscards'] 
-DataPoints attached at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/graphDefs/eth0%20Discards
-eth1 Discards graph was created with ['eth0_ifInDiscards', 'eth0_ifOutDiscards'] 
-DataPoints attached at /zport/dmd/Devices/Server/Linux/rrdTemplates/FooYoo/graphDefs/eth1%20Discards</pre>
-<p>To see the Help output, just run it like this <strong><span style="text-decoration: underline;">python Zenoss_Template_Manager.py -h</span></strong></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

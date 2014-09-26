@@ -136,6 +136,46 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-03-31T19:51:26-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/">March 31, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/" rel="bookmark" title="VMware ESX SDK SnapShot Perl Script Part 3" itemprop="url">VMware ESX SDK SnapShot Perl Script Part 3</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>This is the 3rd and I think final revision of this script. I added the --list function, which before had to be combined with the --vm_name function. The main reason for creating this script was so that there can be an easy way to manage snapshots, especially automating the deletion, creation, reverting, and listing of snapshots. If you find this script or any of my scripts useful, please let me know. </p>
+<p>&nbsp;</p>
+<pre>perl vm_snapshot.pl --list<br />Platinum<br />  name:         test1<br />  description:  <br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-17T10:26:34.605171-04:00<br /><br />Gold <br />  name:         test2<br />  description:  <br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-17T13:32:05Z<br /><br />Silver<br />  name:         test3<br />  description:  <br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-17T13:32:22Z&nbsp; <br /></pre>
+<p><span class="attention"> <strong>Remember!!! That in order to use this script you will need the Perl VI SDK installed on your linux box as well as $home/.visdkrc setup correctly</strong></span></p>
+<p>Here is an example .visdkrc...</p>
+<pre>VI_SERVER = Virtual Console Server<br />VI_USERNAME = login<br />VI_PASSWORD = passwd<br />VI_PROTOCOL = https <br />VI_PORTNUMBER = 443<br /></pre>
+<p><a id="more"></a><a id="more-189"></a></p>
+<p>
+You can still run this script with the Virtual Machine Name as well...</p>
+<pre>perl vm_snapshot.pl --list --vm_name &quot;Platinum&quot;<br />  name:         test1<br />  description:  test snap<br />  state:        poweredOff<br />  vm type:      VirtualMachine<br />  time created: 2009-03-18T16:21:45.447627-04:00<br />&nbsp;</pre>
+<p>You can also remove snapshots too...</p>
+<pre><pre>perl vm_snapshot.pl --vm_name &quot;Platinum&quot; --delete --sn_name &quot;test1&quot;<br />Snapshot 'test1' removed for VM Development Server of Platinum </pre>
+<p>You can also revert and do a powerOn as well.</p>
+<pre>perl vm_snapshot.pl --vm_name &quot;Platinum&quot; --revert --sn_name &quot;new_snap&quot; --vm_on<br /><br />Operation :: Revert To Snapshot new_snap For Virtual Machine Platinum completed <br /><br /> Virtual machine 'Platinum' has been started <br /></pre>
+<p>Also you can create snapshots as well...</p>
+<pre>perl vm_snapshot.pl --vm_name &quot;Platinum&quot; --create --descr &quot;nice&quot; --sn_name &quot;new_snap&quot;<br />Snapshot 'new_snap' completed for VM The Platinum</pre>
+<p></p>
+<p><a href="http://www.linuxdynasty.org/View-details/VMware-Perl/35-VMware-ESX-SDK-SnapShot-Perl-Script-Part-3.html" title="">You can download the script here</a></p>
+</pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-03-31T01:28:28-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/cim/howto-list-virtual-machines-using-python-and-cim-part-2/">March 31, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/cim/howto-list-virtual-machines-using-python-and-cim-part-2/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -278,38 +318,6 @@ ScreenShot below of the script...
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-03-22T17:55:46-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/apache-logs-multiple-pipeline/">March 22, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/apache-logs-multiple-pipeline/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/apache-logs-multiple-pipeline/" rel="bookmark" title="Apache Logs: Multiple Pipeline" itemprop="url">Apache Logs: Multiple Pipeline</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Apache, among many other httpds, can be configured to log to an executable's <em>STDIN </em>instead of a file. But older Apaches, again like other httpds, won't let you pipe <em>that</em> programme's output to another's input, so you're limited to whatever the one was made to do.* </p>
-<p>httpd error logs often contain error conditions one wants to be alerted about, but for most people that means either monitoring it with some variant of tailf running on the host, or <code>ssh</code>ing to the host to run <code>tail</code> (or <code>tail -f</code>) on the log, piped to <code>egrep</code>, etcetera. This kind of set-up can work fine for one or two web servers, but gets cumbersome when you have more than just a few, and can become impracticable when dealing with many or when the error logs are being written to frequently.</p>
-<p>Well, I sometimes have to deal with six hundred or more. Screw <code>ssh 'tailf | egrep' ...</code></p>
-<p><a id="more"></a><a id="more-78"></a></p>
-<p><a href="http://www.linuxdynasty.org/View-details/Python-Scripts/30-tailcast-=-tailf-+-datagrams.html">This Python script/module (tailcast.py)</a> will monitor a file or <em>STDIN</em> (a la <code>tailf</code>) and send UDP datagrams to a specified address. The datagrams can be restricted to only those input lines that match a regular expression, and every line of input still becomes a line of output. The result?</p>
-<blockquote>
-<pre>ErrorLog &quot;| /usr/bin/python /usr/local/bin/tailcast.py -a 224.168.2.9 -p 5664 -r interestingerror|otherbadness | cronolog ...&quot;</pre>
-</blockquote>
-<p>Now all that my co-workers and I need to do is listen in on the multicast group and we'll have access to every <code>interestingerror</code> or <code>otherbadness</code> that might be going into Apache's error log, without each of us opening six hundred SSh connections, running six hundred <code>tailf</code>s, six hundred <code>egrep</code>s, on six hundred servers that are already being pounded.</p>
-<p>It should be noted though that this script suffers from the very same limitation Apache imposes: you get only one pipe. I'll fix that, and the <code>subprocess</code> module will make it easy, but even then you shouldn't be putting too many progs in the pipeline. Think Performance.</p>
-<p>[1] Note that later Apache httpds will run the pipe target through <code>/bin/sh -c</code> if the string specifying the target contains any shell metacharacters, like '<code>|</code>'. That may seem like a great thing, but it can actually complicate things when you want your metacharacters to be treated as arguments to the command (i.e. the old behaviour). Although the '<code>|</code>' treatment makes no effective difference to the piping specification to <code>tailcast</code> (other than that <code>tailcast</code> needn't arrange for pipelining), yet it can still have unfortunate effects on the regular expression you're matching, especially if it contains any '<code>|</code>' (or) regex metacharacters...</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

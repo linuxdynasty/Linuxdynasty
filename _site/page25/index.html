@@ -136,6 +136,70 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-11T22:46:00-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-1/">May 11, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-1/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-1/" rel="bookmark" title="Screen HowTo Part 1" itemprop="url">Screen HowTo Part 1</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I've been using screen for the past 3 years and for the first time I've decided to seek out more functionality out of it.&nbsp; So last week I spent about 2 hours looking up some of the different functionality that I can use in the day to day. Let me tell you I found a bunch of goodies that I use now religiously (For a week now ;) ).</p>
+<p>So for those of you who do not know what a screen session is... (STRAIGHT FROM THE MAN PAGES) Screen is a full-screen window manager that multiplexes a physical terminal between several processes (typically interactive shells).&nbsp; Essentially you can have 30 terminal sessions inside one terminal and much more.....</p>
+<p>&nbsp;</p>
+<p><a id="more"></a><a id="more-15"></a></p>
+<p>&nbsp;</p>
+<p>To run Screen all you need to do is type &quot;<strong><font color="#0000ff">screen</font></strong>&quot; in your terminal. You more then likely do not have it installed by default. So for those of you who have the distributions below...&nbsp; </p>
+<ol>
+<li>Fedora/CentOS/RHE/ or any RedHat based system, you will need to run &quot;<strong><font color="#0000ff">yum install screen</font></strong>&quot;</li>
+<li>Ubuntu/Debian based systems, you will need to run <font color="#0000ff"><strong>&quot;apt-get install screen</strong></font>&quot;</li>
+<li>Gentoo based systems, you will need to run &quot;<font color="#0000ff"><strong>emerge screen</strong></font>&quot;</li>
+</ol>
+<p>&nbsp;</p>
+<p>To start a new screen session all you have to do is type <strong><font color="#0000ff">&quot;screen&quot;</font></strong><br />
+Now that you are in a screen session, the fun begins now...</p>
+<p><a href="images/stories/screenshots/Screenshot-screen.png" height="49" width="96" title="Screen Screen shot" rel="shadowbox"><img alt="" title="" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/Screenshot-screen.png" align="left" height="42" width="81" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1- To start a new sub session (Virtual Session) type <br />
+&nbsp;&nbsp; <strong><font color="#0000ff"><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> c<font color="#000000">)</font></font></strong><br />
+&nbsp;&nbsp; <span class="attention">Please ignore the plus (+)symbol, this essentially means &quot;ctrl a then c&quot;</span></p>
+<p>2- To switch between sessions... <br />
+&nbsp;&nbsp;<font color="#0000ff"><strong> <font color="#000000">((</font>ctrl+a<font color="#000000">)</font> &lt;space bar&gt;<font color="#000000">)</font></strong></font></p>
+<p>3- To switch between your previous session and the current one..<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> a<font color="#000000">)</font></strong></font></p>
+<p>4- To kill a frozen session...<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> k<font color="#000000">) </font></strong></font></p>
+<p>5- To see a list of available commands...<br />
+&nbsp;&nbsp;&nbsp;<font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> ?<font color="#000000">)</font><br />
+</strong></font></p>
+<p>6- To see a list of virtual terminals you have open..<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl</strong></font><font color="#0000ff"><strong>+a<font color="#000000">)</font> &quot;<font color="#000000">)</font></strong></font></p>
+<p>7- To Detach from a screen session and not lose any of your virtual terminals...<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> d<font color="#000000">)</font></strong></font> <span class="approved">( This is one of the best features of screen!! )</span></p>
+<p>8- To view&nbsp; current screen sessions once you are logged out of screen..<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong>&quot;screen -list&quot;</strong></font></p>
+<p>9- To reattach to an Attached session (Session that was not detached properly)<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong>&quot;screen -D -r &lt;11546.pts-5.hostname&gt;&quot;</strong></font> (session name from the output of the screen -list command)</p>
+<p>10- To reattach to a detached session..<br />
+&nbsp;&nbsp; <font color="#0000ff"><strong>&quot;screen -r &lt;11546.pts-5.hostname&gt;&quot; </strong></font>(session name from the output of the screen -list command)</p>
+<p>10- To end that session you can either type <br />
+&nbsp; <font color="#0000ff"><strong>&quot;exit&quot; </strong><font color="#000000">or a</font><strong> <font color="#000000">(</font>ctrl+d<font color="#000000">)</font></strong></font></p>
+<p><span class="notice">The above commands are the most <strong>BASIC/COMMON</strong> for screen and its everyday use.</span></p>
+<p>Now time for a little more advance functionality.. Off to <a href="screen-howto-part-2.html" title="Screen Part 2">Part 2</a> of this HowTo</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-05-05T12:58:20-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/opinion-on-new-format-of-creating-scripts/">May 05, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/opinion-on-new-format-of-creating-scripts/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -968,33 +1032,6 @@ sub virt {<br />
 <p><span style="font-family: courier new"> return <a href="https://github.com/contents" class="user-mention">@contents</a>;<br />
 }<br />
 </span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-28T16:09:22-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/generate-mac-addresses-for-xen/">April 28, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/generate-mac-addresses-for-xen/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/generate-mac-addresses-for-xen/" rel="bookmark" title="Generate MAC addresses for XEN using shell" itemprop="url">Generate MAC addresses for XEN using shell</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span style="font-family: courier new;">#!/bin/bash<br /># Generate unique valid XEN MAC addresses in shell, 'cause it's faster ;)<br /># Xen MAC's begin with 00:16:3e</span></p>
-<p><span style="font-family: courier new;">declare -i num="${1:-0}"<br />until [[ $num -gt 0 ]]; do<br /> read -p "How many MAC's do you want to generate? " num<br />done</span></p>
-<p><span style="font-family: courier new;">declare -a macs=( )</span></p>
-<p><span style="font-family: courier new;">while [[ $num -gt 0 ]]; do<br /> mac=$(printf '%02x:%02x:%02x' $((RANDOM % 256)) $((RANDOM % 256)) $((RANDOM % 256)))</span></p>
-<p><span style="font-family: courier new;"> for i in "${macs[@]}"; do<br /> [[ $mac = $i ]] &amp;&amp; continue 2<br /> done</span></p>
-<p><span style="font-family: courier new;"> macs[${#macs[*]}]=$mac<br /> echo 00:16:3e:$mac<br /> num=$((num-1))<br />done</span></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

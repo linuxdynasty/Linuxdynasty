@@ -136,6 +136,36 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-24T10:55:08-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-rsync-to-move-files-around/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-rsync-to-move-files-around/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-rsync-to-move-files-around/" rel="bookmark" title="Using rsync to move files around" itemprop="url">Using rsync to move files around</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>You can use <strong>rsync</strong> to transfer files from either one directory to another or from one server to another. When copying over large directory structures, <strong>rsync</strong> is usually better than using <strong>cp -av</strong>. The <strong>cp</strong> command copies files and directories blindly, while <strong>rsync</strong> compares the two directories and only copies the differences. This saves time, hard drive load, system load, and if copying across a network, bandwidth. It is very useful when backing up a hard drive or an entire server. The command to use is:</p>
+<p># <strong>rsync -avH --delete --exclude=/junk --exclude=/otherjunk /home /backup/ </strong></p>
+<p><strong><font color="#0000ff">rsync</font> -avH --delete --exclude=&lt;<font color="#ff0000">file/directory to exclude</font>&gt; &lt;<font color="#ff0000">source files/directories</font>&gt; &lt;<font color="#ff0000">destination directory</font>&gt;</strong></p>
+<p>The &quot;<strong>a</strong>&quot; flag will preserve important settings such as permissions, ownership, symbolic links, etc., as well as recursively copy the entire directory tree. The &quot;<strong>v</strong>&quot; flag is optional, and will list each file as it is copied and will give a summary of how much data was transferred. The &quot;<strong>H</strong>&quot; flag preserves hard links (a standard linux installation is often full of these). If you are absolutely sure that you don't have any hard links in the data you are copying, then you can omit it, but adding it won't hurt. The &quot;<strong>--delete</strong>&quot; flag means &quot;delete anything in the destination directory that doesn't exist in the source directory&quot;. This is useful if you are backing up a hard drive and you want to make sure that files that you removed from the main drive are removed from the backup drive as well. The &quot;<strong>--exclude</strong>&quot; flag allows you to skip over certain directories that you don't want copied over to the destination directory. You can have multiple &quot;<strong>exclude</strong>&quot; flags.</p>
+<p>If you want to copy your data to another server, then you can use &quot;<strong>rsync://&lt;<font color="#ff0000">hostname</font>&gt;/&lt;<font color="#ff0000">path</font>&gt;</strong>&quot; as either the source or destination. The &quot;hostname&quot; is the IP or full hostname of the remote server, and &quot;path&quot; is the exported path that is set up in the rsync configuration on the remote server. </p>
+<p><strong># rsync -avH --delete --exclude=/junk --exclude=/otherjunk /home rsync://backup.server/backup_path</strong></p>
+<p><strong><font color="#0000ff">rsync</font> -avH --delete --exclude=&lt;</strong><strong><font color="#ff0000">file/directory to exclude</font></strong><strong><font color="#ff0000"></font>&gt; &lt;</strong><strong><font color="#ff0000">source files/directories</font></strong><strong><font color="#ff0000"></font>&gt; &lt;</strong><strong>rsync://<font color="#ff0000">hostname</font>/<font color="#ff0000">path</font>&gt;</strong></p>
+<p><strong><font color="#0000ff">rsync</font> -avH --delete --exclude=&lt;</strong><strong><font color="#ff0000">file/directory to exclude</font></strong><strong>&gt; </strong><strong>&lt;</strong><strong>rsync://<font color="#ff0000">hostname</font>/<font color="#ff0000">path</font>&gt; </strong><strong>&lt;<font color="#ff0000">destination directory</font>&gt;</strong></p>
+<p><strong>&nbsp;</strong></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-05-24T10:21:35-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-netstat-to-find-active-network-connections/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-netstat-to-find-active-network-connections/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -589,56 +619,6 @@ Chunka11.jpg </p>
 <p>&nbsp;&nbsp;</p>
 <p></p>
 </p></td></tr></tbody></table>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-17T15:39:11-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-2/">May 17, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-2/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-2/" rel="bookmark" title="Screen HowTo Part 2" itemprop="url">Screen HowTo Part 2</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>In the the first part of this HowTo,&nbsp; I gave you the bare minimum to get Screen working<br />
-and how to use it on a day to day basis.... This time around I will show you some <br />
-of the advanced features of screen that may make your life easier in the terminal..</p>
-<p>Before continuing this HowTo please read <a href="screen-howto-part-1.html" title="Screen Part 2">Part 1</a> if you do not have previous experience with screen.<br />
-So lets start this HowTo with some more Screen Commands...</p>
-<p>&nbsp;</p>
-<p><a id="more"></a><a id="more-16"></a></p>
-<p>&nbsp;<font color="#0000ff"><font color="#000000"><a href="images/stories/screenshots/Screenshot2.png" height="49" width="96" title="Screen Screen shot" rel="shadowbox"><img alt="" title="" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/Screenshot2.png" align="left" height="42" width="81" /></a></font></font></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>1- To start a split screen session in you current screen session...<br />
-&nbsp;&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> S<font color="#000000">)&nbsp;</font></strong><font color="#000000"> </font></font></p>
-<p><font color="#0000ff"><font color="#000000">2- To switch between split screens...<br />
-</font></font>&nbsp;&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> &lt;tab button&gt;<font color="#000000">)</font></strong></font>...</p>
-<p>3- To copy output from one split screen to the next...<br />
-&nbsp;&nbsp;&nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a<font color="#000000">)</font> [<font color="#000000">)</font></strong></font> now using the up and down arrow find the output you want to copy and from where you want to start copying hit the <font color="#0000ff"><strong>&lt;space bar&gt;</strong></font> and keep using the arrows to where you want to stop copying and hit the <font color="#0000ff"><strong>&lt;space bar&gt;</strong></font> again.</p>
-<p>4- To paste the output from the previous command...<br />
-&nbsp; &nbsp; <font color="#0000ff"><strong><font color="#000000">((</font>ctrl+a) ]<font color="#000000">)</font></strong></font><font color="#000000">&nbsp;</font> <span class="notice"><br />
-Now if you want to paste it in the split terminal you would have to do step 2 then step 4.</span> </p>
-<p><span class="note"><strong><br />
-I use the above commands especially to copy output from one terminal to next without a mouse</strong>.</span></p>
-<p>5- Now lets say you want to lock our screen session from private eyes...<br />
-&nbsp;&nbsp; <strong>((<font color="#0000ff">ctrl+a</font>) <font color="#0000ff">x</font>)&nbsp;&nbsp; </strong></p>
-<p></p>
-<p><span class="attention"><br />
-To unlock your session just use your password for you account.</span></p>
-<p>The following below will make your screen session show all of your sessions in a nice bar below your terminal, show you the current date and time, as well as tell you the host you are in. Check the screenshot above to see what it would look like.</p>
-<p>Add the following below to <font color="#0000ff"><strong>.screenrc</strong></font> in your home directory..... Example <font color="#0000ff"><strong>/home/dynasty/.screenrc</strong></font></p>
-<pre>hardstatus alwayslastline<br />hardstatus string '%{b}[ %{B}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}<br />(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'<br />startup_message off<br />defscrollback 200000<br />shelltitle dynasty<br />caption always</pre>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
