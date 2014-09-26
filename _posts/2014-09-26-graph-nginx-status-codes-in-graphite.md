@@ -47,8 +47,8 @@ I printed the json on multiple lines, but in the log, the json is all in 1 line.
 
 The only dependency of this script is logtail which you can install easily on any *nix system.
 
-* apt-get install logtail
-* yum install logtail
+* (Debian/Ubuntu) apt-get install logtail
+* (CentOS/RedHat) yum install logtail
 
 If you do not have logtail installed you will get the following error
 {% highlight bash %}
