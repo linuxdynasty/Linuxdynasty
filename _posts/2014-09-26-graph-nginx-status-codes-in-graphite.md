@@ -2,7 +2,7 @@
 layout: post
 title: "Graph nginx status codes in Graphite."
 tags:
- -[sensu, graphite, metrics, nginx]
+ sensu, graphite, metrics, nginx
 ---
 
 I'm currently at the tail end of collecting metrics for the current company I work for.
