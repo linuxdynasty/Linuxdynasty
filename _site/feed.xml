@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://linuxdynasty.github.io/Linuxdynasty/feed.xml" />
 <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty" />
-<updated>2014-09-26T09:47:44-04:00</updated>
+<updated>2014-09-26T12:19:41-04:00</updated>
 <id>http://linuxdynasty.github.io/Linuxdynasty/</id>
 <author>
   <name>Allen Sanabria</name>
@@ -25,15 +25,24 @@
     <email>asanabria <@> linuxdynasty dot org</email>
   </author>
   <content type="html">&lt;p&gt;I’m currently at the tail end of collecting metrics for the current company I work for.
-We are using a combination of..
-* &lt;a href=&quot;http://sensuapp.org/&quot;&gt;Sensu&lt;/a&gt; (shipper)]
-* &lt;a href=&quot;http://graphite.wikidot.com/&quot;&gt;Graphite&lt;/a&gt;/&lt;a href=&quot;https://github.com/etsy/statsd/&quot;&gt;StatsD&lt;/a&gt; (metrics handler)
-* &lt;a href=&quot;http://grafana.org/&quot;&gt;Grafana&lt;/a&gt; (Beautiful Dashboards).&lt;/p&gt;
+We are using a combination of.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sensuapp.org/&quot;&gt;Sensu&lt;/a&gt; (shipper)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://graphite.wikidot.com/&quot;&gt;Graphite&lt;/a&gt;/&lt;a href=&quot;https://github.com/etsy/statsd/&quot;&gt;StatsD&lt;/a&gt; (metrics handler)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://grafana.org/&quot;&gt;Grafana&lt;/a&gt; (Beautiful Dashboards).&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;I built a python script, that leverages the awesome tool &lt;a href=&quot;http://linux.die.net/man/8/logtail&quot;&gt;logtail&lt;/a&gt;
 in order to collect http status codes, without consuming too much cpu/ram.&lt;/p&gt;
 
 &lt;p&gt;I have tested this script against nginx logs and against 2 different formats (txt and json).&lt;/p&gt;
+
+&lt;h3 id=&quot;download-script&quot;&gt;Download Script&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/nginx-status-code-metrics.py&quot;&gt;Nginx Status Code Metrics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;basic-logging&quot;&gt;Basic Logging&lt;/h3&gt;
 &lt;div&gt;&lt;div class=&quot;CodeRay&quot;&gt;
@@ -46,8 +55,8 @@ in order to collect http status codes, without consuming too much cpu/ram.&lt;/p
 &lt;p&gt;I printed the json on multiple lines, but in the log, the json is all in 1 line.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;&amp;lt;a href=&amp;#39;https://github.com/timestamp&amp;#39; class=&amp;#39;user-mention&amp;#39;&amp;gt;@timestamp&amp;lt;/a&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2014-09-26T08:45:35-04:00&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;quot;&amp;lt;a href=&amp;#39;https://github.com/fields&amp;#39; class=&amp;#39;user-mention&amp;#39;&amp;gt;@fields&amp;lt;/a&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;timestamp&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2014-09-26T08:45:35-04:00&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;quot;fields&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;quot;remote_addr&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;quot;remote_user&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;-&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;quot;body_bytes_sent&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;4823&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -60,9 +69,12 @@ in order to collect http status codes, without consuming too much cpu/ram.&lt;/p
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;The only dependency of this script is logtail which you can install easily on any *nix system.
-* apt-get install logtail
-* yum install logtail&lt;/p&gt;
+&lt;p&gt;The only dependency of this script is logtail which you can install easily on any *nix system.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;apt-get install logtail&lt;/li&gt;
+  &lt;li&gt;yum install logtail&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;If you do not have logtail installed you will get the following error&lt;/p&gt;
 
@@ -82,6 +94,15 @@ Options:
   -s SCHEME, --scheme&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;SCHEME
                         the metric naming scheme&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
+&lt;p&gt;This is how you would run the script&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;9:45&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;~/Linuxdynasty/scripts/sensu/metrics:master ✓ ➭ python nginx-status-code-metrics.py -d /var/log/nginx -f access.json -t json
+webserver01.codes.200 &lt;span class=&quot;m&quot;&gt;1080&lt;/span&gt; 1411736116.44
+webserver01.codes.304 &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; 1411736116.44
+webserver01.codes.404 &lt;span class=&quot;m&quot;&gt;19&lt;/span&gt; 1411736116.44&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The end result will look like this.
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/status_codes.png&quot; alt=&quot;Grafana Screenshot&quot; /&gt;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/&quot;&gt;Graph nginx status codes in Graphite.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on September 26, 2014.&lt;/p&gt;</content>
 </entry>

@@ -6,8 +6,9 @@ tags:
 ---
 
 I'm currently at the tail end of collecting metrics for the current company I work for.
-We are using a combination of..
-* [Sensu](http://sensuapp.org/) (shipper)]
+We are using a combination of.
+
+* [Sensu](http://sensuapp.org/) (shipper)
 * [Graphite](http://graphite.wikidot.com/)/[StatsD](https://github.com/etsy/statsd/) (metrics handler)
 * [Grafana](http://grafana.org/) (Beautiful Dashboards).
 
@@ -15,6 +16,10 @@ I built a python script, that leverages the awesome tool [logtail](http://linux.
 in order to collect http status codes, without consuming too much cpu/ram.
 
 I have tested this script against nginx logs and against 2 different formats (txt and json).
+
+###Download Script
+
+* [Nginx Status Code Metrics](https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/nginx-status-code-metrics.py)
 
 ###Basic Logging
 ~~~ txt
@@ -25,8 +30,8 @@ I have tested this script against nginx logs and against 2 different formats (tx
 I printed the json on multiple lines, but in the log, the json is all in 1 line.
 {% highlight json %}
 {
-    "@timestamp": "2014-09-26T08:45:35-04:00",
-    "@fields": {
+    "timestamp": "2014-09-26T08:45:35-04:00",
+    "fields": {
         "remote_addr": "127.0.0.1",
         "remote_user": "-",
         "body_bytes_sent": "4823",
@@ -41,6 +46,7 @@ I printed the json on multiple lines, but in the log, the json is all in 1 line.
 {% endhighlight %}
 
 The only dependency of this script is logtail which you can install easily on any *nix system.
+
 * apt-get install logtail
 * yum install logtail
 
@@ -63,3 +69,14 @@ Options:
   -s SCHEME, --scheme=SCHEME
                         the metric naming scheme
 {% endhighlight %}
+
+This is how you would run the script
+{% highlight bash %}
+{9:45}~/Linuxdynasty/scripts/sensu/metrics:master ✓ ➭ python nginx-status-code-metrics.py -d /var/log/nginx -f access.json -t json
+webserver01.codes.200 1080 1411736116.44
+webserver01.codes.304 2 1411736116.44
+webserver01.codes.404 19 1411736116.44
+{% endhighlight %}
+
+The end result will look like this.
+![Grafana Screenshot]({{ site.url }}/assets/status_codes.png)

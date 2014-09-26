@@ -151,15 +151,24 @@
   </header>
   <div class="entry-content">
     <p>I’m currently at the tail end of collecting metrics for the current company I work for.
-We are using a combination of..
-* <a href="http://sensuapp.org/">Sensu</a> (shipper)]
-* <a href="http://graphite.wikidot.com/">Graphite</a>/<a href="https://github.com/etsy/statsd/">StatsD</a> (metrics handler)
-* <a href="http://grafana.org/">Grafana</a> (Beautiful Dashboards).</p>
+We are using a combination of.</p>
+
+<ul>
+  <li><a href="http://sensuapp.org/">Sensu</a> (shipper)</li>
+  <li><a href="http://graphite.wikidot.com/">Graphite</a>/<a href="https://github.com/etsy/statsd/">StatsD</a> (metrics handler)</li>
+  <li><a href="http://grafana.org/">Grafana</a> (Beautiful Dashboards).</li>
+</ul>
 
 <p>I built a python script, that leverages the awesome tool <a href="http://linux.die.net/man/8/logtail">logtail</a>
 in order to collect http status codes, without consuming too much cpu/ram.</p>
 
 <p>I have tested this script against nginx logs and against 2 different formats (txt and json).</p>
+
+<h3 id="download-script">Download Script</h3>
+
+<ul>
+  <li><a href="https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/nginx-status-code-metrics.py">Nginx Status Code Metrics</a></li>
+</ul>
 
 <h3 id="basic-logging">Basic Logging</h3>
 <div><div class="CodeRay">
@@ -172,8 +181,8 @@ in order to collect http status codes, without consuming too much cpu/ram.</p>
 <p>I printed the json on multiple lines, but in the log, the json is all in 1 line.</p>
 
 <div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
-    <span class="nt">&quot;&lt;a href=&#39;https://github.com/timestamp&#39; class=&#39;user-mention&#39;&gt;@timestamp&lt;/a&gt;&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-26T08:45:35-04:00&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;&lt;a href=&#39;https://github.com/fields&#39; class=&#39;user-mention&#39;&gt;@fields&lt;/a&gt;&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2014-09-26T08:45:35-04:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fields&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
         <span class="nt">&quot;remote_user&quot;</span><span class="p">:</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span>
         <span class="nt">&quot;body_bytes_sent&quot;</span><span class="p">:</span> <span class="s2">&quot;4823&quot;</span><span class="p">,</span>
@@ -186,9 +195,12 @@ in order to collect http status codes, without consuming too much cpu/ram.</p>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
-<p>The only dependency of this script is logtail which you can install easily on any *nix system.
-* apt-get install logtail
-* yum install logtail</p>
+<p>The only dependency of this script is logtail which you can install easily on any *nix system.</p>
+
+<ul>
+  <li>apt-get install logtail</li>
+  <li>yum install logtail</li>
+</ul>
 
 <p>If you do not have logtail installed you will get the following error</p>
 
@@ -208,6 +220,15 @@ Options:
   -s SCHEME, --scheme<span class="o">=</span>SCHEME
                         the metric naming scheme</code></pre></div>
 
+<p>This is how you would run the script</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{</span>9:45<span class="o">}</span>~/Linuxdynasty/scripts/sensu/metrics:master ✓ ➭ python nginx-status-code-metrics.py -d /var/log/nginx -f access.json -t json
+webserver01.codes.200 <span class="m">1080</span> 1411736116.44
+webserver01.codes.304 <span class="m">2</span> 1411736116.44
+webserver01.codes.404 <span class="m">19</span> 1411736116.44</code></pre></div>
+
+<p>The end result will look like this.
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/status_codes.png" alt="Grafana Screenshot" /></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
