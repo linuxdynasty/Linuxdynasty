@@ -26,7 +26,7 @@ def parse_log(tmpfile, file_type):
     Example:
         txt:
             "GET /test/foo HTTP/1.0" 200 76288 "-" "Ruby"
-        json:
+        json: #This is in 1 line, I broke it into multiple lines, so it is easier to read.
             {
                 "@timestamp": "2014-09-26T08:45:35-04:00",
                 "@fields": {
@@ -63,10 +63,16 @@ def print_stats(stats, scheme, now):
     """Print out the stats in the graphite format, in which sensu can consume.
     Args:
         stats (dict): Dictionary of the http status codes and its count.
-            example {200: 20, 500: 10}
+            example = {200: 20, 500: 10}
         scheme (str): The base scheme to be used when sending the data to graphite..
-            default hostname.nginx
+            default = hostname.codes
         now (int|float): the unix timestamp of right now.
+
+    Output:
+        webserver01.codes.200 1080 1411736116.44
+        webserver01.codes.304 2 1411736116.44
+        webserver01.codes.404 19 1411736116.44
+
     """
     if isinstance(stats, dict) and len(stats) > 0:
         for key, val in stats.items():
