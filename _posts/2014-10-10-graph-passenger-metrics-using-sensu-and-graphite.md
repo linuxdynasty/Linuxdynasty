@@ -131,8 +131,6 @@ rails-01.passenger._var_www_html_test_api_current.process_4.cpu_percent    32  1
 Now you can create dashboards, with enough information, that the developers
 will no longer need to ask you what is happening with passenger.
 
-![Grafana Nginx and Passenger dashboard Part 1]({{ site.url }}/assets/nginx_passenger.png)
-
 <figure class>
     <a href="assets/passenger_workers.png"><img src="assets/passenger_workers.png" alt=""></a>
     <figcaption>Passenger Workers.</figcaption>
@@ -155,5 +153,5 @@ will no longer need to ask you what is happening with passenger.
 
 <figure class>
     <a href="assets/nginx_passenger.png"><img src="assets/nginx_passenger.png" alt=""></a>
-    <figcaption>Ningx and Passenger Stats.</figcaption>
+    <figcaption>Nginx and Passenger Stats.</figcaption>
 </figure>
