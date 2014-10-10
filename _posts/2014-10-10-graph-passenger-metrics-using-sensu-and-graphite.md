@@ -28,6 +28,18 @@ Options:
     -v, --verbose                    Show verbose information.
 {% endhighlight %}
 
+
+###Download Script
+
+* [Passenger Metrics](https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/passenger_metrics.rb)
+
+###Dependencies
+* [Sensu](http://sensuapp.org/) (shipper)
+* [Graphite](http://graphite.wikidot.com/)
+* [NokoGiri](http://www.nokogiri.org/)
+
+###Testing passenger-status --show xml
+
 If you installed libxml2-utils, the xml will look very nice..
 Lets take a quick glance, on what the show xml command will display....
 
@@ -78,6 +90,8 @@ passenger-status --show xml
                   <vmsize>642504</vmsize>
 {% endhighlight %}
 
+###Running the script
+
 As you can see, you can get a wealth of data. Data that will allow you and your
 team to easily track down what is happening in you rails/sinatra cluster.
 
@@ -111,6 +125,8 @@ rails-01.passenger._var_www_html_test_api_current.process_4.uptime 353 141295877
 rails-01.passenger._var_www_html_test_api_current.process_4.memory 521676  1412958773
 rails-01.passenger._var_www_html_test_api_current.process_4.cpu_percent    32  1412958773
 {% endhighlight %}
+
+###Screenshots
 
 Now you can create dashboards, with enough information, that the developers
 will no longer need to ask you what is happening with passenger.
