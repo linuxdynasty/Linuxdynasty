@@ -75,10 +75,10 @@ redis-db01.resque.working 2   1412961997
 
 Now you can create dashboards, with enough information, that the developers
 will no longer need to ask you what is happening with resque.
-<figure>
-    <a href={{ site.url }}/assets/failed_resque_jobs.png><img src={{ site.url }}/assets/failed_resque_jobs.png alt=""></a>
-    <figcaption><a href={{ site.url }}/assets/failed_resque_jobs.png title="Grafana Failed Resque Jobs">Grafana Failed Resque Jobs</a>.</figcaption>
+
+<figure class="half">
+    <img src="assets/failed_resque_jobs.png" alt="">
+    <img src="assets/resque_jobs1.png" alt="">
+    <figcaption>Grafana Failed Resque Jobs.</figcaption>
 </figure>
-![Grafana Failed Resque Jobs]({{ site.url }}/assets/failed_resque_jobs.png)
-![Grafana Resque Jobs]({{ site.url }}/assets/resque_jobs_1.png)
-![Grafana Resque Workers Used]({{ site.url }}/assets/resque_workers.png)
+
