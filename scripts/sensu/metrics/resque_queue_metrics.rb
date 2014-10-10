@@ -48,7 +48,6 @@ class ResqueMetrics < Sensu::Plugin::Metric::CLI::Graphite
     data = []
     workers.each do |worker|
       hdata = worker.id.split(":")
-      puts hdata
       hosts.push(hdata[0])
       unless host_data.has_key?(hdata[0])
         host_data[hdata[0]] = {:pids => [{:pid => worker.pid, :queues => worker.queues, :processed => worker.processed}]}
