@@ -7,7 +7,7 @@ tags:
 We are using Resque for our background jobs and we use the Resque Web interface
 to keep track of what is happening. But the only issue, is that we had no
 real insight to how many jobs we were running on average during certain times
-of the day. We didn't know how many jobs we were processing per minute. Now how 
+of the day. We didn't know how many jobs we were processing per minute. Nor how 
 many workers we had per host all day everyday, which varies depending on the time
 of the day.
 
