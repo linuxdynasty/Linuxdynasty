@@ -77,9 +77,9 @@ Now you can create dashboards, with enough information, that the developers
 will no longer need to ask you what is happening with resque.
 
 <figure class="third">
-    <img src="assets/failed_resque_jobs.png" alt="">
-    <img src="assets/resque_jobs_1.png" alt="">
-    <img src="assets/resque_workers.png" alt="">
+    <a href="assets/failed_resque_jobs.png"><img src="assets/failed_resque_jobs.png" alt=""></a>
+    <a href="assets/resque_jobs_1.png"><img src="assets/resque_jobs_1.png" alt=""></a>
+    <a href="assets/resque_workers.png"><img src="assets/resque_workers.png" alt=""></a>
     <figcaption>Grafana Resque.</figcaption>
 </figure>
 
