@@ -136,6 +136,66 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-24T22:13:05-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensource-projects-to-come/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensource-projects-to-come/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensource-projects-to-come/" rel="bookmark" title="OpenSource Projects to come...." itemprop="url">OpenSource Projects to come....</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>For the people who have been checking out LinuxDynasty.... We have begun our own OpenSource project (More like a few, but lets start one at a time)!!! We will be posting updates in the days to come. One of the projects we are about to start is a front end for Kickstart and more.. We do not have the specifics yet but we are in the midst of discussion. We are going to build the gui using <a href="http://turbogears.org/" title="">turbogears</a> and <a href="http://python.org/" title="">python</a>. If you are interested in helping and being a part of a OpenSource project then please join the site and private message me. </p>
+<p>We will apply this project to sourceforge once we have a beta.. In the meantime I will start a Trac instance and only members who are part of this project will have access to this area.</p>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-24T11:55:51-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/creating-a-virtual-loopback-device/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/creating-a-virtual-loopback-device/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/creating-a-virtual-loopback-device/" rel="bookmark" title="Creating a virtual loopback device" itemprop="url">Creating a virtual loopback device</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Sometimes you will need to create a virtual loopback device for whatever reason. One possible need would be for a temporary filesystem to do some quick testing, or maybe to set up a larger /tmp partition on a server where /tmp is too small. To initially create the loopback device, run:</p>
+<p>&nbsp;# <font color="#0000ff"><strong>dd</strong></font> <strong>if=/dev/zero of=/usr/local/tmpfs bs=50M count=10<br />
+dd if=&lt;<font color="#ff0000">file to read from</font>&gt; of=&lt;<font color="#ff0000">file to write to</font>&gt; bs=&lt;<font color="#ff0000">byte size</font>&gt; count=&lt;<font color="#ff0000">count to loop</font>&gt;<br />
+</strong></p>
+<p><a id="more"></a><a id="more-27"></a></p>
+<p># <font color="#0000ff"><strong>losetup</strong></font> <strong>/dev/loop0 /usr/local/tmpfs<br />
+losetup &lt;<font color="#ff0000">loopback device</font>&gt; &lt;<font color="#ff0000">file</font>&gt;</strong></p>
+<p># <font color="#0000ff"><strong>mkfs</strong></font> <strong>-t ext3 /dev/loop0<br />
+mkfs -t &lt;<font color="#ff0000">file system type</font>&gt; &lt;<font color="#ff0000">file system</font>&gt;</strong> </p>
+<p># <font color="#0000ff"><strong>mount</strong></font> <strong>/dev/loop0 /path/to/dir<br />
+mount &lt;<font color="#ff0000">file system</font>&gt; &lt;<font color="#ff0000">dir to mount filesystem</font>&gt;</strong> </p>
+<p><span class="attention">You should now have a 500MB loopback filesystem (minus the standard filesystem overhead) mounted under /path/to/dir. You can change the size of the device by modifying the &quot;<strong>bs</strong>&quot; and &quot;<strong>count</strong>&quot; arguments in the &quot;<strong>dd</strong>&quot; command. On every reboot,you will need to do the following to make the device available again:</span></p>
+<p># <font color="#0000ff"><strong>losetup</strong></font> <strong>/dev/loop0 /usr/local/tmpfs</strong></p>
+<p># <strong><font color="#0000ff">mount</font> /dev/loop0 /path/to/dir </strong></p>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-05-24T10:55:08-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-rsync-to-move-files-around/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/using-rsync-to-move-files-around/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -278,347 +338,6 @@ my $lic_usage = $licMgr-&gt;QueryLicenseSourceAvailability;</p>
 <p>}<br />
 Vim::logout();</p>
 </span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-21T12:34:18-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/issues-registering-on-linuxdynasty/">May 21, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/issues-registering-on-linuxdynasty/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/issues-registering-on-linuxdynasty/" rel="bookmark" title="Issues registering on LinuxDynasty" itemprop="url">Issues registering on LinuxDynasty</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>For those of you who had issues registering here at linuxdynasty, the issue is now fixed.&nbsp; Please create a login and join the site and hopefully we can help you with knowledge and you can help us grow.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-18T21:33:14-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/regular-expressions-and-commands-howto/">May 18, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/regular-expressions-and-commands-howto/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/regular-expressions-and-commands-howto/" rel="bookmark" title="Regular Expressions and Commands HowTo" itemprop="url">Regular Expressions and Commands HowTo</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span class="dropcap">T</span>here are a bunch of great regular expressions HowTo's out there..... Now you may be asking why am I creating another??? Well quite simple, I am creating this one because this is not really just a regular expression howto but more a regular expression HowTo with its everyday uses with linux/unix commands.&nbsp; So it will not cover perl/python/ruby/...etc programming languages regular expressions (That will be for another tutorial :) )</p>
-<p>To start this off I will give you a basic introduction to regular expressions using the output <br />
-of &quot;<font color="#0000ff"><strong>ls</strong></font>&quot; and piping it &quot;<font color="#0000ff"><strong>grep</strong></font>&quot; using the <strong>-<font color="#0000ff">oE</font></strong> options (The <font color="#0000ff"><strong>o</strong></font> stands for Exact match and the <font color="#0000ff"><strong>E</strong></font> stands for Extended Regular Expressions). Using &quot;(<font color="#ff0000"><strong>BRE</strong></font> and <strong><font color="#ff0000">ERE</font></strong>) <strong>B</strong>asic <strong>R</strong>egular <strong>E</strong>xpressions and <strong>P</strong>osix <strong>E</strong>xtended <strong>R</strong>egular <strong>E</strong>xpressions&quot;...</p>
-<p><u><strong>THIS IS NOT A TUTORIAL BUT A HOWTO</strong><strong>!!</strong></u> So this means more examples and less explaining..</p>
-<p>&nbsp;</p>
-<table style="border-collapse: collapse" align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" height="427" width="633">
-<tbody>
-<tr valign="top">
-<th scope="col">
-<p>Anchors</p>
-</th>
-<th scope="col">
-<p>What it means&nbsp;</p>
-</th>
-<th scope="col">
-<p>Example&nbsp;</p>
-</th>
-</tr>
-<tr valign="top">
-<td>
-<p><strong><font color="#ff0000">^ </font></strong></p>
-</td>
-<td>
-<p>Start of string</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">^</font>Cw+.jpg&quot;</strong></font><br />
-Chunka.jpg<br />
-Chunka1.jpg</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>$</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>End of string&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls |grep -oE &quot;w+(.jpg<font color="#ff0000">$</font>)&quot;</strong></font><br />
-Chunka.jpg<br />
-Chunka1.jpg<br />
-DSCF0732.jpg</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>b</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>Word boundary&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">b</font>Chunka<font color="#ff0000">b</font>.jpg&quot;</strong></font><br />
-Chunka.jpg </p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>&lt;</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>Start of word&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">&lt;</font>Chw+.jpg&quot;</strong></font><br />
-Chunka.jpg<br />
-Chunka1.jpg </p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>&gt;</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>End of word&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls Scripts/Python/ |grep -oE &quot;w+<font color="#ff0000">&gt;</font>.py&quot;</strong></font><br />
-xen_mac_generate.py&nbsp;</p>
-</td>
-</tr>
-</tbody>
-</table>
-<table style="border-collapse: collapse" align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" height="222" width="355">
-<tbody>
-<tr valign="top">
-<th scope="col">
-<p>&nbsp;Character Classes&nbsp;</p>
-</th>
-<th scope="col">
-<p>What it means&nbsp;</p>
-</th>
-<th scope="col">
-<p>Example&nbsp;</p>
-</th>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>w</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>Word&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls | grep -oE &quot;<font color="#ff0000">w</font>&quot;</strong></font><br />
-C<br />
-C</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>W&nbsp;</strong></font></p>
-</td>
-<td>
-<p>Non word&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">W</font>&quot;</strong></font><br />
-.<br />
-. </p>
-</td>
-</tr>
-</tbody>
-</table>
-<table style="border-collapse: collapse" align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" height="618" width="630">
-<tbody>
-<tr valign="top">
-<th scope="col">
-<p>Quantifiers&nbsp;</p>
-</th>
-<th scope="col">
-<p>what it means&nbsp;</p>
-</th>
-<th scope="col">
-<p>example&nbsp;</p>
-</th>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>*</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>zero or more times</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls | grep -oE &quot;w<font color="#ff0000">*</font>.jpg&quot;</strong></font><br />
-Chunka.jpg<br />
-Chunka1.jpg<br />
-DSCF0732.jpg </p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>+</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>one or more times&nbsp;</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls | grep -oE &quot;w<font color="#ff0000">+</font>&quot;</strong></font><br />
-Chunka<br />
-Chunka1<br />
-DSCF0732 </p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>?</strong></font>&nbsp;</p>
-</td>
-<td>matches either once or zero times </td>
-<td>
-<p><font color="#0000ff"><strong>ls | grep -oE &quot;Chunka1<font color="#ff0000">?</font>.jpg&quot;</strong></font><br />
-Chunka.jpg<br />
-Chunka1.jpg</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>{2}</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>Exactly 2 times</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls | grep -oE &quot;(^C<font color="#ff0000">{2}</font>hw+.jpg)&quot;</strong></font><br />
-CChunka.jpg </p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>{1,}</strong></font></p>
-</td>
-<td>
-<p>1 or more times</p>
-</td>
-<td>
-<p><font color="#0000ff"><strong>ls | grep -oE &quot;(^C<font color="#ff0000">{1,}</font>hw+.jpg)&quot;</strong></font><br />
-CChunka.jpg<br />
-CCChunka.jpg<br />
-Chunka.jpg<br />
-Chunka1.jpg<br />
-Chunka11.jpg </p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>{1,2}&nbsp;</strong></font></p>
-</td>
-<td>
-<p>1 through 2 times</p>
-</td>
-<td>
-<p><strong><font color="#0000ff">ls | grep -oE &quot;(^C<font color="#ff0000">{1,2}</font>hw+.jpg)&quot;</font></strong><br />
-CChunka.jpg<br />
-Chunka.jpg<br />
-Chunka1.jpg<br />
-Chunka11.jpg </p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>&nbsp;</p>
-<table style="width: 100%; border-collapse: collapse" summary="" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0">
-<tbody>
-<tr valign="top">
-<th scope="col">
-<p>Special Characters&nbsp;</p>
-</th>
-<th scope="col">
-<p>What it means&nbsp;</p>
-</th>
-<th scope="col">
-<p>Example&nbsp;</p>
-</th>
-</tr>
-<tr valign="top">
-<td>
-<p><strong><font color="#ff0000">n</font></strong>&nbsp;</p>
-</td>
-<td>
-<p>New line&nbsp;</p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>r</strong></font>&nbsp;</p>
-</td>
-<td>
-<p>Carriage return&nbsp;</p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>t</strong></font></p>
-</td>
-<td>
-<p>Tab&nbsp;</p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>v</strong></font></p>
-<p>
-
-<td>
-<p>Vertical tab&nbsp;</p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-
-<tr valign="top">
-<td>
-<p><font color="#ff0000"><strong>f</strong></font></p>
-</td>
-<td>
-<p>Form feed&nbsp;</p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-
-
-<p>&nbsp;</p>
-<p>&nbsp;&nbsp;</p>
-<p></p>
-</p></td></tr></tbody></table>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -808,6 +527,12 @@ Chunka11.jpg </p>
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

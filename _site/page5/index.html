@@ -136,6 +136,113 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2010-02-01T13:22:22-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/">February 01, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" rel="bookmark" title="How to get information from the Netscaler using Python and Suds." itemprop="url">How to get information from the Netscaler using Python and Suds.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Recently I just started to use the Citrix Netscalers again ( Load Balancers ). Being the person that I am, I wanted a way to grab the information using the SOAP API.<br />
+Now Citrix has a ton of documentation for Perl/C/C# and Java ( None for Python ). SOAP client support has not been the best for Python, in my opinion.<br />
+I know you have <a href="http://pywebsvcs.sourceforge.net/">soappy/ZSI</a>, which I have had issues with consuming Broken WSDL files ( Having to fix the Broken WSDL file manually, SUCKS!).</p>
+<p>Just 2 weeks ago, I encounterd <a href="https://fedorahosted.org/suds/">SUDS</a>. This module is by far, the best SOAP client for Python.<br />
+There documentation is simple and straight to the point, with a bunch of nice samples to get you on your way.</p>
+<p><span class="attention">Install SUDS before proceeding further. You can get suds from here. <a href="https://fedorahosted.org/suds/">https://fedorahosted.org/suds/</a></span><br />
+Connection to my netscaler was as simple as this...</p>
+<pre>Python 2.4.3 (#1, Sep  3 2009, 15:37:37)[GCC 4.1.2 20080704 (Red Hat 4.1.2-46)]</pre>
+<pre>on linux2Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; from suds.client import Client
+&gt;&gt;&gt; url = "http://nsip/api/NSConfig.wsdl"
+&gt;&gt;&gt; from suds.xsd.doctor import *
+&gt;&gt;&gt; imp = Import('http://schemas.xmlsoap.org/soap/encoding/')
+&gt;&gt;&gt; imp.filter.add("urn:NSConfig")
+&gt;&gt;&gt; d = ImportDoctor(imp)
+&gt;&gt;&gt; client = Client(url, doctor=d, location="http://nsip/soap/")
+&gt;&gt;&gt; client.service.login(username="login", password="pass")(simpleResult){ rc = 0 message = "Done" }
+&gt;&gt;&gt;</pre>
+<p><a id="more"></a><a id="more-83"></a></p>
+<p>As you can see above, I used the xsd doctor to import Soap encoding URL and added a filter for the Netscaler URN.<br />
+If you do not import the SOAP encoding schema, this is the error you will receive..</p>
+<p><span class="alert">suds.TypeNotFound: Type not found: '(Array, http://schemas.xmlsoap.org/soap/encoding/, )</span></p>
+<p>Once you type the above, you can now run commands in the python shell. for instance...</p>
+<ul>
+<li>client.service.getlbvserver()</li>
+<li>client.service.getservice()</li>
+<li>client.service.getservicegroup()</li>
+</ul>
+<p>I am attaching a script that I have written, to get Load Balanced Virtual Servers and its Services and ServiceGroups.<br />
+This script can also just list all the Virtual Servers, Services, or Service Groups. Examples below..<br />
+queryns.py == {filelink=10}</p>
+<p><small>python queryns.py -c "ZenossTest2_svc" -n "nsip" -u "login" -p "pass" Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP python queryns.py -s foobar_test -n "nsip" -u "login" -p "pass" Virtual Server State IPAddress Port Protocol foobar_test UP 192.168.101.19 55555 HTTP ServiceGroup Name SG State Server Name Status IPAddress Port Protocol "Foo Bar" ENABLED billyboy UP 192.168.101.31 8080 HTTP "Foo Bar" ENABLED zenossTest UP 192.168.101.221 8080 HTTP Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP ------------------------------------------------------------------------------------------------------------------------</small></p>
+<p>All the options are here..</p>
+<pre>python queryns.py -husage: queryns.py [options] arg --username=username --password=password --netscaler=netscalerip
+
+options: -h, --help            
+show this help message and exit 
+-n NETSCALER, --netscaler=NETSCALER
+                       Here you will put the netscaler IPAddress or the                       netscaler hostname-u USERNAME, --username=USERNAME
+                       Your username -p PASSWORD, --password=PASSWORD                       Your password -l LIST, --list=LIST  
+List all the names of the Virtual Servers, Services,
+                       ServiceGroups. Example --list=lbvserver, --list=service, --list=servicegroup -s SERVER, ---vserver=SERVER
+                       Virtual Server that you want to query. You can choose
+                       a Virtual Server or you can pass all, so you get all
+                       the Virtual Servers and its associated
+                       ServiceGroups or Services. Example....
+                       --vserver="foobar_test" or --vserver="all" 
+-g SGROUP, --sgroup=SGROUP
+                       ServiceGroup that you want the info from -c SERVICE, 
+--service=SERVICE                       Service that you want the info from</pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-11-12T21:46:56-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/">November 12, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/" rel="bookmark" title="Swatch Startup Script" itemprop="url">Swatch Startup Script</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I've been using Swatch for quite a while now and I never invested the time to  create a quick startup script. Today, I decided to create one and it works just fine under Centos and Ubuntu Server. You can download it here..<br />
+swatch init script == {filelink=11}</p>
+<p><a id="more"></a><a id="more-92"></a></p>
+<p>Or you can copy and paste it below..</p>
+<pre>#!/bin/bash## /etc/init.d/swatch# init script for Swatch.## chkconfig: 2345 90 60# description: Swatch#November 11th 2009 Allen Sanabria#http://linuxdynasty.org#CONFIG="/etc/swatch/swatch.conf"PID="/var/run/swatch.pid"LOGFILE="/var/log/secure"PIDS="/tmp/pids.txt"RETVAL=0
+
+swatch_start() {if [ -f $PID ] then echo "Swatch is already running"   cat $PID else echo "Starting Swatch" /usr/bin/swatch --config-file=$CONFIG --tail-file=$LOGFILE --pid-file=$PID &gt; /dev/null 2&gt;&amp;1 &amp; RETVAL=$?fi}
+
+swatch_stop() {if [ -f $PID ] then echo "Stopping Swatch" PARENT="$(&lt; "$PID")" INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` CPID1=`ps --ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` kill -9 $INIT_PID $PARENT $CPID1   rm -f $PID $PIDS RETVAL=$? else echo "Swatch is not running!"fi}
+
+swatch_status() {if [ -f $PID ] then echo "Swatch is running" PARENT="$(&lt; "$PID")" INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` ps -o pid -o command --pid $INIT_PID --pid $PARENT --ppid $PARENT else echo "Swatch is not running" RETVAL=$?fi}
+
+case "$1" in start) swatch_start ;; stop) swatch_stop ;; restart) swatch_stop swatch_start ;; status) swatch_status ;; *) echo "Usage: $0 {start|stop|restart|status}" exit 1esac
+
+exit $RETVAL</pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-11-09T12:24:42-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/">November 09, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/updates-to-site/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -203,70 +310,6 @@ Thanks to masweb21 for pointing that out.</li>
 </ul>
 <p>&nbsp;</p>
 <p>{filelink=14}</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-10-05T19:08:31-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/vmware/todays-task/">October 05, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/vmware/todays-task/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/vmware/todays-task/" rel="bookmark" title="Today's task!" itemprop="url">Today's task!</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Today I was given a task to have my manager emailed once a day. If any of our Data Stores in ESX 3.5 are over 80% utilized. So I said to my self. What would be the easiest way to do this???? Well I've written two scripts in the past, that could help me accomplish that. The first script VMstoragePool.py will list all of the Data Stores in Vmware and its utilization. The 2nd script is check_datastore.py, and this script will return OK, WARNING, or CRITICAL, depending on the thresholds you set. So by effectively combining the 2 scripts I was able to get what I want. Example below...</p>
-<pre>python VMstoragePool.py -u "https://esxhostA" -a "login passwd" |grep "DataStore Name" |awk {'print $3'} |for line in `xargs`;do python check_datastore.py -u "https://esxhostA" -a "login passwd" -d $line -w 80 -c 90 -m "GB"|grep -P "WARNING|CRITICAL";done|mail user@domain.com
-CRITICAL XythosVol2 57GB Avail 94% used |avail=57
-WARNING XythosVol1 62GB Avail 87% used |avail=62
-WARNING LinuxVol1 57GB Avail 88% used |avail=57
-WARNING WinVol1 75GB Avail 84% used |avail=75
-WARNING BBSCVOL1 122GB Avail 88% used |avail=122
-CRITICAL NSSharedVOL1 46GB Avail 95% used |avail=46</pre>
-<p>&nbsp;</p>
-<p>So I can run this script in cron once a day and pipe the output to email him directly. Simple yet effective! On a side note, I fixed both chec_datastore.py and VMstoragePool.py to effectivly parse passwd's that used characters like !@#$%^.</p>
-<p>Both scripts can be downlaoded here..<br />
-check_datastore.py == {filelink=12}</p>
-<p>VMstoragePool.py == {filelink=13}</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-10-02T19:47:59-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/network-device-manager-update-022/">October 02, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/network-device-manager-update-022/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/network-device-manager-update-022/" rel="bookmark" title="Network Device Manager update 0.22" itemprop="url">Network Device Manager update 0.22</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>We are please to announce the release of Network Device Manager 0.22. Release notes below..</p>
-<p>Revision 0.22 10/02/2009</p>
-<ul>
-<li>Threading has been implemented into the script. Drastic Speed increase!!<br />
-It use to take about 18 minutes to run this script against 285 devices. It now just takes me 23 seconds.</li>
-<li>Better error checking!</li>
-</ul>
-<p>{quickdown:49}</p>
-<p>To see how to use the tool above, please check this link <a href="howto-manage-your-networked-devices-using-python-and-pexpect.html">http://www.linuxdynasty.org/howto-manage-your-networked-devices-using-python-and-pexpect.html</a></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -456,6 +499,12 @@ It use to take about 18 minutes to run this script against 285 devices. It now j
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

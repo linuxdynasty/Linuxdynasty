@@ -136,6 +136,62 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-28T01:57:23-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-port-report/">April 28, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-port-report/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-port-report/" rel="bookmark" title="Quick Update on Port Report..." itemprop="url">Quick Update on Port Report...</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>As of right now I am very close on getting Nortel to work. I have been testing with Kshort and I'm hoping to have the Nortel part of this script done by tomorrow night. Once Nortel is done, then I will start working on getting Foundry Switches supported. Then I'll release revision 1.7. If any members have run this script on Dell switches, please let me know if it worked or if if did not work. If it did not work, please contact me directly and I will try to get it supported as well.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-24T18:40:56-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/port-report-update-16/">April 24, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/port-report-update-16/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/port-report-update-16/" rel="bookmark" title="Port Report Update 1.6" itemprop="url">Port Report Update 1.6</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Let me make this one thing clear about port_report.py and one limitation it has when searching for IP Addresses on a switch ( not really a limitation of the script ). When searching by IP address, the IP Address has to be in the ARP table, if the IP is not in the ARP table then the script will report that the IP Address is not in the ARP table. I know I sound redundant but I have been asked this question alot. The better thing to do is to search by MAC Address as this is more then likely to be on the switch. That is all depending on how often the table gets clean.</p>
+<p>Currently, the newest revision, is revision 1.6. <br /> New additions to this revision ....</p>
+<ul>
+<li>Support for HP Procurve Switches, ( Tested on the newer versions of HP )</li>
+<li>combined switch_report.py in port_report.py.</li>
+<li>Added --verbose flag</li>
+</ul>
+<p>Previous Releases....</p>
+<ul>
+<li>All Cisco Switches supported...</li>
+<li>Search by MAC or IP or PORT </li>
+</ul>
+<div>You can get the newest revision Here ... <a href="View-details/Python-Scripts/39-port_report.py.html">http://www.linuxdynasty.org/View-details/Python-Scripts/39-port_report.py.html</a><br />{quickdown:39}</div>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-04-22T19:37:16-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-portreportpy/">April 22, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/quick-update-on-portreportpy/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -217,71 +273,6 @@ The next steps are...</p>
   <div class="entry-content">
     <p>Since I've been working on this script, I see a lot of possibilities. The only draw back so far is that it has only worked on Cisco Switches. Unless other users who have other switches tell me otherwise. One of the features I want to add hopefully this week is to pass the cdp option. So if you run the script like this <strong>port_report.py -d switch -c community -n "1/1"</strong> and in return you get like 20 different MAC addresses. More then likely that port is connected to another switch. Lets say that you run the script again to one of those MAC addresses <strong>port_report.py -d switch -c community -m "00 16 cb b6 ac a3"</strong> and the script as you expected return port 1/1. Now you know that physically that MAC is not connected to that port but a switch is connected to that port and the MAC that you are searching is connected to that switch. So my idea is that if you pass the CDP option, the script will check the cdp snmp table and see if that port is connected to another switch and if so stop scanning the current switch and follow the next switch and find the MAC there.</p>
 <p>Also I'm thinking of building a GUI app for this script, which will in return become a program and no longer a script. If you have ideas to add to this, please leave a comment. </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-04-14T17:24:57-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/portreportpy-update-11/">April 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/portreportpy-update-11/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/portreportpy-update-11/" rel="bookmark" title="port_report.py update 1.2" itemprop="url">port_report.py update 1.2</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Just a few minutes ago I uploaded the 1.2 update for port_report.py...</p>
-<ul>
-<li>Fixed Port Matching issues, My thanks goes to Keith Short aka kshort for finding this issue </li>
-<li>You can now search by the port name as per the ifName in snmp ( "Gi1/1") or ("1/1")
-</li>
-</ul>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-04-14T00:26:46-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/my-2-cents-on-monitoring/">April 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/my-2-cents-on-monitoring/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/my-2-cents-on-monitoring/" rel="bookmark" title="My 2 cents on Monitoring.." itemprop="url">My 2 cents on Monitoring..</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>My 2 cents on Monitoring... I'm a huge advocate of Monitoring properly... And what I mean by that is monitoring every aspect of your Production environment that means anything to your environment. </p>
-<p>Now to break it down even further.... Besides monitoring the basics like DiskIO, Memory, CPU, Dropped Packets, Error in the interfaces.. Monitoring of all the services you are running, either through snmp, scripts, api's, etc.. Also which to me is very important is the monitoring of the log files ( This has saved us a tremendous amount of time ). I've been using Zenoss for the past 2 years and I can not say how much that product has help the companies I worked for and not to mention the time it has saved. </p>
-<p>I had Zenoss as the central syslog server, snmpd trap server, monitoring, and trending . You can raise email alerts based on the logs that come in and correlate those events with other alerts from the system.If you prefer not to use a system like zenoss for your central logging then use a system like splunk which to me is the best central syslogging system hands down. then create custom alerting rules based on the criteria you passed and then have it email out or send the alert to a monitoring system like zenoss.</p>
-<p>Also, I have met quite a few admins who feel that monitoring is something you can setup once in about a weeks time and let it do its job. I on the other hand feel the complete opposite. I feel that monitoring is a ongoing process and  takes a minimum of 3 months to setup properly. This is the time it takes to research every part of the environment and to properly adjust the values of what you are monitoring, so you do not get email/page bombed.. </p>
-<p>I know quite a few of you have received those email bombs before.</p>
-<p>For me to be completely satisfied with the monitoring that I put in play. A few things has to be done 1st</p>
-<ul>
-<li>Work with anyone that is involve with a Production Server/App/Device and find as much as possible about those Services/Devices</li>
-<li>Setup a central syslogging system like Splunk that can send alerts based on what ever criteria you set or use a system like Zenoss which you can map alerts to different events. You may not belive me but there is a wealth of important information, that can speedly help you find a issue with a device.</li>
-<li>Trending of the systems/devices/services that you are monitoring. So use a system like Cacti or dare I say it... Zenoss</li>
-<li>And the most import part... Choose your monitoring tool carefully... Again my personal opinion is to use to most flexible monitoring tool out there. A tool that can use snmp, nagios commands, custom API Scripting, and the ability to automate as much of the monitoring as possible.... Like Zenoss!!! </li>
-<li>Time, TIme, Time....Proper monitoring takes alot of research and testing.... But the rewards are 10 fold... </li>
-</ul>
-<p>No I'm not a Zenoss Sales rep and no I do not work for them. But their product to me as a Systems Engineer is that amazing... I can grab data from a cmdb and pass it to zenoss or grab data from syslog or from splunk or in that fact VMware. I can even automate the grouping in Zenoss..  </p>
-<p>Basically when it comes down to it, DO YOUR RESEARCH.... </p>
-<p>&lt;/p&gt;</p>
-<p> </p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -471,6 +462,12 @@ The next steps are...</p>
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

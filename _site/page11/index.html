@@ -136,6 +136,71 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-14T17:24:57-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/portreportpy-update-11/">April 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/portreportpy-update-11/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/portreportpy-update-11/" rel="bookmark" title="port_report.py update 1.2" itemprop="url">port_report.py update 1.2</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Just a few minutes ago I uploaded the 1.2 update for port_report.py...</p>
+<ul>
+<li>Fixed Port Matching issues, My thanks goes to Keith Short aka kshort for finding this issue </li>
+<li>You can now search by the port name as per the ifName in snmp ( "Gi1/1") or ("1/1")
+</li>
+</ul>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-14T00:26:46-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/my-2-cents-on-monitoring/">April 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/my-2-cents-on-monitoring/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/my-2-cents-on-monitoring/" rel="bookmark" title="My 2 cents on Monitoring.." itemprop="url">My 2 cents on Monitoring..</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>My 2 cents on Monitoring... I'm a huge advocate of Monitoring properly... And what I mean by that is monitoring every aspect of your Production environment that means anything to your environment. </p>
+<p>Now to break it down even further.... Besides monitoring the basics like DiskIO, Memory, CPU, Dropped Packets, Error in the interfaces.. Monitoring of all the services you are running, either through snmp, scripts, api's, etc.. Also which to me is very important is the monitoring of the log files ( This has saved us a tremendous amount of time ). I've been using Zenoss for the past 2 years and I can not say how much that product has help the companies I worked for and not to mention the time it has saved. </p>
+<p>I had Zenoss as the central syslog server, snmpd trap server, monitoring, and trending . You can raise email alerts based on the logs that come in and correlate those events with other alerts from the system.If you prefer not to use a system like zenoss for your central logging then use a system like splunk which to me is the best central syslogging system hands down. then create custom alerting rules based on the criteria you passed and then have it email out or send the alert to a monitoring system like zenoss.</p>
+<p>Also, I have met quite a few admins who feel that monitoring is something you can setup once in about a weeks time and let it do its job. I on the other hand feel the complete opposite. I feel that monitoring is a ongoing process and  takes a minimum of 3 months to setup properly. This is the time it takes to research every part of the environment and to properly adjust the values of what you are monitoring, so you do not get email/page bombed.. </p>
+<p>I know quite a few of you have received those email bombs before.</p>
+<p>For me to be completely satisfied with the monitoring that I put in play. A few things has to be done 1st</p>
+<ul>
+<li>Work with anyone that is involve with a Production Server/App/Device and find as much as possible about those Services/Devices</li>
+<li>Setup a central syslogging system like Splunk that can send alerts based on what ever criteria you set or use a system like Zenoss which you can map alerts to different events. You may not belive me but there is a wealth of important information, that can speedly help you find a issue with a device.</li>
+<li>Trending of the systems/devices/services that you are monitoring. So use a system like Cacti or dare I say it... Zenoss</li>
+<li>And the most import part... Choose your monitoring tool carefully... Again my personal opinion is to use to most flexible monitoring tool out there. A tool that can use snmp, nagios commands, custom API Scripting, and the ability to automate as much of the monitoring as possible.... Like Zenoss!!! </li>
+<li>Time, TIme, Time....Proper monitoring takes alot of research and testing.... But the rewards are 10 fold... </li>
+</ul>
+<p>No I'm not a Zenoss Sales rep and no I do not work for them. But their product to me as a Systems Engineer is that amazing... I can grab data from a cmdb and pass it to zenoss or grab data from syslog or from splunk or in that fact VMware. I can even automate the grouping in Zenoss..  </p>
+<p>Basically when it comes down to it, DO YOUR RESEARCH.... </p>
+<p>&lt;/p&gt;</p>
+<p> </p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-04-13T16:14:44-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/site-possible-enhancements/">April 13, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/site-possible-enhancements/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -352,83 +417,6 @@ MAC  = 08 00 0f 20 b3 aaPort = GigabitEthernet1/2Vlan = 175IPAddr = 192.168.101.
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-04-04T02:00:51-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/">April 04, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/" rel="bookmark" title="HowTo check the status of one or multiple network interfaces the easy way" itemprop="url">HowTo check the status of one or multiple network interfaces the easy way</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Today a friend of mine wanted to know how he can check the status and or speed of multiple Network Interfaces/Ports on a device ( Switch, Router, Server, etcc ) using SNMP. Specifically he wanted to know if the Interfaces/Ports are Operationally Up or Down and also if it is Administratively. Then he also wanted to know the speed of the Interfaces/Ports that were Up or Down.</p>
-<p>Now you can easily get this information through SNMP or if you have a monitoring tool like <a href="http://zenoss.com" title="" target="_blank">Zenoss.</a> But he wanted a command line script that would run fairly quickly and either print the results to STDOUT or that he can pipe the ouput in an email.</p>
-<p>So I decided, ok I'll wite you a quick script in Python that will get you that information. FYI, I'm thinking of making this script compatible with the Nagios API. If you want this feature please let me know... Below I will give you some examples of the script....&nbsp; </p>
-<pre>    python check_int_speed.py --device zenoss --community &quot;public&quot; --astatus &quot;Up&quot; --ostatus &quot;Up&quot;<br />    lo is Administratively  Up and Operationally Up and running at 10mbs<br />    eth0 is Administratively  Up and Operationally Up and running at 1gbps<br /></pre>
-<p><a id="more"></a><a id="more-79"></a></p>
-<pre>    python check_int_speed.py --device zenoss --community &quot;public&quot; --astatus &quot;Up&quot; --ostatus &quot;Up&quot; --speed &quot;1gbps&quot;<br />    eth0 is Administratively  Up and Operationally Up and running at 1gbps<br /><br />    python check_int_speed.py --device switch --community &quot;public&quot; --astatus &quot;Down&quot; --ostatus &quot;Down&quot; --pname &quot;GigabitEthernet10/23&quot;<br />    GigabitEthernet10/23 is Administratively Down and Operationally Down and running at 1gbps<br /></pre>
-<p></p>
-<pre>    python check_int_speed.py --device switch --community &quot;public&quot; --astatus &quot;Up&quot; --ostatus &quot;Up&quot; --speed &quot;1gbps&quot;<br />    GigabitEthernet1/31 is Administratively  Up and Operationally Up and running at 1gbps<br />    GigabitEthernet1/37 is Administratively  Up and Operationally Up and running at 1gbps<br />    GigabitEthernet1/34 is Administratively  Up and Operationally Up and running at 1gbps<br /></pre>
-<p></p>
-<pre>    python check_int_speed.py --device switch --community &quot;public&quot; --astatus &quot;Down&quot; --ostatus &quot;Down&quot;<br />    GigabitEthernet2/36 is Administratively  Down and Operationally Down and running at 1gbps<br />    Vlan1 is Administratively  Down and Operationally Down and running at 1gbps<br />    GigabitEthernet2/30 is Administratively  Down and Operationally Down and running at 1gbps<br />    GigabitEthernet10/20 is Administratively  Down and Operationally Down and running at 1gbps<br />    GigabitEthernet10/21 is Administratively  Down and Operationally Down and running at 1gbps<br /><br /><p><br />You can download the script here <a href="http://www.linuxdynasty.org/View-details/Python-Scripts/37-Check-Interface-Status-Script.html" title="">check_int_status.py</a><br /></p></pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-04-01T14:33:24-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/">April 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/" rel="bookmark" title="How to check the status of VMware Tools per virtual Machine the easy way." itemprop="url">How to check the status of VMware Tools per virtual Machine the easy way.</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>The other day I was told to check and see if VMware Tools was installed on every Virtual Machine in our Cluster. I figured this was the perfect time for me to write another script to do this.</p>
-<p>Here are a list of things that I want to have in the script...</p>
-<ul>
-<li>List all Virtual Machines and the VMstatus and Version if installed</li>
-<li>Check for toolsOK</li>
-<li>Check for toolsNotInstalled</li>
-<li>Check for toolsNotRunning</li>
-<li>Check for toolsOld</li>
-<li>And last but not least, able to do this either on a per Virtual Machine or on the entire Cluster</li>
-</ul>
-<p>Well I was able to do all of the above in a nice Perl Script that I created. It can be downloaded here  <a href="View-details/VMware-Perl/36-vmTools-Status-Perl-Script.html">vmToolsStatus.pl</a></p>
-<pre>{quickdown:36}<br />perl vmToolsStatus.pl <br />        help              : Hiding the command line arguments [--help]<br />        --toolsOld             : This will print out all the Virtual Machines with an Old version of vmTools and you need to upgrade<br />        --toolsNotInstalled    : This will print out all the Virtual Machines with vmTools Not Installed<br />        --toolsNotRunning      : This will print out all the Virtual Machines with vmTools Not Running<br />        --toolsOk              : This will print out all Virtual Machines with vmTools running <br />        --all             : This will print out all Virtual Machines with vmTools installed or not installed<br />        example           : Hiding the command line arguments --toolsOld <br />        example           : Hiding the command line arguments --toolsOk <br />        example           : Hiding the command line arguments --toolsNotInstalled <br />        example           : Hiding the command line arguments --toolsRunning <br />        example           : Hiding the command line arguments --all --vm_name "vm_name" <br />        example           : Hiding the command line arguments --all  </pre>
-<div><span class="attention"> <strong>Remember!!! That in order to use this script you will need the Perl VI SDK installed on your linux box as well as $home/.visdkrc setup correctly</strong></span></div>
-<p>Here is an example .visdkrc...</p>
-<pre>VI_SERVER = Virtual Console Server<br />VI_USERNAME = login<br />VI_PASSWORD = passwd<br />VI_PROTOCOL = https <br />VI_PORTNUMBER = 443<br /></pre>
-<p> </p>
-<p><a id="more"></a><a id="more-190"></a></p>
-<p> </p>
-<p><strong>So if you want to list all of the Virtual Machines that are running an incompatible version of vmtools, you will run the script like so..</strong></p>
-<pre>perl vmToolsStatus.pl --toolsOld<br />MNS<br />  Status toolsOld and Version 82663<br /><br />LDAP<br />  Status toolsOld and Version 82663<br /><br />RHEL 5.2<br />  Status toolsOld and Version 82663<br /><br />Ramona<br />  Status toolsOld and Version 82663<br /><br />Luminati<br />  Status toolsOld and Version 82663 <br /></pre>
-<p><strong>Or if you want to list all Virtual Machines that do not have vmtools installed...</strong></p>
-<pre>perl vmToolsStatus.pl --toolsNotInstalled<br />SLES<br />  StatustoolsNotInstalled<br /><br />X86_Model<br />  StatustoolsNotInstalled<br /><br />Mario<br />  StatustoolsNotInstalled<br /><br />ZCM<br />  StatustoolsNotInstalled<br /><br />Bot Hunter<br />  StatustoolsNotInstalled<br /><br /></pre>
-<p><strong>Or you can do it on a per Virtual Machine basis...</strong></p>
-<pre>perl vmToolsStatus.pl --toolsOk --vm_name "Mail"<br />Mail<br />  Status toolsOk and Version 110268 <br /></pre>
-<p> </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -614,6 +602,12 @@ MAC  = 08 00 0f 20 b3 aaPort = GigabitEthernet1/2Vlan = 175IPAddr = 192.168.101.
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

@@ -136,6 +136,85 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-08-07T17:17:50-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensolaris-and-customizing-my-bashrc/">August 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensolaris-and-customizing-my-bashrc/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensolaris-and-customizing-my-bashrc/" rel="bookmark" title="OpenSolaris and customizing my bashrc" itemprop="url">OpenSolaris and customizing my bashrc</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I've been using/learning OpenSolaris for the past week and WoW it is a complete different world then Linux.. For example I miss my GNU commands.</p>
+<ol>
+<li>Non GNU grep does not have the -r option that I use in the gnu version which is <font color="#0000ff"><strong>ggrep</strong></font></li>
+<li>Non GNU sed compared to <font color="#0000ff"><strong>gsed</strong></font>.</li>
+<li>Non GNU tar does not have <font color="#0000ff"><strong>gzip</strong></font> integrated as the <font color="#0000ff"><strong>gtar</strong></font> does have it.<br />
+<br /><a id="more"></a><a id="more-107"></a></li>
+</ol>
+<p>In order to get my OpenSolaris behave like my Baby Linux does :)... I had to added a few aliases like so to my <font color="#0000ff"><strong>.bashrc</strong></font> file as so... <br />
+<strong><font color="#0000ff">alias</font> <font color="#ff0000">vi</font>=&quot;<font color="#0000ff">vim</font>&quot;<br />
+<font color="#0000ff">alias</font> <font color="#ff0000">grep</font>=&quot;<font color="#0000ff">ggrep</font>&quot;<br />
+</strong><strong><font color="#0000ff">alias</font> <font color="#ff0000">egrep</font>=&quot;<font color="#0000ff">gegrep</font>&quot;</strong><br />
+<strong><font color="#0000ff">alias</font> <font color="#ff0000">sed</font>=&quot;<font color="#0000ff">gsed</font>&quot;</strong><br />
+<strong><font color="#0000ff">alias</font> <font color="#ff0000">tar</font>=&quot;<font color="#0000ff">gtar</font>&quot;</strong></p>
+<p>I am still adding more as I get frustrated.... :(</p>
+<p>Also I added more paths to my PATH environment variable in<font color="#0000ff"><strong> .bashrc</strong></font> as well...</p>
+<p><strong>PATH=/usr/sbin:/usr/bin:/opt/csw/sbin:/opt/csw/bin:/usr/X11R6/bin<br />
+export PATH</strong></p>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-07-29T17:51:18-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-perl-cgi-script/">July 29, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-perl-cgi-script/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-perl-cgi-script/" rel="bookmark" title="VMWare Perl CGI Script" itemprop="url">VMWare Perl CGI Script</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>And here we go again another VMware Perl Script... This has been like an evolution of my previous scripts.. :) Except this Perl CGI Script uses my <a href="http://www.linuxdynasty.org/esx-perl-module.html" title="ESX_VM.pm">ESX Perl Module ESX_VM.pm</a>. This script will give you an Idea on how to use my ESX_VM.pm. You can also use this script with the ESX_VM.pm for your current environment.</p>
+<p><a id="more"></a><a id="more-184"></a></p>
+<ul>
+<li>Remotely reboot VirtualMachines&nbsp;</li>
+<li>Revert to Previous SnapShots</li>
+<li>Delete SnapShots</li>
+<li>Create SnapShots</li>
+<li>
+<p>And more....</p>
+</li>
+</ul>
+<p>
+You can do all of the above through a nice web url like the one below <br />
+wget 'http://VCserver/cgi/vm_admin.cgi?&amp;vmachine=VirtualMachineName&amp;action=vmachineReset'</p>
+<p>
+Or you can access this through your favorite Web Browser ..<br />
+'http://VCserver/cgi/vm_admin.cgi?&amp;vmachine=VirtualMachineName&amp;action=vmachineReset' </p>
+<p>You can download the script <a href="http://www.linuxdynasty.org/View-details/VMware-Perl/13-vm_virtualmachine.cgi.html" title="">here</a>. You must become a member before downloading </p>
+<p><a href="http://www.linuxdynasty.org/images/stories/Scripts/vm_virtual_machine_cgi.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://www.linuxdynasty.org/images/stories/Scripts/vm_virtual_machine_cgi.png" /></a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-07-29T16:19:32-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/services-provided/">July 29, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/services-provided/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -290,52 +369,6 @@ maintain that expertise in house!</p>
 </ol>
 <p><span class="attention">I am now connected to the internet!!! Everything I did above is what lead me to internet connectivity. The reason I gave you all the steps I had to do is so that you do not have to go through the same pain I did and at the same time learn some Solaris specific commands.Next I will give you the normal steps to get network connectivity. Steps for DHCP and steps for Static network connectivity.</span> </p>
 <p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-07-13T05:01:01-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/i-got-networking-on-opensolaris-working/">July 13, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/i-got-networking-on-opensolaris-working/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/i-got-networking-on-opensolaris-working/" rel="bookmark" title="I got networking on OpenSolaris working" itemprop="url">I got networking on OpenSolaris working</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Wow this was a real mission for me and a learning experience... I'm updating you from my OpenSolaris box right now :).....&nbsp; Essentially in a nutshell, I had to run /usr/X11R6/bin/scanpci -v to find out what typ of network card I had installed (NVIDIA MCP61). I then googled that on the net and it returned this wonderful link <a href="http://homepage2.nifty.com/mrym3/taiyodo/nfo-2.6.0.tar.gz" title="">&quot;http://homepage2.nifty.com/mrym3/taiyodo/nfo-2.6.0.tar.gz&quot;</a>&nbsp; . This driver was the missing link in my quest to get networking.</p>
-<p>I will create&nbsp; a tutorial on howto setup networking under OpenSolaris in a few hours after I get a nap. </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-07-13T00:43:39-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensolaris-woes/">July 13, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensolaris-woes/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/opensolaris-woes/" rel="bookmark" title="OpenSolaris Woes" itemprop="url">OpenSolaris Woes</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Recently I took an interest in learning OpenSolaris, and let me tell you, to me it's like learning a different language. I am still not able to get my box with simple networking... (</p>
-<p>&nbsp;I did a #$%^ load of googling and I found out how to scan the devices on OpenSolaris &quot;/usr/X11R6/bin/scanpci -v&quot; By doing that I found that the current driver I have loaded is not the correct driver, now to find the correct driver and load that bad boy up. I'm going to load up alot of howtos on OpenSolaris once I got a grip of the situation. </p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -525,6 +558,12 @@ maintain that expertise in house!</p>
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

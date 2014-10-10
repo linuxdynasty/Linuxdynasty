@@ -136,6 +136,425 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-06-07T14:38:11-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/run-levels-in-linux/">June 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/run-levels-in-linux/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~5 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/run-levels-in-linux/" rel="bookmark" title="Run Levels In Linux" itemprop="url">Run Levels In Linux</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p class="MsoNormal"><strong><span style="font-size: 14pt" lang="EN-US">RUN LEVELS</span></strong><strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p></o:p></span></strong></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Background</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Linux can boot<br />
+into various configurations (much like with what you get with Windows when<br />
+hitting <strong>F8</strong> while booting)<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Linux has 6 boot<br />
+levels but outside of specialized situations, only levels 3 &amp; 5 are useful<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Runlevel 3 boots<br />
+to a command prompt –this is the default Runlevel for most servers<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Runlevel 5 boots<br />
+to a GUI interface similar to Windows – this is the default Runlevel for most<br />
+workstations<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p><br />
+<br /><a id="more"></a><a id="more-32"></a><br />&nbsp;</o:p></span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Linux RunLevel Chart</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></p>
+<table class="MsoNormalTable" style="border: 1pt solid windowtext; margin-left: 31.05pt" border="1" cellpadding="0" cellspacing="0">
+<thead>
+<tr>
+<td colspan="5" style="border: 1pt solid windowtext; padding: 3.75pt">
+<p class="MsoNormal"><strong><span style="font-size: 12pt">Runlevels<br />
+<o:p></o:p></span></strong></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
+<p class="MsoNormal"><strong><span style="font-size: 12pt">Number<br />
+<o:p></o:p></span></strong></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
+<p class="MsoNormal"><strong><span style="font-size: 12pt">Name<br />
+<o:p></o:p></span></strong></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
+<p class="MsoNormal"><strong><span style="font-size: 12pt">Login<br />
+<o:p></o:p></span></strong></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
+<p class="MsoNormal"><strong><span style="font-size: 12pt">Network<br />
+<o:p></o:p></span></strong></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
+<p class="MsoNormal"><strong><span style="font-size: 12pt">Filesystems<br />
+<o:p></o:p></span></strong></p>
+</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">0<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Halt<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">1<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Single<br />
+  user<br />
+  (Very Useful for Troubleshooting)<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Down<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">2<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Multiuser<br />
+  without NFS<br />
+  (Network File System)<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
+  (partially)<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">3<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Multiuser</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt">(Standard boot level for servers)&nbsp;</span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">4<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">User<br />
+  defined<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">5<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Multiuser<br />
+  with X Windows/GUI</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt">(Standard boot level for desktops)&nbsp;</span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Graphical<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">6<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">Reboot<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
+<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
+<o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="MsoNormal"><span lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></strong></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></strong></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">How to change a Run Level</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">1. Make sure you<br />
+are logged in as root<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">2. <strong>init <em>runlevel</em></strong><span>&nbsp; </span><br />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>i.e.<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">init 6<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">reboot the system<br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">How to change The Default Run Level</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p></o:p></span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">NOTE: </span></strong><span style="font-size: 12pt" lang="EN-US"><span>&nbsp;</span>Be VERY care with this – DO NOT<br />
+set your run levels to 6 (forever rebooting) or 0 (your machine halts every<br />
+time you try and start it.<strong><br />
+<o:p></o:p></strong></span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+<o:p>&nbsp;</o:p></span></p>
+<p class="LinuxCommandChar" style="margin-left: 0cm"><strong><span style="font-size: 12pt">Steps:</span></strong><span style="font-size: 12pt"><br />
+<o:p></o:p></span></p>
+<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">1.<br />
+vi /etc/inittab<br />
+<o:p></o:p></span></p>
+<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">2.<br />
+Look for a line the ends with <strong>initdefault</strong><br />
+i.e.:<br />
+<o:p></o:p></span></p>
+<p class="LinuxCommandChar" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; margin-left: 0cm; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>id:3:initdefault:<br />
+<o:p></o:p></span></p>
+<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">3.<br />
+Change the number. Unless you are troubleshooting you should only use a value<br />
+of 3 or 5 in this line<br />
+<o:p></o:p></span></p>
+<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">4.<br />
+Save<br />
+<o:p></o:p></span></p>
+<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">5.<br />
+Reboot system to test.<br />
+<o:p></o:p></span></p>
+<p>&nbsp;</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-06-07T14:10:29-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/">June 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/" rel="bookmark" title="Configuring IP on Linux from the Command Line (RedHat,CentOS,Fedora)" itemprop="url">Configuring IP on Linux from the Command Line (RedHat,CentOS,Fedora)</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Configuring IP on Linux from the Command Line<br />
+(RedHat,CentOS,Fedora)<br />
+</span></strong></p>
+<p class="MsoNormal"><span style="font-size: 12pt">This<br />
+guide assumes that you are adding an the IP on eth0. If you are doing this on<br />
+another Eth card (i.e. eth1) just adjust the eth numbers accordingly<br />
+</span></p>
+<p class="MsoNormal"> </p>
+<p><a id="more"></a><a id="more-65"></a></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
+Step 1 -Add IP Address<br />
+</span></strong></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/sysconfig/network-scripts/ifcfg-eth0<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">and configure like<br />
+the following (pick any IP address available on your network)<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">DEVICE=eth0<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">BOOTPROTO=none<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">BROADCAST=192.168.1.255<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">IPADDR=192.168.1.105<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">NETMASK=255.255.255.0<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">NETWORK=192.168.1.0<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">HWADDR=00:50:FC:4B:B8:98<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">ONBOOT=yes<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">TYPE=Ethernet<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">USERCTL=no<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">IPV6INIT=no<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">PEERDNS=no<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">GATEWAY=192.168.1.1<br />
+</span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt"><br />
+ </span></strong></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 2 Restart the NIC<br />
+</span></strong></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">service network restart<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 3 - Add the Default Route:<br />
+</span></strong></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Default Route: </span></strong><span style="font-size: 12pt" lang="EN-US"><br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">route add default<br />
+gw <em>ip_address_of_your_default_gateway</em><br />
+eth0<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">route add default gw 192.168.1.1 eth0<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">To make gw/route<br />
+permanent:<br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/sysconfig/network<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">to make look like<br />
+this:<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal"><span style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; font-size: 12pt; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial" lang="EN-US">NETWORKING=yes<br />
+HOSTNAME= localhost.localdomain<br />
+GATEWAY=192.168.1.1<br />
+</span><span style="font-size: 12pt" lang="EN-US"><span> </span><span> </span><br />
+</span></p>
+<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 4 - Add DNS Servers<br />
+</span></strong></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><span> </span><br />
+</span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/resolv.conf<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">so it looks like<br />
+this:<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
+ </span></p>
+<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">search yourdomain.com<br />
+nameserver 192.168.1.37<br />
+nameserver 192.168.1.36<br />
+nameserver 192.168.1.38<br />
+</span></p>
+<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><span> </span><br />
+</span></p>
+<p> </p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-06-05T19:39:33-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/vote-from-users/">June 05, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/vote-from-users/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -311,74 +730,6 @@ foreach $views (sort(@$e_vm)) {<br />
 }<br />
 Util::disconnect();</p>
 </span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-04T12:15:08-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/sorry-for-no-updates-since-friday/">June 04, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/sorry-for-no-updates-since-friday/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/sorry-for-no-updates-since-friday/" rel="bookmark" title="Sorry for no updates since Friday." itemprop="url">Sorry for no updates since Friday.</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I was in Atlantic City for the weekend, and I was not worried about updating the site... ENOUGH SAID....!!!!</p>
-<p>But I will be updating the site today with another Linux Distro Screenshot and maybe another Perl Script to be used with VMWare ESX Perl API...</p>
-<p>If you like what we are doing with the site please join the site and leave comments.. We are looking for Ideas for new HowTo's.... So please join and help us to help you!!!&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-30T14:00:36-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/deli-80-install-screen-shots/">May 30, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/deli-80-install-screen-shots/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/deli-80-install-screen-shots/" rel="bookmark" title="Deli 8.0 Install Screen Shots" itemprop="url">Deli 8.0 Install Screen Shots</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span class="dropcap">T</span>his distribution shocked me on how fast it boots up and loads applications. I tested Deli Linux on one of my old P2 mmx box. And I was really impressed and shocked on how fast it boots up and loads applications. Though the install was pretty straight forward it is not for Linux Newbies... Now if you are a Linux Newbie and want to try this out then follow my screen shot.</p>
-<p><a id="more"></a><a id="more-141"></a></p>
-<p>Deli 8.0 uses lilo for its boot loader which I have not see in over 2 years since grub is pretty much the owner of the boot loader market. So make sure when you are doing the installation and you are about to choose where to install lilo...<strong> <span style="background-color: rgb(255, 102, 0)">Remember usee MBR not ROOT!! </span></strong><br />
-One more thing.. in my 2nd screen shot I forgot to type &quot;<font color="#0000ff"><strong>cfdisk</strong></font>&quot; which it does tell you to do when it boots up.</p>
-<p><a href="images/stories/distros/deli8.0/initial_boot.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/initial_boot.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/pre_install.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/pre_install.png" /></a><a href="images/stories/distros/deli8.0/install1.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install1.png" /></a><a href="images/stories/distros/deli8.0/install2.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install2.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install3.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install3.png" /></a><a href="images/stories/distros/deli8.0/install4.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install4.png" /></a><a href="images/stories/distros/deli8.0/install5.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install5.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install6.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install6.png" /></a><a href="images/stories/distros/deli8.0/install7.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install7.png" /></a><a href="images/stories/distros/deli8.0/install8.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install8.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install9.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install9.png" /></a><a href="images/stories/distros/deli8.0/install10.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install10.png" /></a><a href="images/stories/distros/deli8.0/install11.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install11.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install12.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install12.png" /></a><a href="images/stories/distros/deli8.0/install13.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install13.png" /></a><a href="images/stories/distros/deli8.0/install14.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install14.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install15.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install15.png" /></a><a href="images/stories/distros/deli8.0/install16.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install16.png" /></a><a href="images/stories/distros/deli8.0/install17.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install17.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install18.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install18.png" /></a><a href="images/stories/distros/deli8.0/install19.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install19.png" /></a><a href="images/stories/distros/deli8.0/install20.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install20.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install21.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install21.png" /></a><a href="images/stories/distros/deli8.0/install22.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install22.png" /></a><a href="images/stories/distros/deli8.0/install23.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install23.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install24.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install24.png" /></a><a href="images/stories/distros/deli8.0/install25.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install25.png" /></a><a href="images/stories/distros/deli8.0/install26.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install26.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install27.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install27.png" /></a><a href="images/stories/distros/deli8.0/install28.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install28.png" /></a><a href="images/stories/distros/deli8.0/install29.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install29.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install30.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install30.png" /></a><a href="images/stories/distros/deli8.0/install31.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install31.png" /></a><a href="images/stories/distros/deli8.0/install32.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install32.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install33.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install33.png" /></a><a href="images/stories/distros/deli8.0/install34.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install34.png" /></a><a href="images/stories/distros/deli8.0/install35.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install35.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install36.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install36.png" /></a><a href="images/stories/distros/deli8.0/install37.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install37.png" /></a><a href="images/stories/distros/deli8.0/install38.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install38.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install39.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install39.png" /></a><a href="images/stories/distros/deli8.0/install40.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install40.png" /></a><a href="images/stories/distros/deli8.0/install41.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install41.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install42.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install42.png" /></a><a href="images/stories/distros/deli8.0/install43.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install43.png" /></a><a href="images/stories/distros/deli8.0/install44.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install44.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install45.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install45.png" /></a><a href="images/stories/distros/deli8.0/install46.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install46.png" /></a><a href="images/stories/distros/deli8.0/install47.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install47.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install48.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install48.png" /></a><a href="images/stories/distros/deli8.0/install49.png" rel="shadowbox[0]"><img alt="" style="width: 274px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install49.png" /></a><a href="images/stories/distros/deli8.0/install50.png" rel="shadowbox[0]"><img alt="" style="width: 297px; height: 224px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install50.png" /></a></p>
-<p><a href="images/stories/distros/deli8.0/install51.png" rel="shadowbox[0]"><img alt="" style="width: 289px; height: 223px" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/distros/deli8.0/install51.png" /></a></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -568,6 +919,12 @@ One more thing.. in my 2nd screen shot I forgot to type &quot;<font color="#0000
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

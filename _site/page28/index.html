@@ -136,6 +136,90 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T23:45:47-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-log-in-iptables/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-log-in-iptables/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-log-in-iptables/" rel="bookmark" title="How to log in IPTABLES" itemprop="url">How to log in IPTABLES</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span style="color: red"><strong>Welcome again to LinuxDynasty.org. In this quick how to, we are going to show you how to get iptables to log when it drops packets</strong>.</span></p>
+<ol>
+<li>
+<ul><strong>In the previous tutorial <a href="SSH_Blocking+-+How_to_block_ssh_attacks_using_iptables">SSH BLOCKING HOW TO</a> we showed you how to drop those pesky ssh attacks, well int his tutorial we are going to show you how to log those attacks. If you have not read the previous tutorial, then please read it now as I am not going to reexplain the options I used for blocking ssh attacks</strong>
+<li>Before we get into the iptables rules, lets make sure that what we are doing is going to log. First lets open up &quot;<strong><span style="color: blue">/etc/syslog.conf</span></strong>&quot; and add this entry
+<pre><br />kern.*                          /var/log/firewall.log<br />  </pre>
+</li>
+<li>Now restart your syslog daemon.. &quot;<strong><span style="color: blue">/etc/init.d/syslog restart</span></strong>&quot; (This is ofcourse assuming you are using Fedora or any other redhat base linux) </li>
+<li><strong><span style="color: blue">iptables -A INPUT -i eth0 -p tcp -m tcp --dport 22 -m state --state NEW -m recent --set --name ssh_attempt --rsource -j LOG --log-prefix &quot;SSH connection attempt: &quot;</span></strong> </li>
+<li>As you can see this &quot;<span style="color: blue"><strong>-j LOG --log-prefix &quot;SSH connection attempt</strong>: &quot;</span>&quot;  was appended to our previous <a href="SSH_Blocking+-+How_to_block_ssh_attacks_using_iptables">SSH BLOCKING HOW TO</a>. This is essentially logging all ssh attempts.</li>
+<li>&quot;<strong><span style="color: blue">-j LOG</span></strong>&quot; This means to jump to the LOG chain in iptables. </li>
+<li>&quot;<span style="color: blue"><strong>--log-prefix &quot;SSH connection attempt</strong>: &quot;</span>&quot; This is labeling the log with SSH connection attempt: &quot;.</li>
+</ul>
+</li>
+<li>
+<ul><strong>That was basic logging, now we will get into some more options in logging.</strong>
+<li>Now lets say you want your logging to be more verbose. In iptables we can fix that by adding this entry in the rule.. <strong><span style="color: blue">--log-level 7</span></strong>. This is the highest level of logging (DEBUG LEVEL). </li>
+<li>Now what if you logs are getting saturated by the second and overwhelming your processor? Well we can add limits also. Here is an example <strong><span style="color: blue">-m limit --limit 2/second --limit-burst 5</span></strong>. This will limit the logging to 2 entries per second and a max of 5 packets per second. </li>
+</ul>
+</li>
+<li>
+<ul><strong>So if we put it all together it would look like this..</strong>
+<li><strong><span style="color: blue">iptables -A INPUT -i eth0 -p tcp -m tcp --dport 22 -m state --state NEW -m recent --set --name ssh_attempt --rsource -j LOG --log-level 7 -m limit --limit 2/second --limit-burst 5 --log-prefix &quot;SSH connection attempt: &quot;</span></strong></li>
+</ul>
+</li>
+</ol>
+<p><strong>There are a few more options that we can discuss on logging. If anybody wants to see them just leave a comment. If you liked the tutorial also please leave a comment. I will be adding a ULOG howto in the next day or so, which is my preferred way to log in iptables.</strong></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-10T23:43:44-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-change-duplexingspeed/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-change-duplexingspeed/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-change-duplexingspeed/" rel="bookmark" title="How to change Duplexing/Speed" itemprop="url">How to change Duplexing/Speed</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span style="color: rgb(255, 0, 0)">In this tutorial we will show you how to view your speed/duplexing setting and also changing your duplexing/speed settings</span></p>
+<ol>
+<li>
+<ul>
+To view you interface settings, run this..<span style="color: rgb(0, 0, 255)">&quot;<strong>ethtool eth0</strong>&quot;</span>
+<pre><br />Settings for eth0:<br />        Supported ports: [ TP MII ]<br />        Supported link modes:   10baseT/Half 10baseT/Full<br />                                100baseT/Half 100baseT/Full<br />        Supports auto-negotiation: Yes<br />        Advertised link modes:  10baseT/Half 10baseT/Full<br />                                100baseT/Half 100baseT/Full<br />        Advertised auto-negotiation: Yes<br />        Speed: 100Mb/s<br />        Duplex: Full<br />        Port: MII<br />        PHYAD: 1<br />        Transceiver: internal<br />        Auto-negotiation: on<br />        Supports Wake-on: g<br />        Wake-on: g<br />        Current message level: 0x00000007 (7)<br />        Link detected: yes<br />  </pre>
+<p>&nbsp;</p>
+<li>To change your settings for eth0 you will have to do this...<br />
+<span style="color: rgb(0, 0, 255)">&quot;<strong>ethtool -s eth1 speed 100 duplex full autoneg off</strong>&quot;</span> </li>
+<li><strong>REDHAT</strong>To make these changes permanently you will have to append this <strong><span style="color: rgb(0, 0, 255)">ETHTOOL_OPTS=&quot;speed 100 duplex full autoneg off&quot;</span></strong>to the /etc/sysconfig/network-scripts/ifcfg-eth0 file
+<pre><br />DEVICE=eth0<br />BROADCAST=192.168.101.255<br />BOOTPROTO=static<br />HWADDR=00:E0:81:24:CQ:82<br />IPADDR=192.168.101.5<br />NETMASK=255.255.255.0<br />NETWORK=192.168.101.0<br />ONBOOT=yes<br />TYPE=Ethernet<br />ETHTOOL_OPTS=&quot;speed 100 duplex full autoneg off&quot;<br />  </pre>
+</li>
+</ul>
+</li>
+</ol>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-02-10T23:11:29-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/netbackup-troubleshooting-how-to/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/netbackup-troubleshooting-how-to/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -427,143 +511,6 @@ Now there are 3 simple steps in Windows.
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:36:38-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-setup-serial-console-on-linux/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-setup-serial-console-on-linux/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-setup-serial-console-on-linux/" rel="bookmark" title="How to setup serial console on linux" itemprop="url">How to setup serial console on linux</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><b><span style="color: red;">This tutorial is for those Admins who need to setup serial console on there LINUX servers</span></b></p>
-<p> <strong>Section-1</strong></p>
-<ol>
-<li>
-<ul>
-In this first part of of the how to I will show you how to setup serial console on a <br /><strong>RedHat(Fedora,CentOS)</strong> based systems<strong>(Does work on other systems as well)</strong>.
-<li>First step is to make sure you have a serial port. </li>
-<li>Second step is to make sure you have a console cable. You can do this by running this..
-<pre>linuxdynasty.org]# dmesg |grep ttyS0<br />ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A<br />  </pre>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-Once you verified you have the necessary <strong>hardware</strong> configuration, <br />we are on to configuring the server.
-<li>Add this <b><span style="color: blue;">co:2345:respawn:/sbin/agetty ttyS0 9600 vt100-nav</span></b> to <b><span style="color: green;">/etc/inittab</span></b> <br />using your favorite editor. (mine is vi :) ) This is how mine looks like..
-<pre># Run gettys in standard runlevels<br />co:2345:respawn:/sbin/agetty ttyS0 57600 vt100-nav<br />1:2345:respawn:/sbin/mingetty tty1<br />2:2345:respawn:/sbin/mingetty tty2<br />3:2345:respawn:/sbin/mingetty tty3<br />4:2345:respawn:/sbin/mingetty tty4<br />5:2345:respawn:/sbin/mingetty tty5<br />6:2345:respawn:/sbin/mingetty tty6<br /> </pre>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-Now it is time to edit <b><span style="color: green;">/boot/grub.conf</span></b>. These two entries need to be added into grub.conf<br /><b><span style="color: blue;">serial --unit=0 --speed=57600</span><br /><span style="color: blue;">terminal --timeout=5 serial console</span></b><br />And append this to <b><span style="color: blue;">console=ttyS0,57600n8</span></b> to your kernel entry.
-<li>Here is the all in one solution..
-<p> <small></small></p>
-<pre><small><br />serial --unit=0 --speed=57600<br />terminal --timeout=5 serial console<br />title CentOS (2.6.9-55.0.2.EL)<br />   root (hd1,0)<br />   kernel /vmlinuz-2.6.9-55.0.2.EL ro root=/dev/VolGroup00/LogVol00 console=tty0 console=ttyS0,57600n8<br />   initrd /initrd-2.6.9-55.0.2.EL.img<br />  </small></pre>
-</li>
-<li>Now reboot your server and from another box console in. </li>
-</ul>
-</li>
-</ol>
-<p> <strong>Section-2</strong></p>
-<ol>
-<li>
-<ul>
-Now we will show you how to setup a serial console for <strong>Ubuntu Feisty 7.0.4</strong>, <br />(Reason I chose Feisty is that Feisty no longer uses the <b><span style="color: green;">/etc/inittab</span></b> . <br />Instead uses upstart for its init functions)
-<li>First step, follow the First step in Section-1 of this tutorial.</li>
-</ul>
-</li>
-<li>
-<ul>
-Once you verified you have the necessary <strong>hardware</strong> configuration, <br />we are on to configuring the server.
-<li>Add this <b><span style="color: blue;">exec /sbin/getty -L 57600 ttyS0 vt102</span></b> to <b><span style="color: green;">/etc/event.d/ttyS0</span></b> (<b><br />If this file does not exist please create it</b>) using your favorite editor. (mine is vi :) ) <br />This is how mine looks like..
-<pre># tty0 - getty<br />#<br /># This service maintains a getty on tty1 from the point the system is<br /># started until it is shut down again.<br /><br />start on runlevel 2<br />start on runlevel 3<br />start on runlevel 4<br />start on runlevel 5<br /><br />stop on runlevel 0<br />stop on runlevel 1<br />stop on runlevel 6<br /><br />respawn<br />exec /sbin/getty -L 57600 ttyS0 vt102<br />  </pre>
-</li>
-</ul>
-</li>
-<li>
-<ul>
-Now proceed to third step of Section-1 of this tutorial.
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-10T05:33:52-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/lvm2-how-to/">February 10, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/lvm2-how-to/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/lvm2-how-to/" rel="bookmark" title="LVM2 How To" itemprop="url">LVM2 How To</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span style="color: red;"><strong>Do you have the need for speed???... OK OK enough with the comments :P...Before reading this tutorial you should understand a little how LVM works</strong></span></p>
-<p> <strong>How to create a physical volume, volume group, and logical volume.</strong></p>
-<ol>
-<li>
-<ul>
-First thing we have to do is initialize the disk..
-<li>Figure out which disk and partitions you have that are being used <b><span style="color: blue;">df -h</span></b>. </li>
-<li>Now we need to run <b><span style="color: blue;">fdisk -l</span></b> and see all the partitions, including the ones that we have that are not mounted up </li>
-<li>Now that we know which disks and partitions that you can not destroy, we can start our process of creating lvm volumes. </li>
-</ul>
-</li>
-<li>
-<ul>
-Here we will start with the initialization of the lvm volumes.(Either we use the entire disk or a partition)Here we will show you on partitions.
-<li>Lets initialize the first partition..<br /><b><span style="color: blue;">pvcreate /dev/sda1</span>.</b> </li>
-<li>Now lets initialize the second partition..<br /><b><span style="color: blue;">pvcreate /dev/sdb1</span>.</b> </li>
-<li>To display info on the physical volume, just run this<br /><b><span style="color: blue;">pvdisplay</span>.</b> </li>
-</ul>
-</li>
-<li>
-<ul>
-Now that both partitions have been initialized, it is time to create the volume group and activate it.
-<li><b><span style="color: blue;">vgcreate linuxdynasty /dev/sda1 /dev/sdb1</span></b> </li>
-<li><b><span style="color: blue;">vgchange -a y  linuxdynasty</span></b> </li>
-<li>To display info on the volume group, just run this<br /><b><span style="color: blue;">vgdisplay</span>.</b> </li>
-</ul>
-</li>
-<li>
-<ul>
-We have reached the final step (for the LVM part of it).
-<li>Now we create the logical volume. <br /><b><span style="color: blue;">lvcreate -L10G -nHomeLV linuxdynasty</span></b> </li>
-<li>To display info on the logical volume, just run this<br /><b><span style="color: blue;">lvdisplay</span>.</b> </li>
-</ul>
-</li>
-<li>
-<ul>
-Final steps, we need to make a file system on that volume and mount it.
-<li>First, we create the file system<br /><b><span style="color: blue;">mkfs.ext3 /dev/linuxdynasty/HomeLV</span></b> </li>
-<li>Second, we mount the file system<br /><b><span style="color: blue;">mount -t ext3 /dev/linuxdynasty/HomeLV /home</span></b> </li>
-</ul>
-</li>
-</ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -749,6 +696,12 @@ Final steps, we need to make a file system on that volume and mount it.
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

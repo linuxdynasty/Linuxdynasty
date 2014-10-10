@@ -136,6 +136,347 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-21T12:34:18-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/issues-registering-on-linuxdynasty/">May 21, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/issues-registering-on-linuxdynasty/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/issues-registering-on-linuxdynasty/" rel="bookmark" title="Issues registering on LinuxDynasty" itemprop="url">Issues registering on LinuxDynasty</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>For those of you who had issues registering here at linuxdynasty, the issue is now fixed.&nbsp; Please create a login and join the site and hopefully we can help you with knowledge and you can help us grow.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-05-18T21:33:14-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/regular-expressions-and-commands-howto/">May 18, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/regular-expressions-and-commands-howto/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/regular-expressions-and-commands-howto/" rel="bookmark" title="Regular Expressions and Commands HowTo" itemprop="url">Regular Expressions and Commands HowTo</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span class="dropcap">T</span>here are a bunch of great regular expressions HowTo's out there..... Now you may be asking why am I creating another??? Well quite simple, I am creating this one because this is not really just a regular expression howto but more a regular expression HowTo with its everyday uses with linux/unix commands.&nbsp; So it will not cover perl/python/ruby/...etc programming languages regular expressions (That will be for another tutorial :) )</p>
+<p>To start this off I will give you a basic introduction to regular expressions using the output <br />
+of &quot;<font color="#0000ff"><strong>ls</strong></font>&quot; and piping it &quot;<font color="#0000ff"><strong>grep</strong></font>&quot; using the <strong>-<font color="#0000ff">oE</font></strong> options (The <font color="#0000ff"><strong>o</strong></font> stands for Exact match and the <font color="#0000ff"><strong>E</strong></font> stands for Extended Regular Expressions). Using &quot;(<font color="#ff0000"><strong>BRE</strong></font> and <strong><font color="#ff0000">ERE</font></strong>) <strong>B</strong>asic <strong>R</strong>egular <strong>E</strong>xpressions and <strong>P</strong>osix <strong>E</strong>xtended <strong>R</strong>egular <strong>E</strong>xpressions&quot;...</p>
+<p><u><strong>THIS IS NOT A TUTORIAL BUT A HOWTO</strong><strong>!!</strong></u> So this means more examples and less explaining..</p>
+<p>&nbsp;</p>
+<table style="border-collapse: collapse" align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" height="427" width="633">
+<tbody>
+<tr valign="top">
+<th scope="col">
+<p>Anchors</p>
+</th>
+<th scope="col">
+<p>What it means&nbsp;</p>
+</th>
+<th scope="col">
+<p>Example&nbsp;</p>
+</th>
+</tr>
+<tr valign="top">
+<td>
+<p><strong><font color="#ff0000">^ </font></strong></p>
+</td>
+<td>
+<p>Start of string</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">^</font>Cw+.jpg&quot;</strong></font><br />
+Chunka.jpg<br />
+Chunka1.jpg</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>$</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>End of string&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls |grep -oE &quot;w+(.jpg<font color="#ff0000">$</font>)&quot;</strong></font><br />
+Chunka.jpg<br />
+Chunka1.jpg<br />
+DSCF0732.jpg</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>b</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>Word boundary&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">b</font>Chunka<font color="#ff0000">b</font>.jpg&quot;</strong></font><br />
+Chunka.jpg </p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>&lt;</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>Start of word&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">&lt;</font>Chw+.jpg&quot;</strong></font><br />
+Chunka.jpg<br />
+Chunka1.jpg </p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>&gt;</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>End of word&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls Scripts/Python/ |grep -oE &quot;w+<font color="#ff0000">&gt;</font>.py&quot;</strong></font><br />
+xen_mac_generate.py&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse" align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" height="222" width="355">
+<tbody>
+<tr valign="top">
+<th scope="col">
+<p>&nbsp;Character Classes&nbsp;</p>
+</th>
+<th scope="col">
+<p>What it means&nbsp;</p>
+</th>
+<th scope="col">
+<p>Example&nbsp;</p>
+</th>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>w</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>Word&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls | grep -oE &quot;<font color="#ff0000">w</font>&quot;</strong></font><br />
+C<br />
+C</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>W&nbsp;</strong></font></p>
+</td>
+<td>
+<p>Non word&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls |grep -oE &quot;<font color="#ff0000">W</font>&quot;</strong></font><br />
+.<br />
+. </p>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="border-collapse: collapse" align="center" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0" height="618" width="630">
+<tbody>
+<tr valign="top">
+<th scope="col">
+<p>Quantifiers&nbsp;</p>
+</th>
+<th scope="col">
+<p>what it means&nbsp;</p>
+</th>
+<th scope="col">
+<p>example&nbsp;</p>
+</th>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>*</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>zero or more times</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls | grep -oE &quot;w<font color="#ff0000">*</font>.jpg&quot;</strong></font><br />
+Chunka.jpg<br />
+Chunka1.jpg<br />
+DSCF0732.jpg </p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>+</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>one or more times&nbsp;</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls | grep -oE &quot;w<font color="#ff0000">+</font>&quot;</strong></font><br />
+Chunka<br />
+Chunka1<br />
+DSCF0732 </p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>?</strong></font>&nbsp;</p>
+</td>
+<td>matches either once or zero times </td>
+<td>
+<p><font color="#0000ff"><strong>ls | grep -oE &quot;Chunka1<font color="#ff0000">?</font>.jpg&quot;</strong></font><br />
+Chunka.jpg<br />
+Chunka1.jpg</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>{2}</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>Exactly 2 times</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls | grep -oE &quot;(^C<font color="#ff0000">{2}</font>hw+.jpg)&quot;</strong></font><br />
+CChunka.jpg </p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>{1,}</strong></font></p>
+</td>
+<td>
+<p>1 or more times</p>
+</td>
+<td>
+<p><font color="#0000ff"><strong>ls | grep -oE &quot;(^C<font color="#ff0000">{1,}</font>hw+.jpg)&quot;</strong></font><br />
+CChunka.jpg<br />
+CCChunka.jpg<br />
+Chunka.jpg<br />
+Chunka1.jpg<br />
+Chunka11.jpg </p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>{1,2}&nbsp;</strong></font></p>
+</td>
+<td>
+<p>1 through 2 times</p>
+</td>
+<td>
+<p><strong><font color="#0000ff">ls | grep -oE &quot;(^C<font color="#ff0000">{1,2}</font>hw+.jpg)&quot;</font></strong><br />
+CChunka.jpg<br />
+Chunka.jpg<br />
+Chunka1.jpg<br />
+Chunka11.jpg </p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 100%; border-collapse: collapse" summary="" border="1" bordercolor="#000000" cellpadding="3" cellspacing="0">
+<tbody>
+<tr valign="top">
+<th scope="col">
+<p>Special Characters&nbsp;</p>
+</th>
+<th scope="col">
+<p>What it means&nbsp;</p>
+</th>
+<th scope="col">
+<p>Example&nbsp;</p>
+</th>
+</tr>
+<tr valign="top">
+<td>
+<p><strong><font color="#ff0000">n</font></strong>&nbsp;</p>
+</td>
+<td>
+<p>New line&nbsp;</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>r</strong></font>&nbsp;</p>
+</td>
+<td>
+<p>Carriage return&nbsp;</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>t</strong></font></p>
+</td>
+<td>
+<p>Tab&nbsp;</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>v</strong></font></p>
+<p>
+
+<td>
+<p>Vertical tab&nbsp;</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+
+<tr valign="top">
+<td>
+<p><font color="#ff0000"><strong>f</strong></font></p>
+</td>
+<td>
+<p>Form feed&nbsp;</p>
+</td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;</p>
+<p></p>
+</p></td></tr></tbody></table>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-05-17T15:39:11-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-2/">May 17, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/screen-howto-part-2/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -329,136 +670,6 @@ else:<br />
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-14T23:19:25-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/potential-new-howtos/">May 14, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/potential-new-howtos/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/potential-new-howtos/" rel="bookmark" title="Potential New HowTo's" itemprop="url">Potential New HowTo's</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>So for anyone that come through this site, are they any HowTo's you would like to see get put up?</p>
-<p>I've been working on alot of scripting and programming lately and thats why I have been focusing on that area.</p>
-<p>I'm going to be putting up some Perl Scripts that interact with the<br />
-Perl SDK for VMWare ESX 3.0+ servers. Might be interesting to some<br />
-people. As well as a new python project I am starting to work on that I will make opensource.</p>
-<p>I would like suggestions from people out there on what they would like<br />
-to see on this site. It does not have to be just linux/unix or<br />
-programming, it can also be networking or windows.</p>
-<p>We are looking for IDEAS, so Please join and comment. </p>
-<p>&nbsp;We are looking for people who love this field to join the site and help it grow. </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-14T20:01:31-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/comparing-active-values-from-sysctlconf-using-python/">May 14, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/comparing-active-values-from-sysctlconf-using-python/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/comparing-active-values-from-sysctlconf-using-python/" rel="bookmark" title="Comparing active values from sysctl.conf using Python" itemprop="url">Comparing active values from sysctl.conf using Python</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span>I was told the other day to write a script that will compare a set of predefined values&nbsp; to active values from &quot;sysctl -a&quot;<br />
-So here it is.... Some people might ask why did I not do this in shell or even perl??? The answer is simple I love PYTHON!!! :)<br />
-</span></p>
-<p><span>Example below..... Make sure to run as root&nbsp;</span></p>
-<p><span>python sysctl_verify.py <br />
-[FAIL] net.core.rmem_max = 131071 (Required value = 20971520)<br />
-[FAIL] net.ipv4.tcp_mem = 374304 (Required value = 32768 32768 32768)<br />
-[FAIL] net.ipv4.tcp_rmem = 4096 (Required value = 4096 87380 8388608)<br />
-[FAIL] net.ipv4.tcp_retries2 = 15 (Required value = 5)<br />
-[FAIL] net.ipv4.tcp_wmem = 4096 (Required value = 4096 16384 8388608)<br />
-[FAIL] net.core.wmem_max = 131071 (Required value = 20971520)<br />
-[FAIL] net.core.netdev_max_backlog = 1000 (Required value = 3000)<br />
-[FAIL] net.ipv4.route.flush = Does not Exist!! (Required value = 1)<br />
-[FAIL] Current RX value = 128 (Required RX value = 16384)<br />
-</span></p>
-<p><span><br />
-</span></p>
-<p><span><br />
-#!/usr/bin/env python<br />
-#This script will will compare a set of predefined values&nbsp; to active values from &quot;sysctl -a&quot;<br />
-#Copyright (C) 2008  Allen Sanabria
-<p>#This program is free software; you can redistribute it and/or modify<br />
-#it under the terms of the GNU General Public License as published by<br />
-#the Free Software Foundation; either version 2 of the License, or<br />
-#(at your option) any later version.</p>
-<p>#This program is distributed in the hope that it will be useful,<br />
-#but WITHOUT ANY WARRANTY; without even the implied warranty of<br />
-#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br />
-#GNU General Public License for more details.</p>
-<p>#You should have received a copy of the GNU General Public License along<br />
-#with this program; if not, write to the Free Software Foundation, Inc.,<br />
-#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.<br />
-import os, sys, re, string<br />
-#Created by Allen Sanabria<br />
-#Verify these parameters are whats running in sysctl<br />
-# net.core.rmem_max = 20971520<br />
-# net.core.wmem_max = 20971520<br />
-# net.ipv4.tcp_mem = 32768 32768 32768<br />
-# net.ipv4.tcp_rmem = 4096 87380 8388608<br />
-# net.ipv4.tcp_wmem = 4096 16384 8388608<br />
-# net.ipv4.tcp_retries2 = 5<br />
-# net.core.netdev_max_backlog = 3000<br />
-# net.ipv4.route.flush = 1<br />
-<br />
-<br /><a id="more"></a><a id="more-72"></a><br /><span><br />
-uid = os.getuid()<br />
-root = 0<br />
-login = os.getlogin()<br />
-eth = []<br />
-max_rx = {}<br />
-cur_rx = {}
-<p>if uid == root:<br />
-  sysctl_out = {'net.core.rmem_max' : '20971520',<br />
-                'net.core.wmem_max' : '20971520',<br />
-                'net.ipv4.tcp_mem' : '32768 32768 32768',<br />
-                'net.ipv4.tcp_rmem' : '4096 87380 8388608',<br />
-                'net.ipv4.tcp_wmem' : '4096 16384 8388608',<br />
-                'net.ipv4.tcp_retries2' : '5',<br />
-                'net.core.netdev_max_backlog' : '3000',<br />
-                'net.ipv4.route.flush' : '1'}</p>
-<p>
-  for key in sysctl_out.keys():<br />
-    sysctl = 'sysctl -a | grep %s' % (key)<br />
-    sysctl_exec = os.popen(sysctl).readline()<br />
-    sysctl_exec = re.sub('n', '', sysctl_exec)<br />
-    sysctl_exec = re.sub('s+', ' ', sysctl_exec)<br />
-    sysctl_match = re.search(key+' = '+sysctl_out[key], sysctl_exec)<br />
-    sysctl_line = re.search((key)+' = (d+)', sysctl_exec)<br />
-    sysctl_first = re.search((key), sysctl_exec)<br />
-    if sysctl_match:<br />
-      print &quot;[PASS] &quot;+key+ &quot; = &quot; +sysctl_out[key]<br />
-    elif not sysctl_first:<br />
-      print &quot;[FAIL] &quot; +key+ &quot; = Does not Exist!! (Required value = &quot; +sysctl_out[key]+ &quot;)&quot;<br />
-    else:<br />
-      print &quot;[FAIL] &quot; +key+ &quot; = &quot; +sysctl_line.group(1)+ &quot; (Required value = &quot; +sysctl_out[key]+ &quot;)&quot;<br />
-else:<br />
-  print &quot;Only root can run this, and you are %s with a id of %s&quot; % (login, uid)</p>
-</span></p></span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -644,6 +855,12 @@ else:<br />
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

@@ -136,6 +136,137 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-09-26T23:11:22-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/python-and-expect/">September 26, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/python-and-expect/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/python-and-expect/" rel="bookmark" title="Python and Expect" itemprop="url">Python and Expect</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div>At the current place that I work at, we are trying to figure out, how much we are logging on a daily basis. Since my manager is thinking of purchasing Splunk ( I hope he does ). But before we make that leap and spend that much money ( Those of you who have splunk know exactly what I am talking about ). We need to know how much we are logging now and how much we would be logging after all of our devices are in Splunk.</div>
+<p>The current issue is that we have over 400 Cisco Network devices, and they are not all in the Cisco LMS ( Lan Management Solution ). We also have Solarwind, but we do not have all of our Networking devices in there either. There is only one way I know of doing that with out using multiple tools like Cisco LMS or Func. So I figured, I should go ahead and write a Python tool that can update all of our devices ( Cisco, Nortel, Foundry,  Linux, BSD, you get the idea.. ).</p>
+<p>I wrote a Python tool that utilizes pexpect. The tools is almost complete to release on my site, but I still need to add more functionality. Currently, you can pass a device list and a command list to the script. You can also tell the tool to be verbose and print the output. Also you can tell it to use ssh or telnet or both. The tool is smart enogh to use ssh keys or log into a device you never have logged into before, by accepting the key for you.</p>
+<p>I'm currently modifying it so that you can just pass one device and not just a list of devices. Also working on a password changer function. I've tested my tool on Linux Servers as well as Cisco devices and so far it works like a charm. I'm thinking about adding threading, but I have not yet decided to do so..</p>
+<div>I will post this tool either tonight or tomorrow.. I hope you will find this tool as useful as we do.</div>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-09-18T11:24:27-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/">September 18, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/" rel="bookmark" title="LD Port Report 1.12 update aka the Host and MAC Reporting tool" itemprop="url">LD Port Report 1.12 update aka the Host and MAC Reporting tool</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div>
+<div>We are happy to announce the release of Port Report 1.12. In this release, we can now follow CDP Neighbors while using the <strong>--report</strong> or <strong>-r</strong> options. Before when you used the <strong>--report</strong> option, the script will report on just that one switch. Now if you pass the <strong>--follow</strong> or <strong>-f </strong>option with the <strong>--report</strong> or <strong>-r</strong> option, port_report will follow the CDP neighbors and create multiple CSV files.<br />
+Release notes are below.... If you want to see an example of the Port Report output and how to run it, please check this link</div>
+<div>LD Port Report == {filelink=15}<br />
+..<a href="ld-port-report-project.html">http://www.linuxdynasty.org/ld-port-report-project.html</a>
+</div>
+<div>
+<dl>
+<dd>Revision 1.12 09/18/09
+<ul>
+<li>The report option of the script can now follow cdp neighbors using the <strong>--follow</strong> option or <strong>-f</strong>.<br />
+When you run the command below it will create ONE CSV file per cdp neighbor it scanned.<br />
+I was able to scan from my core Switch down to the last neighbor in the line ( 44 Neighbors in just under 20 minutes. )<br />
+Which equaled to a little over 4K Mac Addresses<br />
+For instance...port_report.py -d 192.168.101.1 -c public -r -f</li>
+</ul>
+<p><a id="more"></a><a id="more-212"></a></p>
+<p>Revision 1.11 09/13/09</p>
+<ul>
+<li>More code clean up and another increase in speed.</li>
+<li>Also port_report can now follow EtherChannel</li>
+<li>Fixed issue, where the matching of the cdp neighbor was not matching correctly</li>
+<li>Added better verbosity</li>
+<li>Added Sanity Checking for cdp neighbors</li>
+</ul>
+<p>Revision 1.10 09/09/09</p>
+<ul>
+<li>Code Clean up and a slight increase in speed ( by a few seconds ) during the search by mac or ip</li>
+</ul>
+<p>Revision 1.9<br />
+Code changes and Added CDP Support</p>
+<ul>
+<li>Detect CDP Neighbors during the scan for MAC Addresses or IP Addresses</li>
+</ul>
+<p>Revision 1.8<br />
+Here is a quick update.....</p>
+<ul>
+<li>I just add dns reverse lookups to the output of this script.</li>
+</ul>
+<p>Revision 1.7<br />
+Adds support to the following devices..</p>
+<ol>
+<li>Cisco
+<ul>
+<li>Catalyst 6509 w/ Supervisor 720 running IOS</li>
+<li>Catalyst 3560</li>
+<li>Catalyst 3550 (SMI)</li>
+<li>Cisco CIGESM series Chassis Blades</li>
+<li>Cisco Catalyst 2960</li>
+</ul>
+</li>
+<li>Foundry
+<ul>
+<li>Foundry Server Iron</li>
+</ul>
+</li>
+<li>Nortel
+<ul>
+<li>Nortel Passport 8600</li>
+<li>Nortel 5520 Ethernet Routing Switch</li>
+</ul>
+</li>
+<li>HP
+<ul>
+<li>HP Procurve 5406xl</li>
+</ul>
+</li>
+</ol>
+<p>&nbsp;</p>
+<p>Revision 1.6<br />
+New additions to this revision ....</p>
+<ul>
+<li>Support for HP Procurve Switches, ( Tested on the newer versions of HP )</li>
+<li>combined switch_report.py in port_report.py.</li>
+<li>Added --verbose flag</li>
+</ul>
+<p>Previous Releases....</p>
+<ul>
+<li>Search by MAC or IP or PORT</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-09-15T13:58:17-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-111-update/">September 15, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-111-update/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -375,132 +506,6 @@ Here is an example of the output you will get from rh_cluster_check.py..</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-08-24T01:25:22-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/clustering/howto-setup-a-quorum-disk/">August 24, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/clustering/howto-setup-a-quorum-disk/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~5 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/clustering/howto-setup-a-quorum-disk/" rel="bookmark" title="HowTo setup a Quorum Disk" itemprop="url">HowTo setup a Quorum Disk</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Today's tutorial will be on the infamous Quorum disk.  When I first setup my <a title="" href="http://www.linuxdynasty.org/howto-setup-gfs2-with-clustering.html">GFS2 shared Cluster of 3 nodes</a>, I was quite impressed with the fact that 3 nodes were sharing the same file system.  Now that everything was up and running, I wanted to see what would happen if I brought down, 2 out of the 3 nodes in the cluster. I turned off 1st node and all was well, I was still able to access my GFS2 mount on the other 2 nodes. Then I decided to reboot the 2nd node, and guess what happened???? QUORUM DISSOLVED!!! Now on my final node the GFS2 file system was still mounted but I could not touch a file or run a ls on the mount... It just hung there!!</p>
-<p>Well I knew this was not going to be acceptable.... Since if I still have 1 node available, the node should still be able to use the GFS2 mount. So I did some research about this quorum disk and what it can do for me. Let me tell you, this was exactly what I was looking for. 1st let me start out my explaining what a quorum is ( relating to clustering ). A quorum is the minimal number of votes that is needed in a cluster, usually the majority. So if you have 3 nodes in a cluster, that means you have a total of 3 votes in the cluster and you will need a minimum of 2 votes to remain in a quorate state. Which means you can lose 1 node in the cluster and the other nodes are still functional. But if you lose 2 nodes, your quorum will be dissolved. Which means even though your GFS2 file system is still mounted on your final node, it will not be accessible to you.</p>
-<p>The quorum disk will help this particular situation... You ask how???? Well here it is...  Qdisk needs at a minimum of a 10MB disk partition shared across the cluster.<br />
-Qdiskd runs on each node in the cluster, periodically checking its<br />
-own health and then placing its state information into its assigned<br />
-portion of the shared disk. On each node qdiskd then looks at the state of<br />
-the other nodes in the cluster as posted in their area of the qdisk<br />
-partition. When all the nodes that are running qdiskd are in a healthy state, the quorum of the cluster is increased by the value of the shared Quorum Disk.</p>
-<p><span class="attention">The Value of the Quorum Disk should be n-1 ( Number of nodes - 1 ). In this case the Value should be 2 ( 3 -1 ).</span></p>
-<p><a id="more"></a><a id="more-217"></a></p>
-<p>If on a particular node, qdisk is unable to access its shared disk<br />
-area after several attempts. The qdiskd running on another node in<br />
-the cluster will request that the node which has issues communicating, to be fenced. Now that you have the basic understanding of what Qdisk is, I will now show you how to set it up.</p>
-<ol>
-<li>You will need a shared volume like ( iscsi, Fiber, VMware Shared Disk, etc.. )  that can be accessed by all nodes in the cluster. In this tutorial I am using a shared vmdk, and on all my nodes that is /dev/sdc. I will be using the 1st partition on /dev/sdc
-<pre>fdisk -l /dev/sdc
-
-Disk /dev/sdc: 5368 MB, 5368709120 bytes255 heads, 63 sectors/track, 652 cylindersUnits = cylinders of 10065 * 512 = 8225280 bytes
-
-   Device Boot      Start         End      Blocks   Id  System/dev/sdc1               1           2       16033+  83  Linux/dev/sdc2               3         652     5221125   83  Linux</pre>
-<p>&nbsp;
-<li>Once the volumes are accessible from all the nodes, you will now need to create the Quorum Disk.example below...
-<pre>mkqdisk -c /dev/sdc1 -l testQdisk
-
-mkqdisk v0.6.0Writing new quorum disk label 'testQdisk' to /dev/sdc1.WARNING: About to destroy all data on /dev/sdc1; proceed [N/y] ? yWarning: Initializing previously initialized partitionInitializing status block for node 1...Initializing status block for node 2...Initializing status block for node 3...Initializing status block for node 4...Initializing status block for node 5...Initializing status block for node 6...Initializing status block for node 7...Initializing status block for node 8...Initializing status block for node 9...Initializing status block for node 10...Initializing status block for node 11...Initializing status block for node 12...Initializing status block for node 13...Initializing status block for node 14...Initializing status block for node 15...Initializing status block for node 16...</pre>
-</li>
-<li>Now we need to verify that the quorum disk has been initialized correctly. You should run the blow command on all 3 nodes, so that you have a piece of mind.... Example below..
-<pre>mkqdisk -L
-
-mkqdisk v0.6.0/dev/disk/by-path/pci-0000:00:11.0-scsi-0:0:1:0-part1:/dev/sdc1:        Magic:                eb7a62c2        Label:                testQdisk        Created:              Mon Aug 24 10:20:25 2009        Host:                 gfs1        Kernel Sector Size:   512        Recorded Sector Size: 512</pre>
-</li>
-<li>We now need to add the qdisk information into /etc/cluster/cluster.conf after the  &lt;/clusternodes&gt; but before we do that, lets make a backup of cluster.conf... .example below
-<pre>cp /etc/cluster/cluster.conf /etc/cluster.conf.orig</pre>
-<p>Now we edit cluster.conf</p>
-<pre>        &lt;/clusternodes&gt;        &lt;quorumd interval="3" tko="23" votes="2" label="testQdisk"&gt;        &lt;/quorumd&gt;</pre>
-</li>
-<li>Once you added the above info into cluster.conf, you should also increase the version number by 1. Example below..
-<pre>&lt;cluster config_version="31" name="MyCluster"&gt;</pre>
-</li>
-<li>Now to verify that your config is correct, run ccs_tool update /etc/cluster/cluster.conf. If you get no errors from ccs_tool, you are now able to proceed to the next step.</li>
-<li>You will then copy the new /etc/cluster/cluster.conf to the other 2 nodes in the cluster.
-<pre>scp /etc/cluster/cluster.conf gfs2:/etc/clusterscp /etc/cluster/cluster.conf gfs3:/etc/cluster</pre>
-</li>
-<li>Now restart the CMAN daemon on all 3 nodes like so "service cman restart". Now wait a minutes or so and run clustat on all 3 nodes, you will notice that a quorum disk entry should popup on the bottom of the list like so..
-<pre>clustatCluster Status for MyCluster @ Mon Aug 24 10:40:47 2009Member Status: Quorate
-
- Member Name                                                     ID   Status ------ ----                                                     ---- ------ gfs1                                                            1 Online, Local gfs2                                                            2 Online gfs3                                                            3 Online /dev/disk/by-path/pci-0000:00:11.0-scsi-0:0:1:0-part1           0 Offline, Quorum Disk</pre>
-<p>Or you can taill -f /var/log/messages</p>
-<p><small>Aug 24 10:39:32 gfs3 qdiskd[14488]: &lt;info&gt; Quorum Partition: /dev/disk/by-path/pci-0000:00:11.0-scsi-0:0:3:0-part1 Label: testQdisk Aug 24 10:39:32 gfs3 qdiskd[14489]: &lt;info&gt; Quorum Daemon Initializing Aug 24 10:40:47 gfs3 qdiskd[14489]: &lt;info&gt; Initial score 1/1 Aug 24 10:40:47 gfs3 qdiskd[14489]: &lt;info&gt; Initialization complete Aug 24 10:40:47 gfs3 openais[2561]: [CMAN ] quorum device registered Aug 24 10:40:47 gfs3 qdiskd[14489]: &lt;notice&gt; Score sufficient for master operation (1/1; required=1); upgrading </small>&nbsp;
-<li>We are pretty much done now. All we need to do now is verify that our total votes went from 3 to 5 and our expected votes went from 2 to 3..
-<pre>cman_tool status
-
-Version: 6.1.0Config Version: 32Cluster Name: MyClusterCluster Id: 46516Cluster Member: YesCluster Generation: 384Membership state: Cluster-MemberNodes: 3Expected votes: 3Quorum device votes: 2Total votes: 5Quorum: 3  Active subsystems: 10Flags: Dirty Ports Bound: 0 11 177  Node name: gfs1Node ID: 1Multicast addresses: 239.192.181.106 Node addresses: 192.168.101.100</pre>
-</li>
-
-<p>Well that was not that bad.... Was it??? If all went well you can now have the GFS2 shared file system mounted on either 1 or 3 nodes and it will still be accessible by your cluster. Also your cluster will still be quorate, even if you are down to 1 node in that cluster.</p>
-</p></li></p></li></ol>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-08-14T17:05:15-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/clustering/howto-increase-gfs2-performance-in-a-cluster/">August 14, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/clustering/howto-increase-gfs2-performance-in-a-cluster/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/clustering/howto-increase-gfs2-performance-in-a-cluster/" rel="bookmark" title="HowTo Increase GFS2 Performance in a Cluster" itemprop="url">HowTo Increase GFS2 Performance in a Cluster</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>In the last HowTo, I showed you how to setup GFS2 file system with Red Hat Clustering. I will now show you how to optimize the performance of your GFS2 mounts. The gfs_controld daemon manages the mounting, unmounting, and the recovery of the GFS2 mounts. gfs_controld also manages the posix lock.</p>
-<p>By default  the plock_rate_limit option is set to 100. This will allow a maximum of 100 locks per second, which will decrease your GFS2 performance. See below...</p>
-<p><strong> &lt;dlm plock_ownership="0" plock_rate_limit="100"/&gt;<br />
-&lt;gfs_controld plock_rate_limit="100"/&gt;</strong></p>
-<p>You can test the performance of you cluster by downloading the program <strong><a title="" href="http://wiki.samba.org/index.php/Ping_pong">ping_pong.c.</a></strong> This program was very helpful to me in debugging the poor performance in my GFS2 cluster.<br />
-The instructions on how to compile the program and run it is on the site http://wiki.samba.org/index.php/Ping_pong.When I initially ran ping_pong, I only got a max of 97 plocks per second. After removing the rate limit I was able to get about 3000 Plocks per second.</p>
-<p><a id="more"></a><a id="more-216"></a></p>
-<p>You should change the plock_rate_limit to 0 and the dlm plock_ownership to 1. See below..</p>
-<p><strong> &lt;dlm plock_ownership="1" plock_rate_limit="0"/&gt;<br />
-&lt;gfs_controld plock_rate_limit="0"/&gt;</strong></p>
-<p>FYI.. The settings above are set in <strong>/etc/cluster/cluster.conf</strong>   Example below...<br />
-<strong>    &lt;cman/&gt;<br />
-&lt;dlm plock_ownership="1" plock_rate_limit="0"/&gt;<br />
-&lt;gfs_controld plock_rate_limit="0"/&gt;</strong><br />
-<strong>&lt;/cluster&gt;</strong></p>
-<p>My settings were added to the end of cluster.conf.<br />
-<span class="attention">After adding the above settings, please reboot all the nodes for the settings to take affect. </span></p>
-<p>The above will increase locking operations at the cost of an increase in network utilization. You also can increase the performance of your GFS2 mount by mounting it with these options ( <strong>noatime</strong> and <strong>nodiratime</strong> )... Example below..</p>
-<p><strong>mount -o noatime,nodiratime, /dev/mapper/mytest_gfs2-MyGFS2test /GFS/</strong></p>
-<p>Another way to tune GFS2 directly, is by decreasing how often GFS2 demotes its locks.  Demote_secs is the number of seconds that gfsd will wake up and demote locks and flush data to disk. The default is set to 300 seconds which is equal to 5 minutes. I currently have mine to demote every 20 seconds, and believe you me... I saw a big performance increase.</p>
-<p><strong>gfs2_tool settune /GFS demote_secs 20</strong></p>
-<p>I chose 20 seconds, but it does not mean that is what you need to chose. You can play with those numbers and see how performance either increases or decreases. The option needs to be set every time the file system is mounted. So you might want to add this option in rc.local or in the gfs2 startup script at the end.</p>
-<p><strong> echo "gfs2_tool settune /GFS demote_secs 20" &gt;&gt; /etc/rc.local</strong></p>
-<p>When all was said and done I was able to get over 3000 plocks per sec after the optimization was done and my file level operations drastically increased in performance. I Hope the above helps you the way it helped me.</p>
-<p><span class="attention">Very Important.... Make sure that updatedb does not run on your GFS2 mounts.. This will kill your GFS2 mount!!!! </span></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -686,6 +691,12 @@ The instructions on how to compile the program and run it is on the site http://
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

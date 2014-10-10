@@ -136,6 +136,70 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-05T19:08:31-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/vmware/todays-task/">October 05, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/vmware/todays-task/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/vmware/todays-task/" rel="bookmark" title="Today's task!" itemprop="url">Today's task!</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Today I was given a task to have my manager emailed once a day. If any of our Data Stores in ESX 3.5 are over 80% utilized. So I said to my self. What would be the easiest way to do this???? Well I've written two scripts in the past, that could help me accomplish that. The first script VMstoragePool.py will list all of the Data Stores in Vmware and its utilization. The 2nd script is check_datastore.py, and this script will return OK, WARNING, or CRITICAL, depending on the thresholds you set. So by effectively combining the 2 scripts I was able to get what I want. Example below...</p>
+<pre>python VMstoragePool.py -u "https://esxhostA" -a "login passwd" |grep "DataStore Name" |awk {'print $3'} |for line in `xargs`;do python check_datastore.py -u "https://esxhostA" -a "login passwd" -d $line -w 80 -c 90 -m "GB"|grep -P "WARNING|CRITICAL";done|mail user@domain.com
+CRITICAL XythosVol2 57GB Avail 94% used |avail=57
+WARNING XythosVol1 62GB Avail 87% used |avail=62
+WARNING LinuxVol1 57GB Avail 88% used |avail=57
+WARNING WinVol1 75GB Avail 84% used |avail=75
+WARNING BBSCVOL1 122GB Avail 88% used |avail=122
+CRITICAL NSSharedVOL1 46GB Avail 95% used |avail=46</pre>
+<p>&nbsp;</p>
+<p>So I can run this script in cron once a day and pipe the output to email him directly. Simple yet effective! On a side note, I fixed both chec_datastore.py and VMstoragePool.py to effectivly parse passwd's that used characters like !@#$%^.</p>
+<p>Both scripts can be downlaoded here..<br />
+check_datastore.py == {filelink=12}</p>
+<p>VMstoragePool.py == {filelink=13}</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-10-02T19:47:59-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/network-device-manager-update-022/">October 02, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/network-device-manager-update-022/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/network-device-manager-update-022/" rel="bookmark" title="Network Device Manager update 0.22" itemprop="url">Network Device Manager update 0.22</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>We are please to announce the release of Network Device Manager 0.22. Release notes below..</p>
+<p>Revision 0.22 10/02/2009</p>
+<ul>
+<li>Threading has been implemented into the script. Drastic Speed increase!!<br />
+It use to take about 18 minutes to run this script against 285 devices. It now just takes me 23 seconds.</li>
+<li>Better error checking!</li>
+</ul>
+<p>{quickdown:49}</p>
+<p>To see how to use the tool above, please check this link <a href="howto-manage-your-networked-devices-using-python-and-pexpect.html">http://www.linuxdynasty.org/howto-manage-your-networked-devices-using-python-and-pexpect.html</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-10-01T13:28:56-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/">October 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/ld%20device%20manager/ld-network-device-manager-update-21/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -327,137 +391,6 @@ python ldNetDeviceManager.py -l dynasty -p 'passwd' -d 192.168.101.11 -c 'sudo s
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-09-26T23:11:22-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/python-and-expect/">September 26, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/python-and-expect/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/blog/python-and-expect/" rel="bookmark" title="Python and Expect" itemprop="url">Python and Expect</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div>At the current place that I work at, we are trying to figure out, how much we are logging on a daily basis. Since my manager is thinking of purchasing Splunk ( I hope he does ). But before we make that leap and spend that much money ( Those of you who have splunk know exactly what I am talking about ). We need to know how much we are logging now and how much we would be logging after all of our devices are in Splunk.</div>
-<p>The current issue is that we have over 400 Cisco Network devices, and they are not all in the Cisco LMS ( Lan Management Solution ). We also have Solarwind, but we do not have all of our Networking devices in there either. There is only one way I know of doing that with out using multiple tools like Cisco LMS or Func. So I figured, I should go ahead and write a Python tool that can update all of our devices ( Cisco, Nortel, Foundry,  Linux, BSD, you get the idea.. ).</p>
-<p>I wrote a Python tool that utilizes pexpect. The tools is almost complete to release on my site, but I still need to add more functionality. Currently, you can pass a device list and a command list to the script. You can also tell the tool to be verbose and print the output. Also you can tell it to use ssh or telnet or both. The tool is smart enogh to use ssh keys or log into a device you never have logged into before, by accepting the key for you.</p>
-<p>I'm currently modifying it so that you can just pass one device and not just a list of devices. Also working on a password changer function. I've tested my tool on Linux Servers as well as Cisco devices and so far it works like a charm. I'm thinking about adding threading, but I have not yet decided to do so..</p>
-<div>I will post this tool either tonight or tomorrow.. I hope you will find this tool as useful as we do.</div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-09-18T11:24:27-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/">September 18, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/uncategorized/ld-port-report-112-update-aka-the-host-and-mac-reporting-tool/" rel="bookmark" title="LD Port Report 1.12 update aka the Host and MAC Reporting tool" itemprop="url">LD Port Report 1.12 update aka the Host and MAC Reporting tool</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div>
-<div>We are happy to announce the release of Port Report 1.12. In this release, we can now follow CDP Neighbors while using the <strong>--report</strong> or <strong>-r</strong> options. Before when you used the <strong>--report</strong> option, the script will report on just that one switch. Now if you pass the <strong>--follow</strong> or <strong>-f </strong>option with the <strong>--report</strong> or <strong>-r</strong> option, port_report will follow the CDP neighbors and create multiple CSV files.<br />
-Release notes are below.... If you want to see an example of the Port Report output and how to run it, please check this link</div>
-<div>LD Port Report == {filelink=15}<br />
-..<a href="ld-port-report-project.html">http://www.linuxdynasty.org/ld-port-report-project.html</a>
-</div>
-<div>
-<dl>
-<dd>Revision 1.12 09/18/09
-<ul>
-<li>The report option of the script can now follow cdp neighbors using the <strong>--follow</strong> option or <strong>-f</strong>.<br />
-When you run the command below it will create ONE CSV file per cdp neighbor it scanned.<br />
-I was able to scan from my core Switch down to the last neighbor in the line ( 44 Neighbors in just under 20 minutes. )<br />
-Which equaled to a little over 4K Mac Addresses<br />
-For instance...port_report.py -d 192.168.101.1 -c public -r -f</li>
-</ul>
-<p><a id="more"></a><a id="more-212"></a></p>
-<p>Revision 1.11 09/13/09</p>
-<ul>
-<li>More code clean up and another increase in speed.</li>
-<li>Also port_report can now follow EtherChannel</li>
-<li>Fixed issue, where the matching of the cdp neighbor was not matching correctly</li>
-<li>Added better verbosity</li>
-<li>Added Sanity Checking for cdp neighbors</li>
-</ul>
-<p>Revision 1.10 09/09/09</p>
-<ul>
-<li>Code Clean up and a slight increase in speed ( by a few seconds ) during the search by mac or ip</li>
-</ul>
-<p>Revision 1.9<br />
-Code changes and Added CDP Support</p>
-<ul>
-<li>Detect CDP Neighbors during the scan for MAC Addresses or IP Addresses</li>
-</ul>
-<p>Revision 1.8<br />
-Here is a quick update.....</p>
-<ul>
-<li>I just add dns reverse lookups to the output of this script.</li>
-</ul>
-<p>Revision 1.7<br />
-Adds support to the following devices..</p>
-<ol>
-<li>Cisco
-<ul>
-<li>Catalyst 6509 w/ Supervisor 720 running IOS</li>
-<li>Catalyst 3560</li>
-<li>Catalyst 3550 (SMI)</li>
-<li>Cisco CIGESM series Chassis Blades</li>
-<li>Cisco Catalyst 2960</li>
-</ul>
-</li>
-<li>Foundry
-<ul>
-<li>Foundry Server Iron</li>
-</ul>
-</li>
-<li>Nortel
-<ul>
-<li>Nortel Passport 8600</li>
-<li>Nortel 5520 Ethernet Routing Switch</li>
-</ul>
-</li>
-<li>HP
-<ul>
-<li>HP Procurve 5406xl</li>
-</ul>
-</li>
-</ol>
-<p>&nbsp;</p>
-<p>Revision 1.6<br />
-New additions to this revision ....</p>
-<ul>
-<li>Support for HP Procurve Switches, ( Tested on the newer versions of HP )</li>
-<li>combined switch_report.py in port_report.py.</li>
-<li>Added --verbose flag</li>
-</ul>
-<p>Previous Releases....</p>
-<ul>
-<li>Search by MAC or IP or PORT</li>
-</ul>
-</dd>
-</dl>
-</div>
-</div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -643,6 +576,12 @@ New additions to this revision ....</p>
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

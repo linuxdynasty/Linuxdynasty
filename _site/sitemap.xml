@@ -153,7 +153,19 @@
         <loc>http://linuxdynasty.github.io/Linuxdynasty/page30/index.html</loc>
     </url>
     
+    <url>
+        <loc>http://linuxdynasty.github.io/Linuxdynasty/page31/index.html</loc>
+    </url>
+    
 
+    
+    <url>
+        <loc>http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite/</loc>
+    </url>
+    
+    <url>
+        <loc>http://linuxdynasty.github.io/Linuxdynasty/graph-passenger-metrics-using-sensu-and-graphite/</loc>
+    </url>
     
     <url>
         <loc>http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/</loc>

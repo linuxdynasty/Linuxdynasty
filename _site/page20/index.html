@@ -136,6 +136,78 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-06-17T19:30:21-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/script-to-manage-a-custom-built-cmdb-in-python-using-threading/">June 17, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/script-to-manage-a-custom-built-cmdb-in-python-using-threading/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~7 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/script-to-manage-a-custom-built-cmdb-in-python-using-threading/" rel="bookmark" title="Script to manage a custom built CMDB in Python using Threading" itemprop="url">Script to manage a custom built CMDB in Python using Threading</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span class="dropcap">T</span>his script was created so that you can query/insert/update a MySQL database based on Project/Site/Hostname/Cluster/Rack and Environment. You can also&nbsp; run multi threaded commands to the output of Project/Site/Hostname/Cluster/Rack and or Environment .</p>
+<p><strong><span class="attention">For instance to run 1 command to 200 boxes took about 5 seconds, man you got to love that.</span>&nbsp;</strong></p>
+<p><span>             To update the CMDB... Usage: [ -u -c 'cluster' -d 'device' -s 'site' -p 'project' -e 'environment'] <br />
+                example.. <font color="#0000ff"><strong>cmdb-admin -u -d {hostname} -c {cluster} -s {site} -p {project} -r {rack} -e {environment}</strong></font><br />
+</span></p>
+<p><span>	     To insert a new device in the CMDB... Usage: [-i -d 'device' -I 'ipaddr' -c 'cluster' -s 'site' -p 'project' -r 'rack' -e 'environment']<br />
+		example.. <font color="#0000ff"><strong>cmdb-admin -i -d {hostname} -I {ipaddress} -c {cluster} -s {site} -p {project} -r {rack} -e {environment}<br />
+</strong></font></span></p>
+<p><a id="more"></a><a id="more-74"></a></p>
+<p><span><br />
+             To run a command to the different clusters/sites/projects/racks  Usage: [-c|-p|-s|-r|-d|-e -C '{command} [options of command] %s ' <br />
+                example.. cmdb-admin -c {cluster} -C &quot;ping -c2 %s&quot; <br />
+<font color="#0000ff"><strong>                          cmdb-admin -s {site} -C &quot;<font color="#ff0000">ssh %s 'echo hello'</font>&quot;</strong></font>
+<p>             To query the CMDB.... Usage: [-d 'device' -q] (-v is optional)<br />
+                example.. <font color="#0000ff"><strong>cmdb-admin -q -d {hostname} -v</strong></font></p>
+<p>             To query the CMDB.... Usage: [-c {cluster} -q] (-v is optional)<br />
+                example.. <font color="#0000ff"><strong>cmdb-admin -q -c {cluster} -v</strong></font></p>
+<p>             To query the CMDB.... Usage: [-p 'project' -q] (-v is optional)<br />
+                example.. <font color="#0000ff"><strong>cmdb-admin -q -p WEB -v</strong></font></p>
+<p>             To query the CMDB.... Usage: [-s 'device' -q] (-v is optional)<br />
+                example.. <font color="#0000ff"><strong>cmdb-admin -q -s {site} -v</strong></font></p>
+<p>             To query the CMDB.... Usage: [-r 'device' -q] (-v is optional)<br />
+                example.. <font color="#0000ff"><strong>cmdb-admin -q -r {rack} -v</strong></font></p>
+<p><u><font color="#000000"><span><strong>Enjoy the script below!</strong></span></font></u></p>
+<p>&nbsp;</p>
+<pre>#!/bin/env python<br /><span><br />#Copyright (C) 2008  Allen Sanabria<br /><br />#This program is free software; you can redistribute it and/or modify<br />#it under the terms of the GNU General Public License as published by<br />#the Free Software Foundation; either version 2 of the License, or<br />#(at your option) any later version.<br /><br />#This program is distributed in the hope that it will be useful,<br />#but WITHOUT ANY WARRANTY; without even the implied warranty of<br />#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br />#GNU General Public License for more details.<br /><br />#You should have received a copy of the GNU General Public License along<br />#with this program; if not, write to the Free Software Foundation, Inc.,<br />#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span><br />##################################################################<br />#Created by Allen Sanabria aka LinuxDynasty aka PrNino69<br />#This program will update/query/and even execute commands based<br />#on which cluster/project/site/ or rack you want to run it against<br />#completed, Thursday 21st 2008<br />##################################################################<br /><br />import sys, os, MySQLdb, getopt, re, string, threading<br />from time import sleep, ctime<br /><br />mydb =  'CMDB'<br />db_user = 'master'<br />db_passwd = 'paswd'<br />host_db = 'mysql_master'<br /><br />try:<br />  Con = MySQLdb.connect(host=host_db, port=3306, user=db_user, passwd=db_passwd, db=mydb)<br />except Exception, e:<br />  print e<br />else:<br />  Cursor = Con.cursor(  )<br /><br /><br />def main(args):<br />  if insert:<br />    mysql_insert()<br />  elif device and cluster and project and site and update and rack and env:<br />    mysql_update()<br />  elif device and query or cluster and query or site and query or project and query or rack<br />       and query or env and query or device and command or cluster and command or site<br />       and command or project and command or rack and command or env and command:<br />    mysql_query()<br />  elif help:<br />    usage(0)<br />  else:<br />    usage(0)<br /><br />def mysql_insert():<br />  i_sql = &quot;INSERT into host_info (host_id,host_name,ip_address,rack_info,site_name,cluster_name,project,environ) <br />           VALUES (NULL,'%s','%s','%s','%s','%s','%s','%s')&quot; % (device, ipaddr, rack, site, cluster, project,env)<br />  Cursor.execute(i_sql)<br />  Con.close(  )<br />    <br />def mysql_update():<br />  u_sql = &quot;UPDATE host_info SET cluster_name = '%s', site_name = '%s', project = '%s', rack_info = '%s',  environ = '%s'<br />           where (host_name LIKE &quot;%s&quot;)&quot; % (cluster, site, project, rack, env, device1)<br />  Cursor.execute(u_sql)<br />  Con.close(  )<br /><br />class cmdb_command(threading.Thread):<br />  def __init__(self, func, args, name=''):<br />    threading.Thread.__init__( self )<br />    self.name = name<br />    self.func = func<br />    self.args = args<br /><br />  def run(self):<br />    apply(self.func, self.args)<br /><br />def cmdb_exec(host, nu_cmd):<br />#  print host + &quot; started &quot;, ctime()<br />  os.system(nu_cmd)<br />#  print host + &quot; finished &quot;, ctime() +&quot;n&quot;<br /><br />  <br />def mysql_query():<br />  column = None<br />  s_query = None<br />  if project:<br />    column = &quot;project&quot;<br />    s_query = project<br />  elif cluster:<br />    column = &quot;cluster_name&quot;<br />    s_query = cluster<br />  elif site:<br />    column = &quot;site_name&quot;<br />    s_query = site<br />  elif rack:<br />    column = &quot;rack_info&quot;<br />    s_query = rack<br />  elif device:<br />    column = &quot;host_name&quot;<br />    s_query = device1<br />  elif env:<br />    column = &quot;environ&quot;<br />    s_query = env<br /><br /><br />  perc= &quot;%&quot;<br />  sql = &quot;SELECT host_name, ip_address, rack_info, cluster_name, site_name, project, environ FROM host_info <br />         where (%s LIKE &quot;%s&quot;)&quot; % (column, s_query)<br />  Cursor.execute(sql)<br />  Results = Cursor.fetchall(  )<br />  Con.close(  )<br />  if len(Results) == 0:<br />    print &quot;Device &quot; + device + &quot; does not exist!&quot;<br />    exit<br />  if command:<br />    threads = []<br />    nloops = range(len(Results))<br />    started_time = ctime()<br />    print &quot;STARTING HERE&quot;, ctime()<br />    for host in Results:<br />      nu_cmd = command % (host[0])<br />      after = cmdb_command(cmdb_exec, (host[0], nu_cmd), cmdb_exec.__name__)<br />      threads.append(after)<br />    for i in nloops:<br />      threads[i].start()<br />    for i in nloops:<br />      threads[i].join()<br />    ended_time = ctime()<br />    print &quot;ENDING HERE&quot;, ctime()<br />    print &quot;The time this program started &quot; + started_time + &quot; and the time this program ended &quot; + ended_time<br />  else:<br />    query_print(Results)<br /><br />def query_print(Results):<br />    i = 0<br />    for line in Results:<br />      try:<br />        if verbose:<br />          print &quot;Hostname = &quot; + Results[i][0] + &quot;, Ipaddress = &quot; +Results[i][1] + &quot;, <br />                 Rack = &quot; +Results[i][2] + &quot;, Cluster = &quot; + Results[i][3] + &quot;,<br />                 Site = &quot; + Results[i][4] + &quot;, Project = &quot; + Results[i][5] + &quot;,<br />                 Environment = &quot; +Results[i][6]<br />        else:<br />          print Results[i][0]<br />      except IndexError, e:<br />        nondevice = &quot;Device &quot; + device + &quot; Does not exist&quot;<br />        raise nondevice<br />      i += 1<br />  <br />def usage(code=0):<br />  <br />  print &quot;&quot;&quot;<br />          To update the CMDB... <br />          Usage: [ -u -c 'cluster' -d 'device' -s 'site' -p 'project' -e 'environment'] <br />          example.. <br />          cmdb-admin -u -d {hostname} -c {cluster} -s {site} -p {project} -r {rack} -e {environment}<br />	  <br />          To insert a new device in the CMDB... <br />	  Usage: [-i -d 'device' -I 'ipaddr' -c 'cluster' -s 'site' -p 'project' -r 'rack' -e 'environment']<br />	  example.. <br />          cmdb-admin -i -d {hostname} -I {ipaddress} -c {cluster} -s {site} -p {project} -r {rack} -e {environment}<br /><br />          To run a command to the different clusters/sites/projects/racks  <br />          Usage: [-c|-p|-s|-r|-d|-e -C '{command} [options of command] %s ' <br />          example.. <br />          cmdb-admin -c {cluster} -C &quot;ping -c2 %s&quot; <br />          cmdb-admin -s {site} -C &quot;ssh %s 'echo hello'&quot;<br /><br />          To query the CMDB.... <br />          Usage: [-d 'device' -q] (-v is optional)<br />          example.. cmdb-admin -q -d {hostname} -v<br /><br />          To query the CMDB.... <br />          Usage: [-c {cluster} -q] (-v is optional)<br />          example.. <br />          cmdb-admin -q -c {cluster} -v<br /><br />          To query the CMDB.... <br />          Usage: [-p 'project' -q] (-v is optional)<br />          example.. <br />          cmdb-admin -q -p WEB -v<br /><br />          To query the CMDB.... <br />          Usage: [-s 'device' -q] (-v is optional)<br />          example.. <br />          cmdb-admin -q -s {site} -v<br /><br />          To query the CMDB.... <br />          Usage: [-r 'device' -q] (-v is optional)<br />          example.. <br />          cmdb-admin -q -r {rack} -v<br />    <br />    -c, --cluster=      what cluster is it part of... example<br />    -C, --command=      what command to run<br />    -d, --device=       name of device<br />    -s, --site=	        what site is it part of..<br />    -p, --project=      What project is it part of<br />    -r, --rack=         What rack the device is located in<br />    -e, --env=		environment<br />    -u, --update        update mode<br />    -i, --insert        insert mode<br />    -I, --ipaddr        IP Address of device<br />    -q, --query         query mode<br />    -h, --help          This help message <br />    -v, --verbose       Added verbosity    <br /><br />    &quot;&quot;&quot;<br /><br />try:<br />  opts, args = getopt.getopt(sys.argv[1:], &quot;d:c:p:s:r:e:C:I:hvuqi&quot;,<br />  [ 'device=', 'cluster=', 'command=', 'site=', 'project=', 'rack=', <br />    'ipaddr=', 'env=', 'help', 'update', 'query', 'insert', 'verbose' ]<br />  )<br />except getopt.error:<br />  usage(0)<br /><br />help = verbose = cluster = site = project = rack = device = env = query = update = command = insert = ipaddr = None<br />for opt, val in opts:<br />  if opt in ('-v', '--verbose'):<br />    verbose = True<br />  if opt in ('-q', '--query'):<br />    query = True<br />  if opt in ('-u', '--update'):<br />    update = True<br />  if opt in ('-i', '--insert'):<br />    insert = True<br />  if opt in ('-d', '--device'):<br />    device = val<br />    device1 = device + &quot;.%&quot;<br />  if opt in ('-p', '--project'):<br />    project = val<br />  if opt in ('-c', '--cluster'):<br />    cluster = val<br />  if opt in ('-s', '--site'):<br />    site = val<br />  if opt in ('-r', '--rack'):<br />    rack = val<br />  if opt in ('-e', '--env'):<br />    env = val<br />  if opt in ('-C', '--command'):<br />    command = val<br />  if opt in ('-I', '--ipaddr'):<br />    ipaddr = val<br /><br />if __name__ == &quot;__main__&quot;:<br />   main(sys.argv[1:])<br /></pre>
+<p>&nbsp;</p>
+</span></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-06-17T01:06:22-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss-added-me-part-of-the-zenoss-masters-list/">June 17, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss-added-me-part-of-the-zenoss-masters-list/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss-added-me-part-of-the-zenoss-masters-list/" rel="bookmark" title="Zenoss added me part of the Zenoss Masters List..." itemprop="url">Zenoss added me part of the Zenoss Masters List...</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I would like to thank Zenoss for adding me to there Zenoss Master List. Because of Zenoss I learned the Python programming language and it is now my preferred language of choice. Zenoss to me is the best Open Source monitoring solution out there. I feel they beat HP Openview/Tivoli/ and the others Hands Down. I was able to integrate Zenoss with Citrix Netscalers, Custom built CMDB's and other products.</p>
+<p>&nbsp;Here is the link to the Zenoss Masters List <a href="http://blog.zenoss.com/2008/06/03/zenoss-masters/" title="">http://blog.zenoss.com/2008/06/03/zenoss-masters/ </a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-06-14T15:52:05-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/the-apropos-comand/">June 14, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/the-apropos-comand/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -755,425 +827,6 @@ Util::disconnect();<br />
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-07T14:38:11-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/run-levels-in-linux/">June 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/run-levels-in-linux/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~5 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/run-levels-in-linux/" rel="bookmark" title="Run Levels In Linux" itemprop="url">Run Levels In Linux</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p class="MsoNormal"><strong><span style="font-size: 14pt" lang="EN-US">RUN LEVELS</span></strong><strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></strong></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Background</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Linux can boot<br />
-into various configurations (much like with what you get with Windows when<br />
-hitting <strong>F8</strong> while booting)<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Linux has 6 boot<br />
-levels but outside of specialized situations, only levels 3 &amp; 5 are useful<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Runlevel 3 boots<br />
-to a command prompt –this is the default Runlevel for most servers<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">-Runlevel 5 boots<br />
-to a GUI interface similar to Windows – this is the default Runlevel for most<br />
-workstations<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p><br />
-<br /><a id="more"></a><a id="more-32"></a><br />&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Linux RunLevel Chart</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<table class="MsoNormalTable" style="border: 1pt solid windowtext; margin-left: 31.05pt" border="1" cellpadding="0" cellspacing="0">
-<thead>
-<tr>
-<td colspan="5" style="border: 1pt solid windowtext; padding: 3.75pt">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Runlevels<br />
-<o:p></o:p></span></strong></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Number<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Name<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Login<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Network<br />
-<o:p></o:p></span></strong></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="bottom">
-<p class="MsoNormal"><strong><span style="font-size: 12pt">Filesystems<br />
-<o:p></o:p></span></strong></p>
-</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">0<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Halt<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">1<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Single<br />
-  user<br />
-  (Very Useful for Troubleshooting)<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Down<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">2<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Multiuser<br />
-  without NFS<br />
-  (Network File System)<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
-  (partially)<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">3<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Multiuser</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt">(Standard boot level for servers)&nbsp;</span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Textual<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">4<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">User<br />
-  defined<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">5<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Multiuser<br />
-  with X Windows/GUI</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt">(Standard boot level for desktops)&nbsp;</span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Graphical<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Up<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Mounted<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-<tr>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">6<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">Reboot<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-<td style="border: 1pt solid windowtext; padding: 3.75pt" valign="top">
-<p class="MsoNormal"><span style="font-size: 12pt">&nbsp;<br />
-<o:p></o:p></span></p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="MsoNormal"><span lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">How to change a Run Level</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">1. Make sure you<br />
-are logged in as root<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">2. <strong>init <em>runlevel</em></strong><span>&nbsp; </span><br />
-<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>i.e.<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">init 6<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">reboot the system<br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">How to change The Default Run Level</span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p></o:p></span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">NOTE: </span></strong><span style="font-size: 12pt" lang="EN-US"><span>&nbsp;</span>Be VERY care with this – DO NOT<br />
-set your run levels to 6 (forever rebooting) or 0 (your machine halts every<br />
-time you try and start it.<strong><br />
-<o:p></o:p></strong></span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
-<o:p>&nbsp;</o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><strong><span style="font-size: 12pt">Steps:</span></strong><span style="font-size: 12pt"><br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">1.<br />
-vi /etc/inittab<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">2.<br />
-Look for a line the ends with <strong>initdefault</strong><br />
-i.e.:<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; margin-left: 0cm; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>id:3:initdefault:<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">3.<br />
-Change the number. Unless you are troubleshooting you should only use a value<br />
-of 3 or 5 in this line<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">4.<br />
-Save<br />
-<o:p></o:p></span></p>
-<p class="LinuxCommandChar" style="margin-left: 0cm"><span style="font-size: 12pt">5.<br />
-Reboot system to test.<br />
-<o:p></o:p></span></p>
-<p>&nbsp;</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-06-07T14:10:29-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/">June 07, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/configuring-ip-on-linux-from-the-command-line-redhatcentosfedora/" rel="bookmark" title="Configuring IP on Linux from the Command Line (RedHat,CentOS,Fedora)" itemprop="url">Configuring IP on Linux from the Command Line (RedHat,CentOS,Fedora)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Configuring IP on Linux from the Command Line<br />
-(RedHat,CentOS,Fedora)<br />
-</span></strong></p>
-<p class="MsoNormal"><span style="font-size: 12pt">This<br />
-guide assumes that you are adding an the IP on eth0. If you are doing this on<br />
-another Eth card (i.e. eth1) just adjust the eth numbers accordingly<br />
-</span></p>
-<p class="MsoNormal"> </p>
-<p><a id="more"></a><a id="more-65"></a></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US"><br />
-Step 1 -Add IP Address<br />
-</span></strong></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/sysconfig/network-scripts/ifcfg-eth0<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">and configure like<br />
-the following (pick any IP address available on your network)<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">DEVICE=eth0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">BOOTPROTO=none<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">BROADCAST=192.168.1.255<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">IPADDR=192.168.1.105<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">NETMASK=255.255.255.0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">NETWORK=192.168.1.0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">HWADDR=00:50:FC:4B:B8:98<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">ONBOOT=yes<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">TYPE=Ethernet<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">USERCTL=no<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">IPV6INIT=no<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">PEERDNS=no<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">GATEWAY=192.168.1.1<br />
-</span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt"><br />
- </span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 2 Restart the NIC<br />
-</span></strong></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">service network restart<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 3 - Add the Default Route:<br />
-</span></strong></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Default Route: </span></strong><span style="font-size: 12pt" lang="EN-US"><br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">route add default<br />
-gw <em>ip_address_of_your_default_gateway</em><br />
-eth0<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">route add default gw 192.168.1.1 eth0<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">To make gw/route<br />
-permanent:<br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/sysconfig/network<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">to make look like<br />
-this:<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; font-size: 12pt; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial" lang="EN-US">NETWORKING=yes<br />
-HOSTNAME= localhost.localdomain<br />
-GATEWAY=192.168.1.1<br />
-</span><span style="font-size: 12pt" lang="EN-US"><span> </span><span> </span><br />
-</span></p>
-<p class="MsoNormal"><strong><span style="font-size: 12pt" lang="EN-US">Step 4 - Add DNS Servers<br />
-</span></strong></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><span> </span><br />
-</span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">vi /etc/resolv.conf<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US">so it looks like<br />
-this:<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><br />
- </span></p>
-<p class="MsoNormal" style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial"><span style="font-size: 12pt" lang="EN-US">search yourdomain.com<br />
-nameserver 192.168.1.37<br />
-nameserver 192.168.1.36<br />
-nameserver 192.168.1.38<br />
-</span></p>
-<p class="MsoNormal"><span style="font-size: 12pt" lang="EN-US"><span> </span><br />
-</span></p>
-<p> </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -1359,6 +1012,12 @@ nameserver 192.168.1.38<br />
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

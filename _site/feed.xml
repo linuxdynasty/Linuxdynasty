@@ -4,13 +4,250 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://linuxdynasty.github.io/Linuxdynasty/feed.xml" />
 <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty" />
-<updated>2014-09-26T13:02:41-04:00</updated>
+<updated>2014-10-10T14:23:16-04:00</updated>
 <id>http://linuxdynasty.github.io/Linuxdynasty/</id>
 <author>
   <name>Allen Sanabria</name>
   <uri>http://linuxdynasty.github.io/Linuxdynasty/</uri>
   <email>asanabria <@> linuxdynasty dot org</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Graph resque metrics using sensu and graphite.]]></title>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite</id>
+  <published>2014-10-10T00:00:00-04:00</published>
+  <updated>2014-10-10T00:00:00-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;We are using Resque for our background jobs and we use the Resque Web interface
+to keep track of what is happening. But the only issue, is that we had no
+real insight to how many jobs we were running on average during certain times
+of the day. We didn’t know how many jobs we were processing per minute. Nor how 
+many workers we had per host all day everyday, which varies depending on the time
+of the day.&lt;/p&gt;
+
+&lt;h3 id=&quot;download-script&quot;&gt;Download Script&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/resque_queue_metrics.rb&quot;&gt;Resque Metrics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sensuapp.org/&quot;&gt;Sensu&lt;/a&gt; (shipper)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://graphite.wikidot.com/&quot;&gt;Graphite&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/resque/resque&quot;&gt;Resque&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://redis.io/&quot;&gt;Redis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/resque_queue_metrics.rb  -h localhost -n &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; --scheme redis-db01.resque
+redis-db01.resque.queue.update_unapplied.workers 1, 1412961997
+redis-db01.resque.queue.update_unapplied.jobs &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; 1412961997
+redis-db01.resque.queue.aging.workers 1, 1412961997
+redis-db01.resque.queue.aging.jobs &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-01.processed &lt;span class=&quot;m&quot;&gt;90537&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-01.queues &lt;span class=&quot;m&quot;&gt;38&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-01.workers &lt;span class=&quot;m&quot;&gt;47&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-02.processed &lt;span class=&quot;m&quot;&gt;20482&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-02.queues &lt;span class=&quot;m&quot;&gt;29&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-02.workers &lt;span class=&quot;m&quot;&gt;20&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-05.processed &lt;span class=&quot;m&quot;&gt;20560&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-05.queues &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-05.workers &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-03.processed &lt;span class=&quot;m&quot;&gt;10928&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-03.queues &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-03.workers &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-04.processed &lt;span class=&quot;m&quot;&gt;23554&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-04.queues &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.host.worker-host-04.workers &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt; 1412961997
+redis-db01.resque.failed.communication.Communication.ActiveRecord_RecordNotFound &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; 1412961997
+redis-db01.resque.failed.communication.Communication.Redis_TimeoutError &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.failed.create_batch.CreateBatch.BatchCreationValidator_Error &lt;span class=&quot;m&quot;&gt;77&lt;/span&gt; 1412961997
+redis-db01.resque.failed.create_batch.CreateBatch.RuntimeError &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt; 1412961997
+redis-db01.resque.failed.notification.Notification.ActiveRecord_RecordInvalid &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; 1412961997
+redis-db01.resque.failed.notification.Notification.Resque_DirtyExit &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; 1412961997
+redis-db01.resque.failed.notification.Notification.Redis_TimeoutError &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; 1412961997
+redis-db01.resque.failed.message_notifications.MessageTaskJob.RuntimeError &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; 1412961997
+redis-db01.resque.failed.note_upload.NoteUploadJob.HttpClient_AuthorizationError &lt;span class=&quot;m&quot;&gt;40&lt;/span&gt; 1412961997
+redis-db01.resque.failed.invitation.InvitationJob.ActiveRecord_RecordInvalid &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; 1412961997
+redis-db01.resque.failed.post.PostJob.Redis_TimeoutError &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt; 1412961997
+redis-db01.resque.failed.post.PostJob.Resque_DirtyExit &lt;span class=&quot;m&quot;&gt;48&lt;/span&gt; 1412961997
+redis-db01.resque.failed.encounter.EncounterJob.Exception_NoTransitionAllowed &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.failed.claim_assembly.ClaimAssembly.Redis_TimeoutError &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; 1412961997
+redis-db01.resque.failed.claim_assembly.ClaimAssembly.Resque_DirtyExit &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt; 1412961997
+redis-db01.resque.failed.claim_assembly.ClaimAssembly.Exception &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.failed.balance.Balancer_BalancerJob.Resque_DirtyExit &lt;span class=&quot;m&quot;&gt;28&lt;/span&gt; 1412961997
+redis-db01.resque.failed.balance.Balancer_BalanceJob.Redis_TimeoutError &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; 1412961997
+redis-db01.resque.failed.balance.Balancer_BalanceJob.Resque_DirtyExit &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; 1412961997
+redis-db01.resque.queue.failed.jobs   &lt;span class=&quot;m&quot;&gt;231&lt;/span&gt; 1412961997
+redis-db01.resque.queues  &lt;span class=&quot;m&quot;&gt;35&lt;/span&gt;  1412961997
+redis-db01.resque.workers &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt; 1412961997
+redis-db01.resque.working &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;   1412961997&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;screenshots&quot;&gt;Screenshots&lt;/h3&gt;
+
+&lt;p&gt;Now you can create dashboards, with enough information, that the developers
+will no longer need to ask you what is happening with resque.&lt;/p&gt;
+&lt;figure&gt;
+    &amp;lt;a href=http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png&amp;gt;&amp;lt;img src=http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png alt=&quot;&quot;&amp;gt;
+    &lt;figcaption&gt;&amp;lt;a href=http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png title=&quot;Grafana Failed Resque Jobs&quot;&amp;gt;Grafana Failed Resque Jobs.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png&quot; alt=&quot;Grafana Failed Resque Jobs&quot; /&gt;
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/resque_jobs_1.png&quot; alt=&quot;Grafana Resque Jobs&quot; /&gt;
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/resque_workers.png&quot; alt=&quot;Grafana Resque Workers Used&quot; /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite/&quot;&gt;Graph resque metrics using sensu and graphite.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on October 10, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Graph passenger metrics using sensu and graphite.]]></title>
+ <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/graph-passenger-metrics-using-sensu-and-graphite/" />
+  <id>http://linuxdynasty.github.io/Linuxdynasty/graph-passenger-metrics-using-sensu-and-graphite</id>
+  <published>2014-10-10T00:00:00-04:00</published>
+  <updated>2014-10-10T00:00:00-04:00</updated>
+  <author>
+    <name>Allen Sanabria</name>
+    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
+    <email>asanabria <@> linuxdynasty dot org</email>
+  </author>
+  <content type="html">&lt;p&gt;Before I started working here, they were only collecting the common metrics
+for passenger (queue, processes, and max processes). After being here a little
+over a month, I realized that we were always logging into the nodes
+and running watch passenger-status, and watching how much memory
+certain passenger workers were consuming and how much time each of these
+processes were taking.&lt;/p&gt;
+
+&lt;p&gt;I kept telling my team, there had to be a better way of gathering this information.
+After a quick glance at passenge-status –help, I hit the gold mine.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;Usage: passenger-status &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;options&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Phusion Passenger&lt;span class=&quot;s1&quot;&gt;&amp;#39;s PID]&lt;/span&gt;
+
+&lt;span class=&quot;s1&quot;&gt;Tool for inspecting Phusion Passenger&amp;#39;&lt;/span&gt;s internal status.
+
+Options:
+        --show&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;pool&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;requests&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;backtraces&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;xml&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;union_station
+                                     Whether to show the pool&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;s contents,
+                                     the currently running requests,
+                                     the backtraces of all threads or an XML
+                                     description of the pool.
+    -v, --verbose                    Show verbose information.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;download-script&quot;&gt;Download Script&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/passenger_metrics.rb&quot;&gt;Passenger Metrics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sensuapp.org/&quot;&gt;Sensu&lt;/a&gt; (shipper)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://graphite.wikidot.com/&quot;&gt;Graphite&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.nokogiri.org/&quot;&gt;NokoGiri&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;testing-passenger-status---show-xml&quot;&gt;Testing passenger-status –show xml&lt;/h3&gt;
+
+&lt;p&gt;If you installed libxml2-utils, the xml will look very nice..
+Lets take a quick glance, on what the show xml command will display….&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;passenger-status --show xml
+&amp;lt;?xml &lt;span class=&quot;nv&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;iso8859-1&amp;quot;&lt;/span&gt;?&amp;gt;
+&amp;lt;info &lt;span class=&quot;nv&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&amp;gt;
+   &amp;lt;process_count&amp;gt;1&amp;lt;/process_count&amp;gt;
+   &amp;lt;max&amp;gt;20&amp;lt;/max&amp;gt;
+   &amp;lt;capacity_used&amp;gt;1&amp;lt;/capacity_used&amp;gt;
+   &amp;lt;get_wait_list_size&amp;gt;0&amp;lt;/get_wait_list_size&amp;gt;
+   &amp;lt;get_wait_list/&amp;gt;
+   &amp;lt;supergroups&amp;gt;
+      &amp;lt;supergroup&amp;gt;
+         &amp;lt;name&amp;gt;/home/deploy/test_app/current&amp;lt;/name&amp;gt;
+         &amp;lt;state&amp;gt;READY&amp;lt;/state&amp;gt;
+         &amp;lt;get_wait_list_size&amp;gt;0&amp;lt;/get_wait_list_size&amp;gt;
+         &amp;lt;capacity_used&amp;gt;1&amp;lt;/capacity_used&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Another example of the xml data, but showing you the process data instead…&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;passenger-status --show xml
+          &amp;lt;processes&amp;gt;
+               &amp;lt;process&amp;gt;
+                  &amp;lt;pid&amp;gt;8540&amp;lt;/pid&amp;gt;
+                  &amp;lt;sticky_session_id&amp;gt;1653709171&amp;lt;/sticky_session_id&amp;gt;
+                  &amp;lt;gupid&amp;gt;167557a-WVPmDSUsnlj&amp;lt;/gupid&amp;gt;
+                  &amp;lt;connect_password&amp;gt;l&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;sdkflskdjfslkfjsaj&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;flkdjs&amp;lt;/connect_password&amp;gt;
+                  &amp;lt;concurrency&amp;gt;1&amp;lt;/concurrency&amp;gt;
+                  &amp;lt;sessions&amp;gt;0&amp;lt;/sessions&amp;gt;
+                  &amp;lt;busyness&amp;gt;0&amp;lt;/busyness&amp;gt;
+                  &amp;lt;processed&amp;gt;102&amp;lt;/processed&amp;gt;
+                  &amp;lt;spawner_creation_time&amp;gt;1412922319025804&amp;lt;/spawner_creation_time&amp;gt;
+                  &amp;lt;spawn_start_time&amp;gt;1412958391718240&amp;lt;/spawn_start_time&amp;gt;
+                  &amp;lt;spawn_end_time&amp;gt;1412958391746191&amp;lt;/spawn_end_time&amp;gt;
+                  &amp;lt;last_used&amp;gt;1412958455204460&amp;lt;/last_used&amp;gt;
+                  &amp;lt;uptime&amp;gt;1m 5s&amp;lt;/uptime&amp;gt;
+                  &amp;lt;life_status&amp;gt;ALIVE&amp;lt;/life_status&amp;gt;
+                  &amp;lt;enabled&amp;gt;ENABLED&amp;lt;/enabled&amp;gt;
+                  &amp;lt;has_metrics&amp;gt;true&amp;lt;/has_metrics&amp;gt;
+                  &amp;lt;cpu&amp;gt;4&amp;lt;/cpu&amp;gt;
+                  &amp;lt;rss&amp;gt;171028&amp;lt;/rss&amp;gt;
+                  &amp;lt;pss&amp;gt;136789&amp;lt;/pss&amp;gt;
+                  &amp;lt;private_dirty&amp;gt;103424&amp;lt;/private_dirty&amp;gt;
+                  &amp;lt;swap&amp;gt;0&amp;lt;/swap&amp;gt;
+                  &amp;lt;real_memory&amp;gt;103424&amp;lt;/real_memory&amp;gt;
+                  &amp;lt;vmsize&amp;gt;642504&amp;lt;/vmsize&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;running-the-script&quot;&gt;Running the script&lt;/h3&gt;
+
+&lt;p&gt;As you can see, you can get a wealth of data. Data that will allow you and your
+team to easily track down what is happening in you rails/sinatra cluster.&lt;/p&gt;
+
+&lt;p&gt;This script was written to work with Sensu and it’s graphite handler.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/passenger_metrics.rb --scheme rails-01.passenger
+rails-01.passenger.max_pool_size  &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;  1412958773
+rails-01.passenger.processes  &lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;  1412958773
+rails-01.passenger.top_level_queue    &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;   1412958773
+rails-01.passenger._var_www_html_test_api_current.queue    &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;   1412958773
+rails-01.passenger._var_www_html_test_api_current.processes    &lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.processes_being_spawned  &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.processed  &lt;span class=&quot;m&quot;&gt;3567&lt;/span&gt;    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.pid    &lt;span class=&quot;m&quot;&gt;7703&lt;/span&gt;    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.uptime &lt;span class=&quot;m&quot;&gt;921&lt;/span&gt; 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.memory &lt;span class=&quot;m&quot;&gt;909664&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.cpu_percent    &lt;span class=&quot;m&quot;&gt;27&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.processed  &lt;span class=&quot;m&quot;&gt;2194&lt;/span&gt;    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.pid    &lt;span class=&quot;m&quot;&gt;11878&lt;/span&gt;   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.uptime &lt;span class=&quot;m&quot;&gt;659&lt;/span&gt; 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.memory &lt;span class=&quot;m&quot;&gt;644108&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.cpu_percent    &lt;span class=&quot;m&quot;&gt;23&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.processed  &lt;span class=&quot;m&quot;&gt;1484&lt;/span&gt;    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.pid    &lt;span class=&quot;m&quot;&gt;16146&lt;/span&gt;   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.uptime &lt;span class=&quot;m&quot;&gt;402&lt;/span&gt; 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.memory &lt;span class=&quot;m&quot;&gt;691392&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.cpu_percent    &lt;span class=&quot;m&quot;&gt;32&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.processed  &lt;span class=&quot;m&quot;&gt;1343&lt;/span&gt;    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.pid    &lt;span class=&quot;m&quot;&gt;16738&lt;/span&gt;   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.uptime &lt;span class=&quot;m&quot;&gt;353&lt;/span&gt; 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.memory &lt;span class=&quot;m&quot;&gt;521676&lt;/span&gt;  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.cpu_percent    &lt;span class=&quot;m&quot;&gt;32&lt;/span&gt;  1412958773&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;screenshots&quot;&gt;Screenshots&lt;/h3&gt;
+
+&lt;p&gt;Now you can create dashboards, with enough information, that the developers
+will no longer need to ask you what is happening with passenger.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_workers.png&quot; alt=&quot;Grafana Passenger Workers&quot; /&gt;
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_queues.png&quot; alt=&quot;Grafana Passenger Queues&quot; /&gt;
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_memory_used.png&quot; alt=&quot;Grafana Passenger Memory Used&quot; /&gt;
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_time_spent.png&quot; alt=&quot;Grafana Passenger Time Spent&quot; /&gt;
+&lt;img src=&quot;http://linuxdynasty.github.io/Linuxdynasty/assets/nginx_passenger.png&quot; alt=&quot;Grafana Nginx and Passenger dashboard Part 1&quot; /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/graph-passenger-metrics-using-sensu-and-graphite/&quot;&gt;Graph passenger metrics using sensu and graphite.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on October 10, 2014.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -934,103 +1171,6 @@ options:-h, --help                          show this help message and exit     
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/howto-monitor-the-netscaler-using-python-and-soap-instead-of-snmp/&quot;&gt;HowTo monitor the Netscaler using Python and Soap instead of SNMP&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on February 07, 2010.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[How to get information from the Netscaler using Python and Suds.]]></title>
- <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" />
-  <id>http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds</id>
-  <published>2010-02-01T13:22:22-05:00</published>
-  <updated>2010-02-01T13:22:22-05:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
-    <email>asanabria <@> linuxdynasty dot org</email>
-  </author>
-  <content type="html">&lt;p&gt;Recently I just started to use the Citrix Netscalers again ( Load Balancers ). Being the person that I am, I wanted a way to grab the information using the SOAP API.&lt;br /&gt;
-Now Citrix has a ton of documentation for Perl/C/C# and Java ( None for Python ). SOAP client support has not been the best for Python, in my opinion.&lt;br /&gt;
-I know you have &lt;a href=&quot;http://pywebsvcs.sourceforge.net/&quot;&gt;soappy/ZSI&lt;/a&gt;, which I have had issues with consuming Broken WSDL files ( Having to fix the Broken WSDL file manually, SUCKS!).&lt;/p&gt;
-&lt;p&gt;Just 2 weeks ago, I encounterd &lt;a href=&quot;https://fedorahosted.org/suds/&quot;&gt;SUDS&lt;/a&gt;. This module is by far, the best SOAP client for Python.&lt;br /&gt;
-There documentation is simple and straight to the point, with a bunch of nice samples to get you on your way.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;attention&quot;&gt;Install SUDS before proceeding further. You can get suds from here. &lt;a href=&quot;https://fedorahosted.org/suds/&quot;&gt;https://fedorahosted.org/suds/&lt;/a&gt;&lt;/span&gt;&lt;br /&gt;
-Connection to my netscaler was as simple as this...&lt;/p&gt;
-&lt;pre&gt;Python 2.4.3 (#1, Sep  3 2009, 15:37:37)[GCC 4.1.2 20080704 (Red Hat 4.1.2-46)]&lt;/pre&gt;
-&lt;pre&gt;on linux2Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&amp;gt;&amp;gt;&amp;gt; from suds.client import Client
-&amp;gt;&amp;gt;&amp;gt; url = &quot;http://nsip/api/NSConfig.wsdl&quot;
-&amp;gt;&amp;gt;&amp;gt; from suds.xsd.doctor import *
-&amp;gt;&amp;gt;&amp;gt; imp = Import('http://schemas.xmlsoap.org/soap/encoding/')
-&amp;gt;&amp;gt;&amp;gt; imp.filter.add(&quot;urn:NSConfig&quot;)
-&amp;gt;&amp;gt;&amp;gt; d = ImportDoctor(imp)
-&amp;gt;&amp;gt;&amp;gt; client = Client(url, doctor=d, location=&quot;http://nsip/soap/&quot;)
-&amp;gt;&amp;gt;&amp;gt; client.service.login(username=&quot;login&quot;, password=&quot;pass&quot;)(simpleResult){ rc = 0 message = &quot;Done&quot; }
-&amp;gt;&amp;gt;&amp;gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-83&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;As you can see above, I used the xsd doctor to import Soap encoding URL and added a filter for the Netscaler URN.&lt;br /&gt;
-If you do not import the SOAP encoding schema, this is the error you will receive..&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;alert&quot;&gt;suds.TypeNotFound: Type not found: '(Array, http://schemas.xmlsoap.org/soap/encoding/, )&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Once you type the above, you can now run commands in the python shell. for instance...&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;client.service.getlbvserver()&lt;/li&gt;
-&lt;li&gt;client.service.getservice()&lt;/li&gt;
-&lt;li&gt;client.service.getservicegroup()&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I am attaching a script that I have written, to get Load Balanced Virtual Servers and its Services and ServiceGroups.&lt;br /&gt;
-This script can also just list all the Virtual Servers, Services, or Service Groups. Examples below..&lt;br /&gt;
-queryns.py == {filelink=10}&lt;/p&gt;
-&lt;p&gt;&lt;small&gt;python queryns.py -c &quot;ZenossTest2_svc&quot; -n &quot;nsip&quot; -u &quot;login&quot; -p &quot;pass&quot; Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP python queryns.py -s foobar_test -n &quot;nsip&quot; -u &quot;login&quot; -p &quot;pass&quot; Virtual Server State IPAddress Port Protocol foobar_test UP 192.168.101.19 55555 HTTP ServiceGroup Name SG State Server Name Status IPAddress Port Protocol &quot;Foo Bar&quot; ENABLED billyboy UP 192.168.101.31 8080 HTTP &quot;Foo Bar&quot; ENABLED zenossTest UP 192.168.101.221 8080 HTTP Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP ------------------------------------------------------------------------------------------------------------------------&lt;/small&gt;&lt;/p&gt;
-&lt;p&gt;All the options are here..&lt;/p&gt;
-&lt;pre&gt;python queryns.py -husage: queryns.py [options] arg --username=username --password=password --netscaler=netscalerip
-
-options: -h, --help            
-show this help message and exit 
--n NETSCALER, --netscaler=NETSCALER
-                       Here you will put the netscaler IPAddress or the                       netscaler hostname-u USERNAME, --username=USERNAME
-                       Your username -p PASSWORD, --password=PASSWORD                       Your password -l LIST, --list=LIST  
-List all the names of the Virtual Servers, Services,
-                       ServiceGroups. Example --list=lbvserver, --list=service, --list=servicegroup -s SERVER, ---vserver=SERVER
-                       Virtual Server that you want to query. You can choose
-                       a Virtual Server or you can pass all, so you get all
-                       the Virtual Servers and its associated
-                       ServiceGroups or Services. Example....
-                       --vserver=&quot;foobar_test&quot; or --vserver=&quot;all&quot; 
--g SGROUP, --sgroup=SGROUP
-                       ServiceGroup that you want the info from -c SERVICE, 
---service=SERVICE                       Service that you want the info from&lt;/pre&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/&quot;&gt;How to get information from the Netscaler using Python and Suds.&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on February 01, 2010.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Swatch Startup Script]]></title>
- <link rel="alternate" type="text/html" href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/" />
-  <id>http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script</id>
-  <published>2009-11-12T21:46:56-05:00</published>
-  <updated>2009-11-12T21:46:56-05:00</updated>
-  <author>
-    <name>Allen Sanabria</name>
-    <uri>http://linuxdynasty.github.io/Linuxdynasty</uri>
-    <email>asanabria <@> linuxdynasty dot org</email>
-  </author>
-  <content type="html">&lt;p&gt;I've been using Swatch for quite a while now and I never invested the time to  create a quick startup script. Today, I decided to create one and it works just fine under Centos and Ubuntu Server. You can download it here..&lt;br /&gt;
-swatch init script == {filelink=11}&lt;/p&gt;
-&lt;p&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more-92&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Or you can copy and paste it below..&lt;/p&gt;
-&lt;pre&gt;#!/bin/bash## /etc/init.d/swatch# init script for Swatch.## chkconfig: 2345 90 60# description: Swatch#November 11th 2009 Allen Sanabria#http://linuxdynasty.org#CONFIG=&quot;/etc/swatch/swatch.conf&quot;PID=&quot;/var/run/swatch.pid&quot;LOGFILE=&quot;/var/log/secure&quot;PIDS=&quot;/tmp/pids.txt&quot;RETVAL=0
-
-swatch_start() {if [ -f $PID ] then echo &quot;Swatch is already running&quot;   cat $PID else echo &quot;Starting Swatch&quot; /usr/bin/swatch --config-file=$CONFIG --tail-file=$LOGFILE --pid-file=$PID &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp; RETVAL=$?fi}
-
-swatch_stop() {if [ -f $PID ] then echo &quot;Stopping Swatch&quot; PARENT=&quot;$(&amp;lt; &quot;$PID&quot;)&quot; INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` CPID1=`ps --ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` kill -9 $INIT_PID $PARENT $CPID1   rm -f $PID $PIDS RETVAL=$? else echo &quot;Swatch is not running!&quot;fi}
-
-swatch_status() {if [ -f $PID ] then echo &quot;Swatch is running&quot; PARENT=&quot;$(&amp;lt; &quot;$PID&quot;)&quot; INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` ps -o pid -o command --pid $INIT_PID --pid $PARENT --ppid $PARENT else echo &quot;Swatch is not running&quot; RETVAL=$?fi}
-
-case &quot;$1&quot; in start) swatch_start ;; stop) swatch_stop ;; restart) swatch_stop swatch_start ;; status) swatch_status ;; *) echo &quot;Usage: $0 {start|stop|restart|status}&quot; exit 1esac
-
-exit $RETVAL&lt;/pre&gt;
-
-  &lt;p&gt;&lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/&quot;&gt;Swatch Startup Script&lt;/a&gt; was originally published by Allen Sanabria at &lt;a href=&quot;http://linuxdynasty.github.io/Linuxdynasty&quot;&gt;Linuxdynasty&lt;/a&gt; on November 12, 2009.&lt;/p&gt;</content>
 </entry>
 
 </feed>

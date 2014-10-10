@@ -136,6 +136,116 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-03-20T03:37:52-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/">March 20, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/" rel="bookmark" title="HowTo check redis availability and get stats using Redis-py, Zenoss, and Python" itemprop="url">HowTo check redis availability and get stats using Redis-py, Zenoss, and Python</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>My team was assigned to create a redis slave status check to be ran under Zenoss.
+So while they are creating that check, I decided to google for redis checks
+written in python that work under Nagios and or Zenoss and none of the checks
+i found did exactly what I wanted.</p>
+
+<p>So I decided to write my own check, that will grab every piece of data that the redis info() command was able to retrieve. Since this info is all in a python dictionary, I was able to get all the stats that were labeled as type int or as type float, which made my job that much easier.</p>
+
+<p>So 1st I had to install 2 Redis instances on my local Ubuntu server at home. Now that i completed that, I had to make sure the slave was syncing off the master server. I used this link “<a title="Redis Replication Configuration" href="http://redis.io/topics/replication" target="_blank">http://redis.io/topics/replication</a>” to help me configure redis replication.
+Now that all that stuff is out of the way, I wrote an easy_peasy python script to connect to redis and grab all of the performance stats. As well as verify if the instance is a master or a slave instance. If it is a slave instance, than it also verifies if it is syncing to the master or not.
+The script is using <a href="https://github.com/andymccurdy/redis-py" target="_blank">Redis-py</a> that was installed using PIP.</p>
+
+<p>Here is the script I wrote</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">godssoldier:python asanabria<span class="nv">$ </span>python ld_check_redis.py -d 127.0.0.1 -p <span class="s1">&#39;t35t_r3d15&#39;</span> -n 6379
+OK Master Redis Server 127.0.0.1 is Running 2.4.4 <span class="p">|</span> <span class="nv">pubsub_channels</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgrewriteaof_in_progress</span><span class="o">=</span>0
+<span class="nv">connected_slaves</span><span class="o">=</span><span class="m">1</span> <span class="nv">uptime_in_days</span><span class="o">=</span><span class="m">0</span> <span class="nv">lru_clock</span><span class="o">=</span><span class="m">1099413</span> <span class="nv">last_save_time</span><span class="o">=</span><span class="m">1332199497</span> <span class="nv">redis_git_sha1</span><span class="o">=</span>0
+<span class="nv">loading</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_clients</span><span class="o">=</span><span class="m">1</span> <span class="nv">keyspace_misses</span><span class="o">=</span><span class="m">4</span> <span class="nv">used_memory</span><span class="o">=</span><span class="m">939792</span> <span class="nv">vm_enabled</span><span class="o">=</span>0
+<span class="nv">used_cpu_user_children</span><span class="o">=</span>0.000000 <span class="nv">used_memory_peak</span><span class="o">=</span><span class="m">939776</span> <span class="nv">total_commands_processed</span><span class="o">=</span>10
+<span class="nv">latest_fork_usec</span><span class="o">=</span><span class="m">211</span> <span class="nv">used_memory_rss</span><span class="o">=</span><span class="m">1286144</span> <span class="nv">total_connections_received</span><span class="o">=</span><span class="m">8</span> <span class="nv">pubsub_patterns</span><span class="o">=</span>0
+<span class="nv">aof_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_sys</span><span class="o">=</span>0.130000 <span class="nv">used_cpu_sys_children</span><span class="o">=</span>0.000000 <span class="nv">blocked_clients</span><span class="o">=</span>0
+<span class="nv">used_cpu_user</span><span class="o">=</span>0.120000 <span class="nv">client_biggest_input_buf</span><span class="o">=</span><span class="m">0</span> <span class="nv">db0_keys</span><span class="o">=</span><span class="m">2</span> <span class="nv">db0_expires</span><span class="o">=</span><span class="m">0</span> <span class="nv">arch_bits</span><span class="o">=</span>64
+<span class="nv">mem_fragmentation_ratio</span><span class="o">=</span>1.370000 <span class="nv">expired_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">evicted_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgsave_in_progress</span><span class="o">=</span>0
+<span class="nv">client_longest_output_list</span><span class="o">=</span><span class="m">0</span> <span class="nv">process_id</span><span class="o">=</span><span class="m">22007</span> <span class="nv">uptime_in_seconds</span><span class="o">=</span><span class="m">401</span> <span class="nv">changes_since_last_save</span><span class="o">=</span>2
+<span class="nv">redis_git_dirty</span><span class="o">=</span><span class="m">0</span> <span class="nv">keyspace_hits</span><span class="o">=</span>1
+
+godssoldier:python asanabria<span class="nv">$ </span>python ld_check_redis.py -d 127.0.0.1 -p <span class="s1">&#39;t35t_r3d15&#39;</span> -n 6390
+OK Master 127.0.0.1 is up and Slave 127.0.0.1 is in sync <span class="p">|</span> <span class="nv">pubsub_channels</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgrewriteaof_in_progress</span><span class="o">=</span>0
+<span class="nv">connected_slaves</span><span class="o">=</span><span class="m">0</span> <span class="nv">uptime_in_days</span><span class="o">=</span><span class="m">0</span> <span class="nv">lru_clock</span><span class="o">=</span><span class="m">1099413</span> <span class="nv">last_save_time</span><span class="o">=</span><span class="m">1332199497</span> <span class="nv">redis_git_sha1</span><span class="o">=</span>0
+<span class="nv">loading</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_clients</span><span class="o">=</span><span class="m">2</span> <span class="nv">keyspace_misses</span><span class="o">=</span><span class="m">4</span> <span class="nv">used_memory</span><span class="o">=</span><span class="m">939872</span> <span class="nv">master_last_io_seconds_ago</span><span class="o">=</span>8
+<span class="nv">vm_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user_children</span><span class="o">=</span>0.000000 <span class="nv">used_memory_peak</span><span class="o">=</span><span class="m">931248</span> <span class="nv">total_commands_processed</span><span class="o">=</span>44
+<span class="nv">latest_fork_usec</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_memory_rss</span><span class="o">=</span><span class="m">1277952</span> <span class="nv">total_connections_received</span><span class="o">=</span><span class="m">2</span> <span class="nv">pubsub_patterns</span><span class="o">=</span><span class="m">0</span> <span class="nv">aof_enabled</span><span class="o">=</span>0
+<span class="nv">used_cpu_sys</span><span class="o">=</span>0.130000 <span class="nv">used_cpu_sys_children</span><span class="o">=</span>0.000000 <span class="nv">blocked_clients</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user</span><span class="o">=</span>0.070000
+<span class="nv">master_port</span><span class="o">=</span><span class="m">6379</span> <span class="nv">client_biggest_input_buf</span><span class="o">=</span><span class="m">0</span> <span class="nv">db0_keys</span><span class="o">=</span><span class="m">2</span> <span class="nv">db0_expires</span><span class="o">=</span><span class="m">0</span> <span class="nv">arch_bits</span><span class="o">=</span>64
+<span class="nv">mem_fragmentation_ratio</span><span class="o">=</span>1.360000 <span class="nv">expired_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">evicted_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgsave_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">client_longest_output_list</span><span class="o">=</span>0
+<span class="nv">master_sync_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">process_id</span><span class="o">=</span><span class="m">22010</span> <span class="nv">uptime_in_seconds</span><span class="o">=</span><span class="m">398</span> <span class="nv">changes_since_last_save</span><span class="o">=</span><span class="m">2</span> <span class="nv">redis_git_dirty</span><span class="o">=</span>0
+<span class="nv">keyspace_hits</span><span class="o">=</span>0
+
+CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync <span class="p">|</span>
+<span class="nv">pubsub_channels</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgrewriteaof_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_slaves</span><span class="o">=</span><span class="m">0</span> <span class="nv">master_link_down_since_seconds</span><span class="o">=</span>1332199283
+<span class="nv">uptime_in_days</span><span class="o">=</span><span class="m">0</span> <span class="nv">lru_clock</span><span class="o">=</span><span class="m">1099352</span> <span class="nv">last_save_time</span><span class="o">=</span><span class="m">1332198992</span> <span class="nv">redis_git_sha1</span><span class="o">=</span><span class="m">0</span> <span class="nv">loading</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_clients</span><span class="o">=</span>1
+<span class="nv">keyspace_misses</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_memory</span><span class="o">=</span><span class="m">931040</span> <span class="nv">master_last_io_seconds_ago</span><span class="o">=</span>-1 <span class="nv">vm_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user_children</span><span class="o">=</span>0.000000
+<span class="nv">used_memory_peak</span><span class="o">=</span><span class="m">931040</span> <span class="nv">total_commands_processed</span><span class="o">=</span><span class="m">5</span> <span class="nv">latest_fork_usec</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_memory_rss</span><span class="o">=</span>1261568
+<span class="nv">total_connections_received</span><span class="o">=</span><span class="m">6</span> <span class="nv">pubsub_patterns</span><span class="o">=</span><span class="m">0</span> <span class="nv">aof_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_sys</span><span class="o">=</span>0.080000
+<span class="nv">used_cpu_sys_children</span><span class="o">=</span>0.000000 <span class="nv">blocked_clients</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user</span><span class="o">=</span>0.030000 <span class="nv">master_port</span><span class="o">=</span>6379
+<span class="nv">client_biggest_input_buf</span><span class="o">=</span><span class="m">0</span> <span class="nv">arch_bits</span><span class="o">=</span><span class="m">64</span> <span class="nv">mem_fragmentation_ratio</span><span class="o">=</span>1.360000 <span class="nv">expired_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">evicted_keys</span><span class="o">=</span>0
+ <span class="nv">bgsave_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">client_longest_output_list</span><span class="o">=</span><span class="m">0</span> <span class="nv">master_sync_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">process_id</span><span class="o">=</span>21887
+<span class="nv">uptime_in_seconds</span><span class="o">=</span><span class="m">290</span> <span class="nv">changes_since_last_save</span><span class="o">=</span><span class="m">0</span> <span class="nv">redis_git_dirty</span><span class="o">=</span><span class="m">0</span> <span class="nv">keyspace_hits</span><span class="o">=</span>0</code></pre></div>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2011-12-30T22:26:23-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/">December 30, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/" rel="bookmark" title="How To monitor RTSP streaming videos using openRTSP and Zenoss" itemprop="url">How To monitor RTSP streaming videos using openRTSP and Zenoss</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Since I do currently work for a streaming company, that would imply that we should have some type of monitoring for our RTSP streams ;-). You will 1st need to get the openRTSP command.</p>
+<ul>
+<li>You will need to download the openRTSP command from http://www.live555.com/openRTSP/</li>
+<li>Or if you are running Zenoss on top of Debian you can just run a apt-get install livemedia-utils</li>
+</ul>
+<p>Once you do that, all you have to do next is to download my script and have a valid server to point at and a path to test... Example below.. {filelink=24}</p>
+<pre>./check_rtsp.py -d remote_server -p /iphone/2012 
+OK /iphone/2012, test completed successfull against remote_server |status=0</pre>
+<p>or with stats...</p>
+<pre>./check_rtsp.py -d remote_server -p /iphone/2012 -s
+OK /iphone/2012, test completed successfull against remote_server |status=0 num_packets_received=16 num_packets_lost=0 elapsed_measurement_time=3.000073 kBytes_received_total=16.309000 
+measurement_sampling_interval_ms=1000 kbits_per_second_min=29.245485 kbits_per_second_ave=43.489608 
+kbits_per_second_max=51.737449 packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 
+packet_loss_percentage_max=0.000000 inter_packet_gap_ms_min=0.018000 inter_packet_gap_ms_ave=161.139313 
+inter_packet_gap_ms_max=901.439000 subsession=video/H264 num_packets_received=61 num_packets_lost=0 
+elapsed_measurement_time=3.000073 kBytes_received_total=27.630000 measurement_sampling_interval_ms=1000 
+kbits_per_second_min=0.000000 kbits_per_second_ave=73.678207 kbits_per_second_max=122.923442 
+packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 packet_loss_percentage_max=0.000000 
+inter_packet_gap_ms_min=0.009000 inter_packet_gap_ms_ave=24.794672 inter_packet_gap_ms_max=528.923000</pre>
+<p>So you can trend the different stats that openRTSP provides in Zenoss..</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2011-12-28T21:27:47-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/">December 28, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/snmp/monitor-bind-9-stats-zenoss/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -312,68 +422,6 @@ You can download the script here.. {filelink=21}</p>
 <p>The purpose of this script is so that you can graph or create a threshold of how many of the below Http Error Codes you are getting between every check. For instance we run this check every 30 seconds in Cron and in Zenoss and we divide the results by 30 so we can get how many of the error codes are happening per second.<br />
 Example of the output of the script is 'SNMP OK - "<strong>Nginx Codes OK|count200=181 count400=1 count404=0 count500=0 count503=0 count504=0" |</strong> '</p>
 <p>If you have any feature request or have any questions, please leave a comment. Thank you</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-09-29T01:38:31-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/while/">September 29, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/while/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/while/" rel="bookmark" title="It's been a while.." itemprop="url">It's been a while..</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I have not been doing to many interesting projects as of the past year. This is the reason for my lack of updates. I am now starting to do some interesting stuff, so let the updates roll.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-02-02T23:16:42-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/">February 02, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/howto-add-aggregate-data-graphs-existing-datapoints-zenoss/" rel="bookmark" title="HowTo add Aggregate Data Graphs from existing datapoints in Zenoss" itemprop="url">HowTo add Aggregate Data Graphs from existing datapoints in Zenoss</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Recently I had to aggregate the amount of 200, 400, 404, 500, 503,  and 504 HTTP 1.1 Codes from all of our Nginx and Ruby On Rails systems. So I decided to write a quick plugin for Zenoss that all you need to do is pass the devices or Device Class you want to aggregate the data from and the DataPoint name.</p>
-<p>Also this makes it simple to use the Zenoss Thresholds and create Aggregate Reports based on the datapoints you use with out having to do some fancy python coding... :) Enjoy</p>
-<p>&nbsp;</p>
-<p>Example..</p>
-<pre>python AllenZenossAggregate.py -h
-Usage: AllenZenossAggregate.py -d "nginx-1" -d "nginx-2" -p "nginx_codes_count200"
-OK Aggregate for devices  nginx-1 nginx-2 is 34|aggregate=34
-     AllenZenossAggregate.py -o "/Server/Linux/Nginx" -p "nginx_codes_count200"
-OK Aggregate for /Server/Linux/Nginx class is 22|aggregate=22
- Options:
-  -h, --help            show this help message and exit
-  -d DEVICE, --device=DEVICE
-                        The device you want to grab the datapoints from.
-  -o ORGANIZER, --organizer=ORGANIZER
-                        The Class you want to get your list of devices from.
-  -p DPOINTS, --dpoints=DPOINTS
-                        Name of DataPoint nginx_codes_count200</pre>
-<p>{filelink=1}</p>
-<p>&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -563,6 +611,12 @@ OK Aggregate for /Server/Linux/Nginx class is 22|aggregate=22
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

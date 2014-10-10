@@ -136,6 +136,253 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-10-10T00:00:00-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite/">October 10, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-resque-metrics-using-sensu-and-graphite/" rel="bookmark" title="Graph resque metrics using sensu and graphite." itemprop="url">Graph resque metrics using sensu and graphite.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>We are using Resque for our background jobs and we use the Resque Web interface
+to keep track of what is happening. But the only issue, is that we had no
+real insight to how many jobs we were running on average during certain times
+of the day. We didn’t know how many jobs we were processing per minute. Nor how 
+many workers we had per host all day everyday, which varies depending on the time
+of the day.</p>
+
+<h3 id="download-script">Download Script</h3>
+
+<ul>
+  <li><a href="https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/resque_queue_metrics.rb">Resque Metrics</a></li>
+</ul>
+
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+  <li><a href="http://sensuapp.org/">Sensu</a> (shipper)</li>
+  <li><a href="http://graphite.wikidot.com/">Graphite</a></li>
+  <li><a href="https://github.com/resque/resque">Resque</a></li>
+  <li><a href="http://redis.io/">Redis</a></li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/resque_queue_metrics.rb  -h localhost -n <span class="m">15</span> --scheme redis-db01.resque
+redis-db01.resque.queue.update_unapplied.workers 1, 1412961997
+redis-db01.resque.queue.update_unapplied.jobs <span class="m">0</span> 1412961997
+redis-db01.resque.queue.aging.workers 1, 1412961997
+redis-db01.resque.queue.aging.jobs <span class="m">0</span> 1412961997
+redis-db01.resque.host.worker-host-01.processed <span class="m">90537</span> 1412961997
+redis-db01.resque.host.worker-host-01.queues <span class="m">38</span> 1412961997
+redis-db01.resque.host.worker-host-01.workers <span class="m">47</span> 1412961997
+redis-db01.resque.host.worker-host-02.processed <span class="m">20482</span> 1412961997
+redis-db01.resque.host.worker-host-02.queues <span class="m">29</span> 1412961997
+redis-db01.resque.host.worker-host-02.workers <span class="m">20</span> 1412961997
+redis-db01.resque.host.worker-host-05.processed <span class="m">20560</span> 1412961997
+redis-db01.resque.host.worker-host-05.queues <span class="m">1</span> 1412961997
+redis-db01.resque.host.worker-host-05.workers <span class="m">9</span> 1412961997
+redis-db01.resque.host.worker-host-03.processed <span class="m">10928</span> 1412961997
+redis-db01.resque.host.worker-host-03.queues <span class="m">1</span> 1412961997
+redis-db01.resque.host.worker-host-03.workers <span class="m">15</span> 1412961997
+redis-db01.resque.host.worker-host-04.processed <span class="m">23554</span> 1412961997
+redis-db01.resque.host.worker-host-04.queues <span class="m">1</span> 1412961997
+redis-db01.resque.host.worker-host-04.workers <span class="m">9</span> 1412961997
+redis-db01.resque.failed.communication.Communication.ActiveRecord_RecordNotFound <span class="m">3</span> 1412961997
+redis-db01.resque.failed.communication.Communication.Redis_TimeoutError <span class="m">1</span> 1412961997
+redis-db01.resque.failed.create_batch.CreateBatch.BatchCreationValidator_Error <span class="m">77</span> 1412961997
+redis-db01.resque.failed.create_batch.CreateBatch.RuntimeError <span class="m">5</span> 1412961997
+redis-db01.resque.failed.notification.Notification.ActiveRecord_RecordInvalid <span class="m">2</span> 1412961997
+redis-db01.resque.failed.notification.Notification.Resque_DirtyExit <span class="m">4</span> 1412961997
+redis-db01.resque.failed.notification.Notification.Redis_TimeoutError <span class="m">3</span> 1412961997
+redis-db01.resque.failed.message_notifications.MessageTaskJob.RuntimeError <span class="m">2</span> 1412961997
+redis-db01.resque.failed.note_upload.NoteUploadJob.HttpClient_AuthorizationError <span class="m">40</span> 1412961997
+redis-db01.resque.failed.invitation.InvitationJob.ActiveRecord_RecordInvalid <span class="m">2</span> 1412961997
+redis-db01.resque.failed.post.PostJob.Redis_TimeoutError <span class="m">6</span> 1412961997
+redis-db01.resque.failed.post.PostJob.Resque_DirtyExit <span class="m">48</span> 1412961997
+redis-db01.resque.failed.encounter.EncounterJob.Exception_NoTransitionAllowed <span class="m">1</span> 1412961997
+redis-db01.resque.failed.claim_assembly.ClaimAssembly.Redis_TimeoutError <span class="m">2</span> 1412961997
+redis-db01.resque.failed.claim_assembly.ClaimAssembly.Resque_DirtyExit <span class="m">3</span> 1412961997
+redis-db01.resque.failed.claim_assembly.ClaimAssembly.Exception <span class="m">1</span> 1412961997
+redis-db01.resque.failed.balance.Balancer_BalancerJob.Resque_DirtyExit <span class="m">28</span> 1412961997
+redis-db01.resque.failed.balance.Balancer_BalanceJob.Redis_TimeoutError <span class="m">1</span> 1412961997
+redis-db01.resque.failed.balance.Balancer_BalanceJob.Resque_DirtyExit <span class="m">2</span> 1412961997
+redis-db01.resque.queue.failed.jobs   <span class="m">231</span> 1412961997
+redis-db01.resque.queues  <span class="m">35</span>  1412961997
+redis-db01.resque.workers <span class="m">100</span> 1412961997
+redis-db01.resque.working <span class="m">2</span>   1412961997</code></pre></div>
+
+<h3 id="screenshots">Screenshots</h3>
+
+<p>Now you can create dashboards, with enough information, that the developers
+will no longer need to ask you what is happening with resque.</p>
+<figure>
+    &lt;a href=http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png&gt;&lt;img src=http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png alt=""&gt;
+    <figcaption>&lt;a href=http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png title="Grafana Failed Resque Jobs"&gt;Grafana Failed Resque Jobs.</figcaption>
+</figure>
+<p><img src="http://linuxdynasty.github.io/Linuxdynasty/assets/failed_resque_jobs.png" alt="Grafana Failed Resque Jobs" />
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/resque_jobs_1.png" alt="Grafana Resque Jobs" />
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/resque_workers.png" alt="Grafana Resque Workers Used" /></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-10-10T00:00:00-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-passenger-metrics-using-sensu-and-graphite/">October 10, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-passenger-metrics-using-sensu-and-graphite/" rel="bookmark" title="Graph passenger metrics using sensu and graphite." itemprop="url">Graph passenger metrics using sensu and graphite.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Before I started working here, they were only collecting the common metrics
+for passenger (queue, processes, and max processes). After being here a little
+over a month, I realized that we were always logging into the nodes
+and running watch passenger-status, and watching how much memory
+certain passenger workers were consuming and how much time each of these
+processes were taking.</p>
+
+<p>I kept telling my team, there had to be a better way of gathering this information.
+After a quick glance at passenge-status –help, I hit the gold mine.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Usage: passenger-status <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>Phusion Passenger<span class="s1">&#39;s PID]</span>
+
+<span class="s1">Tool for inspecting Phusion Passenger&#39;</span>s internal status.
+
+Options:
+        --show<span class="o">=</span>pool<span class="p">|</span>requests<span class="p">|</span>backtraces<span class="p">|</span>xml<span class="p">|</span>union_station
+                                     Whether to show the pool<span class="err">&#39;</span>s contents,
+                                     the currently running requests,
+                                     the backtraces of all threads or an XML
+                                     description of the pool.
+    -v, --verbose                    Show verbose information.</code></pre></div>
+
+<h3 id="download-script">Download Script</h3>
+
+<ul>
+  <li><a href="https://github.com/linuxdynasty/Linuxdynasty/blob/master/scripts/sensu/metrics/passenger_metrics.rb">Passenger Metrics</a></li>
+</ul>
+
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+  <li><a href="http://sensuapp.org/">Sensu</a> (shipper)</li>
+  <li><a href="http://graphite.wikidot.com/">Graphite</a></li>
+  <li><a href="http://www.nokogiri.org/">NokoGiri</a></li>
+</ul>
+
+<h3 id="testing-passenger-status---show-xml">Testing passenger-status –show xml</h3>
+
+<p>If you installed libxml2-utils, the xml will look very nice..
+Lets take a quick glance, on what the show xml command will display….</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">passenger-status --show xml
+&lt;?xml <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;iso8859-1&quot;</span>?&gt;
+&lt;info <span class="nv">version</span><span class="o">=</span><span class="s2">&quot;2&quot;</span>&gt;
+   &lt;process_count&gt;1&lt;/process_count&gt;
+   &lt;max&gt;20&lt;/max&gt;
+   &lt;capacity_used&gt;1&lt;/capacity_used&gt;
+   &lt;get_wait_list_size&gt;0&lt;/get_wait_list_size&gt;
+   &lt;get_wait_list/&gt;
+   &lt;supergroups&gt;
+      &lt;supergroup&gt;
+         &lt;name&gt;/home/deploy/test_app/current&lt;/name&gt;
+         &lt;state&gt;READY&lt;/state&gt;
+         &lt;get_wait_list_size&gt;0&lt;/get_wait_list_size&gt;
+         &lt;capacity_used&gt;1&lt;/capacity_used&gt;</code></pre></div>
+
+<p>Another example of the xml data, but showing you the process data instead…</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">passenger-status --show xml
+          &lt;processes&gt;
+               &lt;process&gt;
+                  &lt;pid&gt;8540&lt;/pid&gt;
+                  &lt;sticky_session_id&gt;1653709171&lt;/sticky_session_id&gt;
+                  &lt;gupid&gt;167557a-WVPmDSUsnlj&lt;/gupid&gt;
+                  &lt;connect_password&gt;l<span class="p">;</span>sdkflskdjfslkfjsaj<span class="p">;</span>flkdjs&lt;/connect_password&gt;
+                  &lt;concurrency&gt;1&lt;/concurrency&gt;
+                  &lt;sessions&gt;0&lt;/sessions&gt;
+                  &lt;busyness&gt;0&lt;/busyness&gt;
+                  &lt;processed&gt;102&lt;/processed&gt;
+                  &lt;spawner_creation_time&gt;1412922319025804&lt;/spawner_creation_time&gt;
+                  &lt;spawn_start_time&gt;1412958391718240&lt;/spawn_start_time&gt;
+                  &lt;spawn_end_time&gt;1412958391746191&lt;/spawn_end_time&gt;
+                  &lt;last_used&gt;1412958455204460&lt;/last_used&gt;
+                  &lt;uptime&gt;1m 5s&lt;/uptime&gt;
+                  &lt;life_status&gt;ALIVE&lt;/life_status&gt;
+                  &lt;enabled&gt;ENABLED&lt;/enabled&gt;
+                  &lt;has_metrics&gt;true&lt;/has_metrics&gt;
+                  &lt;cpu&gt;4&lt;/cpu&gt;
+                  &lt;rss&gt;171028&lt;/rss&gt;
+                  &lt;pss&gt;136789&lt;/pss&gt;
+                  &lt;private_dirty&gt;103424&lt;/private_dirty&gt;
+                  &lt;swap&gt;0&lt;/swap&gt;
+                  &lt;real_memory&gt;103424&lt;/real_memory&gt;
+                  &lt;vmsize&gt;642504&lt;/vmsize&gt;</code></pre></div>
+
+<h3 id="running-the-script">Running the script</h3>
+
+<p>As you can see, you can get a wealth of data. Data that will allow you and your
+team to easily track down what is happening in you rails/sinatra cluster.</p>
+
+<p>This script was written to work with Sensu and it’s graphite handler.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/passenger_metrics.rb --scheme rails-01.passenger
+rails-01.passenger.max_pool_size  <span class="m">50</span>  1412958773
+rails-01.passenger.processes  <span class="m">23</span>  1412958773
+rails-01.passenger.top_level_queue    <span class="m">0</span>   1412958773
+rails-01.passenger._var_www_html_test_api_current.queue    <span class="m">0</span>   1412958773
+rails-01.passenger._var_www_html_test_api_current.processes    <span class="m">23</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.processes_being_spawned  <span class="m">0</span>   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.processed  <span class="m">3567</span>    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.pid    <span class="m">7703</span>    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.uptime <span class="m">921</span> 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.memory <span class="m">909664</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_1.cpu_percent    <span class="m">27</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.processed  <span class="m">2194</span>    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.pid    <span class="m">11878</span>   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.uptime <span class="m">659</span> 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.memory <span class="m">644108</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_2.cpu_percent    <span class="m">23</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.processed  <span class="m">1484</span>    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.pid    <span class="m">16146</span>   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.uptime <span class="m">402</span> 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.memory <span class="m">691392</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_3.cpu_percent    <span class="m">32</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.processed  <span class="m">1343</span>    1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.pid    <span class="m">16738</span>   1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.uptime <span class="m">353</span> 1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.memory <span class="m">521676</span>  1412958773
+rails-01.passenger._var_www_html_test_api_current.process_4.cpu_percent    <span class="m">32</span>  1412958773</code></pre></div>
+
+<h3 id="screenshots">Screenshots</h3>
+
+<p>Now you can create dashboards, with enough information, that the developers
+will no longer need to ask you what is happening with passenger.</p>
+
+<p><img src="http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_workers.png" alt="Grafana Passenger Workers" />
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_queues.png" alt="Grafana Passenger Queues" />
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_memory_used.png" alt="Grafana Passenger Memory Used" />
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/passenger_time_spent.png" alt="Grafana Passenger Time Spent" />
+<img src="http://linuxdynasty.github.io/Linuxdynasty/assets/nginx_passenger.png" alt="Grafana Nginx and Passenger dashboard Part 1" /></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2014-09-26T00:00:00-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/graph-nginx-status-codes-in-graphite/">September 26, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>
       
       <span class="entry-reading-time pull-right">
@@ -297,116 +544,6 @@ major release 0.8.0, which is a complete server rewrite. Examples of what is com
   <li>Token based authentication for the agents</li>
   <li>Separated WEB authentication from Agent authentication.</li>
 </ul>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-03-20T03:37:52-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/">March 20, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/" rel="bookmark" title="HowTo check redis availability and get stats using Redis-py, Zenoss, and Python" itemprop="url">HowTo check redis availability and get stats using Redis-py, Zenoss, and Python</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>My team was assigned to create a redis slave status check to be ran under Zenoss.
-So while they are creating that check, I decided to google for redis checks
-written in python that work under Nagios and or Zenoss and none of the checks
-i found did exactly what I wanted.</p>
-
-<p>So I decided to write my own check, that will grab every piece of data that the redis info() command was able to retrieve. Since this info is all in a python dictionary, I was able to get all the stats that were labeled as type int or as type float, which made my job that much easier.</p>
-
-<p>So 1st I had to install 2 Redis instances on my local Ubuntu server at home. Now that i completed that, I had to make sure the slave was syncing off the master server. I used this link “<a title="Redis Replication Configuration" href="http://redis.io/topics/replication" target="_blank">http://redis.io/topics/replication</a>” to help me configure redis replication.
-Now that all that stuff is out of the way, I wrote an easy_peasy python script to connect to redis and grab all of the performance stats. As well as verify if the instance is a master or a slave instance. If it is a slave instance, than it also verifies if it is syncing to the master or not.
-The script is using <a href="https://github.com/andymccurdy/redis-py" target="_blank">Redis-py</a> that was installed using PIP.</p>
-
-<p>Here is the script I wrote</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">godssoldier:python asanabria<span class="nv">$ </span>python ld_check_redis.py -d 127.0.0.1 -p <span class="s1">&#39;t35t_r3d15&#39;</span> -n 6379
-OK Master Redis Server 127.0.0.1 is Running 2.4.4 <span class="p">|</span> <span class="nv">pubsub_channels</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgrewriteaof_in_progress</span><span class="o">=</span>0
-<span class="nv">connected_slaves</span><span class="o">=</span><span class="m">1</span> <span class="nv">uptime_in_days</span><span class="o">=</span><span class="m">0</span> <span class="nv">lru_clock</span><span class="o">=</span><span class="m">1099413</span> <span class="nv">last_save_time</span><span class="o">=</span><span class="m">1332199497</span> <span class="nv">redis_git_sha1</span><span class="o">=</span>0
-<span class="nv">loading</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_clients</span><span class="o">=</span><span class="m">1</span> <span class="nv">keyspace_misses</span><span class="o">=</span><span class="m">4</span> <span class="nv">used_memory</span><span class="o">=</span><span class="m">939792</span> <span class="nv">vm_enabled</span><span class="o">=</span>0
-<span class="nv">used_cpu_user_children</span><span class="o">=</span>0.000000 <span class="nv">used_memory_peak</span><span class="o">=</span><span class="m">939776</span> <span class="nv">total_commands_processed</span><span class="o">=</span>10
-<span class="nv">latest_fork_usec</span><span class="o">=</span><span class="m">211</span> <span class="nv">used_memory_rss</span><span class="o">=</span><span class="m">1286144</span> <span class="nv">total_connections_received</span><span class="o">=</span><span class="m">8</span> <span class="nv">pubsub_patterns</span><span class="o">=</span>0
-<span class="nv">aof_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_sys</span><span class="o">=</span>0.130000 <span class="nv">used_cpu_sys_children</span><span class="o">=</span>0.000000 <span class="nv">blocked_clients</span><span class="o">=</span>0
-<span class="nv">used_cpu_user</span><span class="o">=</span>0.120000 <span class="nv">client_biggest_input_buf</span><span class="o">=</span><span class="m">0</span> <span class="nv">db0_keys</span><span class="o">=</span><span class="m">2</span> <span class="nv">db0_expires</span><span class="o">=</span><span class="m">0</span> <span class="nv">arch_bits</span><span class="o">=</span>64
-<span class="nv">mem_fragmentation_ratio</span><span class="o">=</span>1.370000 <span class="nv">expired_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">evicted_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgsave_in_progress</span><span class="o">=</span>0
-<span class="nv">client_longest_output_list</span><span class="o">=</span><span class="m">0</span> <span class="nv">process_id</span><span class="o">=</span><span class="m">22007</span> <span class="nv">uptime_in_seconds</span><span class="o">=</span><span class="m">401</span> <span class="nv">changes_since_last_save</span><span class="o">=</span>2
-<span class="nv">redis_git_dirty</span><span class="o">=</span><span class="m">0</span> <span class="nv">keyspace_hits</span><span class="o">=</span>1
-
-godssoldier:python asanabria<span class="nv">$ </span>python ld_check_redis.py -d 127.0.0.1 -p <span class="s1">&#39;t35t_r3d15&#39;</span> -n 6390
-OK Master 127.0.0.1 is up and Slave 127.0.0.1 is in sync <span class="p">|</span> <span class="nv">pubsub_channels</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgrewriteaof_in_progress</span><span class="o">=</span>0
-<span class="nv">connected_slaves</span><span class="o">=</span><span class="m">0</span> <span class="nv">uptime_in_days</span><span class="o">=</span><span class="m">0</span> <span class="nv">lru_clock</span><span class="o">=</span><span class="m">1099413</span> <span class="nv">last_save_time</span><span class="o">=</span><span class="m">1332199497</span> <span class="nv">redis_git_sha1</span><span class="o">=</span>0
-<span class="nv">loading</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_clients</span><span class="o">=</span><span class="m">2</span> <span class="nv">keyspace_misses</span><span class="o">=</span><span class="m">4</span> <span class="nv">used_memory</span><span class="o">=</span><span class="m">939872</span> <span class="nv">master_last_io_seconds_ago</span><span class="o">=</span>8
-<span class="nv">vm_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user_children</span><span class="o">=</span>0.000000 <span class="nv">used_memory_peak</span><span class="o">=</span><span class="m">931248</span> <span class="nv">total_commands_processed</span><span class="o">=</span>44
-<span class="nv">latest_fork_usec</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_memory_rss</span><span class="o">=</span><span class="m">1277952</span> <span class="nv">total_connections_received</span><span class="o">=</span><span class="m">2</span> <span class="nv">pubsub_patterns</span><span class="o">=</span><span class="m">0</span> <span class="nv">aof_enabled</span><span class="o">=</span>0
-<span class="nv">used_cpu_sys</span><span class="o">=</span>0.130000 <span class="nv">used_cpu_sys_children</span><span class="o">=</span>0.000000 <span class="nv">blocked_clients</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user</span><span class="o">=</span>0.070000
-<span class="nv">master_port</span><span class="o">=</span><span class="m">6379</span> <span class="nv">client_biggest_input_buf</span><span class="o">=</span><span class="m">0</span> <span class="nv">db0_keys</span><span class="o">=</span><span class="m">2</span> <span class="nv">db0_expires</span><span class="o">=</span><span class="m">0</span> <span class="nv">arch_bits</span><span class="o">=</span>64
-<span class="nv">mem_fragmentation_ratio</span><span class="o">=</span>1.360000 <span class="nv">expired_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">evicted_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgsave_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">client_longest_output_list</span><span class="o">=</span>0
-<span class="nv">master_sync_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">process_id</span><span class="o">=</span><span class="m">22010</span> <span class="nv">uptime_in_seconds</span><span class="o">=</span><span class="m">398</span> <span class="nv">changes_since_last_save</span><span class="o">=</span><span class="m">2</span> <span class="nv">redis_git_dirty</span><span class="o">=</span>0
-<span class="nv">keyspace_hits</span><span class="o">=</span>0
-
-CRITICAL Master 127.0.0.1 is down and Slave 127.0.0.1 is out of sync <span class="p">|</span>
-<span class="nv">pubsub_channels</span><span class="o">=</span><span class="m">0</span> <span class="nv">bgrewriteaof_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_slaves</span><span class="o">=</span><span class="m">0</span> <span class="nv">master_link_down_since_seconds</span><span class="o">=</span>1332199283
-<span class="nv">uptime_in_days</span><span class="o">=</span><span class="m">0</span> <span class="nv">lru_clock</span><span class="o">=</span><span class="m">1099352</span> <span class="nv">last_save_time</span><span class="o">=</span><span class="m">1332198992</span> <span class="nv">redis_git_sha1</span><span class="o">=</span><span class="m">0</span> <span class="nv">loading</span><span class="o">=</span><span class="m">0</span> <span class="nv">connected_clients</span><span class="o">=</span>1
-<span class="nv">keyspace_misses</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_memory</span><span class="o">=</span><span class="m">931040</span> <span class="nv">master_last_io_seconds_ago</span><span class="o">=</span>-1 <span class="nv">vm_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user_children</span><span class="o">=</span>0.000000
-<span class="nv">used_memory_peak</span><span class="o">=</span><span class="m">931040</span> <span class="nv">total_commands_processed</span><span class="o">=</span><span class="m">5</span> <span class="nv">latest_fork_usec</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_memory_rss</span><span class="o">=</span>1261568
-<span class="nv">total_connections_received</span><span class="o">=</span><span class="m">6</span> <span class="nv">pubsub_patterns</span><span class="o">=</span><span class="m">0</span> <span class="nv">aof_enabled</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_sys</span><span class="o">=</span>0.080000
-<span class="nv">used_cpu_sys_children</span><span class="o">=</span>0.000000 <span class="nv">blocked_clients</span><span class="o">=</span><span class="m">0</span> <span class="nv">used_cpu_user</span><span class="o">=</span>0.030000 <span class="nv">master_port</span><span class="o">=</span>6379
-<span class="nv">client_biggest_input_buf</span><span class="o">=</span><span class="m">0</span> <span class="nv">arch_bits</span><span class="o">=</span><span class="m">64</span> <span class="nv">mem_fragmentation_ratio</span><span class="o">=</span>1.360000 <span class="nv">expired_keys</span><span class="o">=</span><span class="m">0</span> <span class="nv">evicted_keys</span><span class="o">=</span>0
- <span class="nv">bgsave_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">client_longest_output_list</span><span class="o">=</span><span class="m">0</span> <span class="nv">master_sync_in_progress</span><span class="o">=</span><span class="m">0</span> <span class="nv">process_id</span><span class="o">=</span>21887
-<span class="nv">uptime_in_seconds</span><span class="o">=</span><span class="m">290</span> <span class="nv">changes_since_last_save</span><span class="o">=</span><span class="m">0</span> <span class="nv">redis_git_dirty</span><span class="o">=</span><span class="m">0</span> <span class="nv">keyspace_hits</span><span class="o">=</span>0</code></pre></div>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-12-30T22:26:23-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/">December 30, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/" rel="bookmark" title="How To monitor RTSP streaming videos using openRTSP and Zenoss" itemprop="url">How To monitor RTSP streaming videos using openRTSP and Zenoss</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Since I do currently work for a streaming company, that would imply that we should have some type of monitoring for our RTSP streams ;-). You will 1st need to get the openRTSP command.</p>
-<ul>
-<li>You will need to download the openRTSP command from http://www.live555.com/openRTSP/</li>
-<li>Or if you are running Zenoss on top of Debian you can just run a apt-get install livemedia-utils</li>
-</ul>
-<p>Once you do that, all you have to do next is to download my script and have a valid server to point at and a path to test... Example below.. {filelink=24}</p>
-<pre>./check_rtsp.py -d remote_server -p /iphone/2012 
-OK /iphone/2012, test completed successfull against remote_server |status=0</pre>
-<p>or with stats...</p>
-<pre>./check_rtsp.py -d remote_server -p /iphone/2012 -s
-OK /iphone/2012, test completed successfull against remote_server |status=0 num_packets_received=16 num_packets_lost=0 elapsed_measurement_time=3.000073 kBytes_received_total=16.309000 
-measurement_sampling_interval_ms=1000 kbits_per_second_min=29.245485 kbits_per_second_ave=43.489608 
-kbits_per_second_max=51.737449 packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 
-packet_loss_percentage_max=0.000000 inter_packet_gap_ms_min=0.018000 inter_packet_gap_ms_ave=161.139313 
-inter_packet_gap_ms_max=901.439000 subsession=video/H264 num_packets_received=61 num_packets_lost=0 
-elapsed_measurement_time=3.000073 kBytes_received_total=27.630000 measurement_sampling_interval_ms=1000 
-kbits_per_second_min=0.000000 kbits_per_second_ave=73.678207 kbits_per_second_max=122.923442 
-packet_loss_percentage_min=0.000000 packet_loss_percentage_ave=0.000000 packet_loss_percentage_max=0.000000 
-inter_packet_gap_ms_min=0.009000 inter_packet_gap_ms_ave=24.794672 inter_packet_gap_ms_max=528.923000</pre>
-<p>So you can trend the different stats that openRTSP provides in Zenoss..</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -594,6 +731,12 @@ inter_packet_gap_ms_min=0.009000 inter_packet_gap_ms_ave=24.794672 inter_packet_
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

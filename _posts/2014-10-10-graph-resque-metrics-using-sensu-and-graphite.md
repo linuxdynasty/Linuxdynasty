@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Graph resque metrics using sensu and graphite."
-tags:
+tags: [metrics, sensu, graphite, ruby, resque, redis]
+comments: true
+share: true
  -
 ---
 We are using Resque for our background jobs and we use the Resque Web interface
@@ -73,7 +75,10 @@ redis-db01.resque.working 2   1412961997
 
 Now you can create dashboards, with enough information, that the developers
 will no longer need to ask you what is happening with resque.
-
+<figure>
+    <a href={{ site.url }}/assets/failed_resque_jobs.png><img src={{ site.url }}/assets/failed_resque_jobs.png alt=""></a>
+    <figcaption><a href={{ site.url }}/assets/failed_resque_jobs.png title="Grafana Failed Resque Jobs">Grafana Failed Resque Jobs</a>.</figcaption>
+</figure>
 ![Grafana Failed Resque Jobs]({{ site.url }}/assets/failed_resque_jobs.png)
 ![Grafana Resque Jobs]({{ site.url }}/assets/resque_jobs_1.png)
 ![Grafana Resque Workers Used]({{ site.url }}/assets/resque_workers.png)

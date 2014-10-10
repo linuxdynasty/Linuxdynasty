@@ -136,6 +136,138 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2010-03-29T02:15:13-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-get-3par-disk-io-stats-into-zenoss/">March 29, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-get-3par-disk-io-stats-into-zenoss/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~3 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-get-3par-disk-io-stats-into-zenoss/" rel="bookmark" title="HowTo get 3par disk IO stats into Zenoss" itemprop="url">HowTo get 3par disk IO stats into Zenoss</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I've come to realize, that CIM is the new SNMP, but on steroids. Most new SAN, NAS, Network, and Operating Systems now support <a href="http://www.dmtf.org/standards/cim/">CIM</a>/<a href="http://www.dmtf.org/standards/wbem/">WBEM</a>. To me it is easier to gather statistics and information through CIM, then it is through SNMP. In this article I am going to give you a script that will allow you to query the 3par for Disk IO stats. You will be able to grab Disk IO stats on a per Volume, per Port, or per Disk basis.You will also be able to search for a Volume, Port, or Disk, instead of just dumping all the Volumes, Ports, or Disk.</p>
+<p>Before you download this script, you will need to download <a href="http://sourceforge.net/projects/pywbem/">pywbem</a> from sourceforge and install it. .</p>
+<p>get3ParIOstats.py == {filelink=6}</p>
+<p><span class="attention">All the data that you get from the script, must be saved as a COUNTER and not a GAUGE.</span></p>
+<p>Here is an example of searching for statistics by DISK for DISK 2:6:1..</p>
+<pre>python get3parIOstats.py -u "http://3par" -a 'login passwd' -s '2:6:1' --diskOK|2:6:1_ReadIOs=67236384 2:6:1_WriteIOs=28457131 2:6:1_TotalIOs=95693515</pre>
+<p><a id="more"></a><a id="more-196"></a></p>
+<p><span class="note">Before I continue much further, I would like to say that this script would go great with my <a href="howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api.html">Zenoss Template Manager</a></span><br />
+An example of running get3parIOstats.py with the Zenoss Template Manager..</p>
+<pre>python /opt/zenoss/libexec/get3parIOstats.py -u "http://3par" -a "login passwd" -p |
+sed -re "s/([0-9]:[0-9]:[0-9]_w+)=w+/"-p1,C"/g" -e "s/^w+|//g" -e "s/:/_/g"|
+xargs Zenoss_Template_Manager.py -d "3par" -c 'get3parIOstats.py -u http://3par" -a "login passwd" -p' -t "3parIOStats" --dsource="PortIOstats" -V $1</pre>
+<pre>Template 3parIOStats already exists at /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStatsDataSource 
+PortIOstats already exists at /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsParser = AutoCommand 
+http://3par" -a "login passwd" -p has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsPortIOstats DataSource is EnabledDataPoint  
+2_0_1_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_1_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_1_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_2_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_2_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_2_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_3_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_3_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_3_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_4_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_4_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_0_4_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_1_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_1_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_1_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_2_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_2_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_2_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_3_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_3_WriteIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_3_TotalIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstatsDataPoint  
+2_2_4_ReadIOs of type COUNTER has been added to DataSource /zport/dmd/Devices/Storage/3par/devices/3par/3parIOStats/datasources/PortIOstats</pre>
+<p><span class="note">Here is an example of searching by VOLUME</span></p>
+<pre>python get3parIOstats.py -u "http://3par" -a 'login passwd' --volume -s zenoss
+OK|zenoss-perf_ReadIOs=178585316 zenoss-perf_WriteIOs=133818738 zenoss-perf_TotalIOs=312404054 zenoss-perf_ReadHitIOs=391775944 zenoss-perf_
+WriteHitIOs=75752999zenoss-mysql_ReadIOs=807053119 zenoss-mysql_WriteIOs=397407133 
+zenoss-mysql_TotalIOs=1204460252 zenoss-mysql_ReadHitIOs=893915116 zenoss-mysql_WriteHitIOs=218224301</pre>
+<p>As you can see above, I searched for zenoss, and it printed out two volumes that matched zenoss. So you can either be really specific and just print out one volume or be vague and match as many volumes as you can. Or you do not have to search for anything, you just can list all the stats for Volumes, Ports, or Disks..</p>
+<p>Here is an example of that...</p>
+<pre>python get3parIOstats.py -u "http://172.16.100.73" -a 'login passwd' --port
+OK|2:0:1_ReadIOs=1646791211 2:0:1_WriteIOs=833778099 2:0:1_TotalIOs=2480569310 2:0:2_ReadIOs=1652490070 
+2:0:2_WriteIOs=838498029 2:0:2_TotalIOs=24909880992:0:3_ReadIOs=1641530849 2:0:3_WriteIOs=825438313 
+2:0:3_TotalIOs=2466969162 2:0:4_ReadIOs=1637164097 2:0:4_WriteIOs=826686709 2:0:4_TotalIOs=2463850806
+2:2:1_ReadIOs=1823091934 2:2:1_WriteIOs=1048202110 2:2:1_TotalIOs=2871294044 2:2:2_ReadIOs=0 
+2:2:2_WriteIOs=0 2:2:2_TotalIOs=0 2:2:3_ReadIOs=0 2:2:3_WriteIOs=02:2:3_TotalIOs=0 
+2:2:4_ReadIOs=0 2:2:4_WriteIOs=0 2:2:4_TotalIOs=0 2:3:1_ReadIOs=1012223361 2:3:1_WriteIOs=1291116066 
+2:3:1_TotalIOs=2303339427 2:3:2_ReadIOs=02:3:2_WriteIOs=0 2:3:2_TotalIOs=0 2:3:3_ReadIOs=0 
+2:3:3_WriteIOs=0 2:3:3_TotalIOs=0 2:3:4_ReadIOs=0 2:3:4_WriteIOs=0 2:3:4_TotalIOs=0 
+2:5:1_ReadIOs=11185369362:5:1_WriteIOs=2241831596 2:5:1_TotalIOs=3360368532 2:5:2_ReadIOs=0 
+2:5:2_WriteIOs=0 2:5:2_TotalIOs=0 2:5:3_ReadIOs=0 2:5:3_WriteIOs=0 2:5:3_TotalIOs=02:5:4_ReadIOs=0 
+2:5:4_WriteIOs=0 2:5:4_TotalIOs=0 3:0:1_ReadIOs=1618784135 3:0:1_WriteIOs=885315727 3:0:1_TotalIOs=2504099862 
+3:0:2_ReadIOs=1640576188 3:0:2_WriteIOs=908172240 3:0:2_TotalIOs=25487484283:0:3_ReadIOs=1643215242 
+3:0:3_WriteIOs=909195911 3:0:3_TotalIOs=2552411153 3:0:4_ReadIOs=1638896605 3:0:4_WriteIOs=909738643 
+3:0:4_TotalIOs=25486352483:2:1_ReadIOs=1820238591 3:2:1_WriteIOs=1140801166 3:2:1_TotalIOs=2961039757 
+3:2:2_ReadIOs=0 3:2:2_WriteIOs=0 3:2:2_TotalIOs=0 3:2:3_ReadIOs=0 3:2:3_WriteIOs=0 
+3:2:3_TotalIOs=03:2:4_ReadIOs=0 3:2:4_WriteIOs=0 3:2:4_TotalIOs=0 3:3:1_ReadIOs=2444206400 
+3:3:1_WriteIOs=1606025077 3:3:1_TotalIOs=4050231477 3:3:2_ReadIOs=0 3:3:2_WriteIOs=0 
+3:3:2_TotalIOs=03:3:3_ReadIOs=0 3:3:3_WriteIOs=0 3:3:3_TotalIOs=0 3:3:4_ReadIOs=0 3:3:4_WriteIOs=0 
+3:3:4_TotalIOs=0 3:5:1_ReadIOs=268806737 3:5:1_WriteIOs=605936851 3:5:1_TotalIOs=8747435883:5:2_ReadIOs=0 
+3:5:2_WriteIOs=0 3:5:2_TotalIOs=0 3:5:3_ReadIOs=0 3:5:3_WriteIOs=0 3:5:3_TotalIOs=0 3:5:4_ReadIOs=0 
+3:5:4_WriteIOs=0 3:5:4_TotalIOs=0</pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2010-03-19T19:31:11-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/">March 19, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/how-to-find-alerting-rules-using-the-zenoss-api/" rel="bookmark" title="How to find Alerting Rules using the Zenoss API" itemprop="url">How to find Alerting Rules using the Zenoss API</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Good Afternoon my fellow Zenoss users. here I bring you another Python tool to use with Zenoss. This tool will allow you to list all of your alerting rules, either by Group, User, or Query. If you are like me and have over 100 Alerting Rules. Managing these rules are more then a pain in the butt. Especially when you create a new rule and you know you created it correctly, but it just does not work... Well you might have another conflicting rule. Well what do you do in this situation?? You can go through each rule manually and sooner or later you will find it.</p>
+<p>Or you can use my tool to find it for you. You might ask... How will yout tool find the conflicting rule for me??? Well to be honest it will not find the rule for you. What it can do is search all the rules for a certain query. Which can return one or more alerting rules if they are similiar in nature. or you can have the tool, list all of your Alerting rules. Or you can have the script list all of your alerting rules by group or user. The toll will report back to you The Group/User, The Alerting Rules attached to that Group/user, and the Schedules Attached to that Alerting Rules.</p>
+<p>Where this tool really helped me, was when the DST changed happened. None of my schedules were working anymore, so the work around is to move all the schedules ahead of time. Using this script I found all my schedules very quickly, with out haveing to go through each of my alerting rules one by one.</p>
+<p>{filelink=7}</p>
+<p><a id="more"></a><a id="more-195"></a></p>
+<p>If you need help, please post your questions here...<br />
+<a href="forums/Scripting/scripting/ZalertingRule_Manager">http://www.linuxdynasty.org/forums/Scripting/scripting/ZalertingRule_Manager</a><br />
+Example below...</p>
+<pre>[zenoss@zenoss ~]$ python ZalertingRules_Manager.py --type="users" --search="asanabria"q################################################################################Alerting Rules for asanabria ************************************************************ Alerting Rule:        foo SQL Query:    severity &gt;= 4 and eventState = 0 and prodState = 1000
+
+ Windows for Alerting Rule foo Window:      yee Start time:  Thu Mar 18 14:40:30 2010 Duration:    days 0 hours 1 minutes 0 ************************************************************
+
+[zenoss@zenoss ~]$ python ZalertingRules_Manager.py --type="groups" --search="Escalation 0"################################################################################Alerting Rules for Escalation 0************************************************************ Alerting Rule:        Server - QA SQL Query:    (prodState = 1000) and (deviceClass like '/Server/Linux/QA Servers%') and (eventState = 0) and (severity &gt;= 4)
+
+ ************************************************************ Alerting Rule:        Email - Downgrade SQL Query:    (prodState = 1000) and (eventClass like '/App/Email/Downgrade%') and (eventState = 0) and (severity &gt;= 4)
+
+ ************************************************************ Alerting Rule:        Email - Job Alerts SQL Query:    (prodState = 1000) and (eventClass like '/App/Email/Job Alerts%') and (eventState = 0) and (severity &gt;= 4)
+
+ Windows for Alerting Rule Email - Job Alerts Window:      0700-0701 Start time:  Sat Mar 13 07:00:00 2010 Duration:    days 0 hours 0 minutes 1 ***********************************************************</pre>
+<p>As you can see it will get you a wealth of data.. You can also search by query..</p>
+<pre>[zenoss@zenoss ~]$ python ZalertingRules_Manager.py --type="query" --search="/App/Log/Java"################################################################################Owner = App - Tomcat Alerting Rule Tomcat Java Log Matching Query = (prodState = 1000) and (eventClassKey not like '%Java Self Axis Scorer Infinite Loop%') and (eventState = 0) and (severity &gt;= 3) and (eventClass like '/App/Log/Java/US/') Window:      0100-2355 Start time:  Thu Mar 18 01:00:00 2010 Duration:    days 0 hours 22 minutes 55 ************************************************************
+
+################################################################################Owner = Java Self Axis Scorer Infinite Loop Alerting Rule Java Self Axis Scorer Infinite Loop Matching Query = (prodState = 1000) and (eventClassKey like '%Java Self Axis Scorer Infinite Loop%') and (deviceClass like '/Server/Linux/Tomcat/%') and (eventClass like '/App/Log/Java/%') and (eventState = 0) and (severity &gt;= 3)</pre>
+<p>Many more features to come.....</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2010-03-05T04:12:26-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/">March 05, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/howto-add-multiple-datapoints-to-zenoss-using-the-zenoss-api/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -363,113 +495,6 @@ options:-h, --help                          show this help message and exit     
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2010-02-01T13:22:22-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/">February 01, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/zenoss/netscaler/how-to-get-information-from-the-netscaler-using-python-and-suds/" rel="bookmark" title="How to get information from the Netscaler using Python and Suds." itemprop="url">How to get information from the Netscaler using Python and Suds.</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Recently I just started to use the Citrix Netscalers again ( Load Balancers ). Being the person that I am, I wanted a way to grab the information using the SOAP API.<br />
-Now Citrix has a ton of documentation for Perl/C/C# and Java ( None for Python ). SOAP client support has not been the best for Python, in my opinion.<br />
-I know you have <a href="http://pywebsvcs.sourceforge.net/">soappy/ZSI</a>, which I have had issues with consuming Broken WSDL files ( Having to fix the Broken WSDL file manually, SUCKS!).</p>
-<p>Just 2 weeks ago, I encounterd <a href="https://fedorahosted.org/suds/">SUDS</a>. This module is by far, the best SOAP client for Python.<br />
-There documentation is simple and straight to the point, with a bunch of nice samples to get you on your way.</p>
-<p><span class="attention">Install SUDS before proceeding further. You can get suds from here. <a href="https://fedorahosted.org/suds/">https://fedorahosted.org/suds/</a></span><br />
-Connection to my netscaler was as simple as this...</p>
-<pre>Python 2.4.3 (#1, Sep  3 2009, 15:37:37)[GCC 4.1.2 20080704 (Red Hat 4.1.2-46)]</pre>
-<pre>on linux2Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; from suds.client import Client
-&gt;&gt;&gt; url = "http://nsip/api/NSConfig.wsdl"
-&gt;&gt;&gt; from suds.xsd.doctor import *
-&gt;&gt;&gt; imp = Import('http://schemas.xmlsoap.org/soap/encoding/')
-&gt;&gt;&gt; imp.filter.add("urn:NSConfig")
-&gt;&gt;&gt; d = ImportDoctor(imp)
-&gt;&gt;&gt; client = Client(url, doctor=d, location="http://nsip/soap/")
-&gt;&gt;&gt; client.service.login(username="login", password="pass")(simpleResult){ rc = 0 message = "Done" }
-&gt;&gt;&gt;</pre>
-<p><a id="more"></a><a id="more-83"></a></p>
-<p>As you can see above, I used the xsd doctor to import Soap encoding URL and added a filter for the Netscaler URN.<br />
-If you do not import the SOAP encoding schema, this is the error you will receive..</p>
-<p><span class="alert">suds.TypeNotFound: Type not found: '(Array, http://schemas.xmlsoap.org/soap/encoding/, )</span></p>
-<p>Once you type the above, you can now run commands in the python shell. for instance...</p>
-<ul>
-<li>client.service.getlbvserver()</li>
-<li>client.service.getservice()</li>
-<li>client.service.getservicegroup()</li>
-</ul>
-<p>I am attaching a script that I have written, to get Load Balanced Virtual Servers and its Services and ServiceGroups.<br />
-This script can also just list all the Virtual Servers, Services, or Service Groups. Examples below..<br />
-queryns.py == {filelink=10}</p>
-<p><small>python queryns.py -c "ZenossTest2_svc" -n "nsip" -u "login" -p "pass" Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP python queryns.py -s foobar_test -n "nsip" -u "login" -p "pass" Virtual Server State IPAddress Port Protocol foobar_test UP 192.168.101.19 55555 HTTP ServiceGroup Name SG State Server Name Status IPAddress Port Protocol "Foo Bar" ENABLED billyboy UP 192.168.101.31 8080 HTTP "Foo Bar" ENABLED zenossTest UP 192.168.101.221 8080 HTTP Service Name Server Name Status IPAddress Port Protocol ZenossTest2_svc zenossTest OUT OF SERVICE 192.168.101.221 9090 HTTP ------------------------------------------------------------------------------------------------------------------------</small></p>
-<p>All the options are here..</p>
-<pre>python queryns.py -husage: queryns.py [options] arg --username=username --password=password --netscaler=netscalerip
-
-options: -h, --help            
-show this help message and exit 
--n NETSCALER, --netscaler=NETSCALER
-                       Here you will put the netscaler IPAddress or the                       netscaler hostname-u USERNAME, --username=USERNAME
-                       Your username -p PASSWORD, --password=PASSWORD                       Your password -l LIST, --list=LIST  
-List all the names of the Virtual Servers, Services,
-                       ServiceGroups. Example --list=lbvserver, --list=service, --list=servicegroup -s SERVER, ---vserver=SERVER
-                       Virtual Server that you want to query. You can choose
-                       a Virtual Server or you can pass all, so you get all
-                       the Virtual Servers and its associated
-                       ServiceGroups or Services. Example....
-                       --vserver="foobar_test" or --vserver="all" 
--g SGROUP, --sgroup=SGROUP
-                       ServiceGroup that you want the info from -c SERVICE, 
---service=SERVICE                       Service that you want the info from</pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-11-12T21:46:56-05:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/">November 12, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/shell/swatch-startup-script/" rel="bookmark" title="Swatch Startup Script" itemprop="url">Swatch Startup Script</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>I've been using Swatch for quite a while now and I never invested the time to  create a quick startup script. Today, I decided to create one and it works just fine under Centos and Ubuntu Server. You can download it here..<br />
-swatch init script == {filelink=11}</p>
-<p><a id="more"></a><a id="more-92"></a></p>
-<p>Or you can copy and paste it below..</p>
-<pre>#!/bin/bash## /etc/init.d/swatch# init script for Swatch.## chkconfig: 2345 90 60# description: Swatch#November 11th 2009 Allen Sanabria#http://linuxdynasty.org#CONFIG="/etc/swatch/swatch.conf"PID="/var/run/swatch.pid"LOGFILE="/var/log/secure"PIDS="/tmp/pids.txt"RETVAL=0
-
-swatch_start() {if [ -f $PID ] then echo "Swatch is already running"   cat $PID else echo "Starting Swatch" /usr/bin/swatch --config-file=$CONFIG --tail-file=$LOGFILE --pid-file=$PID &gt; /dev/null 2&gt;&amp;1 &amp; RETVAL=$?fi}
-
-swatch_stop() {if [ -f $PID ] then echo "Stopping Swatch" PARENT="$(&lt; "$PID")" INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` CPID1=`ps --ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` kill -9 $INIT_PID $PARENT $CPID1   rm -f $PID $PIDS RETVAL=$? else echo "Swatch is not running!"fi}
-
-swatch_status() {if [ -f $PID ] then echo "Swatch is running" PARENT="$(&lt; "$PID")" INIT_PID=`ps -o ppid $PARENT |awk ' /[0-9]+/ { print $1 } '` ps -o pid -o command --pid $INIT_PID --pid $PARENT --ppid $PARENT else echo "Swatch is not running" RETVAL=$?fi}
-
-case "$1" in start) swatch_start ;; stop) swatch_stop ;; restart) swatch_stop swatch_start ;; status) swatch_status ;; *) echo "Usage: $0 {start|stop|restart|status}" exit 1esac
-
-exit $RETVAL</pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 <div class="pagination">
   
@@ -655,6 +680,12 @@ exit $RETVAL</pre>
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

@@ -136,6 +136,83 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-04T02:00:51-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/">April 04, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-check-the-status-of-one-or-multiple-network-interfaces-the-easy-way/" rel="bookmark" title="HowTo check the status of one or multiple network interfaces the easy way" itemprop="url">HowTo check the status of one or multiple network interfaces the easy way</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Today a friend of mine wanted to know how he can check the status and or speed of multiple Network Interfaces/Ports on a device ( Switch, Router, Server, etcc ) using SNMP. Specifically he wanted to know if the Interfaces/Ports are Operationally Up or Down and also if it is Administratively. Then he also wanted to know the speed of the Interfaces/Ports that were Up or Down.</p>
+<p>Now you can easily get this information through SNMP or if you have a monitoring tool like <a href="http://zenoss.com" title="" target="_blank">Zenoss.</a> But he wanted a command line script that would run fairly quickly and either print the results to STDOUT or that he can pipe the ouput in an email.</p>
+<p>So I decided, ok I'll wite you a quick script in Python that will get you that information. FYI, I'm thinking of making this script compatible with the Nagios API. If you want this feature please let me know... Below I will give you some examples of the script....&nbsp; </p>
+<pre>    python check_int_speed.py --device zenoss --community &quot;public&quot; --astatus &quot;Up&quot; --ostatus &quot;Up&quot;<br />    lo is Administratively  Up and Operationally Up and running at 10mbs<br />    eth0 is Administratively  Up and Operationally Up and running at 1gbps<br /></pre>
+<p><a id="more"></a><a id="more-79"></a></p>
+<pre>    python check_int_speed.py --device zenoss --community &quot;public&quot; --astatus &quot;Up&quot; --ostatus &quot;Up&quot; --speed &quot;1gbps&quot;<br />    eth0 is Administratively  Up and Operationally Up and running at 1gbps<br /><br />    python check_int_speed.py --device switch --community &quot;public&quot; --astatus &quot;Down&quot; --ostatus &quot;Down&quot; --pname &quot;GigabitEthernet10/23&quot;<br />    GigabitEthernet10/23 is Administratively Down and Operationally Down and running at 1gbps<br /></pre>
+<p></p>
+<pre>    python check_int_speed.py --device switch --community &quot;public&quot; --astatus &quot;Up&quot; --ostatus &quot;Up&quot; --speed &quot;1gbps&quot;<br />    GigabitEthernet1/31 is Administratively  Up and Operationally Up and running at 1gbps<br />    GigabitEthernet1/37 is Administratively  Up and Operationally Up and running at 1gbps<br />    GigabitEthernet1/34 is Administratively  Up and Operationally Up and running at 1gbps<br /></pre>
+<p></p>
+<pre>    python check_int_speed.py --device switch --community &quot;public&quot; --astatus &quot;Down&quot; --ostatus &quot;Down&quot;<br />    GigabitEthernet2/36 is Administratively  Down and Operationally Down and running at 1gbps<br />    Vlan1 is Administratively  Down and Operationally Down and running at 1gbps<br />    GigabitEthernet2/30 is Administratively  Down and Operationally Down and running at 1gbps<br />    GigabitEthernet10/20 is Administratively  Down and Operationally Down and running at 1gbps<br />    GigabitEthernet10/21 is Administratively  Down and Operationally Down and running at 1gbps<br /><br /><p><br />You can download the script here <a href="http://www.linuxdynasty.org/View-details/Python-Scripts/37-Check-Interface-Status-Script.html" title="">check_int_status.py</a><br /></p></pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-04-01T14:33:24-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/">April 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-check-the-status-of-vmware-tools-per-virtual-machine-the-easy-way/" rel="bookmark" title="How to check the status of VMware Tools per virtual Machine the easy way." itemprop="url">How to check the status of VMware Tools per virtual Machine the easy way.</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>The other day I was told to check and see if VMware Tools was installed on every Virtual Machine in our Cluster. I figured this was the perfect time for me to write another script to do this.</p>
+<p>Here are a list of things that I want to have in the script...</p>
+<ul>
+<li>List all Virtual Machines and the VMstatus and Version if installed</li>
+<li>Check for toolsOK</li>
+<li>Check for toolsNotInstalled</li>
+<li>Check for toolsNotRunning</li>
+<li>Check for toolsOld</li>
+<li>And last but not least, able to do this either on a per Virtual Machine or on the entire Cluster</li>
+</ul>
+<p>Well I was able to do all of the above in a nice Perl Script that I created. It can be downloaded here  <a href="View-details/VMware-Perl/36-vmTools-Status-Perl-Script.html">vmToolsStatus.pl</a></p>
+<pre>{quickdown:36}<br />perl vmToolsStatus.pl <br />        help              : Hiding the command line arguments [--help]<br />        --toolsOld             : This will print out all the Virtual Machines with an Old version of vmTools and you need to upgrade<br />        --toolsNotInstalled    : This will print out all the Virtual Machines with vmTools Not Installed<br />        --toolsNotRunning      : This will print out all the Virtual Machines with vmTools Not Running<br />        --toolsOk              : This will print out all Virtual Machines with vmTools running <br />        --all             : This will print out all Virtual Machines with vmTools installed or not installed<br />        example           : Hiding the command line arguments --toolsOld <br />        example           : Hiding the command line arguments --toolsOk <br />        example           : Hiding the command line arguments --toolsNotInstalled <br />        example           : Hiding the command line arguments --toolsRunning <br />        example           : Hiding the command line arguments --all --vm_name "vm_name" <br />        example           : Hiding the command line arguments --all  </pre>
+<div><span class="attention"> <strong>Remember!!! That in order to use this script you will need the Perl VI SDK installed on your linux box as well as $home/.visdkrc setup correctly</strong></span></div>
+<p>Here is an example .visdkrc...</p>
+<pre>VI_SERVER = Virtual Console Server<br />VI_USERNAME = login<br />VI_PASSWORD = passwd<br />VI_PROTOCOL = https <br />VI_PORTNUMBER = 443<br /></pre>
+<p> </p>
+<p><a id="more"></a><a id="more-190"></a></p>
+<p> </p>
+<p><strong>So if you want to list all of the Virtual Machines that are running an incompatible version of vmtools, you will run the script like so..</strong></p>
+<pre>perl vmToolsStatus.pl --toolsOld<br />MNS<br />  Status toolsOld and Version 82663<br /><br />LDAP<br />  Status toolsOld and Version 82663<br /><br />RHEL 5.2<br />  Status toolsOld and Version 82663<br /><br />Ramona<br />  Status toolsOld and Version 82663<br /><br />Luminati<br />  Status toolsOld and Version 82663 <br /></pre>
+<p><strong>Or if you want to list all Virtual Machines that do not have vmtools installed...</strong></p>
+<pre>perl vmToolsStatus.pl --toolsNotInstalled<br />SLES<br />  StatustoolsNotInstalled<br /><br />X86_Model<br />  StatustoolsNotInstalled<br /><br />Mario<br />  StatustoolsNotInstalled<br /><br />ZCM<br />  StatustoolsNotInstalled<br /><br />Bot Hunter<br />  StatustoolsNotInstalled<br /><br /></pre>
+<p><strong>Or you can do it on a per Virtual Machine basis...</strong></p>
+<pre>perl vmToolsStatus.pl --toolsOk --vm_name "Mail"<br />Mail<br />  Status toolsOk and Version 110268 <br /></pre>
+<p> </p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-03-31T19:51:26-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/">March 31, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/vmware-esx-sdk-snapshot-perl-script-part-3/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -232,92 +309,6 @@ Enabled State 		 Not Applicable</pre>
 ScreenShot below of the script...
 <p> </p>
 </p></div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-03-24T20:09:07-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-list-datastores-using-python-and-cim/">March 24, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-list-datastores-using-python-and-cim/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/howto-list-datastores-using-python-and-cim/" rel="bookmark" title="HowTo List DataStores using Python and CIM" itemprop="url">HowTo List DataStores using Python and CIM</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><span>Here I created another Python script using Pywbem to get the Storage Pools from ESX. <br /> In this script you can get the disk utilisation statistics from each datastore or from a particular datastore. <br /> <span class="attention">Script Updated to include the .VMX files that belong to each DataStore..</span></span></p>
-<p><span><br /> <span style="font-family: monospace"> example below...<br /> python VMdataStorePool.py -u "http://esxhost" -a "login passwd"<br /> Available DataStores on http://esxhost
-<p> DataStore Name                   Esxtestvol2<br /> Total Disk Space                 499G<br /> Remaining Disk Space             189G<br /> Used Disk Space                  310G<br /> Percentage Used                  62%<br /> VMX files that belong to this DataStore::<br /> [Esxtestvol2] Win2003test3/Win2003test3.vmx<br /> [Esxtestvol2] netwaretest/netwaretest.vmx<br /> [Esxtestvol2] RHEL 4 NFS test/RHEL 4 NFS test.vmx<br /> [Esxtestvol2] RHEL 5 NFS test/RHEL 5 NFS test.vmx<br /> [Esxtestvol2] RHEL 3 NFS test/RHEL 3 NFS test.vmx<br /> [Esxtestvol2] vicfg/vicfg.vmx</p>
-<p> DataStore Name                   ISO<br /> Total Disk Space                 49G<br /> Remaining Disk Space             38G<br /> Used Disk Space                  11G<br /> Percentage Used                  22%<br /> VMX files that belong to this DataStore::<br /> None Exist</p>
-<p> python VMdataStorePool.py -u "http://esxhost" -a "login passwd" --dstore="KodakVol1"<br /> Available DataStores on http://esxhost</p>
-<p> DataStore Name                   KodakVol1<br /> Total Disk Space                 499G<br /> Remaining Disk Space             379G<br /> Used Disk Space                  120G<br /> Percentage Used                  24%<br /> VMX files that belong to this DataStore::<br /> [KodakVol1] Kojak/Kojak.vmx<br /> [KodakVol1] Sakai/Sakai.vmx<br /> [KodakVol1] bbtest2.vmx<br /> [KodakVol1] bbtest.vmx</p>
-<p> -u, --url       This is the URL you will use to connect to the ESX server, "http://esxhost"<br /> -a, --auth      This is the Login and Passwd you will use, "login passwd"<br /> -d, --dstore    This is the DataStore aka VMFS to check, "Esxtestvol2"</p>
-<p> </p>
-<div>
-<br /><a id="more"></a><a id="more-186"></a><br />
-<span>I'm thinking of combining this script with the previous one I created <a href="howto-list-vms-using-python-and-cim-part-1.html" title=" HowTo List Virtual Machines using Python and CIM Part 1">here</a> ... Let me know what you guys think....</span></div>
-<p>You can download this script here {quickdown:33}<br /> <a href="View-details/VMware/33-VMstoragePool.py.html" title="title">VMstoragePool.py </a></p>
-<p><a href="images/stories/screenshots/vmstoragepool.png" rel="shadowbox[0]"><img alt="alt" style="width: 229px; height: 238px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/vmstoragepool.png" align="left" /></a></p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-<p> </p>
-</span></span></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-03-24T13:52:36-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/vmware/howto-list-vms-using-python-and-cim-part-1/">March 24, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/vmware/howto-list-vms-using-python-and-cim-part-1/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/python/vmware/howto-list-vms-using-python-and-cim-part-1/" rel="bookmark" title="HowTo List Virtual Machines using Python and CIM Part 1" itemprop="url">HowTo List Virtual Machines using Python and CIM Part 1</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Good morning my fellow Admins, Engineers, Scripters, Programmers, etc..... YOU GET THE IDEA :). For the past week, I have been learning all about the CIM and WBEM API. Since I am working alot more then I have ever have with VMware. I am trying to automate as much as possible with out using Perl. Now please do not think I am hating on Perl, it is not that at all, it is just the fact that I love Python, thats all! That being said here is the 1st part in a 2 part series on Listing Virtual Machines using Pywbem in Python. I the 1st part I will show you how to list Virtual Machines and data related to those VMs. Example Below...</p>
-<p><a href="howto-list-virtual-machines-using-python-and-cim-part-2.html">Update, here is the link for part 2 of this article. </a></p>
-<pre>    python listVMsInfo.py -u "http://esxhost" -a "login passwd"
-
-    VM Name                  Linux DP1 Client     Operating System         Red Hat Enterprise Linux 5 (32-bit)    Host Name                dpclient.linuxdynasty    IP Address               192.168.101.124    DataStore Used           [Esxlinuxvol2] Linux Data Protector Install Ser/Linux Data Protector Install Ser.vmx    Requested State          Not Applicable    Operational Status       Enabled    Enabled by Default       Enabled    Enabled State            Not Applicable</pre>
-<p><a id="more"></a><a id="more-185"></a></p>
-<p>&nbsp;</p>
-<p>As you see above you get quite a bit of info, that is if you have VMwareTools installed. If not you will get the below..</p>
-<pre>    VM Name                  Linux DP2 Client    Operating System         Red Hat Enterprise Linux 5 (32-bit)    Host Name                None    IP Address               None    DataStore Used           [Esxtlinuxvol2] Linux Data Protector Client Ser/Linux Data Protector Install Ser.vmx    Requested State          Not Applicable    Operational Status       Enabled    Enabled by Default       Enabled    Enabled State            Not Applicable</pre>
-<p>As you can see you are missing the Host Name and The IP Address. For the 2nd part of this HowTo, I will add a VM Name option, IP address option, OS option, and a hostname option. This will allow you to search for a particular Virtual Machine, instead of listing them All.</p>
-<p>You can download the Script here<br />
-{filelink=20}<br />
-<a href="images/stories/screenshots/listvmsinfo.png" rel="shadowbox[0]"><img style="width: 229px; height: 238px;" src="http://linuxdynasty.org/wp-content/themes/twentyten/images/stories/screenshots/listvmsinfo.png" alt="" align="left" /></a></p>
-<p>Here to your left is a screenshot of part of the script.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -507,6 +498,12 @@ ScreenShot below of the script...
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     

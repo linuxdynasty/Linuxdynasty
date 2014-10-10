@@ -136,6 +136,225 @@
 <article class="hentry">
   <header>
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-04-29T03:30:41-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-remove-the-last-character-of-every-filename-in-a-directory/">April 29, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-remove-the-last-character-of-every-filename-in-a-directory/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/how-to-remove-the-last-character-of-every-filename-in-a-directory/" rel="bookmark" title="How to remove the last character of every filename in a directory" itemprop="url">How to remove the last character of every filename in a directory</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <pre>#!/usr/bin/env python<br />#Created by LinuxDynasty<br />import os, re, sys<br /><br />os.chdir(sys.argv[1])<br />ls = os.listdir('./')<br />for file_o in ls:<br />  file_n = re.sub(&quot;w.&quot;, &quot;.&quot;, file_o)<br />  os.rename(file_o, file_n)<br /><br />print os.listdir(&quot;./&quot;)<br /></pre>
+<p><a id="more"></a><a id="more-71"></a></p>
+<p><strong>To run this script you will do this.</strong></p>
+<p><strong>python &lt;script&gt; &lt;&quot;directory&quot;&gt;</strong></p>
+<p><strong>python rename1.py &quot;/home/dynasty/test&quot;</strong></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-04-28T17:31:06-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/script-to-locate-edit-apache-virtualhost-entries/">April 28, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/script-to-locate-edit-apache-virtualhost-entries/#disqus_thread">Comment</a></span>
+      
+      <span class="entry-reading-time pull-right">
+        <i class="fa fa-clock-o"></i>
+        
+        Reading time ~5 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/script-to-locate-edit-apache-virtualhost-entries/" rel="bookmark" title="Script to locate, edit Apache VirtualHost entries" itemprop="url">Script to locate, edit Apache VirtualHost entries</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><span style="font-family: courier new">#!/usr/bin/perl<br />
+# Author: Christopher Hahn, 2006</span></p>
+<p><span style="font-family: courier new">sub usage {<br />
+ print STDERR &lt;&lt;EOT;<br />
+usage:<br />
+$0 &lt;match&gt; [&lt;path&gt; [...]]</span></p>
+<p><span style="font-family: courier new">Find and edit Apache virtual hosts matching &lt;match&gt;</span></p>
+<p><span style="font-family: courier new">&lt;path&gt;  Path to an Apache conf to edit.<br />
+ If a directory, equivalent to all files in &lt;path&gt;/<br />
+ If omitted, &quot;./&quot; is assumed</span></p>
+<p><span style="font-family: courier new">&lt;match&gt; is a PERL regular expression to match against ServerName or<br />
+ ServerAlias for the virtual host entry you want to edit.</span></p>
+<p><span style="font-family: courier new">If &lt;match&gt; is not found and &lt;path&gt; evaluates to a single file (extant or not)<br />
+a template is provided to append a VirtualHost to the file.<br />
+EOT</span></p>
+<p><span style="font-family: courier new"> die &quot;n&quot;;<br />
+}</span></p>
+<p><a id="more"></a><a id="more-86"></a></p>
+<p><span style="font-family: courier new">my $editor = $ENV{EDITOR} || $ENV{VISUAL} || '/bin/vi';<br />
+my $re = shift;<br />
+my <a href="https://github.com/files" class="user-mention">@files</a> = <a href="https://github.com/ARGV" class="user-mention">@ARGV</a>;</span></p>
+<p><span style="font-family: courier new">&amp;usage unless $re;</span></p>
+<p><span style="font-family: courier new">my $rv = 0;<br />
+my $rc = 0;</span></p>
+<p><span style="font-family: courier new"># Put something in front so the script won't match itself. :)<br />
+my $template = &quot;<br />
+V&lt;VirtualHost *&gt;<br />
+V ServerName $re<br />
+V ServerAlias *.$re<br />
+V # DocumentRoot /content/data/$re/htdocs/<br />
+V # DocumentRoot /spln/data/<br />
+V # Redirect / </span><a href="http://www.cbs.com/"><span style="font-family: courier new">http://</span></a><br />
+<span style="font-family: courier new">V # RedirectMatch ^(.*) </span><a href="http://www.cbs.com/"><span style="font-family: courier new">http://</span></a><br />
+<span style="font-family: courier new">V&lt;/VirtualHost&gt;</span><br />
+<span style="font-family: courier new">&quot;;</span><br />
+<span style="font-family: courier new">$template =~ s/^V//mg;</span></p>
+<p><span style="font-family: courier new">$re = qr/.*?$re/;</span></p>
+<p><span style="font-family: courier new"><a href="https://github.com/files" class="user-mention">@files</a> = ( '.' ) unless <a href="https://github.com/files" class="user-mention">@files</a>;<br />
+<a href="https://github.com/files" class="user-mention">@files</a> = build_file_list(<a href="https://github.com/files" class="user-mention">@files</a>);</span></p>
+<p><span style="font-family: courier new">my $edit_file = &quot;virt.$$&quot;;</span></p>
+<p><span style="font-family: courier new">foreach $file (<a href="https://github.com/files" class="user-mention">@files</a>) {<br />
+ # A single success is considered an overall success<br />
+ $rc = virt($re, $file);<br />
+ if($rc &lt; 1 &amp;&amp; $rv) { $rv = 0 }<br />
+ else { $rv = $rc }<br />
+}</span></p>
+<p><span style="font-family: courier new">if($rv &gt; 0) {<br />
+ print $rv;<br />
+ die &quot;$!n&quot;;<br />
+}</span></p>
+<p>
+<span style="font-family: courier new">unlink $edit_file;<br />
+if( $rv == -1 &amp;&amp; $#files == 0 ) {<br />
+ open EDITFILE, '&gt;&gt;', $edit_file;<br />
+ print EDITFILE $template;<br />
+ close EDITFILE;</span></p>
+<p><span style="font-family: courier new"> open TARGFILE, '&gt;&gt;', $files[0];<br />
+ print TARGFILE edit($edit_file);<br />
+ close TARFILE;<br />
+}</span></p>
+<p><span style="font-family: courier new"></span></p>
+<p><span style="font-family: courier new"></span></p>
+<p><span style="font-family: courier new"># copy each matching virt to a temp file and run our editor (edit()) against it<br />
+# then copy the virt back into place and rewrite the rest of the file<br />
+sub virt {<br />
+ my $re = shift;<br />
+ my $file = shift;</span></p>
+<p><span style="font-family: courier new"> my $invirt = -1; # position within the file when in a virt<br />
+ my @virt_content = ();<br />
+ my $match_flag = 0; # whether we are 'in' a matching virt<br />
+ my $any_match = 0; # whether we have matched any virt<br />
+ my $tmpfile = new_temp_file();</span></p>
+<p><span style="font-family: courier new"> return $! unless open(IN, '+&lt;', $file);<br />
+ return $! unless open(OUT, '+&gt;', $tmpfile);</span></p>
+<p><span style="font-family: courier new"> while(&lt;IN&gt;) {<br />
+ if($invirt &lt; 0) {<br />
+ if(/^s*&lt;VirtualHost/) {<br />
+ $invirt = tell IN;<br />
+ $match_flag = 0;<br />
+ @virt_content = (&quot;#!! You are editing $file. Leave this line here please.n&quot;, $_);<br />
+ } else {<br />
+ # Not part of a virt at all, so continue on our merry way...<br />
+ print OUT $_;<br />
+ }</span></p>
+<p><span style="font-family: courier new"> } else {<br />
+ # we're in a virt, so add the line<br />
+ push @virt_content, $_;</span></p>
+<p><span style="font-family: courier new"> # is it a match?<br />
+ if(/^s*Server(?:Name|Alias) $re/) {<br />
+ $any_match = $match_flag = 1;</span></p>
+<p><span style="font-family: courier new"> } elsif(/^s*&lt;/VirtualHost/) {<br />
+ # End of a virt -- to edit, or not to edit?<br />
+ if( $match_flag ) {<br />
+ unless(open EDIT, '&gt;', $edit_file) {<br />
+ warn &quot;Write to $edit_file failed: $!n&quot;;<br />
+ return $!;<br />
+ }</span></p>
+<p><span style="font-family: courier new"> print EDIT @virt_content;<br />
+ close EDIT;</span></p>
+<p><span style="font-family: courier new"> @virt_content = edit($edit_file);<br />
+ }</span></p>
+<p><span style="font-family: courier new"> shift @virt_content;<br />
+ print OUT @virt_content;<br />
+ $invirt = -1;<br />
+ }<br />
+ }<br />
+ }</span></p>
+<p><span style="font-family: courier new"> if($any_match) {<br />
+ unlink $edit_file;<br />
+ # Why not just move it a la rename()?<br />
+ # Well think about it -- that's a new inode with a new ctime,<br />
+ # possibly the wrong perms, and the old file might be open<br />
+ # elsewhere, meaning a dangling file somewhere... et cetera.<br />
+ seek OUT, 0, 0; # $tmpfile<br />
+ seek IN, 0, 0; # $file</span></p>
+<p><span style="font-family: courier new"> print IN $_ while &lt;OUT&gt;;</span></p>
+<p><span style="font-family: courier new"> close IN;<br />
+ unless(truncate $file, tell OUT) {<br />
+ warn &quot;Truncating $file failed: $!n&quot;;<br />
+ return $!;<br />
+ }<br />
+ close OUT;</span></p>
+<p><span style="font-family: courier new"> } else {<br />
+ close OUT;<br />
+ close IN;<br />
+ }</span></p>
+<p><span style="font-family: courier new"> unlink $tmpfile;</span></p>
+<p><span style="font-family: courier new"> return 0 if $any_match;<br />
+ return -1;<br />
+}</span></p>
+<p><span style="font-family: courier new">sub build_file_list {<br />
+ my @in_files = @_;<br />
+ my <a href="https://github.com/files" class="user-mention">@files</a> = ();</span></p>
+<p><span style="font-family: courier new"> foreach $file ( @in_files ) {<br />
+ if( -d $file ) {<br />
+ push <a href="https://github.com/files" class="user-mention">@files</a>, dirlist( $file );<br />
+ } else {<br />
+ push <a href="https://github.com/files" class="user-mention">@files</a>, $file;<br />
+ }<br />
+ }</span></p>
+<p><span style="font-family: courier new"> return <a href="https://github.com/files" class="user-mention">@files</a>;<br />
+}</span></p>
+<p><span style="font-family: courier new">sub new_temp_file {<br />
+ my $file = '/tmp/virt.';<br />
+ my <a href="https://github.com/c" class="user-mention">@c</a> = split(//, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_');</span></p>
+<p><span style="font-family: courier new"> do {<br />
+ $file .= $c[ rand <a href="https://github.com/c" class="user-mention">@c</a> ];</span></p>
+<p><span style="font-family: courier new"> } while(-e $file);</span></p>
+<p><span style="font-family: courier new"> return $file;<br />
+}</span></p>
+<p><span style="font-family: courier new">sub dirlist {<br />
+ my $dir = shift;<br />
+ my <a href="https://github.com/files" class="user-mention">@files</a> = ();</span></p>
+<p><span style="font-family: courier new"> die &quot;$dir: $!n&quot;<br />
+ unless opendir DIR, $dir;</span></p>
+<p><span style="font-family: courier new"> -f &quot;$dir/$_&quot; &amp;&amp; push <a href="https://github.com/files" class="user-mention">@files</a>, $_<br />
+ while $_ = readdir DIR;</span></p>
+<p><span style="font-family: courier new"> closedir DIR;</span></p>
+<p><span style="font-family: courier new"> return <a href="https://github.com/files" class="user-mention">@files</a>;<br />
+}</span></p>
+<p>
+<span style="font-family: courier new">sub edit {<br />
+ my $file = shift;<br />
+ my <a href="https://github.com/contents" class="user-mention">@contents</a> = ();</span></p>
+<p><span style="font-family: courier new"> system &quot;$editor $file&quot;;</span></p>
+<p><span style="font-family: courier new"> die &quot;Failed reading $file after edit: $!n&quot;<br />
+ unless open EDITFILE, $file;</span></p>
+<p><span style="font-family: courier new"> <a href="https://github.com/contents" class="user-mention">@contents</a> = &lt;EDITFILE&gt;;</span></p>
+<p><span style="font-family: courier new"> close EDITFILE;</span></p>
+<p><span style="font-family: courier new"> return <a href="https://github.com/contents" class="user-mention">@contents</a>;<br />
+}<br />
+</span></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-04-28T16:09:22-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/generate-mac-addresses-for-xen/">April 28, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/generate-mac-addresses-for-xen/#disqus_thread">Comment</a></span>
       
       <span class="entry-reading-time pull-right">
@@ -251,80 +470,6 @@ ACK<span> </span>Acknowledgment<br />
 URG<span> </span>Urgent</p>
 <p class="MsoNormal">
 </p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-26T04:25:17-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/discovered-zenoss-devices/">April 26, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/discovered-zenoss-devices/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/zenoss/discovered-zenoss-devices/" rel="bookmark" title="Discovered Zenoss Devices" itemprop="url">Discovered Zenoss Devices</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <h3><strong>For those Zenoss users out there, this script will send a emailof devices that are in the discovered class.</strong></h3>
-<h3><strong>So once you receive this email you will know that you need to move those devices into there appropriate classes.</strong></h3>
-<pre><br />#!/bin/env python<br /><span>#Copyright (C) 2008  Allen Sanabria<br /><br />#This program is free software; you can redistribute it and/or modify<br />#it under the terms of the GNU General Public License as published by<br />#the Free Software Foundation; either version 2 of the License, or<br />#(at your option) any later version.<br /><br />#This program is distributed in the hope that it will be useful,<br />#but WITHOUT ANY WARRANTY; without even the implied warranty of<br />#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br />#GNU General Public License for more details.<br /><br />#You should have received a copy of the GNU General Public License along<br />#with this program; if not, write to the Free Software Foundation, Inc.,<br />#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.</span><br />##############################################################<br />#Created by Allen Sanabria aka LinuxDynasty aka PrNino69<br />#This script is to check how many devices are in the<br />#Discovered Class<br />#Started Nov 28th<br />#Completed, Nov 28th<br />##############################################################<br /><br />import os, sys<br />from re import sub<br />from string import split<br />from string import join<br />from urllib import urlopen<br />from smtplib import SMTP<br />from time import sleep<br /><br /><br />user = &quot;zenoss&quot;<br />passwd = 'zenoss'<br />util = '<a href="https://github.com/zenoss" class="user-mention">@zenoss</a>'<br />base = &quot;http://%s:%s%s:8080&quot; % (user,passwd,util)<br />discovered_url = urlopen(base+'/zport/dmd/Devices/Discovered/getSubDevices').read()<br />discovered_sub = sub(&quot;&lt;Device at /zport/dmd/Devices/Discovered/devices/|&gt;|^[|]$|,&quot;, &quot;&quot;, discovered_url)<br />discovered_list = list(split(discovered_sub))<br /><br /><br />message = &quot;&quot;&quot;nThe boxes below were discovered in the last run of zendisc.nThey are all located under /Devices/Discovered Class.n<br />                     Please move Devices to appropriate Device class, if one does not exist please create one.n<br />                     This script runs on the zenoss (cc17-22) server.&quot;&quot;&quot;<br />devices = sub(&quot;,|[|]&quot;, &quot;n&quot;, str(discovered_list))<br />BODY = join((message, devices),&quot;n&quot;)<br />print BODY<br />FROM = &quot;zenoss@linuxdynasty.org&quot;<br />TO = &quot;sa@linuxdynasty.org&quot;<br />SUBJECT = &quot;Devices That Were Discovered During The Network Scan!&quot;<br />body = join((&quot;From: %s&quot; % FROM, &quot;To: %s&quot; % TO, &quot;Subject: %s&quot; % SUBJECT, &quot;&quot;, BODY), &quot;n&quot;)<br />server = SMTP('localhost')<br />server.set_debuglevel(1)<br />server.sendmail(FROM, [TO], body)<br />sleep(10)<br />server.quit()<br /></pre>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-23T01:18:45-04:00"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/how-to-generate-mac-addresses-for-xen/">April 23, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://linuxdynasty.github.io/Linuxdynasty/about/" title="About Allen Sanabria">Allen Sanabria</a></span></span>&nbsp; &bull; &nbsp;<span class="entry-comments"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/how-to-generate-mac-addresses-for-xen/#disqus_thread">Comment</a></span>
-      
-      <span class="entry-reading-time pull-right">
-        <i class="fa fa-clock-o"></i>
-        
-        Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://linuxdynasty.github.io/Linuxdynasty/blog/how-to-generate-mac-addresses-for-xen/" rel="bookmark" title="How to generate MAC Addresses for XEN" itemprop="url">How to generate MAC Addresses for XEN</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <pre>#!/usr/bin/env python# Quick Python script to generate random valid MAC address for XEN Domains#Copyright (C) 2008 Allen Sanabria #This program is free software; you can redistribute it and/or modify#it under the terms of the GNU General Public License as published by#the Free Software Foundation; either version 2 of the License, or#(at your option) any later version. #This program is distributed in the hope that it will be useful,#but WITHOUT ANY WARRANTY; without even the implied warranty of#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the#GNU General Public License for more details. #You should have received a copy of the GNU General Public License along#with this program; if not, write to the Free Software Foundation, Inc.,#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.# This address range is reserved for use by Xen 00:16:3E# I'm importing the function choice of the random module# The reason for this is so that it will pick a random character from the string I gave it to generate a valid MAC for XEN</pre>
-<pre>from random import choice
-from sys import stdin
-
-def x():  
-    X = choice("0123456789ABCDEF")  
-    return str(X)
-
-print "Enter how many MAC Addresses do you want me to generate: "
-mac = stdin.readline()
-mac_list = []
-for i in range(int(mac)):  
-    mac_list.append("00:16:3E"+":"+x()+x()+":"+x()+x()+":"+x()+x())
-for con in range(len(mac_list)):  
-    while mac_list.count(mac_list[con]) &gt; 1:    
-        print "OH NOOO DUPPPE "+mac_list[con]    
-    mac_list.pop(con)    
-    mac_list.insert(con, "00:16:3E"+":"+x()+x()+":"+x()+x()+":"+x()+x())  
-    print mac_list[con]</pre>
-<p>&nbsp;</p>
-<p><span style="text-decoration: underline;">OUTPUT</span></p>
-<div>python random1.py</div>
-<div>Enter how many MAC Addresses do you want me to generate:</div>
-<div>5</div>
-<div>00:16:3E:09:EB:6F</div>
-<div>00:16:3E:5E:4B:AE</div>
-<div>00:16:3E:E0:EC:F9</div>
-<div>00:16:3E:CF:2A:AE</div>
-<div>00:16:3E:A9:D8:DB</div>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -514,6 +659,12 @@ for con in range(len(mac_list)):
       <li>
         
           <a href="http://linuxdynasty.github.io/Linuxdynasty/page30">30</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="http://linuxdynasty.github.io/Linuxdynasty/page31">31</a>
         
       </li>
     
