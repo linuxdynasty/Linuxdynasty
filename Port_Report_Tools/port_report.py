@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #Copyright (C) 2009  Allen Sanabria
-#This program is free software; you can redistribute it and/or modify it under 
+#This program is free software; you can redistribute it and/or modify it under
 #the terms of the GNU General Public License as published by the Free Software Foundation;
 #either version 2 of the License, or (at your option) any later version.
 #This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
@@ -12,7 +12,7 @@
 """Revision 1.13 10/01/09
     * Fixed line 348 as per christianha. return nmac.lower()
       This fix will allow you to pass a MAC in all uppercase and still match though the switch is responding in lowercase.
-"""    
+"""
 """Revision 1.12 09/18/09
     * Added follow switch option. Now when you run the Port Report with the --report option, you an also
       pass the --follow option. This option will follow every dp neighbor connectetd to the switch you are
@@ -22,7 +22,7 @@
     * More code clean up and another increase in speed.
     * Also port_report can now follow EtherChannel
     * Fixed issue, where the matching of the cdp neighbor was not matching correctly
-"""        
+"""
 """Revision 1.10 09/09/09
 Code Clean up and a slight increase in speed ( by a few seconds ) during the search by mac or ip
 """
@@ -50,18 +50,18 @@ This is a big update for Port Report.... In this revision the following brands a
    4. HP
           * HP Procurve 5406xl
 
-""" 
+"""
 #Now at the 5th revision 1.5 04/21/09
 """This is a complete rewrite of the get_port.py script 04/12/09
 This script now accurately reports all MAC Addresses on the Port that you specified
    *Also better error checking added
    *Cleaner Code
    *Reusable Functions
-This scipt is intended for Administrator/Engineers who need to find the port on a switch 
+This scipt is intended for Administrator/Engineers who need to find the port on a switch
 that they are plugged into using either the MAC Address or the IP Address.
 So far this has been tested on Cisco Switches, though I assume it will work on other ones as well"""
 
-import sys 
+import sys
 import re
 import string
 import getopt
@@ -135,9 +135,10 @@ def usage():
 
 
 def main():
-    if verbose: print(ctime(), " Main Started") 
+    if verbose: print(ctime(), " Main Started")
     if ( community and device and ( mac or ip or pname or report ) ):
         snmperror, switchtype = get( device, community, oTable["sysDescr"], 0 )
+        print switchtype
         switchtype = str(switchtype)
         if snmperror:
             print(snmperror, "Either Wrong Community String or Firewall or SNMP Not Running")
@@ -152,6 +153,7 @@ def main():
         for line in entaddr:
             ipList.append(switch.convertOctectIp( line[0][1] ))
         entIpList[device] = ipList
+        print ipList
         nip = ""
         nmac = ""
         count = 0
@@ -221,7 +223,7 @@ def main():
                         print("This MAC %s was finally traced to this switch %s" % ( nmac, sswitch ))
             if ( count == 0 ):
                 print("The Mac Address %s is not on this switch %s" % ( nmac, dswitch ))
-            
+
 
         if pname:
             count = 0
@@ -229,7 +231,7 @@ def main():
             switch.set_speed()
             switch.set_port_name()
             switch.set_phys_addr()
-            switch.find_port_match( pname ) 
+            switch.find_port_match( pname )
             ifIndex = switch.get_ifIndex()
             ifName = switch.get_ifName()
             sbrand = switch.get_sbrand()
@@ -267,7 +269,7 @@ def main():
                 for item in count:
                     tcount += item
                 print("Total MAC Addresses found: %d" % tcount)
-            
+
 def write_report( dev, entIpList, tcount = [] ):
     print("Running Switch Report on %s" % ( dev ))
     scanned_neighbor = False
@@ -328,7 +330,7 @@ def write_report( dev, entIpList, tcount = [] ):
                     write_report(neighbor, entIpList, tcount)
     else:
         tcount = count
-    return tcount    
+    return tcount
 
 def verify_mac( nmac ):
     """Verifies the MAC Addresses that was inputed by the user
@@ -348,15 +350,22 @@ def verify_mac( nmac ):
         pass
     else:
         valid = 0
-    if verbose: print(ctime(), " Finished Checking for mac") 
+    if verbose: print(ctime(), " Finished Checking for mac")
     return( nmac, valid )
 
 
 def walk( dswitch, commVlan, oid  ):
     """This function will return the table of OID's that I am walking"""
+    cmdGen = cmdgen.CommandGenerator()
     errorIndication, errorStatus, errorIndex, \
-        generic = cmdgen.CommandGenerator().nextCmd(cmdgen.CommunityData('test-agent', commVlan), \
-        cmdgen.UdpTransportTarget((dswitch, 161)), oid)
+        generic = (
+            cmdGen.nextCmd(
+                cmdgen.CommunityData(commVlan),
+                cmdgen.UdpTransportTarget((dswitch, 161)),
+                oid,
+                lookupNames=True, lookupValues=True
+            )
+        )
     if errorIndication:
         return errorIndication
     return generic
@@ -366,7 +375,7 @@ def get( device, commVlan, oid, rval, indexOid="None" ):
     """This is essentially my generic snmpget, but with options. Since if I am doing an
        snmpget, I will usually either pass a index ID or a list of ID's, This function makes
        my life easier, by not creating multiple getCmd's"""
-
+    cmdGen = cmdgen.CommandGenerator()
     if not isinstance(rval, int):
         rval = 0
     oidN = list(oid)
@@ -375,14 +384,20 @@ def get( device, commVlan, oid, rval, indexOid="None" ):
     elif type(indexOid) == list:
         oidN = oidN + list(map(int, indexOid))
     oidN = tuple(oidN)
-    errorIndication, errorStatus, errorIndex, \
-        generic = cmdgen.CommandGenerator().getCmd(cmdgen.CommunityData('test-agent', commVlan), \
-        cmdgen.UdpTransportTarget((device, 161)), oidN)
+    errorIndication, errorStatus, errorIndex, generic = (
+        cmdGen.getCmd(
+            cmdgen.CommunityData(commVlan),
+            cmdgen.UdpTransportTarget((device, 161)),
+            oidN,
+            lookupNames=True, lookupValues=True
+            )
+        )
     if errorIndication:
         return (errorIndication, generic )
     if rval == 0:
-        return (errorIndication, generic )
+        return (errorIndication, str(generic[0][1]) )
     elif rval == 1:
+        print '1', generic[0][0], 'bat'
         return (errorIndication, generic[0][0] )
     elif rval == 2:
         return (errorIndication, str(generic[0][1]) )
@@ -552,7 +567,7 @@ class followSwitch(object):
 
     def convertDecMac(self, mack):
         """This Function will convert the Decimal into HEX"""
-        mmap = list(map(hex, mack)) 
+        mmap = list(map(hex, mack))
         cmac = mmap
         for i in range(len(mmap)):
             mmap[i] = re.sub("0x", "", mmap[i])
@@ -561,7 +576,7 @@ class followSwitch(object):
         return cmac
 
     def get_pagp_ports( self, pagp_ifIndex ):
-        """get_pagp_ports will return a list of ifIndex ID's, that is associated with 
+        """get_pagp_ports will return a list of ifIndex ID's, that is associated with
         the EtherChannel ifIndex. Will return a tuple of ifIndex ID's"""
         pagp_group = walk( self.switch, self.community, pagpTable["pagpGroupIfIndex"] )
         ifIndexList = []
@@ -569,18 +584,18 @@ class followSwitch(object):
             if pagp_ifIndex == int(line[0][1]):
                 ifIndexList.append(int(line[0][0][-1]))
         return tuple(ifIndexList)
-            
+
 
     def retreive_communities( self ):
         """ This function does exactly what it is defined as. It will return a list
             of Community Strings from the entLogicalCommunity OID Table.
             As well as grab the associated vlan ID. Then return both in a tuple"""
-        commTable = walk( self.switch, self.community, oTable["entLogicalCommunity"] ) 
+        commTable = walk( self.switch, self.community, oTable["entLogicalCommunity"] )
         if verbose: print(commTable)
         lcomm = []
         lvlan = []
         for comm in commTable:
-            if verbose: print(ctime(), " Looping Through CommTable") 
+            if verbose: print(ctime(), " Looping Through CommTable")
             vlan = int(comm[0][0][-1])
             comm = str(comm[0][1])
             if len(lcomm) == 0:
@@ -598,7 +613,7 @@ class followSwitch(object):
     def find_port_match( self, pname ):
         """ By passing this function the Port Name and The Brand of
             this Switch, you will in return get the ifIndex and the ifName"""
-        if verbose: print(ctime(), " In generic_pname Function") 
+        if verbose: print(ctime(), " In generic_pname Function")
         self.ifIndex = None
         self.ifName = None
         count = 0
@@ -638,7 +653,7 @@ class followSwitch(object):
                 self.ifName = ifName
                 if verbose: print("Found %s on %s and the ifIndex is %d" % ( pname, ifName, ifIndex ))
                 break
-    
+
     def get_ifIndex(self):
         return( self.ifIndex )
 
@@ -661,7 +676,7 @@ class followSwitch(object):
         return mTable, ifIndex
 
     def find_mac_or_ip( self, nmac, nip, comm, vlanID ):
-        if verbose: print(ctime(), " In generic_mac_or_ip Function") 
+        if verbose: print(ctime(), " In generic_mac_or_ip Function")
         if verbose: print(nmac, nip, self.switch, comm)
         macVlanTable = walk( self.switch, comm, oTable["dot1dTpFdbPort"] )
         if verbose: print(macVlanTable)
@@ -669,7 +684,7 @@ class followSwitch(object):
         count = 0
         ifIndex = None
         if ( len(macVlanTable) > 0 ):
-            if verbose: print(ctime(), " First If Statement ") 
+            if verbose: print(ctime(), " First If Statement ")
             for macVlan in macVlanTable:
                 cmac = self.convertDecMac(list(macVlan[0][0][-6:]))
                 if re.search(nmac, cmac, re.IGNORECASE):
@@ -718,7 +733,7 @@ class followSwitch(object):
                                         "nmac" : nmac,
                                         "ipAddr" : ipAddr,
                                         "hostName" : hname
-                                       } 
+                                       }
                         count += 1
                     else:
                         sysName = "None"
@@ -735,11 +750,11 @@ class followSwitch(object):
                                         "hostName" : hname
                                        }
                     count += 1
-                    if verbose: print(ctime(), " Done ") 
+                    if verbose: print(ctime(), " Done ")
                     break
 
         return mTable, ifIndex
-	       
+
 
     def return_mac_by_ifIndex( self, comm, vlanID ):
         """ This function will return a list of dictionairies by the port Index
@@ -902,7 +917,7 @@ class followSwitch(object):
                            % (str(self.ifIndex), self.convertOctectIp(str(host[0][1]))))
                 self.ip = self.convertOctectIp(str(host[0][1]))
         return self.ip
- 
+
     def get_cdp_neighbor_ip_table(self):
         """ This function will grab the cdp neigbor table and return a list of neighbors"""
         ctable = walk( self.switch, self.community, cdpTable["cdpCacheAddress"])
@@ -913,8 +928,8 @@ class followSwitch(object):
                 print(self.convertOctectIp(str(host[0][1])))
         self.ipTable = tuple(self.ipTable)
         return self.ipTable
- 
- 
+
+
     def get_mac_from_cdp_neighbor( self, cswitch, nmac, nip ):
         self.cswitch = cswitch
         self.nmac = nmac
@@ -933,7 +948,7 @@ class followSwitch(object):
         count = 0
         if cTable:
             count += 1
-            print("Found %s on %s\n" % ( self.nmac, self.cswitch )) 
+            print("Found %s on %s\n" % ( self.nmac, self.cswitch ))
             for key, val in list(cTable.items()):
                 print("Switch Connected to %s" % ( self.cswitch ))
                 print("SwitchPort = %s\nSwitchPortSpeed = %s\nSwitchPortDuplex = %s\nSwitchVlan = %s" % \
@@ -946,9 +961,9 @@ class followSwitch(object):
                     if verbose: print("List of Interfaces is in EtherChannel: ", ifIndex_pagp_list)
                     self.new_ifIndex = ifIndex_pagp_list[0]
         return (self.new_ifIndex, count)
-          
 
-   
+
+
 
 cdpTable = {
             "cdpCacheAddress" : (1,3,6,1,4,1,9,9,23,1,2,1,1,4)
@@ -957,7 +972,7 @@ cdpTable = {
 pagpTable = {
             "pagpGroupIfIndex" : (1,3,6,1,4,1,9,9,98,1,1,1,1,8)
             }
-oTable = { 
+oTable = {
            "entLogicalCommunity" : (1,3,6,1,2,1,47,1,2,1,1,4),
            "entPhysicalModelName" : (1,3,6,1,2,1,47,1,1,1,1,13,1),
            "entLogicalDescr" : (1,3,6,1,2,1,47,1,2,1,1,2),
@@ -1030,7 +1045,7 @@ for opt, val in opts:
     if opt in ('-v', '--verbose'):
         verbose = True
 
-   
+
 
 if __name__ == '__main__':
     main()
