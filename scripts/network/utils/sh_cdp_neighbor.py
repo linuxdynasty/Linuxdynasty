@@ -20,10 +20,8 @@
 """Revision 1.0 9/10/2009
    this is the equivalent of sho cdp nei on a cisco switch, but this is using snmp
 """
-import os
 import sys
 import re
-import string
 import getopt
 from time import ctime
 
@@ -47,21 +45,27 @@ def main():
     devicevtpmgmtdomain = walk( device, community, cdpTable["cdpCacheVTPMgmtDomain"])
     devicevlan = walk( device, community, cdpTable["cdpCacheNativeVLAN"])
     deviceduplex = walk( device, community, cdpTable["cdpCacheDuplex"])
-    count =0
     for ifIndex in ifIndexTable[1]:
         ifTable[str(ifIndex[0][0][-1])] = str(ifIndex[0][1])
+
     for host in address[1]:
         cdp_table[str(host[0][0][-2:])] = {}
-        cdp_table[str(host[0][0][-2:])]["ipaddr"] = convertOctectIp(str(host[0][1]))
+        cdp_table[str(host[0][0][-2:])]["ipaddr"] = (
+            convertOctectIp(str(host[0][1]))
+        )
     for host in deviceid[1]:
         cdp_table[str(host[0][0][-2:])]["name"] = str(host[0][1])
+
     for host in deviceport[1]:
         cdp_table[str(host[0][0][-2:])]["rport"] = str(host[0][1])
         cdp_table[str(host[0][0][-2:])]["lport"] = ifTable[str(host[0][0][-2])]
+
     for host in deviceplatform[1]:
         cdp_table[str(host[0][0][-2:])]["platform"] = str(host[0][1])
+
     for host in deviceversion[1]:
         cdp_table[str(host[0][0][-2:])]["version"] = str(host[0][1])
+
     for host in devicecapabilities[1]:
         capability = str(hex(ord(host[0][1][-1])))
         if cdpCapabiltiyTable.get(capability):
@@ -82,6 +86,7 @@ def main():
         sho_cdp_neighbor_detail(cdp_table)
     elif type == "normal":
         sho_cdp_neighbor(cdp_table)
+
 def sho_cdp_neighbor_detail(cdp_table):
     for key in cdp_table:
         print "-"*30
@@ -199,64 +204,67 @@ def usage():
     sys.exit(1)
 
 cdpTable = {
-            "cdpCacheAddress"            : (1,3,6,1,4,1,9,9,23,1,2,1,1,4),
-            "cdpCacheVersion"            : (1,3,6,1,4,1,9,9,23,1,2,1,1,5),
-            "cdpCacheDeviceId"           : (1,3,6,1,4,1,9,9,23,1,2,1,1,6),
-            "cdpCacheDevicePort"         : (1,3,6,1,4,1,9,9,23,1,2,1,1,7),
-            "cdpCachePlatform"           : (1,3,6,1,4,1,9,9,23,1,2,1,1,8),
-            "cdpCacheCapabilities"       : (1,3,6,1,4,1,9,9,23,1,2,1,1,9),
-            "cdpCacheVTPMgmtDomain"      : (1,3,6,1,4,1,9,9,23,1,2,1,1,10),
-            "cdpCacheNativeVLAN"         : (1,3,6,1,4,1,9,9,23,1,2,1,1,11),
-            "cdpCacheDuplex"             : (1,3,6,1,4,1,9,9,23,1,2,1,1,12),
-            "cdpGlobalMessageInterval"   : (1,3,6,1,4,1,9,9,23,1,3,1,0),
-            "cdpGlobalHoldTime"          : (1,3,6,1,4,1,9,9,23,1,3,1,1),
-            "cdpGlobalDeviceId"          : (1,3,6,1,4,1,9,9,23,1,3,1,2)
-           }
+    "cdpCacheAddress": (1,3,6,1,4,1,9,9,23,1,2,1,1,4),
+    "cdpCacheVersion": (1,3,6,1,4,1,9,9,23,1,2,1,1,5),
+    "cdpCacheDeviceId": (1,3,6,1,4,1,9,9,23,1,2,1,1,6),
+    "cdpCacheDevicePort": (1,3,6,1,4,1,9,9,23,1,2,1,1,7),
+    "cdpCachePlatform": (1,3,6,1,4,1,9,9,23,1,2,1,1,8),
+    "cdpCacheCapabilities": (1,3,6,1,4,1,9,9,23,1,2,1,1,9),
+    "cdpCacheVTPMgmtDomain": (1,3,6,1,4,1,9,9,23,1,2,1,1,10),
+    "cdpCacheNativeVLAN": (1,3,6,1,4,1,9,9,23,1,2,1,1,11),
+    "cdpCacheDuplex": (1,3,6,1,4,1,9,9,23,1,2,1,1,12),
+    "cdpGlobalMessageInterval": (1,3,6,1,4,1,9,9,23,1,3,1,0),
+    "cdpGlobalHoldTime": (1,3,6,1,4,1,9,9,23,1,3,1,1),
+    "cdpGlobalDeviceId": (1,3,6,1,4,1,9,9,23,1,3,1,2)
+}
 
 cdpCapabiltiyTable = {
-                     "0x1" : "R",
-                     "0x2" : "T",
-                     "0x4" : "B",
-                     "0x8" : "S",
-                     "0x9"  : "R S",
-                     "0x10" : "H",
-                     "0x11" : "R H",
-                     "0x12" : "T H",
-                     "0x13" : "R T H",
-                     "0x14" : "B H",
-                     "0x15" : "R B H",
-                     "0x16" : "T B H",
-                     "0x18" : "S H",
-                     "0x20" : "I",
-                     "0x21" : "R I",
-                     "0x22" : "T I",
-                     "0x23" : "T R I",
-                     "0x24" : "B I",
-                     "0x25" : "R B I",
-                     "0x28" : "S I",
-                     "0x29" : "R S I",
-                     "0x30" : "H I",
-                     "0x31" : "R H I",
-                     "0x32" : "T H I",
-                     "0x33" : "R T H I",
-                     "0x34" : "B H I",
-                     "0x40" : "r"
-                     }
+    "0x1": "R",
+    "0x2": "T",
+    "0x4": "B",
+    "0x8": "S",
+    "0x9" : "R S",
+    "0x10": "H",
+    "0x11": "R H",
+    "0x12": "T H",
+    "0x13": "R T H",
+    "0x14": "B H",
+    "0x15": "R B H",
+    "0x16": "T B H",
+    "0x18": "S H",
+    "0x20": "I",
+    "0x21": "R I",
+    "0x22": "T I",
+    "0x23": "T R I",
+    "0x24": "B I",
+    "0x25": "R B I",
+    "0x28": "S I",
+    "0x29": "R S I",
+    "0x30": "H I",
+    "0x31": "R H I",
+    "0x32": "T H I",
+    "0x33": "R T H I",
+    "0x34": "B H I",
+    "0x40": "r"
+}
 
 oTable = {
-         "ifName" : (1,3,6,1,2,1,31,1,1,1,1)
-         }
+    "ifName" : (1,3,6,1,2,1,31,1,1,1,1)
+}
 
 duplex = {
-          1 : "unknown",
-          2 : "halfDuplex",
-          3 : "fullDuplex",
-          '': "NotSet"
-         }
+    1 : "unknown",
+    2 : "halfDuplex",
+    3 : "fullDuplex",
+    '': "NotSet"
+}
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "c:d:t:hv",
-          [ 'community=', 'device=', 'type=', 'help', 'verbose' ]
-          )
+    opts, args = (
+        getopt.getopt(
+            sys.argv[1:], "c:d:t:hv",
+            ['community=', 'device=', 'type=', 'help', 'verbose']
+        )
+    )
 except getopt.error:
     usage()
 
@@ -274,8 +282,6 @@ for opt, val in opts:
         help = usage()
     if opt in ('-v', '--verbose'):
         verbose = True
-
-
 
 if __name__ == '__main__' and device and community:
     main()
