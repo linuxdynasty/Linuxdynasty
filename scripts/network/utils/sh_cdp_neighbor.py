@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #Copyright (C) 2009  Allen Sanabria
 #this is the equivalent of sho cdp nei on a cisco switch, but this is using snmp
-#This program is free software; you can redistribute it and/or modify it under 
+#This program is free software; you can redistribute it and/or modify it under
 #the terms of the GNU General Public License as published by the Free Software Foundation;
 #either version 2 of the License, or (at your option) any later version.
 #This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
@@ -25,6 +25,7 @@ import sys
 import re
 import string
 import getopt
+from time import ctime
 
 
 try:
@@ -62,7 +63,15 @@ def main():
     for host in deviceversion[1]:
         cdp_table[str(host[0][0][-2:])]["version"] = str(host[0][1])
     for host in devicecapabilities[1]:
-        cdp_table[str(host[0][0][-2:])]["capabilities"] = cdpCapabiltiyTable[hex(ord(host[0][1][-1]))]
+        capability = str(hex(ord(host[0][1][-1])))
+        if cdpCapabiltiyTable.get(capability):
+            cdp_table[str(host[0][0][-2:])]["capabilities"] = (
+                cdpCapabiltiyTable.get(capability)
+            )
+        elif cdpCapabiltiyTable.get(capability[:-1]):
+            cdp_table[str(host[0][0][-2:])]["capabilities"] = (
+                cdpCapabiltiyTable.get(capability[:-1])
+            )
     for host in devicevtpmgmtdomain[1]:
         cdp_table[str(host[0][0][-2:])]["domain"] = str(host[0][1])
     for host in devicevlan[1]:
@@ -111,7 +120,7 @@ def sho_cdp_neighbor(cdp_table):
               PrintFormat(cdp_table[key]["rport"], columnC)
 
 def hex2dec(mack):
-    return int(mack, 16) 
+    return int(mack, 16)
 
 def dec2hex(mack):
     return re.sub( "^0x", "", hex(mack) )
@@ -119,7 +128,7 @@ def dec2hex(mack):
 def convertOctectIp(hexip):
     """This Function will convert the OctectString into HEX"""
     ip = map(hex, map(ord, hexip) )
-    ip = map(hex2dec, ip) 
+    ip = map(hex2dec, ip)
     ip = re.sub("\,", ".",re.sub("\'|\[|\]|\s","", str(ip)))
     return ip
 
@@ -128,12 +137,18 @@ def PrintFormat(variable, width):
     return varOut
 
 
-def walk( dswitch, commVlan, oid  ):  
+def walk( dswitch, commVlan, oid  ):
     """This function will return the table of OID's that I am walking"""
-    if verbose: print dswitch, commVlan, oid 
-    errorIndication, errorStatus, errorIndex, \
-    generic = cmdgen.CommandGenerator().nextCmd(cmdgen.CommunityData('test-agent', commVlan), \
-    cmdgen.UdpTransportTarget((dswitch, 161)), oid)
+    cmdGen = cmdgen.CommandGenerator()
+    if verbose: print dswitch, commVlan, oid
+    errorIndication, errorStatus, errorIndex, generic = (
+        cmdGen.nextCmd(
+            cmdgen.CommunityData(commVlan),
+            cmdgen.UdpTransportTarget((dswitch, 161)),
+            oid,
+            lookupNames=True, lookupValues=True
+        )
+    )
     return ( (errorIndication, generic) )
 
 
@@ -142,9 +157,10 @@ def get( device, commVlan, oid, rval, indexOid="None" ):
     snmpget, I will usually either pass a index ID or a list of ID's, This function makes
     my life easier, by not creating multiple getCmd's"""
 
-    if verbose: print ctime(), " In snmpget function " 
+    cmdGen = cmdgen.CommandGenerator()
+    if verbose: print ctime(), " In snmpget function "
     if not isinstance(rval, int):
-        rval = 0 
+        rval = 0
         oidN = list(oid)
     if isinstance(indexOid, int):
         oidN.append(indexOid)
@@ -153,13 +169,19 @@ def get( device, commVlan, oid, rval, indexOid="None" ):
         oidN = tuple(oidN)
     if verbose: print oidN
     errorIndication, errorStatus, errorIndex, \
-        generic = cmdgen.CommandGenerator().getCmd(cmdgen.CommunityData('test-agent', commVlan), \
-        cmdgen.UdpTransportTarget((device, 161)), oidN)
-    if verbose: print ctime(), " Out of snmpget function " 
+        generic = (
+            cmdGen.getCmd(
+                cmdgen.CommunityData(commVlan),
+                cmdgen.UdpTransportTarget((device, 161)),
+                oidN,
+                lookupNames=True, lookupValues=True
+            )
+        )
+    if verbose: print ctime(), " Out of snmpget function "
     if errorIndication:
         return (errorIndication, generic )
     if rval == 0:
-        return (errorIndication, generic )
+        return (errorIndication, str(generic[0][1]))
     elif rval == 1:
         return (errorIndication, generic[0][0] )
     elif rval == 2:
@@ -168,7 +190,7 @@ def get( device, commVlan, oid, rval, indexOid="None" ):
 def usage():
     print """
     '-d, --device=switch'             This is the device you are connecting to.
-    '-t, --type=normal|detail'        The default type is normal ( show cdp neighbor ), 
+    '-t, --type=normal|detail'        The default type is normal ( show cdp neighbor ),
                                       The option is detail ( show cdp neighbor detail )
     '-c, --community=public'          This is the SNMP community string you are using to connect to the device.
     '-h, --help'                      Call this help menu.
@@ -176,7 +198,7 @@ def usage():
     """
     sys.exit(1)
 
-cdpTable = { 
+cdpTable = {
             "cdpCacheAddress"            : (1,3,6,1,4,1,9,9,23,1,2,1,1,4),
             "cdpCacheVersion"            : (1,3,6,1,4,1,9,9,23,1,2,1,1,5),
             "cdpCacheDeviceId"           : (1,3,6,1,4,1,9,9,23,1,2,1,1,6),
@@ -189,7 +211,7 @@ cdpTable = {
             "cdpGlobalMessageInterval"   : (1,3,6,1,4,1,9,9,23,1,3,1,0),
             "cdpGlobalHoldTime"          : (1,3,6,1,4,1,9,9,23,1,3,1,1),
             "cdpGlobalDeviceId"          : (1,3,6,1,4,1,9,9,23,1,3,1,2)
-           }  
+           }
 
 cdpCapabiltiyTable = {
                      "0x1" : "R",
@@ -225,16 +247,16 @@ oTable = {
          "ifName" : (1,3,6,1,2,1,31,1,1,1,1)
          }
 
-duplex = { 
+duplex = {
           1 : "unknown",
           2 : "halfDuplex",
           3 : "fullDuplex",
           '': "NotSet"
-         }  
+         }
 try:
     opts, args = getopt.getopt(sys.argv[1:], "c:d:t:hv",
           [ 'community=', 'device=', 'type=', 'help', 'verbose' ]
-          )   
+          )
 except getopt.error:
     usage()
 
@@ -243,17 +265,17 @@ type = "normal"
 
 for opt, val in opts:
     if opt in ('-c', '--community'):
-        community = val 
+        community = val
     if opt in ('-d', '--device'):
-        device = val 
+        device = val
     if opt in ('-t', '--type'):
-        type = val 
+        type = val
     if opt in ('-h', '--help'):
         help = usage()
     if opt in ('-v', '--verbose'):
         verbose = True
 
-                                                                                                                       
+
 
 if __name__ == '__main__' and device and community:
     main()

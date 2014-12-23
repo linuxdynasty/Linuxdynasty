@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #Copyright (C) 2009  Allen Sanabria
-#This program is free software; you can redistribute it and/or modify it under 
+#This program is free software; you can redistribute it and/or modify it under
 #the terms of the GNU General Public License as published by the Free Software Foundation;
 #either version 2 of the License, or (at your option) any later version.
 #This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
@@ -48,8 +48,8 @@ INVALID_INPUT = "Invalid input detected"
 HOST_KEY_FAILED = "verification failed"
 CONNECTION_REFUSED = "Connection refused"
 RESET_BY_PEER = "reset by peer|closed by foreign host"
-PASS = ".ssword.*|Password:"
-USERNAME = ".sername.*"
+PASS = ".ssword.*|Password|:"
+USERNAME = "Username|:"
 PRIVALEGE = re.compile(r"^\benable\b|^\ben\b|^\bsu\b")
 MORE = "--more--|--More--|^\!"
 EOF = pexpect.EOF
@@ -126,7 +126,7 @@ def printFormat(variable, width, option="right"):
         varOut = variable + ' '  * ( width - len(variable) )
     elif option == "left":
         space = width - len(variable)
-        varOut = ' '  * ( len(variable) - width + 1 )  + variable 
+        varOut = ' '  * ( len(variable) - width + 1 )  + variable
     return varOut
     return ' '*space + variable
 
@@ -228,7 +228,7 @@ def ssh_login( host ):
         elif status == 8:
             if verbose:
                 print "Connection to %s was reset by peer" % host
-    return( status, command ) 
+    return( status, command )
 
 def telnet_login(host):
     host = host[0]
@@ -239,17 +239,19 @@ def telnet_login(host):
     if term == "telnet" or term == "both":
         print "connecting to %s using %s" % ( host, session )
         try:
-            status = command.expect( [".sername*", PASS, EOF, CONNECTION_REFUSED, RESET_BY_PEER], timeout=tout )
-        except:
+            sleep(4)
+            status = command.expect( [".*sername|:", PASS, EOF, CONNECTION_REFUSED, RESET_BY_PEER], timeout=tout )
+        except Exception as e:
+            print e, "FOOLLLL"
             status = 10
             return( status, command )
         if status == 0 or status == 1:
             print "Logging in using telnet", status
             if status == 0:
-                command.sendline(login)
+                command.sendline(login+'\r')
                 status = command.expect( [PASS, EOF], timeout=tout )
                 if status == 0:
-                    command.sendline(passwd)
+                    command.sendline(passwd+'\r')
                     status = command.expect( [USERNAME, PASS, PERMISSION_DENIED, LOGIN_PROMPT, EOF], timeout=tout )
             elif status == 1:
                 command.sendline(passwd)
@@ -266,8 +268,8 @@ def telnet_login(host):
         elif status == 4:
             print "Connection to %s was refused" % host
             status = 8
-                    
-    return( status, command ) 
+
+    return( status, command )
 
 
 def command_exec(dline):
@@ -319,7 +321,7 @@ def command_exec(dline):
                     status = 0
                 if output:
                     print host.before, host.after
-                            
+
             else:
                 if save:
                     host.logfile=save_out
@@ -332,17 +334,17 @@ def command_exec(dline):
                     print "Command did not run correctly: ", host.before, host.after
                     sys.exit(1)
                 if status == 1:
-                    print host.before 
+                    print host.before
                     while status == 1:
                         host.send('\x20')
                         status = host.expect( [INVALID_INPUT, MORE, PROMPT, EOF], timeout=tout )
-                        print host.before 
-                        print host.match.group() 
+                        print host.before
+                        print host.match.group()
                 else:
                     if output:
-                        print host.before 
-                        print host.after 
-                            
+                        print host.before
+                        print host.after
+
 
         if save:
             save_out.close()
@@ -377,7 +379,7 @@ class thread_command(threading.Thread):
       apply(self.func, self.args)
 
 
-            
+
 def usage():
     A = 20
     B = 50

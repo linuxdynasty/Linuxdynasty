@@ -138,7 +138,6 @@ def main():
     if verbose: print(ctime(), " Main Started")
     if ( community and device and ( mac or ip or pname or report ) ):
         snmperror, switchtype = get( device, community, oTable["sysDescr"], 0 )
-        print switchtype
         switchtype = str(switchtype)
         if snmperror:
             print(snmperror, "Either Wrong Community String or Firewall or SNMP Not Running")
@@ -153,7 +152,6 @@ def main():
         for line in entaddr:
             ipList.append(switch.convertOctectIp( line[0][1] ))
         entIpList[device] = ipList
-        print ipList
         nip = ""
         nmac = ""
         count = 0
@@ -397,7 +395,6 @@ def get( device, commVlan, oid, rval, indexOid="None" ):
     if rval == 0:
         return (errorIndication, str(generic[0][1]) )
     elif rval == 1:
-        print '1', generic[0][0], 'bat'
         return (errorIndication, generic[0][0] )
     elif rval == 2:
         return (errorIndication, str(generic[0][1]) )
