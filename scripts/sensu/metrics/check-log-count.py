@@ -8,7 +8,7 @@ from subprocess import os, Popen, PIPE
 import sys
 from time import time
 
-LOGTAIL = '/usr/sbin/logtail'
+LOGTAIL = '/usr/local/bin/logtail'
 TMPDIR = '/tmp'
 OK = 0
 WARNING = 1
@@ -27,9 +27,32 @@ def update_timestamp(fname, now):
         file_handle.write(str(now))
         file_handle.close()
     except Exception as e:
-        print e, ' bar'
+        print e
         sys.exit(CRITICAL)
 
+def update_last_count(fname, count):
+    last_count_file = os.path.join(TMPDIR, fname + '_count')
+    try:
+        file_handle = open(last_count_file, 'w')
+        file_handle.write(str(count))
+        file_handle.close()
+    except Exception as e:
+        print e
+        sys.exit(CRITICAL)
+
+def retrieve_last_count(fname):
+    last_count_file = os.path.join(TMPDIR, fname + '_count')
+    try:
+        if os.path.exists(last_count_file):
+            count = open(last_count_file, 'r').read()
+        else:
+            count = 0
+
+        return count
+
+    except Exception as e:
+        print e
+        sys.exit(CRITICAL)
 
 def retrieve_timestamp(fname):
     last_run_file = os.path.join(TMPDIR, fname + '_timestamp')
@@ -39,17 +62,18 @@ def retrieve_timestamp(fname):
                 datetime.fromtimestamp(
                     float(open(last_run_file, 'r').read())
                 ).strftime('%m/%d/%Y %H:%M:%S')
-            )
+            )   
             return last_run_time
         except Exception as e:
             print e, ' foo'
             sys.exit(CRITICAL)
-    else:
+    else:   
         return None
 
 def alert(fname, now, count, warn, crit, lt=None, gt=None):
     file_name = fname.split('/')[-1]
     last_time = retrieve_timestamp(file_name)
+    update_last_count(file_name, count)
     if not last_time:
         last_time = datetime.fromtimestamp(now).strftime('%m/%d/%Y %H:%M')
 
@@ -134,7 +158,7 @@ def print_stats(file_path, count, scheme, now):
     """
     file_path = re.sub(r'\/', '.', file_path)
     if isinstance(count, int):
-        print '{0}.{1}.count {2} {3}'.format(scheme, file_path, count, now)
+        print '{0}{1}.count {2} {3}'.format(scheme.replace('.', '-'), file_path, count, now)
 
 if __name__ == '__main__':
     usage =''
@@ -170,6 +194,10 @@ if __name__ == '__main__':
         '--graphite', dest='graphite', action='store_true', default=False,
         help='Create a Graphite metric.'
     )
+    parser.add_argument(
+        '--use_last_count', dest='last_count', action='store_true', default=False,
+        help='Instead of calling logtail, use the /tmp/logfile_count file, that is generated when using the --nagios option.'
+   )
     args = parser.parse_args()
 
     if args.directory and args.file:
@@ -182,19 +210,22 @@ if __name__ == '__main__':
                     [
                         LOGTAIL, '-f', file_path, '-o', tmp_file_path
                     ], stdout=PIPE
-                )
+                )  
             )
-            count = len(command.stdout.readlines())
             if args.nagios and not args.graphite:
+                count = len(command.stdout.readlines())
                 exit_code, msg = (
                     alert(
                         file_path, now, count, args.warn, args.crit,
                         args.lt, args.gt
                     )
-                )
+                )  
                 print  msg
                 sys.exit(exit_code)
 
             elif not args.nagios and args.graphite:
+                if args.last_count:
+                    count = len(command.stdout.readlines())
+                else:
+                    count = retrieve_last_count(file_path)
                 print_stats(file_path, count, args.scheme, now)
-
