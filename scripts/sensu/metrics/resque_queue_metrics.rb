@@ -29,6 +29,12 @@ class ResqueMetrics < Sensu::Plugin::Metric::CLI::Graphite
     :description => "Redis port",
     :default => "6379"
 
+  option :db,                   
+    :short => "-d DATABASE",          
+    :long => "--database DATABASE",       
+    :description => "Database number", 
+    :default => "0"            
+                                  
   option :namespace,
     :description => "Resque namespace",
     :short => "-n NAMESPACE",
@@ -133,7 +139,8 @@ class ResqueMetrics < Sensu::Plugin::Metric::CLI::Graphite
   end
 
   def run
-    Resque.redis = Redis.new(:host => config[:hostname], :db => config[:namespace], :port => config[:port])
+    Resque.redis = Redis.new(:host => config[:hostname], :db => config[:db], :port => config[:port])
+    Resque.redis.namespace = config[:namespace]
     worker_data = workers(Resque.workers)
     failures = get_failures(Resque::Failure.backend)
     failure_data = print_failures(failures)
