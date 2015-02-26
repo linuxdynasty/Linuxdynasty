@@ -8,6 +8,13 @@ from socket import gethostname
 from subprocess import Popen, PIPE
 from time import time
 
+try:
+    import psutil
+except ImportError as e:
+    print e
+    sys.exit(1)
+
+
 GLUSTER = '/usr/sbin/gluster'
 TMPDIR = '/tmp/'
 OK = 0
@@ -26,6 +33,10 @@ parser = ArgumentParser(usage)
 parser.add_argument("--out_of_sync", dest="out_of_sync", action='store_true',
                     default=False,
                     help="Check how many files are out of sync."
+                    )
+parser.add_argument("--gluster_is_running", dest="gluster_is_running",
+                    action='store_true', default=False,
+                    help="Check if gluster and its processes are running."
                     )
 parser.add_argument("--only_this_brick", dest="only_this_brick",
                     action='store_true', default=False,
@@ -57,6 +68,31 @@ parser.add_argument('--use_last_count', dest='use_last_count',
                          """
                     )
 args = parser.parse_args()
+
+
+def process_exist(pname='gluster', use_regex=False):
+    """Return a list of instances of psutil.Process() if process is found.
+        Kwargs:
+            pname (str): The process name/regex we are looking for.
+            use_regex (bool): use regex when matching.
+
+        Basic Usage:
+            >>> processes = process_exist('glusterfs')
+            >>> for process in processes:
+            >>>     print process.name(), process.pid
+            glusterfs 2626
+            glusterfs 2633
+    """
+    processes = []
+    for ps in psutil.process_iter():
+        if use_regex:
+            if search(pname, ps.name()):
+                processes.append(ps)
+        else:
+            if pname == ps.name():
+                processes.append(ps)
+
+    return processes
 
 
 def update_timestamp(fname, now):
@@ -130,6 +166,93 @@ def print_stats(brick_name, count, scheme, now):
         print '{0}.{1}count {2} {3}'.format(
             scheme.replace('.', '-'), brick_name.replace('..', '.'), count, now
         )
+
+
+def get_listening_address():
+    address = None
+    for ps in process_exist('glusterfsd'):
+        i = 0
+        options = ps.cmdline()
+        for option in options:
+            if option == '-s':
+                address = options[i + 1]
+                break
+            i += 1
+
+    return address
+
+
+def alert_on_gluster_is_running():
+    severities = []
+    message = ''
+    glusterd = process_exist('glusterd')
+    glusterfsd = process_exist('glusterfsd')
+    glusterfs = process_exist('glusterfs')
+    msg = '{0} Process {1} {2} running. Pid = {3}\n'
+    if glusterd:
+        message += msg.format(MESSAGE[OK], glusterd[0].name(),
+                              'is', glusterd[0].pid)
+        severities.append(OK)
+    else:
+        message += msg.format(MESSAGE[CRITICAL], glusterd[0].name(),
+                              'is not', glusterd[0].pid)
+        severities.append(CRITICAL)
+
+    if glusterfs:
+        self_heal_daemon_running = False
+        shd_pid = None
+        nfs_daemon_running = False
+        nfs_pid = None
+        for daemon in glusterfs:
+            options = daemon.cmdline()
+            for option in options:
+                if option == 'gluster/nfs':
+                    nfs_daemon_running = True
+                    nfs_pid = daemon.pid
+                    nfs_daemon_name = option
+
+                if option == 'gluster/glustershd':
+                    self_heal_daemon_running = True
+                    shd_pid = daemon.pid
+                    shd_daemon_name = option
+
+        if self_heal_daemon_running:
+            message += msg.format(MESSAGE[OK], shd_daemon_name, 'is', shd_pid)
+            severities.append(OK)
+        else:
+            message += msg.format(MESSAGE[CRITICAL], shd_daemon_name,
+                                  'is not', shd_pid)
+            severities.append(CRITICAL)
+
+        if nfs_daemon_running:
+            message += msg.format(MESSAGE[OK], nfs_daemon_name, 'is', nfs_pid)
+            severities.append(OK)
+        else:
+            message += msg.format(MESSAGE[CRITICAL], nfs_daemon_name,
+                                  'is not', nfs_pid)
+            severities.append(CRITICAL)
+
+    if glusterfsd:
+        gfsd_is_running = False
+        for daemon in glusterfsd:
+            options = daemon.cmdline()
+            i = 0
+            for option in options:
+                if option == '--volfile-id':
+                    if search(r'^' + args.volume_name, options[i + 1]):
+                        gfsd_is_running = True
+                i += 1
+
+        if gfsd_is_running:
+            message += msg.format(MESSAGE[OK], daemon.name(), 'is', daemon.pid)
+            severities.append(OK)
+        else:
+            message += msg.format(MESSAGE[CRITICAL], daemon.name(),
+                                  'is not', daemon.pid)
+            severities.append(CRITICAL)
+
+    severities.sort()
+    return(severities[-1], message.rstrip())
 
 
 def alert_on_out_of_sync(output):
@@ -252,3 +375,7 @@ if __name__ == '__main__':
     now = time()
     if args.out_of_sync and args.volume_name:
         out_of_sync(now)
+    if args.gluster_is_running and args.volume_name:
+        status_code, msg = alert_on_gluster_is_running()
+        print msg
+        sys.exit(status_code)
