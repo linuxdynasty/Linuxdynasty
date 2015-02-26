@@ -187,7 +187,7 @@ def alert_on_out_of_sync(output):
                 bricks = bricks + msg + "\n"
 
     severities.sort()
-    return(severities[-1], bricks)
+    return(severities[-1], bricks.rstrip())
 
 
 def parse_out_of_sync(output, now):
