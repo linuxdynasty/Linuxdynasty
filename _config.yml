@@ -4,8 +4,8 @@ title                    : "Linuxdynasty"
 title_separator          : "-"
 name                     : "Allen Sanabria"
 description              : "All the stuff I do on a day to day basis"
-#url                     : http://linuxdynasty.github.io/Linuxdynasty
-url                      : http://10.0.0.146:4000
+url                      : http://linuxdynasty.github.io/Linuxdynasty
+#url                      : http://10.0.0.146:4000
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "linuxdynasty/Linuxdynasty"
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
