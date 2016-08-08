@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://10.0.0.146:4000/ansible-filters-and-how-they-can-make-your-playbooks-dynamic/</loc>
+<lastmod>2016-05-02T00:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/graph-resque-metrics-using-sensu-and-graphite/</loc>
+<lastmod>2014-10-10T00:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/graph-passenger-metrics-using-sensu-and-graphite/</loc>
+<lastmod>2014-10-10T00:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/migrated-from-wordpress-to-github-dot-io-pages/</loc>
+<lastmod>2014-09-23T00:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/python/zenoss/redis/howto-check-redis-availability-stats-redis-py-zenoss-python/</loc>
+<lastmod>2012-03-20T00:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/python/zenoss/monitor-rtsp-streaming-videos-openrtsp-zenoss/</loc>
+<lastmod>2011-12-30T00:00:00-08:00</lastmod>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/</loc>
+</url>
+<url>
+<loc>http://10.0.0.146:4000/page2/</loc>
+</url>
+</urlset>
