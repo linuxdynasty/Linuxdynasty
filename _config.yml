@@ -157,6 +157,8 @@ gems:
   - jekyll-feed
   - jekyll-tagging
   - jekyll-github-metadata
+  - jekyll-seo-tag
+  - jekyll-mentions
   - jemoji
   - oembed
   - embedly

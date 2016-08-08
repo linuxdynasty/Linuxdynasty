@@ -23,7 +23,9 @@ group :jekyll_plugins do
   # gem "jekyll-archives"
   gem "jekyll-assets"
   gem "jekyll-tagging"
+  gem "jekyll-seo-tag"
+  gem "jekyll-mentions"
+  gem "jekyll-github-metadata"
   gem "oembed"
   gem "embedly"
-  gem "jekyll-github-metadata"
 end

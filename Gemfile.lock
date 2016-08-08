@@ -164,6 +164,8 @@ DEPENDENCIES
   github-pages
   jekyll-assets
   jekyll-github-metadata
+  jekyll-mentions
+  jekyll-seo-tag
   jekyll-tagging
   oembed
 
