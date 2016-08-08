@@ -2,7 +2,8 @@
 title: How to use Ansible AWS filters to make your playbooks and roles dynamic.
 tags: [Ansible, Ansible filters, AWS, Automation]
 comments: true
-header.image: "elasticache.png"
+header:
+  teaser: "elasticache.png"
 share: true
 ---
 {% include toc %}
