@@ -4,7 +4,7 @@ title                    : "Linuxdynasty"
 title_separator          : "-"
 name                     : "Allen Sanabria"
 description              : "All the stuff I do on a day to day basis"
-url                      : http://linuxdynasty.github.io/Linuxdynasty
+url                      : http://linuxdynasty.org
 #url                      : http://10.0.0.146:4000
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "linuxdynasty/Linuxdynasty"
