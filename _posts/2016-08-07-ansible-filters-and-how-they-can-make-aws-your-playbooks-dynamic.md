@@ -49,7 +49,7 @@ Now if I had to do that for every VPC we manage, I would lose my mind. Also what
 # Filters and the end of hard coding ARN's and IDs.
 I see Ansible filters as easy to write Python functions. Anything you can write in a function can be used as a filter. If you have been writing scripts in Python for a while, you will find that writing Ansible plugins is such a breeze.
 
-Due to the awesomeness of filters, I know longer have to hard code any ARN or ID in any of my playbooks. Instead I have a filter that grabs the ARN for me based on the name of the resource.
+Due to the awesomeness of filters, I no longer have to hard code any ARN or ID in any of my playbooks. Instead I have a filter that grabs the ARN for me based on the name of the resource.
 
 {: .notice--info}
 In order for these AWS filters to work, you will need to use the Name tag for all of your services.
@@ -68,6 +68,7 @@ The *get_rds_endpoint* function is 15 lines of code and 13 lines of documentatio
 {% highlight yml %}
 {% raw %}
 ---
+aws_region: us-west-2
 mysql_server: "{{ aws_region | get_rds_endpoint(rds_instance_name) }}"
 memcached_server: "{{ aws_region | get_elasticache_endpoint(memcached_instance_name) }}"
 redshift_server: "{{ aws_region | get_redshift_endpoint(redshift_name) }}"
