@@ -90,6 +90,8 @@ redshift_server: "{{ aws_region | get_redshift_endpoint(redshift_name) }}"
 * [An example Playbook that uses filters](https://github.com/linuxdynasty/ansible-examples)
 
 # AnsibleFest 2016 San Francisco Talk Deploying to AWS using Ansible and Magic
+<iframe src="//fast.wistia.net/embed/iframe/uzhdun6g8z" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="760" height="472"></iframe>
+
 <blockquote class="embedly-card" data-card-key="228d0c49a1274937a108a7b9d3f4289d"><h4><a href="http://www.slideshare.net/asanabria6910/ansiblefest2016deployingtoaws">AnsibleFest2016-Deploying-To-AWS</a></h4><p>Deploying to AWS using Ansible and Magic</p></blockquote>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 
