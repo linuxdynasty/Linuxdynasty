@@ -8,6 +8,7 @@ tags:
 comments: true
 header:
   teaser: "elasticache.png"
+excerpt: How to use Ansible AWS filters to make your playbooks and roles dynamic.
 share: true
 ---
 {% include toc %}

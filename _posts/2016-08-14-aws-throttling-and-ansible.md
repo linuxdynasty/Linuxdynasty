@@ -7,13 +7,21 @@ tags:
  - Python
 comments: true
 share: true
+excerpt: If the community is going to seriously consider using Ansible for all of it's cloud provisioning needs, then a backoff decorator needs to be implemented.
 ---
 {% include toc %}
 
 # Throttling and eventual consistency errors with Ansible handling the AWS provisioning.
-Ansible will launch a task and that task may have x number of AWS modules. Each module can make 1+ calls to AWS and depending on the amount of calls that is being made. AWS will start to throttle the requests it receives. 
+If we were to walk through a set of tasks in a role to deploy a VPC, we would see a common set of steps.
 
-If the community is going to seriously consider using Ansible for all of it's provisioning needs, then this issue needs to be resolved.
+1. vpc
+2. igw
+3. subnets
+4. etc..
+
+Each of the modules above can make 1+ calls to AWS and depending on the amount of calls that is being made. AWS will start to throttle the requests it receives and your playbook will fail. 
+
+If the community is going to seriously consider using Ansible for all of it's cloud provisioning needs, then a backoff decorator needs to be implemented.
 
 ## The current state on the majority of the AWS modules in Ansible.
 If you are currently using Ansible to provision AWS, than you have more than likely run into one of the following errors.
