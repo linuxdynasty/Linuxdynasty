@@ -7,7 +7,8 @@ tags:
  - Automation
 comments: true
 header:
-  teaser: "elasticache.png"
+  image: "get_rds_endpoint.png"
+  teaser: "get_rds_endpoint.png"
 excerpt: How to use Ansible AWS filters to make your playbooks and roles dynamic.
 share: true
 ---

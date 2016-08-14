@@ -7,6 +7,9 @@ tags:
  - Python
 comments: true
 share: true
+header:
+  image: awsretry3.png
+  teaser: awsretry3.png
 excerpt: If the community is going to seriously consider using Ansible for all of it's cloud provisioning needs, then a backoff decorator needs to be implemented.
 ---
 {% include toc %}
