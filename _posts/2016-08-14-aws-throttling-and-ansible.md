@@ -85,6 +85,7 @@ You can the the AWSRetry decorator on GitHub in the Ansible Core repo (Still in 
 
 ## Ansible Modules that are in a PR state and that depend on AWSRetry.
 * [acm_certificate_facts](https://github.com/ansible/ansible-modules-extras/pull/2718)
+* [ec2_vpc_nat_gateway](https://github.com/ansible/ansible-modules-extras/pull/2721)
 
 {: .notice--info}
 If you do not want to wait, you can just copy module_utils/cloud.py and module_utils/ec2.py into your ansible installation directory.
