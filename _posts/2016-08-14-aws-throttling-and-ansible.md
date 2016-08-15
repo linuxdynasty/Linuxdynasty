@@ -15,6 +15,11 @@ excerpt: If the community is going to seriously consider using Ansible for all o
 {% include toc %}
 
 # Throttling and eventual consistency errors with Ansible handling the AWS provisioning.
+While using some of the AWS modules for Ansible, you may have been bitten by 1 of these 2 errors:
+
+* **RequestLimitExceeded** This happens when the region you are in is being saturated by API requests.
+* **^\w+.NotFound** (Eventual Consistency Errors). The Amazon API follows an eventual consistency model. This means that the result of an API command you run that affects your Amazon resources might not be immediately visible to all subsequent commands you run.
+
 If we were to walk through a set of tasks in a role to deploy a VPC, we would see a common set of steps.
 
 1. vpc
@@ -24,14 +29,7 @@ If we were to walk through a set of tasks in a role to deploy a VPC, we would se
 
 Each of the modules above can make 1+ calls to AWS and depending on the amount of calls that is being made. AWS will start to throttle the requests it receives and your playbook will fail. 
 
-If the community is going to seriously consider using Ansible for all of it's cloud provisioning needs, then a backoff decorator needs to be implemented.
-
 ## The current state on the majority of the AWS modules in Ansible.
-If you are currently using Ansible to provision AWS, than you have more than likely run into one of the following errors.
-
-* *RequestLimitExceeded*
-* The Eventual Consistency Errors. Example (*InvalidInstanceID.NotFound*)
-
 Since a good portion of the modules for aws do not implement a backoff decorator, we are forced to do the following.
 
 * Add a pause between modules. (We really should not have to do this.)
@@ -93,3 +91,6 @@ If you do not want to wait, you can just copy module_utils/cloud.py and module_u
 
 ## For Ansible Filters
 * [If you want to use this decorator with your AWS Filters](https://github.com/linuxdynasty/ld-ansible-plugins/tree/master/filter_plugins)
+
+# Wrap up
+If the community is going to seriously consider using Ansible for all of it's cloud provisioning needs, then a backoff decorator needs to be implemented.
