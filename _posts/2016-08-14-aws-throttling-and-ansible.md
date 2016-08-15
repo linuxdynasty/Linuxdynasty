@@ -62,10 +62,10 @@ The AWSRetry.backoff decorator will retry to call the failing function using an 
 AWSRetry is derived from the CloudRetry class. This class is meant to be used as a base class to other cloud providers, that want to build similiar functionality into Ansible Cloud modules.
 
 ### CloudRetry Class (Code)
-<script src="http://gist-it.appspot.com/http://github.com/linuxdynasty/ld-ansible-filters/blob/master/filter_plugins/decorator.py"></script>
+<script src="http://gist-it.appspot.com/http://github.com/linuxdynasty/ld-ansible-filters/blob/master/filter_plugins/aws.py?slice=15:79"></script>
 
 ### AWSRetry Class (Code)
-<script src="http://gist-it.appspot.com/http://github.com/linuxdynasty/ld-ansible-filters/blob/master/filter_plugins/aws.py?slice=16:38"></script>
+<script src="http://gist-it.appspot.com/http://github.com/linuxdynasty/ld-ansible-filters/blob/master/filter_plugins/aws.py?slice=80:103"></script>
 
 ### Example of how to use the AWSRetry.backoff decorator
 {% highlight python %}
