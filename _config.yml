@@ -4,28 +4,23 @@ title                    : "Linuxdynasty"
 title_separator          : "-"
 name                     : "Allen Sanabria"
 description              : "All the stuff I do on a day to day basis"
-url                      : http://linuxdynasty.org
-#url                      : http://10.0.0.146:4000
+#url                      : http://linuxdynasty.org
+url                      : http://10.0.0.146:4000
 baseurl                  : # the subpath of your site, e.g. "/blog"
+#header:
+#    image: misty_mountains.jpg
+#teaser                   : Miami.png
 repository               : "linuxdynasty/Linuxdynasty"
-teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
-# breadcrumbs            : false # true, false (default)
+# teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : disqus #, "discourse", "facebook", "google-plus", custom"
   disqus:
     shortname            : linuxdynasty
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    # https://developers.facebook.com/docs/plugins/comments
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
 atom_feed:
-  path                   : # blank (default) uses feed.xml
+  path                   : feed.xml
 
-plugins_dir              : "_plugins"
 
 # SEO Related
 google_site_verification :
@@ -40,7 +35,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : Miami.png
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -91,6 +86,8 @@ author:
 include:
   - .htaccess
   - _pages
+  - _posts
+  - _plugins
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -151,6 +148,7 @@ timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 # Plugins
 gems:
   - jekyll-assets
+  - jekyll-archives
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
@@ -160,9 +158,6 @@ gems:
   - jekyll-seo-tag
   - jekyll-mentions
   - jemoji
-  - oembed
-  - embedly
-  - ruby-oembed
 
 # mimic GitHub Pages with --safe
 # whitelist:
@@ -189,18 +184,9 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
 
+jekyll-archives:
+  enabled: all
 
 # HTML Compression
 # - http://jch.penibelst.de/
@@ -221,6 +207,3 @@ defaults:
       comments: true
       share: true
       related: true
-
-embedly:
-  api_key: 228d0c49a1274937a108a7b9d3f4289d
