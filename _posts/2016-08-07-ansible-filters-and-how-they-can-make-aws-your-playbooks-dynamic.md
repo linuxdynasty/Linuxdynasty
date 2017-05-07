@@ -66,7 +66,7 @@ In order for these AWS filters to work, you will need to use the Name tag for al
 **My decision to use the filter plugin instead of the lookup plugin, is purely a choice based on taste. I do not want to have a Python file for each lookup that I require. I rather write a module for each type of filtering that I need to do. For instance, my aws calls are in the filter_plugins/aws.py.**
 
 The get_rds_endpoint filter will query the AWS API using the RDS instance name and return back the endpoint address.
-<script src="http://gist-it.appspot.com/http://github.com/linuxdynasty/ld-ansible-filters/blob/master/aws.py?slice=524:555"></script>
+<script src="http://gist-it.appspot.com/http://github.com/linuxdynasty/ld-ansible-filters/blob/master/aws.py?slice=441:471"></script>
 
 The *get_rds_endpoint* function is 15 lines of code and 13 lines of documentation. Such a small script and yet it has saved me from hard coding.
 
